@@ -176,8 +176,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                             <div class="left">会员类型：</div>
                                             <div class="con">
                                                 <select id="membertypeid" name="membertypeid" style="margin-left:11px;margin-top:5px">
-                                                    <option value='26'>个人会员</option>
-                                                    <option value='36'>团体会员</option>
+                                                    <option value='0'>个人会员</option>
+                                                    <option value='1'>团体会员</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -213,10 +213,46 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                                 <input id="email" type="text" name="email" class="input" value="" style="width:200px" />
                                             </div>
                                         </div>
-
-
-
-
+                                        
+                                        <div class="row">
+                                            <div class="left">昵称：</div>
+                                            <div class="mustfill">*</div>
+                                            <div class="con">
+                                                <input id="pname" type="text" name="pname" class="input" value="" style="width:200px" />
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row">
+                                            <div class="left">姓名：</div>
+                                            <div class="mustfill">*</div>
+                                            <div class="con">
+                                                <input id="name" type="text" name="name" class="input" value="" style="width:200px" />
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row">
+                                            <div class="left">公司：</div>
+                                            <div class="mustfill">*</div>
+                                            <div class="con">
+                                                <input id="company" type="text" name="company" class="input" value="" style="width:200px" />
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row">
+                                            <div class="left">固定电话：</div>
+                                            <div class="con">
+                                                &nbsp;&nbsp;&nbsp;<input id="tel" type="text" name="tel" class="input" value="" style="width:200px" />
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row">
+                                            <div class="left">手机号码：</div>
+                                            <div class="mustfill">*</div>
+                                            <div class="con">
+                                                <input id="mov" type="text" name="mov" class="input" value="" style="width:200px" />
+                                            </div>
+                                        </div>
+                                        
                                         <div class="row">
                                             <div class="left">验 证 码：</div>
                                             <div class="mustfill">*</div>

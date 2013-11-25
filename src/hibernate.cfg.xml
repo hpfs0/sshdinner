@@ -21,6 +21,6 @@
         <property name="show_sql">true</property>
         <property name="format_sql">true</property>
         
-        <mapping resource="com/star/model/User.hbm.xml" />
+        <mapping resource="com/dinner/gts/model/Member.hbm.xml" />
     </session-factory>
 </hibernate-configuration>

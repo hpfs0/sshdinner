@@ -25,7 +25,7 @@ public class Member implements Serializable {
     private String memberMail;
 
     /** 注册IP */
-    private String memberRegistIp;
+    private String memberRegisterIp;
 
     /** 登录次数 */
     private int memberLoginCount;
@@ -94,12 +94,12 @@ public class Member implements Serializable {
         this.memberMail = memberMail;
     }
 
-    public String getMemberRegistIp() {
-        return memberRegistIp;
+    public String getMemberRegisterIp() {
+        return memberRegisterIp;
     }
 
-    public void setMemberRegistIp(String memberRegistIp) {
-        this.memberRegistIp = memberRegistIp;
+    public void setMemberRegisterIp(String memberRegisterIp) {
+        this.memberRegisterIp = memberRegisterIp;
     }
 
     public int getMemberLoginCount() {

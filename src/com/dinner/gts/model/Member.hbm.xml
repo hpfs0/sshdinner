@@ -5,23 +5,23 @@
 <hibernate-mapping package="com.dinner.gts.model">
 
     <class name="Member">
-        <id name="memberId">
-            <generator class="native" />
+        <id name="memberId" column="MEMBER_ID">
+            <generator class="assigned" />
         </id>
-        <property name="memberLoginId" />
-        <property name="memberLoginPw" />
-        <property name="memberNickName" />
-        <property name="memberMail" />
-        <property name="memberRegistIp" />
-        <property name="memberLoginCount" />
-        <property name="memberRealName" />
-        <property name="memberType" />
-        <property name="memberQq" />
-        <property name="memberBalance" />
-        <property name="memberPoints" />
-        <property name="RegistTime" />
-        <property name="updateTime" />
-        <property name="deleteFlg" />
+        <property name="memberLoginId" column="MEMBER_LOGIN_ID"/>
+        <property name="memberLoginPw" column="MEMBER_LOGIN_PW"/>
+        <property name="memberNickName" column="MEMBER_NICK_NAME"/>
+        <property name="memberMail" column="MEMBER_MAIL"/>
+        <property name="memberRegisterIp" column="MEMBER_REGISTER_IP"/>
+        <property name="memberLoginCount" column="MEMBER_LOGIN_COUNT"/>
+        <property name="memberRealName" column="MEMBER_REAL_NAME"/>
+        <property name="memberType" column="MEMBER_TYPE"/>
+        <property name="memberQq" column="MEMBER_QQ"/>
+        <property name="memberBalance" column="MEMBER_BALANCE"/>
+        <property name="memberPoints" column="MEMBER_POINTS"/>
+        <property name="RegistTime" column="REGIST_TIME"/>
+        <property name="updateTime" column="UPDATE_TIME"/>
+        <property name="deleteFlg" column="DELETE_FLG"/>
     </class>
 
 </hibernate-mapping>

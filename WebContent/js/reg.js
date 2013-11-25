@@ -4,11 +4,7 @@
 $(document).ready(function(){
 
 	//初始提示
-	$('#user').after('<span id="chkUser" class="msgdiv">登录账号由5-20个英文字母或数字组成</span>');
-	$('#password').after('<span id="chkPass" class="msgdiv">登录密码由5-20个英文字母或数字组成</span>');
-	$('#repass').after('<span id="chkRepass" class="msgdiv">请重复输入和上面相同的密码</span>');
-	$('#email').after('<span id="chkEmail" class="msgdiv">请输入正确的电子邮件</span>');
-	$('#getImgCode').after('<span id="chkCode" class="msgdiv">请输入和图片上一致的验证码</span>');
+	
 
 
 	$('#user').focus(function(){ 
@@ -23,13 +19,11 @@ $(document).ready(function(){
 			$('#chkUser').remove();
 			$('#user').after('<span id="chkUser" class="errdiv">登录账号必须由5-20个英文字母或数字组成</span>');
 		}else{
-
 			$.ajax({
 					type: "POST",
-					url: PDV_RP+"member/post.php",
-					data: "act=checkuser&user="+p,
+					url: "checkuser.action",
+					data: "username="+p,
 					success: function(msg){
-						
 						if(msg=="1"){
 							$('#chkUser').remove();
 							$('#user').after('<span id="chkUser" class="rightdiv">该登录账号可以使用</span>');
@@ -102,39 +96,10 @@ $(document).ready(function(){
 	}); 
 
 
-	$('#ImgCode').focus(function(){ 
-		$('#chkCode').remove();
-		$('#getImgCode').after('<span id="chkCode" class="msgdiv">请输入和图片上一致的验证码</span>');
-	}); 
-
-	$('#ImgCode').blur(function(){
-		var p=$("#ImgCode")[0].value;
-		if(p==''){
-			$('#chkCode').remove();
-			$('#getImgCode').after('<span id="chkCode" class="errdiv">请输入和图片上一致的验证码</span>');
-		}else{
-
-			$.ajax({
-					type: "POST",
-					url: PDV_RP+"post.php",
-					data: "act=imgcode&codenum="+p,
-					success: function(msg){
-						if(msg=="1"){
-							$('#chkCode').remove();
-							$('#getImgCode').after('<span id="chkCode" class="rightdiv">输入正确</span>');
-						}else{
-							$('#chkCode').remove();
-							$('#getImgCode').after('<span id="chkCode" class="errdiv">请输入和图片上一致的验证码</span>');
-						}
-					}
-				
-			 });
-
-		}
-	}); 
+	
 
 
-
+    //昵称
 	$('#pname').focus(function(){ 
 		$('#chkPname').remove();
 		$('#pname').after('<span id="chkPname" class="msgdiv">网名昵称可以是中文、英文或数字</span>');
@@ -189,9 +154,7 @@ $(document).ready(function(){
 
 	}); 
 
-
-
-
+	//固定电话
 	$('#tel').focus(function(){ 
 		$('#chkTel').remove();
 		$('#tel').after('<span id="chkTel" class="msgdiv">请输入固定电话号码，格式如：010-12345678</span>');
@@ -215,6 +178,7 @@ $(document).ready(function(){
 
 	}); 
 	
+	//手机
 	$('#mov').focus(function(){ 
 		$('#chkMov').remove();
 		$('#mov').after('<span id="chkMov" class="msgdiv">请输入手机号码，如：13912345678</span>');
@@ -243,10 +207,12 @@ $(document).ready(function(){
 	var membertypeid=$("#membertypeid")[0].value;
 	var nowstep=$("#nowstep")[0].value;
 	
+	var firstclass;
+	
 	if(nowstep=="account"){
-		var firstclass="stepnow";
+		firstclass="stepnow";
 	}else{
-		var firstclass="step";
+		firstclass="step";
 	}
 
 	$.ajax({
@@ -392,5 +358,33 @@ $(document).ready(function(){
 	$(".selface").click(function(){
 		$("input#nowface")[0].value=this.id.substr(8);
 		$("img#nowfacepic")[0].src=this.src;
+	});
+});
+
+//下一步点击处理
+$(document).ready(function(){
+	$("#tijiao").click(function(){
+		// jquery找到有无输入不正确的选项
+		var errDiv = $(".errdiv");
+		if(errDiv.length > 0){
+			errDiv[0].prev().focus();
+		}else{
+			var user = $("#user").val();
+			var password = $("#password").val();
+			var repass = $("#repass").val();
+			var email = $("#email").val();
+			var pname = $("#pname").val();
+			var company = $("#company").val();
+			var mov = $("#mov").val();
+			// 验证码 TODO
+			
+			// 必须项目全部都填写
+			if(user != "" && password != "" 
+				&& repass != "" && email != "" 
+				&& pname != "" && company != "" && mov != ""){
+				alert("OK");
+				// 调用registerAction TODO
+			}
+		}
 	});
 });

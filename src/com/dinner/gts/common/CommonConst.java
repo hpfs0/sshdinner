@@ -29,4 +29,10 @@ public interface CommonConst {
 
     /** 会员帐号密码错误 */
     public static final String COMMON_MESSAGE_004 = "会员帐号密码错误";
+
+    /** 1:会员帐号未被注册 */
+    public static final String COMMON_USER_VALID = "1";
+
+    /** 2:会员帐号已经被注册 */
+    public static final String COMMON_USER_INVALID = "2";
 }
