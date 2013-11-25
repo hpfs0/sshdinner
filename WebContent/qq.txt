@@ -1,0 +1,33 @@
+<script>
+var online= new Array(); 
+</script> 
+<!--检测是否在线--> 
+<script src="http://webpresence.qq.com/getonline?Type=1&123456789:"></script> 
+<script> 
+
+<!--如果离线,则显示以下内容-->
+if(online[0]==0){
+	document.write("<a class='qqb' target=blank href='http://wpa.qq.com/msgrd?V=1&Uin=123456789&Site=siyizhu.comMenu=no' title='当前离线或隐身'><img src='images/qq_offline.gif' border='0' style='cursor:pointer;' /></a>&nbsp;&nbsp;&nbsp;"); 
+}else{ 
+<!--如果在线,则显示以下内容-->
+	document.write("<a class='qqa' target=blank href='http://wpa.qq.com/msgrd?V=1&Uin=123456789&Site=siyizhu.comMenu=no' title='当前在线'><img src='images/qq_online.gif' border='0' style='cursor:pointer;' /></a>&nbsp;&nbsp;&nbsp;");
+} 
+</script>
+
+
+
+<script>
+var online= new Array(); 
+</script> 
+<!--检测是否在线--> 
+<script src="http://webpresence.qq.com/getonline?Type=1&100861:"></script> 
+<script> 
+
+<!--如果离线,则显示以下内容-->
+if(online[0]==0){
+	document.write("<a class='qqb' target=blank href='http://wpa.qq.com/msgrd?V=1&Uin=100861&Site=siyizhu.comMenu=no' title='当前离线或隐身'><img src='images/qq_offline.gif' border='0' style='cursor:pointer;' /></a>&nbsp;&nbsp;&nbsp;"); 
+}else{ 
+<!--如果在线,则显示以下内容-->
+	document.write("<a class='qqa' target=blank href='http://wpa.qq.com/msgrd?V=1&Uin=100861&Site=siyizhu.comMenu=no' title='当前在线'><img src='images/qq_online.gif' border='0' style='cursor:pointer;' /></a>&nbsp;&nbsp;&nbsp;");
+} 
+</script>

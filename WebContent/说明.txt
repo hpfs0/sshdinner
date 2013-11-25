@@ -1,0 +1,14 @@
+index.html-->主页
+login.html-->用户登录
+search.html-->订单查询
+reg.html-->用户注册
+order.html-->订单管理
+note.html-->顾客留言
+orderhelp.html-->订餐指南
+onwe.html-->关于我们
+carryshow.html-->配送说明
+linkman-->联系方式
+advise.html-->投诉建议
+center.html-->会员中心
+restaurant.html-->店铺详情
+startorder.html-->处理订单

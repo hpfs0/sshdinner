@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.dinner.gts.model">
+
+    <class name="Member">
+        <id name="memberId">
+            <generator class="native" />
+        </id>
+        <property name="memberLoginId" />
+        <property name="memberLoginPw" />
+        <property name="memberNickName" />
+        <property name="memberMail" />
+        <property name="memberRegistIp" />
+        <property name="memberLoginCount" />
+        <property name="memberRealName" />
+        <property name="memberType" />
+        <property name="memberQq" />
+        <property name="memberBalance" />
+        <property name="memberPoints" />
+        <property name="RegistTime" />
+        <property name="updateTime" />
+        <property name="deleteFlg" />
+    </class>
+
+</hibernate-mapping>
