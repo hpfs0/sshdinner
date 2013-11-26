@@ -1,10 +1,14 @@
 package com.dinner.gts.action;
 
 import java.io.IOException;
+import java.io.OutputStream;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.dinner.gts.common.CommonConst;
+import com.dinner.gts.common.CommonGifCode;
 import com.dinner.gts.common.CommonStringUtil;
 import com.dinner.gts.common.CommonUtil;
 import com.dinner.gts.model.Member;
@@ -84,6 +88,36 @@ public class RegisterAction extends ActionSupport {
         }
         try {
             CommonUtil.getHttpServletResponse().getWriter().write(writeResult);
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
+     * 生成动态验证码
+     * 
+     * @return 结果
+     */
+    public String createGitCode() {
+        HttpServletRequest req = CommonUtil.getHttpServletRequest();
+        HttpServletResponse res = CommonUtil.getHttpServletResponse();
+        HttpSession session = req.getSession();
+        // gif生成类
+        CommonGifCode commonGifCode = new CommonGifCode();
+        // 保存生成的验证码字符
+        String[] code = null;
+        // 传送至前台
+        String codeSession = "";
+        OutputStream os = null;
+        try {
+            os = res.getOutputStream();
+            code = commonGifCode.myTest(os);
+            for (String temp : code) {
+                codeSession += temp;
+            }
+            os.close();
         }
         catch (IOException e) {
             e.printStackTrace();

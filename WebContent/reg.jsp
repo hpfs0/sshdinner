@@ -264,10 +264,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                                 <table border="0" cellspacing="0" cellpadding="1">
                                                     <tr>
                                                         <td>
-                                                            <input id="ImgCode" type='text' name='ImgCode' style='width:33px' maxlength="4 " class="input" disabled="disabled"/>
+                                                            <input id="ImgCode" type='text' name='ImgCode' style='width:33px' maxlength="4 " class="input"/>
                                                         </td>
                                                         <td>
-                                                            <img id="codeimg" src='../codeimg.php' width='60' height='20' style='border:1px #dddddd solid;cursor:pointer' />
+                                                            <img id="codeimg" src="gifcode.action" width='60' height='20' style='border:1px #dddddd solid;cursor:pointer' />
                                                         </td>
                                                         <td><span id="getImgCode" style="cursor:pointer;margin-left:5px;">看不清？更换一张</span>
                                                         </td>

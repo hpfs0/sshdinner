@@ -12,5 +12,7 @@
 		</action>
 		<action name ="reguser" class ="com.dinner.gts.action.RegisterAction">
 		</action>
+		<action name ="gifcode" class ="com.dinner.gts.action.RegisterAction" method="createGitCode">
+		</action>
 	</package>
 </struts>

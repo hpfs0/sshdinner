@@ -359,6 +359,16 @@ $(document).ready(function(){
 	});
 });
 
+//新验证码生成
+$(document).ready(function(){
+	$("#getImgCode").click(function(){
+		$("#codeimg").attr("src","gifcode.action");
+	});
+	$("#codeimg").click(function(){
+		$("#codeimg").attr("src","gifcode.action");
+	});
+});
+
 //下一步点击处理
 $(document).ready(function(){
 	$("#tijiao").click(function(){
@@ -392,7 +402,7 @@ $(document).ready(function(){
 				
 				// 所有输入部分隐藏
 				$(".row").css("display","none");
-				// 调用registerAction TODO
+				// 调用registerAction
 				$.ajax({
 					type: "POST",
 					url: "reguser.action",
