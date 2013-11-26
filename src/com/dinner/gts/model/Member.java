@@ -45,6 +45,15 @@ public class Member implements Serializable {
     /** 会员积分 */
     private int memberPoints;
 
+    /** 固定电话 */
+    private String memberTel;
+
+    /** 手机号码 */
+    private String memberPhone;
+
+    /** 公司 */
+    private String memberCompany;
+
     /** 注册时间 */
     private String RegistTime;
 
@@ -148,6 +157,30 @@ public class Member implements Serializable {
 
     public void setMemberPoints(int memberPoints) {
         this.memberPoints = memberPoints;
+    }
+
+    public String getMemberTel() {
+        return memberTel;
+    }
+
+    public void setMemberTel(String memberTel) {
+        this.memberTel = memberTel;
+    }
+
+    public String getMemberPhone() {
+        return memberPhone;
+    }
+
+    public void setMemberPhone(String memberPhone) {
+        this.memberPhone = memberPhone;
+    }
+
+    public String getMemberCompany() {
+        return memberCompany;
+    }
+
+    public void setMemberCompany(String memberCompany) {
+        this.memberCompany = memberCompany;
     }
 
     public String getRegistTime() {

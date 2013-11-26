@@ -22,6 +22,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script type="text/javascript" src="js/blockui.js"></script>
 	<script type="text/javascript" src="js/channelmenu_dc.js"></script>
 	<script language="javascript" src="js/reg.js"></script>
+	<!--jbox-->
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <link id="skin" rel="stylesheet" href="js/jBox/Skins/Default/jbox.css" />
+    <script type="text/javascript" src="js/jBox/jquery.jBox-2.3.min.js"></script>
+    <script type="text/javascript" src="js/jBox/i18n/jquery.jBox-zh-CN.js"></script>
 </head>
 
 <body style='background:transparent'>
@@ -167,7 +172,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         </div>
                         <div style="padding:0px">
                             <div id="reg">
-                                <form id="memberReg" method="post" action="reg.php" name="regform">
                                     <div id="stepname" class="stepname"></div>
                                     <div class="zone">
                                         <div id="notice" class="noticediv"></div>
@@ -260,7 +264,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                                 <table border="0" cellspacing="0" cellpadding="1">
                                                     <tr>
                                                         <td>
-                                                            <input id="ImgCode" type='text' name='ImgCode' style='width:33px' maxlength="4 " class="input" />
+                                                            <input id="ImgCode" type='text' name='ImgCode' style='width:33px' maxlength="4 " class="input" disabled="disabled"/>
                                                         </td>
                                                         <td>
                                                             <img id="codeimg" src='../codeimg.php' width='60' height='20' style='border:1px #dddddd solid;cursor:pointer' />
@@ -269,9 +273,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                                         </td>
                                                     </tr>
                                                 </table>
-
-
-
                                             </div>
                                         </div>
 
@@ -283,31 +284,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                             </div>
                                         </div>
 
-
                                         <div class="row" style="margin:10px 0px">
                                             <div class="left"></div>
                                             <div class="mustfill"></div>
                                             <div class="con">
-
-
                                                 <input id="tijiao" type="submit" name="cc" value="ÏÂÒ»²½" class="submit" disabled />
                                                 <input name="act" type="hidden" id="act" value="memberreg" />
                                                 <input name="nowstep" type="hidden" id="nowstep" value="account" />
                                                 <input name="nextstep" type="hidden" id="nextstep" value="enter" />
                                             </div>
                                         </div>
-
-
-
                                     </div>
-                                </form>
                             </div>
-
-
-
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>

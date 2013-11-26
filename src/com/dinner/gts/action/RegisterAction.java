@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 
 import com.dinner.gts.common.CommonConst;
+import com.dinner.gts.common.CommonStringUtil;
 import com.dinner.gts.common.CommonUtil;
 import com.dinner.gts.model.Member;
 import com.dinner.gts.service.MemberService;
@@ -19,21 +20,47 @@ public class RegisterAction extends ActionSupport {
      */
     private static final long serialVersionUID = -541681215616390859L;
 
+    /**
+     * 注册会员
+     * 
+     * @return 结果
+     */
     public String execute() {
         // error信息初始化
         this.clearErrorsAndMessages();
+        String putResult = CommonConst.COMMON_MEMBER_REGIST_NG;
+        try {
+            // 取得所有输入的数据
+            Member inputMember = new Member();
+            getAllParam(inputMember);
 
-        // 取得所有输入的数据
-        Member inputMember = new Member();
-        getAllParam(inputMember);
+            // 保存会员信息
+            memberService = new MemberService();
+            memberService.putServiceMember(inputMember);
 
-        return SUCCESS;
+            // 会员注册成功
+            putResult = CommonConst.COMMON_MEMBER_REGIST_OK;
+        }
+        catch (Exception e) {
+            // 会员注册失败
+            putResult = CommonConst.COMMON_MEMBER_REGIST_NG;
+        }
+        finally {
+            try {
+                CommonUtil.getHttpServletResponse().getWriter().write(putResult);
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return null;
     }
 
     /**
      * 注册用户时验证用户名是否可用
      * 
-     * @return
+     * @return 结果
      */
     public String checkUser() {
         // 获取request
@@ -47,9 +74,11 @@ public class RegisterAction extends ActionSupport {
             // 根据用户名得到数据库里有没有此用户
             Member member = memberService.getServiceMemberBykey(memberLoginId);
             if (member == null) {
+                // 会员帐号未被注册
                 writeResult = CommonConst.COMMON_USER_VALID;
             }
             else {
+                // 会员帐号已被注册
                 writeResult = CommonConst.COMMON_USER_INVALID;
             }
         }
@@ -62,15 +91,32 @@ public class RegisterAction extends ActionSupport {
         return null;
     }
 
+    /**
+     * 将用户输入的信息封装至实体
+     * 
+     * @param member 待封住的实体
+     */
     private void getAllParam(Member member) {
         HttpServletRequest req = CommonUtil.getHttpServletRequest();
+        // 会员ID
+        member.setMemberId(CommonUtil.getId(CommonConst.COMMON_ID_MEMBER));
         // 会员类型
-        String memberType = req.getParameter("membertypeid");
+        member.setMemberType(Integer.parseInt(req.getParameter("membertypeid")));
         // 登录帐号
-        String memberLoginId = req.getParameter("user");
+        member.setMemberLoginId(req.getParameter("user"));
         // 登录密码 (TODO 加密方式保存至DB)
-        String memberLoginPw = req.getParameter("password");
+        member.setMemberLoginPw(req.getParameter("password"));
         // 电子邮件
-        String memberMail = req.getParameter("email");
+        member.setMemberMail(req.getParameter("email"));
+        // 昵称
+        member.setMemberNickName(req.getParameter("pname"));
+        // 真实姓名
+        member.setMemberRealName(req.getParameter("name"));
+        // 公司
+        member.setMemberCompany(req.getParameter("company"));
+        // 固定电话
+        member.setMemberTel(CommonStringUtil.convertNullToEmpty(req.getParameter("tel")));
+        // 手机号码
+        member.setMemberPhone(req.getParameter("mov"));
     }
 }

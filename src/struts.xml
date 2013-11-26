@@ -10,5 +10,7 @@
 		</action>
 		<action name ="checkuser" class ="com.dinner.gts.action.RegisterAction" method="checkUser">
 		</action>
+		<action name ="reguser" class ="com.dinner.gts.action.RegisterAction">
+		</action>
 	</package>
 </struts>

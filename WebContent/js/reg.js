@@ -4,9 +4,6 @@
 $(document).ready(function(){
 
 	//初始提示
-	
-
-
 	$('#user').focus(function(){ 
 		$('#chkUser').remove();
 		$('#user').after('<span id="chkUser" class="msgdiv">登录账号由5-20个英文字母或数字组成</span>');
@@ -185,19 +182,20 @@ $(document).ready(function(){
 	}); 
 
 	$('#mov').blur(function(){
-		var p=$("#mov")[0].value;
+		var p=$("#mov").val();
+		var patrn=/[0-9]{11,11}/;
 		if(p==''){
 			$('#chkMov').remove();
-		}else if(p.length<10){
-			$('#chkMov').remove();
-			$('#mov').after('<span id="chkMov" class="errdiv">请输入正确的手机号码，如：13912345678</span>');
 		}else{
-			$('#chkMov').remove();
-			$('#mov').after('<span id="chkMov" class="rightdiv">输入正确</span>');
+			if(p.length != 11 || !patrn.exec(p)){
+				$('#chkMov').remove();
+				$('#mov').after('<span id="chkMov" class="errdiv">请输入正确的手机号码，如：13912345678</span>');
+			}else{
+				$('#chkMov').remove();
+				$('#mov').after('<span id="chkMov" class="rightdiv">输入正确</span>');
+			}
 		}
-
 	}); 
-  
 });
 
 
@@ -366,24 +364,55 @@ $(document).ready(function(){
 	$("#tijiao").click(function(){
 		// jquery找到有无输入不正确的选项
 		var errDiv = $(".errdiv");
+		var showinfo = "";
+
 		if(errDiv.length > 0){
-			errDiv[0].prev().focus();
-		}else{
+			showinfo = errDiv.html();
+			$.jBox.error("<font color='red'><b>" + showinfo + "</b><font>", "警告",
+				{
+					draggable : false,
+					top : '40%',
+					buttons: {}
+				});
+		}
+		else{
+			var membertypeid = $("#membertypeid").val();
 			var user = $("#user").val();
 			var password = $("#password").val();
-			var repass = $("#repass").val();
 			var email = $("#email").val();
 			var pname = $("#pname").val();
+			var name = $("#name").val();
 			var company = $("#company").val();
 			var mov = $("#mov").val();
 			// 验证码 TODO
 			
 			// 必须项目全部都填写
-			if(user != "" && password != "" 
-				&& repass != "" && email != "" 
-				&& pname != "" && company != "" && mov != ""){
-				alert("OK");
+			if(user != "" && password != "" && email != "" 
+				&& pname != "" & name != "" && company != "" && mov != ""){
+				
+				// 所有输入部分隐藏
+				$(".row").css("display","none");
 				// 调用registerAction TODO
+				$.ajax({
+					type: "POST",
+					url: "reguser.action",
+					data: "membertypeid="+ membertypeid +"&user="+ user 
+					+ "&password=" + password + "&email=" + email + "&name=" + name + 
+					"&pname=" + pname + "&company=" + company + "&mov=" + mov,
+					success: function(msg){
+						if(msg=="OK"){
+							$('div#notice')[0].className='okdiv';
+							$('div#notice').html("会员注册成功！感谢您的注册! <a href='login.jsp'><b>点此登录</b></>");
+							$('div#notice').show();
+							$().setBg();
+						}else{
+							$('div#notice')[0].className='okdiv';
+							$('div#notice').html("会员注册失败！给您带来的不便非常抱歉！ <a href='reg.jsp'><b>点此重新注册</b></>");
+							$('div#notice').show();
+							$().setBg();
+						}
+					}
+				});
 			}
 		}
 	});

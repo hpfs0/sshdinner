@@ -4,7 +4,7 @@
     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="com.dinner.gts.model">
 
-    <class name="Member">
+    <class name="Member" table="MT_MEMBER">
         <id name="memberId" column="MEMBER_ID">
             <generator class="assigned" />
         </id>
@@ -19,6 +19,9 @@
         <property name="memberQq" column="MEMBER_QQ"/>
         <property name="memberBalance" column="MEMBER_BALANCE"/>
         <property name="memberPoints" column="MEMBER_POINTS"/>
+        <property name="memberTel" column="MEMBER_TEL"/>
+        <property name="memberPhone" column="MEMBER_PHONE" />
+        <property name="memberCompany" column="MEMBER_COMPANY" />
         <property name="RegistTime" column="REGIST_TIME"/>
         <property name="updateTime" column="UPDATE_TIME"/>
         <property name="deleteFlg" column="DELETE_FLG"/>

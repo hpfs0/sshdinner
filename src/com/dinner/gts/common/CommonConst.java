@@ -35,4 +35,10 @@ public interface CommonConst {
 
     /** 2:会员帐号已经被注册 */
     public static final String COMMON_USER_INVALID = "2";
+
+    /** OK:会员帐号注册成功 */
+    public static final String COMMON_MEMBER_REGIST_OK = "OK";
+
+    /** NG:会员帐号注册失败 */
+    public static final String COMMON_MEMBER_REGIST_NG = "NG";
 }
