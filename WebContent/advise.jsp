@@ -23,6 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script type="text/javascript" src="js/form.js"></script>
 	<script type="text/javascript" src="js/blockui.js"></script>
 	<script type="text/javascript" src="js/channelmenu_dc.js"></script>
+	<script language="javascript" src="js/feedback.js"></script>
 </head>
 
 <body style='background:transparent'>
@@ -177,7 +178,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         <div style="height:100%;background:url(images/right.jpg) right repeat-y">
                             <div style="height:43px;background:url(images/bg.jpg) 0px 0px no-repeat">
                                 <div style="float:left;font:bold 16px/43px 'Microsoft YaHei','SimSun',Arial,Sans-Serif;text-align:left;padding-left:50px;color:#feab43;">
-                                    栏目导航
+								栏目导航
                                 </div>
                                 <div style="float:right;width:60px;height:43px;text-align:right;background:url(images/bg.jpg) -840px 0px no-repeat">
                                     <a href="-1" style="font:12px/43px simsun;color:#505050;margin-right:12px;display:none">更多&gt;&gt;</a>
@@ -207,19 +208,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <div class="pdv_border" style="margin:0;padding:0;height:100%;border:0px #dddddd solid;background:#fff;">
                         <div style="height:25px;margin:1px;display:none;background:#cccccc;">
                             <div style="float:left;margin-left:12px;line-height:25px;font-weight:bold;color:#fff">
-                                当前位置
+							当前位置
                             </div>
                             <div style="float:right;margin-right:10px;display:none">
                                 <a href="-1" style="line-height:25px;color:#fff">更多</a>
                             </div>
                         </div>
                         <div style="padding:5px">
-
                             <div id="nav">
-                                您现在的位置：<a href="../../">网上快餐店</a> &gt;
-
+								您现在的位置：<a href="../../">网上快餐店</a> &gt;
                             </div>
-
                         </div>
                     </div>
 
@@ -233,7 +231,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <div class="pdv_border" style="margin:0;padding:0;height:100%;border:0px  solid;background:;">
                         <div style="height:25px;margin:1px;display:none;background:;">
                             <div style="float:left;margin-left:12px;line-height:25px;font-weight:bold;color:">
-                                投诉建议
+							投诉建议
                             </div>
                             <div style="float:right;margin-right:10px;display:none">
                                 <a href="-1" style="line-height:25px;color:">更多</a>
@@ -241,8 +239,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         </div>
                         <div style="padding:0px">
 
-                            
-                            <script language="javascript" src="js/feedback.js"></script>
                             <div id="notice" class="noticediv"></div>
                             <form id="feedbacksmallform" method="post" action="" name="gform">
                                 <table width="100%" border="0" cellspacing="0" cellpadding="3">
