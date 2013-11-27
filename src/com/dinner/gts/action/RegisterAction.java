@@ -118,6 +118,35 @@ public class RegisterAction extends ActionSupport {
                 codeSession += temp;
             }
             os.close();
+            session.setAttribute("gifcode", codeSession);
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
+     * 检查用户输入的验证码是否正确
+     * 
+     * @return
+     */
+    public String checkGifcode() {
+        HttpServletRequest req = CommonUtil.getHttpServletRequest();
+        HttpSession session = req.getSession();
+        String writeResult = CommonConst.COMMON_CODE_CHECK_NG;
+        // 获取用户输入的验证码
+        String inputCode = req.getParameter("inputCode");
+        // session中保存的验证
+        String sessionCode = session.getAttribute("gifcode").toString();
+        if (inputCode.equalsIgnoreCase(sessionCode)) {
+            writeResult = CommonConst.COMMON_CODE_CHECK_OK;
+        }
+        else {
+            writeResult = CommonConst.COMMON_CODE_CHECK_NG;
+        }
+        try {
+            CommonUtil.getHttpServletResponse().getWriter().write(writeResult);
         }
         catch (IOException e) {
             e.printStackTrace();
@@ -138,8 +167,8 @@ public class RegisterAction extends ActionSupport {
         member.setMemberType(Integer.parseInt(req.getParameter("membertypeid")));
         // 登录帐号
         member.setMemberLoginId(req.getParameter("user"));
-        // 登录密码 (TODO 加密方式保存至DB)
-        member.setMemberLoginPw(req.getParameter("password"));
+        // 登录密码
+        member.setMemberLoginPw(CommonUtil.MD5(req.getParameter("password")));
         // 电子邮件
         member.setMemberMail(req.getParameter("email"));
         // 昵称

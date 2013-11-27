@@ -14,54 +14,11 @@ public class CommonGifCode {
 
     // 定义验证码字符。去除了O和I等容易混淆的字母（也可写成）
     String s[] = {
-            "A",
-            "B",
-            "C",
-            "D",
-            "E",
-            "F",
-            "G",
-            "H",
-            "G",
-            "K",
-            "M",
-            "N",
-            "P",
-            "Q",
-            "R",
-            "S",
-            "T",
-            "U",
-            "V",
-            "W",
-            "X",
-            "Y",
-            "Z"
-            ,
-            "a",
-            "b",
-            "c",
-            "d",
-            "e",
-            "f",
-            "g",
-            "h",
-            "i",
-            "j",
-            "k",
-            "m",
-            "n",
-            "p",
-            "q",
-            "r",
-            "s",
-            "t",
-            "u",
-            "v",
-            "w",
-            "x",
-            "y",
-            "z"
+            "A", "B", "C", "D", "E", "F", "G", "H", "G", "K", "M",
+            "N", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",
+            "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "m",
+            "n", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",
+            "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"
     };
     // 定义生成的验证码的宽度和高度
     int width = 160;
@@ -70,7 +27,6 @@ public class CommonGifCode {
     public String[] myTest(OutputStream os)
     {
         // 生成字符
-        AlphaComposite ac = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1);
         AnimatedGifEncoder agf = new AnimatedGifEncoder();
 
         agf.start(os);
@@ -79,30 +35,29 @@ public class CommonGifCode {
         agf.setDelay(100);
         agf.setRepeat(0);
         BufferedImage frame = null;
-        Graphics2D teg = null;
-        String rands[] = new String[6];
-        for (int i = 0; i < 6; i++)
+        String rands[] = new String[4];
+        for (int i = 0; i < rands.length; i++)
         {
             rands[i] = s[this.randomInt(0, s.length)];
         }
         // 生成字体
-        Font font[] = new Font[6];
-        for (int i = 0; i < 6; i++)
+        Font font[] = new Font[rands.length];
+        for (int i = 0; i < font.length; i++)
         {
             font[i] = this.getFont();
         }
         // 生成背景颜色
         Color bgcolor = getRandColor(160, 200);
         Color linecolor = getRandColor(200, 250);
-        Color fontcolor[] = new Color[6];
+        Color fontcolor[] = new Color[rands.length];
         Random random = new Random();
-        for (int i = 0; i < 6; i++)
+        for (int i = 0; i < fontcolor.length; i++)
         {
             fontcolor[i] = new Color(20 + random.nextInt(110),
                     20 + random.nextInt(110),
                     20 + random.nextInt(110));
         }
-        for (int i = 0; i < 6; i++)
+        for (int i = 0; i < rands.length; i++)
         {
             frame = this.getImage(bgcolor, linecolor, fontcolor, rands, font, i);
             agf.addFrame(frame);
@@ -136,9 +91,9 @@ public class CommonGifCode {
         g2d.setComposite(ac);
         g2d.setFont(new Font("隶书", Font.ITALIC + Font.BOLD, 26));
         g2d.setColor(Color.red);
-        g2d.drawString("jalion制作", 19, 25);
+        g2d.drawString("hpfs0制作", 19, 25);
 
-        // 以下生成验证码 //透明度从0 循环到1 步长为0.2 。一共6个字母
+        // 以下生成验证码 //透明度从0 循环到1 步长为0.2 。一共4个字母
         AlphaComposite ac3 = null;
         for (int i = 0; i < str.length; i++)
         {
@@ -147,7 +102,7 @@ public class CommonGifCode {
             g2d.setComposite(ac3);
             g2d.setColor(fontcolor[i]);
 
-            g2d.drawString(str[i], 25 * i + 8, 25);
+            g2d.drawString(str[i], 40 * i + 10, 25);
         }
         g2d.dispose();
         return image;
@@ -163,8 +118,6 @@ public class CommonGifCode {
         // 获得随机字体;
         // 设置font :字体名称:Monotype Corsiva 华文彩云 方正舒体 华文行楷,隶书
 
-        Random s = new Random();
-        // int i=s.nextInt(10);
         int i = 7;
         if (i % 2 == 0)
         {
@@ -174,10 +127,10 @@ public class CommonGifCode {
         {
             return new Font("方正舒体", Font.BOLD, 28);
         }
-        // else if(i%5==0)
-        // {
-        // return new Font("华文行楷", Font.BOLD, 28);
-        // }
+        else if (i % 5 == 0)
+        {
+            return new Font("华文行楷", Font.BOLD, 28);
+        }
         else if (i % 7 == 0)
         {
             return new Font("隶书", Font.BOLD, 28);

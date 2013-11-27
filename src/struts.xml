@@ -14,5 +14,7 @@
 		</action>
 		<action name ="gifcode" class ="com.dinner.gts.action.RegisterAction" method="createGitCode">
 		</action>
+		<action name ="checkgifcode" class ="com.dinner.gts.action.RegisterAction" method="checkGifcode">
+		</action>
 	</package>
 </struts>
