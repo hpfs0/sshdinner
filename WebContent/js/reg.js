@@ -29,7 +29,6 @@ $(document).ready(function(){
 							$('#user').after('<span id="chkUser" class="errdiv">该登录账号已经被使用，请更换一个</span>');
 						}
 					}
-				
 			 });
 			
 		}
@@ -149,7 +148,7 @@ $(document).ready(function(){
 			$('#company').after('<span id="chkCompany" class="rightdiv">输入正确</span>');
 		}
 
-	}); 
+	});
 
 	//固定电话
 	$('#tel').focus(function(){ 
@@ -195,7 +194,30 @@ $(document).ready(function(){
 				$('#mov').after('<span id="chkMov" class="rightdiv">输入正确</span>');
 			}
 		}
-	}); 
+	});
+	
+	//验证码
+	$("#ImgCode").blur(function(){
+		//获取用户输入的验证码
+		var inputCode = $("#ImgCode").val();
+		if(inputCode.length > 0){
+			//发送ajax请求判断是否输入正确
+			$.ajax({
+				type: "POST",
+				url: "checkgifcode.action",
+				data: "inputCode="+inputCode,
+				success: function(msg){
+					if(msg=="OK"){
+						$("#codepng").remove();
+						$("#codeimg").after('<img id="codepng" src="images/right.png" />');
+					}else{
+						$("#codepng").remove();
+						$("#codeimg").after('<img id="codepng" src="images/error.png" />');
+					}
+				}
+			});
+		}
+	});
 });
 
 
@@ -363,9 +385,15 @@ $(document).ready(function(){
 $(document).ready(function(){
 	$("#getImgCode").click(function(){
 		$("#codeimg").attr("src","gifcode.action");
+		$("#ImgCode").val("");
+		$("#codepng").remove();
+		$("#ImgCode").focus();
 	});
 	$("#codeimg").click(function(){
 		$("#codeimg").attr("src","gifcode.action");
+		$("#ImgCode").val("");
+		$("#codepng").remove();
+		$("#ImgCode").focus();
 	});
 });
 

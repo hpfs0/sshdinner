@@ -118,6 +118,39 @@ public class RegisterAction extends ActionSupport {
                 codeSession += temp;
             }
             os.close();
+            session.setAttribute("gifcode", codeSession);
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
+     * 检查用户输入的验证码是否正确
+     * 
+     * @return
+     */
+    public String checkGifcode() {
+        HttpServletRequest req = CommonUtil.getHttpServletRequest();
+        HttpSession session = req.getSession();
+        String writeResult = CommonConst.COMMON_CODE_CHECK_NG;
+        // 获取用户输入的验证码
+        String inputCode = req.getParameter("inputCode");
+        // session中保存的验证
+        String sessionCode = session.getAttribute("gifcode").toString();
+        if (inputCode.equalsIgnoreCase(sessionCode)) {
+            writeResult = CommonConst.COMMON_CODE_CHECK_OK;
+        }
+        else {
+            writeResult = CommonConst.COMMON_CODE_CHECK_NG;
+        }
+
+        System.out.println("用户输入的验证码：" + inputCode);
+        System.out.println("session中保存的验证码:" + sessionCode);
+
+        try {
+            CommonUtil.getHttpServletResponse().getWriter().write(writeResult);
         }
         catch (IOException e) {
             e.printStackTrace();

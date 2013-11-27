@@ -264,10 +264,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                                 <table border="0" cellspacing="0" cellpadding="1">
                                                     <tr>
                                                         <td>
-                                                            <input id="ImgCode" type='text' name='ImgCode' style='width:33px' maxlength="4 " class="input"/>
+                                                            <input id="ImgCode" type='text' name='ImgCode' style='width:40px' maxlength="4 " class="input"/>
                                                         </td>
                                                         <td>
-                                                            <img id="codeimg" src="gifcode.action" width='60' height='20' style='border:1px #dddddd solid;cursor:pointer' />
+                                                            <img id="codeimg" src="gifcode.action" width='40' height='20' style='border:1px #dddddd solid;cursor:pointer' />
                                                         </td>
                                                         <td><span id="getImgCode" style="cursor:pointer;margin-left:5px;">看不清？更换一张</span>
                                                         </td>
@@ -288,7 +288,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                             <div class="left"></div>
                                             <div class="mustfill"></div>
                                             <div class="con">
-                                                <input id="tijiao" type="submit" name="cc" value="下一步" class="submit" disabled />
+                                                <input id="tijiao" type="submit" name="cc" value="注册" class="submit" disabled />
                                                 <input name="act" type="hidden" id="act" value="memberreg" />
                                                 <input name="nowstep" type="hidden" id="nowstep" value="account" />
                                                 <input name="nextstep" type="hidden" id="nextstep" value="enter" />
