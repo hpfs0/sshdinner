@@ -397,12 +397,13 @@ $(document).ready(function(){
 	});
 });
 
-//下一步点击处理
+//注册点击处理
 $(document).ready(function(){
 	$("#tijiao").click(function(){
 		// jquery找到有无输入不正确的选项
 		var errDiv = $(".errdiv");
 		var showinfo = "";
+		var errCode = $('[src="image/error.png"]');
 
 		if(errDiv.length > 0){
 			showinfo = errDiv.html();
@@ -412,6 +413,14 @@ $(document).ready(function(){
 					top : '40%',
 					buttons: {}
 				});
+		}else if(errCode.attr("src") > 0){
+			showinfo = "验证码不正确";
+			$.jBox.error("<font color='red'><b>" + showinfo + "</b><font>", "警告",
+					{
+						draggable : false,
+						top : '40%',
+						buttons: {}
+					});
 		}
 		else{
 			var membertypeid = $("#membertypeid").val();
@@ -422,7 +431,6 @@ $(document).ready(function(){
 			var name = $("#name").val();
 			var company = $("#company").val();
 			var mov = $("#mov").val();
-			// 验证码 TODO
 			
 			// 必须项目全部都填写
 			if(user != "" && password != "" && email != "" 

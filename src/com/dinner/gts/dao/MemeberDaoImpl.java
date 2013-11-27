@@ -25,6 +25,7 @@ public class MemeberDaoImpl implements MemberDao {
         query.setCacheable(true);
         @SuppressWarnings("unchecked")
         List<Member> list = query.list();
+        // session关闭
         CommonUtil.closeSession(session);
         return list;
     }
@@ -38,6 +39,7 @@ public class MemeberDaoImpl implements MemberDao {
         // 设置缓存
         query.setCacheable(true);
         Member member = (Member) query.uniqueResult();
+        // session关闭
         CommonUtil.closeSession(session);
         return member;
     }
@@ -53,6 +55,8 @@ public class MemeberDaoImpl implements MemberDao {
                 session.flush();
                 // 提交事务
                 tx.commit();
+                // session关闭
+                CommonUtil.closeSession(session);
             }
             catch (HibernateException e) {
                 return false;
@@ -70,6 +74,8 @@ public class MemeberDaoImpl implements MemberDao {
                 session.update(member);
                 // 提交事务
                 tx.commit();
+                // session关闭
+                CommonUtil.closeSession(session);
             }
             catch (HibernateException e) {
                 return false;

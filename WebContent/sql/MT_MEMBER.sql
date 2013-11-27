@@ -22,7 +22,7 @@ DROP TABLE IF EXISTS `mt_member`;
 CREATE TABLE `mt_member` (
   `MEMBER_ID` varchar(10) NOT NULL DEFAULT '',
   `MEMBER_LOGIN_ID` varchar(20) NOT NULL,
-  `MEMBER_LOGIN_PW` varchar(20) NOT NULL,
+  `MEMBER_LOGIN_PW` varchar(32) NOT NULL,
   `MEMBER_NICK_NAME` varchar(20) NOT NULL,
   `MEMBER_MAIL` varchar(50) NOT NULL,
   `MEMBER_REGISTER_IP` varchar(15) DEFAULT NULL,

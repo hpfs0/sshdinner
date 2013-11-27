@@ -167,8 +167,8 @@ public class RegisterAction extends ActionSupport {
         member.setMemberType(Integer.parseInt(req.getParameter("membertypeid")));
         // 登录帐号
         member.setMemberLoginId(req.getParameter("user"));
-        // 登录密码 (TODO 加密方式保存至DB)
-        member.setMemberLoginPw(req.getParameter("password"));
+        // 登录密码
+        member.setMemberLoginPw(CommonUtil.MD5(req.getParameter("password")));
         // 电子邮件
         member.setMemberMail(req.getParameter("email"));
         // 昵称
