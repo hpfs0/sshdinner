@@ -145,10 +145,6 @@ public class RegisterAction extends ActionSupport {
         else {
             writeResult = CommonConst.COMMON_CODE_CHECK_NG;
         }
-
-        System.out.println("用户输入的验证码：" + inputCode);
-        System.out.println("session中保存的验证码:" + sessionCode);
-
         try {
             CommonUtil.getHttpServletResponse().getWriter().write(writeResult);
         }
