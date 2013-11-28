@@ -24,6 +24,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script type="text/javascript" src="js/blockui.js"></script>
 	<script type="text/javascript" src="js/channelmenu_dc.js"></script>
 	<script language="javascript" src="js/feedback.js"></script>
+	<!--jbox-->
+    <script type="text/javascript" src="js/jBox/jquery-1.4.2.min.js"></script>
+    <link rel="stylesheet" href="js/jBox/Skins/Default/jbox.css" />
+    <script type="text/javascript" src="js/jBox/jquery.jBox-2.3.min.js"></script>
+    <script type="text/javascript" src="js/jBox/i18n/jquery.jBox-zh-CN.js"></script>
 </head>
 
 <body style='background:transparent'>
@@ -34,7 +39,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         var PDV_PAGENAME = 'html_tsjy';
     </script>
 
-    <div id='contain' style='width:900px;background:#ffffff;margin:0px auto;padding:10px'>
+    <div id='contain' style='width:900px;background:#ffffff;margin:0px auto;padding:10px;padding-top:0px;'>
 
         <div id='top' style='width:900px;height:108px;background:none transparent scroll repeat 0% 0%'>
 
@@ -102,7 +107,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                     </ul>
                                     <ul>
                                     </ul>
-
                                 </div>
                             </div>
                             <script>
@@ -240,13 +244,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         <div style="padding:0px">
 
                             <div id="notice" class="noticediv"></div>
-                            <form id="feedbacksmallform" method="post" action="" name="gform">
                                 <table width="100%" border="0" cellspacing="0" cellpadding="3">
 
                                     <tr>
                                         <td width="80" align="right">标　　题：</td>
                                         <td>
-                                            <input type="text" name="title" value="" class="input" style="width:399px" />
+                                            <input id="title" type="text" name="title" class="input" style="width:399px" />
                                             <font style='color:red'>*</font> 
                                             <div style="padding-top:3px;color:#666"></div>
                                         </td>
@@ -255,7 +258,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                     <tr>
                                         <td width="80" align="right">投诉建议：</td>
                                         <td>
-                                            <textarea name="content" rows="10" class="textarea" style="width:399px"></textarea>
+                                            <textarea id="content1" name="content" rows="10" class="textarea" style="width:399px"></textarea>
                                             <font style='color:red'>*</font> 
                                             <div style="padding-top:3px;color:#666"></div>
                                         </td>
@@ -265,7 +268,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                     <tr>
                                         <td width="80" align="right">您的姓名：</td>
                                         <td>
-                                            <input type="text" name="name" value="" class="input" style="width:399px" />
+                                            <input id="name" type="text" name="name" class="input" style="width:399px" />
                                             <font style='color:red'>*</font> 
                                             <div style="padding-top:3px;color:#666"></div>
                                         </td>
@@ -274,9 +277,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                     <tr>
                                         <td width="80" align="right">性　　别：</td>
                                         <td>
-                                            <select name="sex">
-                                                <option value=先生>先生</option>
-                                                <option value=女士>女士</option>
+                                            <select id="sex" name="sex">
+                                                <option value="0">先生</option>
+                                                <option value="1">女士</option>
                                             </select>
                                             <font style='color:red'>*</font> 
                                             <div style="padding-top:3px;color:#666"></div>
@@ -287,7 +290,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                     <tr>
                                         <td width="80" align="right">登陆帐号：</td>
                                         <td>
-                                            <input type="text" name="email" value="" class="input" style="width:399px" />
+                                            <input id="loginid" type="text" name="loginid" class="input" style="width:399px" />
                                             <font style='color:red'>*</font> 
                                             <div style="padding-top:3px;color:#666"></div>
                                         </td>
@@ -296,7 +299,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                     <tr>
                                         <td width="80" align="right">联系电话：</td>
                                         <td>
-                                            <input type="text" name="tel" value="" class="input" style="width:399px" />
+                                            <input id="tel" type="text" name="tel" class="input" style="width:399px" />
                                             <font style='color:red'>*</font> 
                                             <div style="padding-top:3px;color:#666"></div>
                                         </td>
@@ -305,7 +308,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                     <tr>
                                         <td width="80" align="right">联系地址：</td>
                                         <td>
-                                            <input type="text" name="address" value="" class="input" style="width:399px" />
+                                            <input id="address" type="text" name="address" class="input" style="width:399px" />
                                             <font style='color:red'>*</font> 
                                             <div style="padding-top:3px;color:#666"></div>
                                         </td>
@@ -318,7 +321,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                                 <input type="text" name="ImgCode" style="width:39px" class="input" />
                                             </div>
                                             <div style="height:28px;white-space:nowrap;float:left">
-                                                <img id="codeimg" src="../../codeimg.php" width="60" height="20" style="border:1px #dddddd solid">
+                                                <img id="codeimg" src="gifcode.action" width="60" height="20" style="border:1px #dddddd solid">
                                             </div>
                                             <span id="getImgCode" style="cursor:pointer;margin-left:10px;line-height:20px">看不清？更换一张</span>
                                         </td>
@@ -338,9 +341,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                         </td>
                                     </tr>
                                 </table>
-                            </form>
-
-
                         </div>
                     </div>
 
@@ -383,7 +383,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <div class="pdv_border" style="margin:0;padding:0;height:100%;border:0px  solid;background:;">
                         <div style="height:25px;margin:1px;display:none;background:;">
                             <div style="float:left;margin-left:12px;line-height:25px;font-weight:bold;color:">
-                                脚注信息
+							脚注信息
                             </div>
                             <div style="float:right;margin-right:10px;display:none">
                                 <a href="-1" style="line-height:25px;color:">更多</a>

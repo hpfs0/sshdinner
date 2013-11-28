@@ -237,7 +237,7 @@ $(document).ready(function(){
 
 	$.ajax({
 			type: "POST",
-			url: PDV_RP+"post.php",
+			url: "post.php",
 			data: "act=getstep&membertypeid="+membertypeid+"&nowstep="+nowstep,
 			success: function(msg){
 				$("#stepname").html("<ul><li class='"+firstclass+"'>申请登录账号</li>");
@@ -253,7 +253,7 @@ $(document).ready(function(){
 
 		$.ajax({
 				type: "POST",
-				url: PDV_RP+"post.php",
+				url: "post.php",
 				data: "act=getstep&membertypeid="+membertypeid+"&nowstep="+nowstep,
 				success: function(msg){
 					$("#stepname").html("<ul><li class='"+firstclass+"'>申请登录账号</li>");
@@ -282,7 +282,7 @@ $(document).ready(function(){
 		var membertypeid=$("#membertypeid")[0].value;
 		$.ajax({
 				type: "POST",
-				url: PDV_RP+"post.php",
+				url: "post.php",
 				data: "act=xieyi&membertypeid="+membertypeid,
 				success: function(msg){
 					$('#frmWindow').remove();
@@ -305,7 +305,7 @@ $(document).ready(function(){
 	$('#memberReg').submit(function(){ 
 		$('#memberReg').ajaxSubmit({
 			target: 'div#notice',
-			url: PDV_RP+'post.php',
+			url: 'post.php',
 			success: function(msg) {
 				
 				switch(msg){

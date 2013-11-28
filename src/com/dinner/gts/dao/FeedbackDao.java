@@ -14,14 +14,6 @@ public interface FeedbackDao {
     public List<Feedback> getAllFeedback();
 
     /**
-     * 根据反馈者帐号ID取得反馈信息
-     * 
-     * @param feedback 检索条件
-     * @return 反馈信息
-     */
-    public List<Feedback> getFeedbackByLoginId(Feedback feedback);
-
-    /**
      * 反馈表的INSERT操作
      * 
      * @param feedback 反馈信息
@@ -35,5 +27,5 @@ public interface FeedbackDao {
      * @param feedback 反馈信息
      * @return update操作成功与否
      */
-    public boolean modifyMember(Feedback feedback);
+    public boolean modifyFeedback(Feedback feedback);
 }

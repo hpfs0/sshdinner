@@ -46,20 +46,26 @@ public class MemeberDaoImpl implements MemberDao {
 
     @Transient
     public boolean putMember(Member member) {
+        Transaction tx = null;
         if (member != null) {
             try {
                 // 开启事务
-                Transaction tx = session.beginTransaction();
+                tx = session.beginTransaction();
                 // 設置entry
                 session.save(member);
                 session.flush();
                 // 提交事务
                 tx.commit();
-                // session关闭
-                CommonUtil.closeSession(session);
             }
             catch (HibernateException e) {
+                if (tx != null) {
+                    tx.rollback();
+                }
                 return false;
+            }
+            finally {
+                // session关闭
+                CommonUtil.closeSession(session);
             }
         }
         return true;
@@ -67,10 +73,11 @@ public class MemeberDaoImpl implements MemberDao {
 
     @Transient
     public boolean modifyMember(Member member) {
+        Transaction tx = null;
         if (member != null) {
             try {
                 // 开启事务
-                Transaction tx = session.beginTransaction();
+                tx = session.beginTransaction();
                 session.update(member);
                 // 提交事务
                 tx.commit();
@@ -78,7 +85,14 @@ public class MemeberDaoImpl implements MemberDao {
                 CommonUtil.closeSession(session);
             }
             catch (HibernateException e) {
+                if (tx != null) {
+                    tx.rollback();
+                }
                 return false;
+            }
+            finally {
+                // session关闭
+                CommonUtil.closeSession(session);
             }
         }
         return true;

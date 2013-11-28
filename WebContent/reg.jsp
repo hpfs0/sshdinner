@@ -23,8 +23,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script type="text/javascript" src="js/channelmenu_dc.js"></script>
 	<script language="javascript" src="js/reg.js"></script>
 	<!--jbox-->
-    <script type="text/javascript" src="js/jquery.js"></script>
-    <link id="skin" rel="stylesheet" href="js/jBox/Skins/Default/jbox.css" />
+    <script type="text/javascript" src="js/jBox/jquery-1.4.2.min.js"></script>
+    <link rel="stylesheet" href="js/jBox/Skins/Default/jbox.css" />
     <script type="text/javascript" src="js/jBox/jquery.jBox-2.3.min.js"></script>
     <script type="text/javascript" src="js/jBox/i18n/jquery.jBox-zh-CN.js"></script>
 </head>
@@ -32,7 +32,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body style='background:transparent'>
     <script>
         var PDV_PAGEID = '12';
-        var PDV_RP = '../';
         var PDV_COLTYPE = 'member';
         var PDV_PAGENAME = 'reg';
     </script>

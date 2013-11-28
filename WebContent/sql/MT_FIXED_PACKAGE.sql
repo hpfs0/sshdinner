@@ -25,6 +25,6 @@ CREATE TABLE `mt_fixed_package` (
   `FIXED_TOTAL_PRICE` double(10,0) DEFAULT NULL,
   `REGIST_TIME` datetime DEFAULT NULL,
   `UPDATE_TIME` datetime DEFAULT NULL,
-  `DELETE_FLG` tinyint(4) DEFAULT NULL
+  `DELETE_FLG` tinyint(4) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 ALTER TABLE mt_fixed_package ADD INDEX fixid(FIXED_ID(10));

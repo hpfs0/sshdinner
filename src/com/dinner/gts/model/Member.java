@@ -1,6 +1,7 @@
 package com.dinner.gts.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class Member implements Serializable {
 
@@ -55,10 +56,10 @@ public class Member implements Serializable {
     private String memberCompany;
 
     /** 注册时间 */
-    private String RegistTime;
+    private Date RegistTime;
 
     /** 更新时间 */
-    private String updateTime;
+    private Date updateTime;
 
     /** 活动区分 */
     private int deleteFlg;
@@ -183,19 +184,19 @@ public class Member implements Serializable {
         this.memberCompany = memberCompany;
     }
 
-    public String getRegistTime() {
+    public Date getRegistTime() {
         return RegistTime;
     }
 
-    public void setRegistTime(String registTime) {
+    public void setRegistTime(Date registTime) {
         RegistTime = registTime;
     }
 
-    public String getUpdateTime() {
+    public Date getUpdateTime() {
         return updateTime;
     }
 
-    public void setUpdateTime(String updateTime) {
+    public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
     }
 

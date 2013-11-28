@@ -70,24 +70,28 @@ public class CommonUtil {
         Session session = sessionFactory.openSession();
         switch (idKind) {
         // 会员ID获取
-            case 0:
+            case CommonConst.COMMON_ID_MEMBER:
                 sql = CommonSqlConst.COMMON_SQL_001;
                 break;
             // 菜品ID获取
-            case 1:
+            case CommonConst.COMMON_ID_FOOD:
                 sql = CommonSqlConst.COMMON_SQL_002;
                 break;
             // 固定套餐ID
-            case 2:
+            case CommonConst.COMMON_ID_FIXED:
                 sql = CommonSqlConst.COMMON_SQL_003;
                 break;
             // 订单ID
-            case 3:
+            case CommonConst.COMMON_ID_ORDER:
                 sql = CommonSqlConst.COMMON_SQL_004;
                 break;
             // 订单详细ID
-            case 4:
+            case CommonConst.COMMON_ID_ORDER_DETAIL:
                 sql = CommonSqlConst.COMMON_SQL_005;
+                break;
+            // 反馈ID
+            case CommonConst.COMMON_ID_FEEDBACK:
+                sql = CommonSqlConst.COMMON_SQL_009;
                 break;
         }
 
