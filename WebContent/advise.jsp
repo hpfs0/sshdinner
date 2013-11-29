@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="GBK"%>
 <%@ taglib uri="/struts-tags" prefix="s" %>
-    
+<%@ include file='header.jsp' %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -12,17 +12,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>网上快餐店</title>
-	<link href="css/common.css" rel="stylesheet" type="text/css" />
-	<link href="css/A.css" rel="stylesheet" type="text/css" />
-	<link href="css/topmenu_bk.css" rel="stylesheet" type="text/css" />
 	<link href="css/pagetitlemenu_b2.css" rel="stylesheet" type="text/css" />
 	<link href="css/nav.css" rel="stylesheet" type="text/css" />
 	<link href="css/feedbackform.css" rel="stylesheet" type="text/css" />
-	<script type="text/javascript" src="js/base.js"></script>
-	<script type="text/javascript" src="js/common.js"></script>
-	<script type="text/javascript" src="js/form.js"></script>
-	<script type="text/javascript" src="js/blockui.js"></script>
-	<script type="text/javascript" src="js/channelmenu_dc.js"></script>
 	<script language="javascript" src="js/feedback.js"></script>
 	<!--jbox-->
     <script type="text/javascript" src="js/jBox/jquery-1.4.2.min.js"></script>
@@ -40,149 +32,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </script>
 
     <div id='contain' style='width:900px;background:#ffffff;margin:0px auto;padding:10px;padding-top:0px;'>
-
-        <div id='top' style='width:900px;height:108px;background:none transparent scroll repeat 0% 0%'>
-
-
-            <!-- 二级导航菜单 -->
-
-            <div id='pdv_3800' class='pdv_class' style='width:900px;height:41px;top:65px;left:0px; z-index:1'>
-                <div id='spdv_3800' class='pdv_top' style='overflow:hidden;width:100%;height:100%'>
-                    <div class="pdv_border" style="margin:0;padding:0;height:100%;border:0px  solid;background:;">
-                        <div style="height:25px;margin:1px;display:none;background:;">
-                            <div style="float:left;margin-left:12px;line-height:25px;font-weight:bold;color:">
-
-                            </div>
-                            <div style="float:right;margin-right:10px;display:none">
-                                <a href="-1" style="line-height:25px;color:">更多</a>
-                            </div>
-                        </div>
-                        <div style="padding:0px">
-                            <div id="menu">
-                                <div class="mainmenuleft"></div>
-                                <div class="mainmenuright"></div>
-
-                                <div id="mainmenu">
-                                    <ul>
-
-                                        <li><a href="index.jsp" target="_self">首页</a>
-                                        </li>
-
-                                        <li><a href="search.jsp" target="_self">订单查询</a>
-                                        </li>
-
-
-                                        <li><a href="orderhelp.jsp" target="_self">订餐指南</a>
-                                        </li>
-
-                                        <li><a href="center.jsp" target="_self">会员中心</a>
-                                        </li>
-
-                                        <li><a href="order.jsp" target="_self">我的订单</a>
-                                        </li>
-
-                                        <li><a href="restaurant.jsp" target="_self">店铺详情</a>
-                                        </li>
-
-                                        <li><a href="note.jsp" target="_self">顾客留言</a>
-                                        </li>
-
-                                    </ul>
-                                </div>
-
-                                <div id="smenu">
-                                    <div class="smenuleft"></div>
-                                    <div class="smenuright"></div>
-                                    <ul>
-                                    </ul>
-                                    <ul>
-                                    </ul>
-                                    <ul>
-                                    </ul>
-                                    <ul>
-                                    </ul>
-                                    <ul>
-                                    </ul>
-                                    <ul>
-                                    </ul>
-                                    <ul>
-                                    </ul>
-                                </div>
-                            </div>
-                            <script>
-                                showMenu();
-                            </script>
-
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- 顶部菜单(一级) -->
-
-            <div id='pdv_3799' class='pdv_class' style='width:395px;height:25px;top:0px;left:495px; z-index:4'>
-                <div id='spdv_3799' class='pdv_top' style='overflow:hidden;width:100%;height:100%'>
-                    <div class="pdv_border" style="margin:0;padding:0;height:100%;border:0px  solid;background:;">
-                        <div style="height:25px;margin:1px;display:none;background:;">
-                            <div style="float:left;margin-left:12px;line-height:25px;font-weight:bold;color:">
-
-                            </div>
-                            <div style="float:right;margin-right:10px;display:none">
-                                <a href="-1" style="line-height:25px;color:">更多</a>
-                            </div>
-                        </div>
-                        <div style="padding:0px">
-                            <div id="topmenu">
-                                <a href="login.jsp" target="_self">会员登录</a>|
-                                <a href="reg.jsp" target="_self">会员注册</a>|
-                                <a href="linkman.jsp" target="_self">联系方式</a>|
-                                <a href="advise.jsp" target="_self">投诉建议</a>|
-                                <a href="carryshow.jsp" target="_self">配送说明</a>|
-                                <a href="onwe.jsp" target="_self">关于我们</a>|
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 网站标志 -->
-
-            <div id='pdv_3803' class='pdv_class' title='' style='width:210px;height:100px;top:0px;left:0px; z-index:5'>
-                <div id='spdv_3803' class='pdv_top' style='overflow:hidden;width:100%;height:100%'>
-                    <div class="pdv_border" style="margin:0;padding:0;height:100%;border:0px  solid;background:;">
-                        <div style="height:25px;margin:1px;display:none;background:;">
-                            <div style="float:left;margin-left:12px;line-height:25px;font-weight:bold;color:">
-
-                            </div>
-                            <div style="float:right;margin-right:10px;display:none">
-                                <a href="-1" style="line-height:25px;color:">更多</a>
-                            </div>
-                        </div>
-                        <div style="padding:0px">
-
-
-                            <img src="images/1257477260.gif" border="0" width="100%" />
-
-
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
         <div id='content' style='width:900px;height:463px;background:none transparent scroll repeat 0% 0%;margin:10px auto'>
-
-
             <!-- 网页标题(菜单) -->
-
             <div id='pdv_3798' class='pdv_class' title='栏目导航' style='width:245px;height:300px;top:0px;left:0px; z-index:2'>
                 <div id='spdv_3798' class='pdv_content' style='overflow:hidden;width:100%;height:100%'>
                     <div class="pdv_border" style="border:0px;height:100%;padding:0;margin:0;background:url(images/left.jpg) repeat-y">
                         <div style="height:100%;background:url(images/right.jpg) right repeat-y">
                             <div style="height:43px;background:url(images/bg.jpg) 0px 0px no-repeat">
                                 <div style="float:left;font:bold 16px/43px 'Microsoft YaHei','SimSun',Arial,Sans-Serif;text-align:left;padding-left:50px;color:#feab43;">
-								栏目导航
+                                栏目导航
                                 </div>
                                 <div style="float:right;width:60px;height:43px;text-align:right;background:url(images/bg.jpg) -840px 0px no-repeat">
                                     <a href="-1" style="font:12px/43px simsun;color:#505050;margin-right:12px;display:none">更多&gt;&gt;</a>
@@ -212,7 +70,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <div class="pdv_border" style="margin:0;padding:0;height:100%;border:0px #dddddd solid;background:#fff;">
                         <div style="height:25px;margin:1px;display:none;background:#cccccc;">
                             <div style="float:left;margin-left:12px;line-height:25px;font-weight:bold;color:#fff">
-							当前位置
+                            当前位置
                             </div>
                             <div style="float:right;margin-right:10px;display:none">
                                 <a href="-1" style="line-height:25px;color:#fff">更多</a>
@@ -220,7 +78,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         </div>
                         <div style="padding:5px">
                             <div id="nav">
-								您现在的位置：<a href="../../">网上快餐店</a> &gt;
+                             您现在的位置：<a href="../../">网上快餐店</a> &gt;
                             </div>
                         </div>
                     </div>

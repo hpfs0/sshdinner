@@ -407,20 +407,9 @@ $(document).ready(function(){
 
 		if(errDiv.length > 0){
 			showinfo = errDiv.html();
-			$.jBox.error("<font color='red'><b>" + showinfo + "</b><font>", "警告",
-				{
-					draggable : false,
-					top : '40%',
-					buttons: {}
-				});
+			showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
 		}else if(errCode.attr("src") > 0){
 			showinfo = "验证码不正确";
-			$.jBox.error("<font color='red'><b>" + showinfo + "</b><font>", "警告",
-					{
-						draggable : false,
-						top : '40%',
-						buttons: {}
-					});
 		}
 		else{
 			var membertypeid = $("#membertypeid").val();
