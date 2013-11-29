@@ -16,8 +16,6 @@ public class CommonGifCode {
     String s[] = {
             "A", "B", "C", "D", "E", "F", "G", "H", "G", "K", "M",
             "N", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",
-            "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "m",
-            "n", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",
             "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"
     };
     // 定义生成的验证码的宽度和高度
@@ -91,7 +89,7 @@ public class CommonGifCode {
         g2d.setComposite(ac);
         g2d.setFont(new Font("隶书", Font.ITALIC + Font.BOLD, 26));
         g2d.setColor(Color.red);
-        g2d.drawString("hpfs0制作", 19, 25);
+        // g2d.drawString("hpfs0制作", 19, 25);
 
         // 以下生成验证码 //透明度从0 循环到1 步长为0.2 。一共4个字母
         AlphaComposite ac3 = null;

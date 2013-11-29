@@ -2,6 +2,7 @@ package com.dinner.gts.action;
 
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,12 +18,13 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class RegisterAction extends ActionSupport {
 
-    private MemberService memberService;
-
     /**
      * VersionUID
      */
     private static final long serialVersionUID = -541681215616390859L;
+
+    /** 会员服务类 */
+    private MemberService memberService;
 
     /**
      * 注册会员
@@ -32,6 +34,7 @@ public class RegisterAction extends ActionSupport {
     public String execute() {
         // error信息初始化
         this.clearErrorsAndMessages();
+        // 注册结果初始化
         String putResult = CommonConst.COMMON_MEMBER_REGIST_NG;
         try {
             // 取得所有输入的数据
@@ -181,5 +184,9 @@ public class RegisterAction extends ActionSupport {
         member.setMemberTel(CommonStringUtil.convertNullToEmpty(req.getParameter("tel")));
         // 手机号码
         member.setMemberPhone(req.getParameter("mov"));
+        // 注册时间
+        member.setRegistTime(new Date());
+        // 更新时间
+        member.setUpdateTime(new Date());
     }
 }

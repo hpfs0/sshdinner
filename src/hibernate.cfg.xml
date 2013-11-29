@@ -22,5 +22,6 @@
         <property name="format_sql">true</property>
         
         <mapping resource="com/dinner/gts/model/Member.hbm.xml" />
+        <mapping resource="com/dinner/gts/model/Feedback.hbm.xml" />
     </session-factory>
 </hibernate-configuration>

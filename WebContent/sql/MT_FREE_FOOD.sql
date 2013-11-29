@@ -25,6 +25,6 @@ CREATE TABLE `mt_free_food` (
   `FOOD_UNIT_PRICE` double(20,2) NOT NULL,
   `REGIST_TIME` datetime DEFAULT NULL,
   `UPDATE_TIME` datetime DEFAULT NULL,
-  `DELETE_FLG` tinyint(4) DEFAULT NULL
+  `DELETE_FLG` tinyint(4) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 ALTER TABLE mt_free_food ADD INDEX foodid(FOOD_ID(10)); 

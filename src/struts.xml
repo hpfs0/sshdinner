@@ -16,5 +16,7 @@
 		</action>
 		<action name ="checkgifcode" class ="com.dinner.gts.action.RegisterAction" method="checkGifcode">
 		</action>
+		<action name ="advise" class ="com.dinner.gts.action.FeedbackAction">
+		</action>
 	</package>
 </struts>

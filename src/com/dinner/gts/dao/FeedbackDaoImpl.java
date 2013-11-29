@@ -10,49 +10,36 @@ import org.hibernate.Transaction;
 
 import com.dinner.gts.common.CommonSqlConst;
 import com.dinner.gts.common.CommonUtil;
+import com.dinner.gts.model.Feedback;
 import com.dinner.gts.model.Member;
 
-public class MemeberDaoImpl implements MemberDao {
+public class FeedbackDaoImpl implements FeedbackDao {
 
     // Session初始化
     private Session session = CommonUtil.getSessionFactory().openSession();
 
     @Transient
-    public List<Member> getAllMember() {
-        SQLQuery query = session.createSQLQuery(CommonSqlConst.COMMON_SQL_006);
+    public List<Feedback> getAllFeedback() {
+        SQLQuery query = session.createSQLQuery(CommonSqlConst.COMMON_SQL_008);
         query.addEntity(Member.class);
         // 设置缓存
         query.setCacheable(true);
         @SuppressWarnings("unchecked")
-        List<Member> list = query.list();
+        List<Feedback> list = query.list();
         // session关闭
         CommonUtil.closeSession(session);
         return list;
     }
 
     @Transient
-    public Member getMemberBykey(String memberLoginId) {
-        SQLQuery query = session.createSQLQuery(CommonSqlConst.COMMON_SQL_007);
-        query.addEntity(Member.class);
-        // 设置参数
-        query.setString(0, memberLoginId);
-        // 设置缓存
-        query.setCacheable(true);
-        Member member = (Member) query.uniqueResult();
-        // session关闭
-        CommonUtil.closeSession(session);
-        return member;
-    }
-
-    @Transient
-    public boolean putMember(Member member) {
+    public boolean putFeedback(Feedback feedback) {
         Transaction tx = null;
-        if (member != null) {
+        if (feedback != null) {
             try {
                 // 开启事务
                 tx = session.beginTransaction();
                 // 設置entry
-                session.save(member);
+                session.save(feedback);
                 session.flush();
                 // 提交事务
                 tx.commit();
@@ -72,17 +59,15 @@ public class MemeberDaoImpl implements MemberDao {
     }
 
     @Transient
-    public boolean modifyMember(Member member) {
+    public boolean modifyFeedback(Feedback feedback) {
         Transaction tx = null;
-        if (member != null) {
+        if (feedback != null) {
             try {
                 // 开启事务
                 tx = session.beginTransaction();
-                session.update(member);
+                session.update(feedback);
                 // 提交事务
                 tx.commit();
-                // session关闭
-                CommonUtil.closeSession(session);
             }
             catch (HibernateException e) {
                 if (tx != null) {
