@@ -2,6 +2,7 @@ package com.dinner.gts.action;
 
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,12 +18,13 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class RegisterAction extends ActionSupport {
 
-    private MemberService memberService;
-
     /**
      * VersionUID
      */
     private static final long serialVersionUID = -541681215616390859L;
+
+    /** 会员服务类 */
+    private MemberService memberService;
 
     /**
      * 注册会员
@@ -32,6 +34,7 @@ public class RegisterAction extends ActionSupport {
     public String execute() {
         // error信息初始化
         this.clearErrorsAndMessages();
+        // 注册结果初始化
         String putResult = CommonConst.COMMON_MEMBER_REGIST_NG;
         try {
             // 取得所有输入的数据
@@ -118,6 +121,35 @@ public class RegisterAction extends ActionSupport {
                 codeSession += temp;
             }
             os.close();
+            session.setAttribute("gifcode", codeSession);
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
+     * 检查用户输入的验证码是否正确
+     * 
+     * @return
+     */
+    public String checkGifcode() {
+        HttpServletRequest req = CommonUtil.getHttpServletRequest();
+        HttpSession session = req.getSession();
+        String writeResult = CommonConst.COMMON_CODE_CHECK_NG;
+        // 获取用户输入的验证码
+        String inputCode = req.getParameter("inputCode");
+        // session中保存的验证
+        String sessionCode = session.getAttribute("gifcode").toString();
+        if (inputCode.equalsIgnoreCase(sessionCode)) {
+            writeResult = CommonConst.COMMON_CODE_CHECK_OK;
+        }
+        else {
+            writeResult = CommonConst.COMMON_CODE_CHECK_NG;
+        }
+        try {
+            CommonUtil.getHttpServletResponse().getWriter().write(writeResult);
         }
         catch (IOException e) {
             e.printStackTrace();
@@ -138,8 +170,8 @@ public class RegisterAction extends ActionSupport {
         member.setMemberType(Integer.parseInt(req.getParameter("membertypeid")));
         // 登录帐号
         member.setMemberLoginId(req.getParameter("user"));
-        // 登录密码 (TODO 加密方式保存至DB)
-        member.setMemberLoginPw(req.getParameter("password"));
+        // 登录密码
+        member.setMemberLoginPw(CommonUtil.MD5(req.getParameter("password")));
         // 电子邮件
         member.setMemberMail(req.getParameter("email"));
         // 昵称
@@ -152,5 +184,9 @@ public class RegisterAction extends ActionSupport {
         member.setMemberTel(CommonStringUtil.convertNullToEmpty(req.getParameter("tel")));
         // 手机号码
         member.setMemberPhone(req.getParameter("mov"));
+        // 注册时间
+        member.setRegistTime(new Date());
+        // 更新时间
+        member.setUpdateTime(new Date());
     }
 }

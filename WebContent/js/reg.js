@@ -29,7 +29,6 @@ $(document).ready(function(){
 							$('#user').after('<span id="chkUser" class="errdiv">该登录账号已经被使用，请更换一个</span>');
 						}
 					}
-				
 			 });
 			
 		}
@@ -149,7 +148,7 @@ $(document).ready(function(){
 			$('#company').after('<span id="chkCompany" class="rightdiv">输入正确</span>');
 		}
 
-	}); 
+	});
 
 	//固定电话
 	$('#tel').focus(function(){ 
@@ -195,7 +194,30 @@ $(document).ready(function(){
 				$('#mov').after('<span id="chkMov" class="rightdiv">输入正确</span>');
 			}
 		}
-	}); 
+	});
+	
+	//验证码
+	$("#ImgCode").blur(function(){
+		//获取用户输入的验证码
+		var inputCode = $("#ImgCode").val();
+		if(inputCode.length > 0){
+			//发送ajax请求判断是否输入正确
+			$.ajax({
+				type: "POST",
+				url: "checkgifcode.action",
+				data: "inputCode="+inputCode,
+				success: function(msg){
+					if(msg=="OK"){
+						$("#codepng").remove();
+						$("#codeimg").after('<img id="codepng" src="images/right.png" />');
+					}else{
+						$("#codepng").remove();
+						$("#codeimg").after('<img id="codepng" src="images/error.png" />');
+					}
+				}
+			});
+		}
+	});
 });
 
 
@@ -215,7 +237,7 @@ $(document).ready(function(){
 
 	$.ajax({
 			type: "POST",
-			url: PDV_RP+"post.php",
+			url: "post.php",
 			data: "act=getstep&membertypeid="+membertypeid+"&nowstep="+nowstep,
 			success: function(msg){
 				$("#stepname").html("<ul><li class='"+firstclass+"'>申请登录账号</li>");
@@ -231,7 +253,7 @@ $(document).ready(function(){
 
 		$.ajax({
 				type: "POST",
-				url: PDV_RP+"post.php",
+				url: "post.php",
 				data: "act=getstep&membertypeid="+membertypeid+"&nowstep="+nowstep,
 				success: function(msg){
 					$("#stepname").html("<ul><li class='"+firstclass+"'>申请登录账号</li>");
@@ -260,7 +282,7 @@ $(document).ready(function(){
 		var membertypeid=$("#membertypeid")[0].value;
 		$.ajax({
 				type: "POST",
-				url: PDV_RP+"post.php",
+				url: "post.php",
 				data: "act=xieyi&membertypeid="+membertypeid,
 				success: function(msg){
 					$('#frmWindow').remove();
@@ -283,7 +305,7 @@ $(document).ready(function(){
 	$('#memberReg').submit(function(){ 
 		$('#memberReg').ajaxSubmit({
 			target: 'div#notice',
-			url: PDV_RP+'post.php',
+			url: 'post.php',
 			success: function(msg) {
 				
 				switch(msg){
@@ -363,43 +385,72 @@ $(document).ready(function(){
 $(document).ready(function(){
 	$("#getImgCode").click(function(){
 		$("#codeimg").attr("src","gifcode.action");
+		$("#ImgCode").val("");
+		$("#codepng").remove();
+		$("#ImgCode").focus();
 	});
 	$("#codeimg").click(function(){
 		$("#codeimg").attr("src","gifcode.action");
+		$("#ImgCode").val("");
+		$("#codepng").remove();
+		$("#ImgCode").focus();
 	});
 });
 
-//下一步点击处理
+//注册点击处理
 $(document).ready(function(){
 	$("#tijiao").click(function(){
 		// jquery找到有无输入不正确的选项
 		var errDiv = $(".errdiv");
 		var showinfo = "";
+		var errCode = $('[src="images/error.png"]');
 
 		if(errDiv.length > 0){
 			showinfo = errDiv.html();
-			$.jBox.error("<font color='red'><b>" + showinfo + "</b><font>", "警告",
-				{
-					draggable : false,
-					top : '40%',
-					buttons: {}
-				});
+			showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
+		}else if(errCode.length > 0){
+			showinfo = "验证码不正确!";
+			showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
 		}
 		else{
 			var membertypeid = $("#membertypeid").val();
 			var user = $("#user").val();
 			var password = $("#password").val();
+			var repass = $("#repass").val();
 			var email = $("#email").val();
 			var pname = $("#pname").val();
 			var name = $("#name").val();
 			var company = $("#company").val();
 			var mov = $("#mov").val();
-			// 验证码 TODO
 			
-			// 必须项目全部都填写
-			if(user != "" && password != "" && email != "" 
-				&& pname != "" & name != "" && company != "" && mov != ""){
-				
+			if(user == ""){
+				showinfo = "请输入您的登录帐号！";
+				showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
+			}else if(password == ""){
+				showinfo = "请输入您的密码！";
+				showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
+			}else if(repass == ""){
+				showinfo = "请再次输入您的密码！";
+				showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
+			}else if(email == ""){
+				showinfo = "请输入您的电子邮箱！";
+				showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
+			}else if(pname == ""){
+				showinfo = "请输入您的昵称！";
+				showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
+			}else if(name == ""){
+				showinfo = "请输入您的姓名！";
+				showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
+			}else if(company == ""){
+				showinfo = "请输入您的公司！如果是个人用户,填写您的姓名即可。";
+				showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
+			}else if(company == ""){
+				showinfo = "请输入您的公司！如果是个人用户,填写您的姓名即可。";
+				showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
+			}else if(mov == ""){
+				showinfo = "请输入您的手机号码！";
+				showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
+			}else{
 				// 所有输入部分隐藏
 				$(".row").css("display","none");
 				// 调用registerAction
@@ -423,7 +474,7 @@ $(document).ready(function(){
 						}
 					}
 				});
-			}
+		    }
 		}
 	});
 });

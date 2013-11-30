@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.dinner.gts.model">
+
+    <class name="Feedback" table="MT_FEEDBACK">
+        <id name="feedbackId" column="FEEDBACK_ID">
+            <generator class="assigned" />
+        </id>
+        <property name="feedbackLoginId" column="FEEDBACK_LOGIN_ID"/>
+        <property name="feedbackTopic" column="FEEDBACK_TOPIC"/>
+        <property name="feedbackContent" column="FEEDBACK_CONTENT"/>
+        <property name="feedbackRealName" column="FEEDBACK_REAL_NAME"/>
+        <property name="feedbackSex" column="FEEDBACK_SEX"/>
+        <property name="feedbackPhone" column="FEEDBACK_PHONE"/>
+        <property name="feedbackAdress" column="FEEDBACK_ADRESS"/>
+        <property name="RegistTime" column="REGIST_TIME"/>
+        <property name="updateTime" column="UPDATE_TIME"/>
+        <property name="deleteFlg" column="DELETE_FLG"/>
+    </class>
+
+</hibernate-mapping>

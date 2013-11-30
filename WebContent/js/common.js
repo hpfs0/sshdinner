@@ -195,11 +195,11 @@ $(document).ready(function() {
 $(document).ready(function() {
 
 	$("img#codeimg").click(function () { 
-		$("img#codeimg")[0].src=PDV_RP+"codeimg.php?"+Math.round(Math.random()*1000000);
+		$("img#codeimg")[0].src="gifcode.action?aa="+Math.round(Math.random()*1000000);
 	 });
 
 	$("#getImgCode").click(function () { 
-		$("img#codeimg")[0].src=PDV_RP+"codeimg.php?"+Math.round(Math.random()*1000000);
+		$("img#codeimg")[0].src="gifcode.action?aa="+Math.round(Math.random()*1000000);
 	 });
 });
 
@@ -263,7 +263,7 @@ function selOption(selname,v){
 				}); 
 
 				$("img#fmCodeImg").click(function () { 
-					$("img#fmCodeImg")[0].src=PDV_RP+"codeimg.php?"+Math.round(Math.random()*1000000);
+					$("img#fmCodeImg")[0].src="gifcode.action?aa="+Math.round(Math.random()*1000000);
 				 });
 
 				 $('#LoginForm').submit(function(){ 

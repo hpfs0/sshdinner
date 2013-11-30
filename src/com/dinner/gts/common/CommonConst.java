@@ -17,6 +17,9 @@ public interface CommonConst {
     /** 共通ID种类:订单详细ID */
     public static final int COMMON_ID_ORDER_DETAIL = 4;
 
+    /** 共通ID种类:反馈ID */
+    public static final int COMMON_ID_FEEDBACK = 5;
+
     /**************************** message ***************************/
     /** 会员帐号ID为空 */
     public static final String COMMON_MESSAGE_001 = "会员帐号ID为空";
@@ -41,4 +44,16 @@ public interface CommonConst {
 
     /** NG:会员帐号注册失败 */
     public static final String COMMON_MEMBER_REGIST_NG = "NG";
+
+    /** OK:验证码验证成功 */
+    public static final String COMMON_CODE_CHECK_OK = "OK";
+
+    /** NG:验证码验证失败 */
+    public static final String COMMON_CODE_CHECK_NG = "NG";
+
+    /** OK:投诉反馈成功 */
+    public static final String COMMON_FEEDBACK_OK = "OK";
+
+    /** NG:投诉反馈失败 */
+    public static final String COMMON_FEEDBACK_NG = "NG";
 }

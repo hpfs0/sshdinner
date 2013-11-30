@@ -57,7 +57,6 @@ public class MemberService {
     /**
      * 会员信息修改
      * 
-     * @param dao 会员信息dao
      * @param member 会员信息
      * @return 会员信息修改是否成功
      */

@@ -25,6 +25,7 @@ public class MemeberDaoImpl implements MemberDao {
         query.setCacheable(true);
         @SuppressWarnings("unchecked")
         List<Member> list = query.list();
+        // session关闭
         CommonUtil.closeSession(session);
         return list;
     }
@@ -38,16 +39,18 @@ public class MemeberDaoImpl implements MemberDao {
         // 设置缓存
         query.setCacheable(true);
         Member member = (Member) query.uniqueResult();
+        // session关闭
         CommonUtil.closeSession(session);
         return member;
     }
 
     @Transient
     public boolean putMember(Member member) {
+        Transaction tx = null;
         if (member != null) {
             try {
                 // 开启事务
-                Transaction tx = session.beginTransaction();
+                tx = session.beginTransaction();
                 // 設置entry
                 session.save(member);
                 session.flush();
@@ -55,7 +58,14 @@ public class MemeberDaoImpl implements MemberDao {
                 tx.commit();
             }
             catch (HibernateException e) {
+                if (tx != null) {
+                    tx.rollback();
+                }
                 return false;
+            }
+            finally {
+                // session关闭
+                CommonUtil.closeSession(session);
             }
         }
         return true;
@@ -63,16 +73,26 @@ public class MemeberDaoImpl implements MemberDao {
 
     @Transient
     public boolean modifyMember(Member member) {
+        Transaction tx = null;
         if (member != null) {
             try {
                 // 开启事务
-                Transaction tx = session.beginTransaction();
+                tx = session.beginTransaction();
                 session.update(member);
                 // 提交事务
                 tx.commit();
+                // session关闭
+                CommonUtil.closeSession(session);
             }
             catch (HibernateException e) {
+                if (tx != null) {
+                    tx.rollback();
+                }
                 return false;
+            }
+            finally {
+                // session关闭
+                CommonUtil.closeSession(session);
             }
         }
         return true;
