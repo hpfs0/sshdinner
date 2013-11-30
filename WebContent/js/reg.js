@@ -403,12 +403,12 @@ $(document).ready(function(){
 		// jquery找到有无输入不正确的选项
 		var errDiv = $(".errdiv");
 		var showinfo = "";
-		var errCode = $('[src="image/error.png"]');
+		var errCode = $('[src="images/error.png"]');
 
 		if(errDiv.length > 0){
 			showinfo = errDiv.html();
 			showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
-		}else if(errCode.attr("src") > 0){
+		}else if(errCode.length > 0){
 			showinfo = "验证码不正确!";
 			showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
 		}
