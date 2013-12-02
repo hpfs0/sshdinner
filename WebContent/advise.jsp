@@ -15,12 +15,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link href="css/pagetitlemenu_b2.css" rel="stylesheet" type="text/css" />
 	<link href="css/nav.css" rel="stylesheet" type="text/css" />
 	<link href="css/feedbackform.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/jquery.toastmessage.js"></script>
+    <link href="js/resource/css/jquery.toastmessage.css" rel="stylesheet" type="text/css" />
 	<script language="javascript" src="js/feedback.js"></script>
-	<!--jbox-->
-    <script type="text/javascript" src="js/jBox/jquery-1.4.2.min.js"></script>
-    <link rel="stylesheet" href="js/jBox/Skins/Default/jbox.css" />
-    <script type="text/javascript" src="js/jBox/jquery.jBox-2.3.min.js"></script>
-    <script type="text/javascript" src="js/jBox/i18n/jquery.jBox-zh-CN.js"></script>
 </head>
 
 <body style='background:transparent'>
@@ -176,7 +174,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                         <td width="80" align="right">验 证 码：</td>
                                         <td>
                                             <div style="height:28px;white-space:nowrap;float:left;margin-right:1px">
-                                                <input type="text" name="ImgCode" style="width:39px" class="input" />
+                                                <input type="text" id="ImgCode" style="width:40px" class="input" maxlength="4"/>
                                             </div>
                                             <div style="height:28px;white-space:nowrap;float:left">
                                                 <img id="codeimg" src="gifcode.action" width="60" height="20" style="border:1px #dddddd solid">
@@ -192,7 +190,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                     <tr>
                                         <td width="80" align="right">&nbsp;</td>
                                         <td height="30">
-                                            <input type="submit" name="Submit" value="提交" class="submit">
+                                            <input type="submit" id="Submit" value="提交" class="submit">
                                             <input type='hidden' name='act' value='formsend'>
                                             <input name='groupid' type='hidden' id="groupid" value='16'>
 

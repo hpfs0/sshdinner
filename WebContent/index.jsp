@@ -26,9 +26,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <script type="text/javascript" src="js/jquery.jscrollpane.min.js"></script>
     <script type="text/javascript" src="js/scroll-startstop.events.jquery.js"></script>
     <script type="text/javascript" src="js/srollbar.js"></script>
-    <style type="text/css">
-        .jp-container{height:700px;}
-    </style>
 </head>
 
 <body style='background:transparent'>

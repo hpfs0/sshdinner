@@ -159,3 +159,16 @@
     };
 
 })(jQuery);
+
+function showErrorToast(message) {
+	$().toastmessage('showToast', {
+	            text     : message,
+	            sticky   : false,
+	            position : 'middle-center',
+	            type     : 'error',
+	            closeText: '',
+	            close    : function () {
+	                console.log("toast is closed ...");
+	            }
+	        });
+	    }

@@ -11,6 +11,7 @@ body{margin:0;padding:0;border:0;height:100%;text-align:left}
 /*===插件分离层===*/
 
 .pdv_class{position:absolute;border:0px}
+.jp-container{height:700px;}
 
 
 /* ==常用== */
