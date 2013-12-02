@@ -92,7 +92,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                             <tr>
                                                 <td width="80">µÇÂ¼ÕËºÅ</td>
                                                 <td>
-                                                    <input type="text" id="muser" name="memberLoginId" class="input" maxlength=20 style="width:135px" on>
+                                                    <input type="text" id="muser" name="memberLoginId" class="input" maxlength=20 style="width:135px">
                                                 </td>
                                                 <s:fielderror cssStyle="color:red"><s:param>memberLoginId</s:param></s:fielderror>
                                             </tr>

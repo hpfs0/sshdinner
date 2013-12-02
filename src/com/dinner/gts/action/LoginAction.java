@@ -8,7 +8,6 @@ import org.hibernate.Transaction;
 
 import com.dinner.gts.common.CommonConst;
 import com.dinner.gts.common.CommonUtil;
-import com.dinner.gts.model.Member;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class LoginAction extends ActionSupport {
@@ -71,7 +70,7 @@ public class LoginAction extends ActionSupport {
         Transaction tx = session.beginTransaction();
 
         // 创建VO对象
-        Member member = new Member();
+        // Member member = new Member();
 
         // 关闭事务
         tx.commit();
