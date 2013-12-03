@@ -1,6 +1,74 @@
 //全站反馈表单提交
 $(document).ready(function(){
 
+	//标题
+	$('#title').blur(function(){
+		var inputTitle = $('#title').val();
+		if(inputTitle.length > 0){
+		    if(inputTitle.length > 50 ){
+		    	showinfo = "标题长度不能超过50个汉字";
+		    	showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
+		    }
+		}
+	});
+	
+	//投诉建议
+	$('#content1').blur(function(){
+		var inputContent1 = $('#content1').val();
+		if(inputContent1.length > 0){
+		    if(inputContent1.length > 1000 ){
+		    	showinfo = "投诉内容长度不能超过1000个汉字";
+		    	showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
+		    }
+		}
+	});
+	
+	//姓名
+	$('#name').blur(function(){
+		var inputName = $('#name').val();
+		if(inputName.length > 0){
+		    if(inputName.length < 2 ){
+		    	showinfo = "姓名至少有2个汉字组成";
+		    	showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
+		    }
+		    if(inputName.length > 20){
+		    	showinfo = "姓名长度不能超过20个汉字";
+		    	showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
+		    }
+		}
+	});
+	
+	//登陆帐号
+	$('#loginid').blur(function(){
+		var inputLoginId = $('#loginid').val();
+		var patrn=/^(\w){5,20}$/;
+		if(inputLoginId.length > 0 && !patrn.exec(inputLoginId)){
+			showinfo = "登录账号必须由5-20个英文字母或数字组成";
+	    	showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
+		}
+	});
+	
+	//联系电话
+	$('#tel').blur(function(){
+		var inputTel = $('#tel').val();
+		var patrn=/^[_.0-9a-z-]+-([0-9a-z][0-9a-z-])+[0-9]{4,8}$/;
+		if(inputTel.length > 0 && !patrn.exec(inputTel)){
+			showinfo = "请输入正确的固定电话号码，格式如：010-12345678";
+	    	showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
+		}
+	});
+	
+	//联系地址
+	$('#address').blur(function(){
+		var inputAddress = $('#address').val();
+		if(inputAddress.length > 0){
+		    if(inputAddress.length > 100 ){
+		    	showinfo = "标题长度不能超过100个汉字";
+		    	showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
+		    }
+		}
+	});
+	
 	//验证码
 	$("#ImgCode").blur(function(){
 		//获取用户输入的验证码
