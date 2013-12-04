@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.dinner.gts.model">
+
+    <class name="Message" table="MT_MESSAGE">
+        <id name="messageId" column="MESSAGE_ID">
+            <generator class="assigned" />
+        </id>
+        <property name="messageType" column="MESSAGE_TYPE"/>
+        <property name="messageContent" column="MESSAGE_CONTENT"/>
+        <property name="RegistTime" column="REGIST_TIME"/>
+        <property name="updateTime" column="UPDATE_TIME"/>
+        <property name="deleteFlg" column="DELETE_FLG"/>
+    </class>
+
+</hibernate-mapping>

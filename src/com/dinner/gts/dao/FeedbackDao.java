@@ -9,7 +9,7 @@ public interface FeedbackDao {
     /**
      * 取得反馈表里所有信息
      * 
-     * @return member表里所有记录
+     * @return 反馈表里所有记录
      */
     public List<Feedback> getAllFeedback();
 

@@ -55,11 +55,11 @@ public class LoginAction extends ActionSupport {
 
         // 验证帐号正确性
         if (memberLoginId.length() == 0) {
-            this.addFieldError("memberLoginId", CommonConst.COMMON_MESSAGE_001);
+            this.addFieldError("memberLoginId", CommonConst.COMMON_MESSAGE_0001);
             validResult = false;
         }
         if (memberLoginPw.length() == 0) {
-            this.addFieldError("memberLoginId", CommonConst.COMMON_MESSAGE_002);
+            this.addFieldError("memberLoginId", CommonConst.COMMON_MESSAGE_0002);
             validResult = false;
         }
 
@@ -78,11 +78,11 @@ public class LoginAction extends ActionSupport {
         session.close();
 
         if (!memberLoginId.equals("aaa")) {
-            this.addFieldError("memberLoginId", CommonConst.COMMON_MESSAGE_003);
+            this.addFieldError("memberLoginId", CommonConst.COMMON_MESSAGE_0003);
             validResult = false;
         }
         if (!memberLoginPw.equals("aaa")) {
-            this.addFieldError("memberLoginId", CommonConst.COMMON_MESSAGE_004);
+            this.addFieldError("memberLoginId", CommonConst.COMMON_MESSAGE_0004);
             validResult = false;
         }
 

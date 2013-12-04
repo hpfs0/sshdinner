@@ -18,5 +18,7 @@
 		</action>
 		<action name ="advise" class ="com.dinner.gts.action.FeedbackAction">
 		</action>
+		<action name = "agreement" class = "com.dinner.gts.action.RegisterAction" method="aquareAgreement">
+		</action>
 	</package>
 </struts>

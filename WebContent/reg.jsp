@@ -14,7 +14,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>会员注册-网上快餐店</title>
 	<link href="css/reg.css" rel="stylesheet" type="text/css" />	
-    <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/jquery.toastmessage.js"></script>
     <link href="js/resource/css/jquery.toastmessage.css" rel="stylesheet" type="text/css" />
     <script language="javascript" src="js/reg.js"></script>

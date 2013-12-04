@@ -20,18 +20,30 @@ public interface CommonConst {
     /** 共通ID种类:反馈ID */
     public static final int COMMON_ID_FEEDBACK = 5;
 
+    /** 共通消息类型:提示 */
+    public static final int COMMON_MESSAGE_TYPE_0 = 0;
+
+    /** 共通消息类型:警告 */
+    public static final int COMMON_MESSAGE_TYPE_1 = 1;
+
+    /** 共通消息类型:错误 */
+    public static final int COMMON_MESSAGE_TYPE_2 = 2;
+
     /**************************** message ***************************/
     /** 会员帐号ID为空 */
-    public static final String COMMON_MESSAGE_001 = "会员帐号ID为空";
+    public static final String COMMON_MESSAGE_0001 = "会员帐号ID为空";
 
     /** 会员帐号密码为空 */
-    public static final String COMMON_MESSAGE_002 = "会员帐号密码为空";
+    public static final String COMMON_MESSAGE_0002 = "会员帐号密码为空";
 
     /** 会员帐号ID错误 */
-    public static final String COMMON_MESSAGE_003 = "会员帐号ID错误";
+    public static final String COMMON_MESSAGE_0003 = "会员帐号ID错误";
 
     /** 会员帐号密码错误 */
-    public static final String COMMON_MESSAGE_004 = "会员帐号密码错误";
+    public static final String COMMON_MESSAGE_0004 = "会员帐号密码错误";
+
+    /** 协议 */
+    public static final String COMMON_MESSAGE_9999 = "MS00009999";
 
     /** 1:会员帐号未被注册 */
     public static final String COMMON_USER_VALID = "1";

@@ -48,7 +48,7 @@ div#alert .border{border:1px #97A0AA solid;}
 div#alert .ntc{padding:30px;text-align:left;background:#fff;font: 14px/1.6 Verdana, Arial, Helvetica, sans-serif;}
 div#alert .buttonzone{padding:15px;text-align:center;background:#f7f7f7;}
 div#alert .topBar{height:20px;line-height:20px;background:#cbddef;text-align:left;padding:0px 0px 5px 5px ;font-size:12px;}
-div#alert .topBar .pwClose{position: absolute;top:0px;right:8px;width:45px;height:18px;background:url(../images/pwin3.gif) no-repeat;cursor:pointer}
+div#alert .topBar .pwClose{position: absolute;top:2px;right:8px;width:52px;height:20px;background:url(../images/pwin3.gif) no-repeat;cursor:pointer}
 div#alert .button{border:1px #97A0AA solid;height:22px;line-height:20px;padding:0px 5px;background:#eee}
 
 
@@ -60,4 +60,4 @@ div#alert .button{border:1px #97A0AA solid;height:22px;line-height:20px;padding:
 #frmWindow .Frm{width:100%;height:500px;border:0}
 #frmWindow .windowcontent{width:100%;height:380px;overflow:auto;background:#fff;border:0}
 #frmWindow .topBar{height:20px;line-height:20px;background:#cbddef;text-align:left;padding:0px 0px 5px 5px ;font-size:12px;}
-#frmWindow .topBar .pwClose{position: absolute;top:0px;right:8px;width:45px;height:18px;background:url(../images/pwin3.gif) no-repeat;cursor:pointer}
+#frmWindow .topBar .pwClose{position: absolute;top:2px;right:8px;width:52px;height:20px;background:url(../images/pwin3.gif) no-repeat;cursor:pointer}

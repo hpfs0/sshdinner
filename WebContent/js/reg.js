@@ -221,50 +221,50 @@ $(document).ready(function(){
 });
 
 
-//注册步骤
-$(document).ready(function(){
-	
-	var membertypeid=$("#membertypeid")[0].value;
-	var nowstep=$("#nowstep")[0].value;
-	
-	var firstclass;
-	
-	if(nowstep=="account"){
-		firstclass="stepnow";
-	}else{
-		firstclass="step";
-	}
-
-	$.ajax({
-			type: "POST",
-			url: "post.php",
-			data: "act=getstep&membertypeid="+membertypeid+"&nowstep="+nowstep,
-			success: function(msg){
-				$("#stepname").html("<ul><li class='"+firstclass+"'>申请登录账号</li>");
-				$("#stepname").append(msg);
-				$("#stepname").append("<li class='step'>完成注册</li></ul>");
-				$("#nextstep")[0].value=$("#nextst")[0].value;
-			}
-		
-	 });
-
-	$("#membertypeid").change(function(){
-		var membertypeid=$("#membertypeid")[0].value;
-
-		$.ajax({
-				type: "POST",
-				url: "post.php",
-				data: "act=getstep&membertypeid="+membertypeid+"&nowstep="+nowstep,
-				success: function(msg){
-					$("#stepname").html("<ul><li class='"+firstclass+"'>申请登录账号</li>");
-					$("#stepname").append(msg);
-					$("#stepname").append("<li class='step'>完成注册</li></ul>");
-					$("#nextstep")[0].value=$("#nextst")[0].value;
-				}
-			
-		 });
-	});
-});
+////注册步骤
+//$(document).ready(function(){
+//	
+//	var membertypeid=$("#membertypeid")[0].value;
+//	var nowstep=$("#nowstep")[0].value;
+//	
+//	var firstclass;
+//	
+//	if(nowstep=="account"){
+//		firstclass="stepnow";
+//	}else{
+//		firstclass="step";
+//	}
+//
+//	$.ajax({
+//			type: "POST",
+//			url: "post.php",
+//			data: "act=getstep&membertypeid="+membertypeid+"&nowstep="+nowstep,
+//			success: function(msg){
+//				$("#stepname").html("<ul><li class='"+firstclass+"'>申请登录账号</li>");
+//				$("#stepname").append(msg);
+//				$("#stepname").append("<li class='step'>完成注册</li></ul>");
+//				$("#nextstep")[0].value=$("#nextst")[0].value;
+//			}
+//		
+//	 });
+//
+//	$("#membertypeid").change(function(){
+//		var membertypeid=$("#membertypeid")[0].value;
+//
+//		$.ajax({
+//				type: "POST",
+//				url: "post.php",
+//				data: "act=getstep&membertypeid="+membertypeid+"&nowstep="+nowstep,
+//				success: function(msg){
+//					$("#stepname").html("<ul><li class='"+firstclass+"'>申请登录账号</li>");
+//					$("#stepname").append(msg);
+//					$("#stepname").append("<li class='step'>完成注册</li></ul>");
+//					$("#nextstep")[0].value=$("#nextst")[0].value;
+//				}
+//			
+//		 });
+//	});
+//});
 
 
 //会员注册协议
@@ -282,13 +282,13 @@ $(document).ready(function(){
 		var membertypeid=$("#membertypeid")[0].value;
 		$.ajax({
 				type: "POST",
-				url: "post.php",
-				data: "act=xieyi&membertypeid="+membertypeid,
+				url: "agreement.action",
+				data: "membertypeid="+membertypeid,
 				success: function(msg){
 					$('#frmWindow').remove();
 					$("body").append("<div id='frmWindow'></div>");
 					$('#frmWindow').append('<div class="topBar">会员注册协议<div class="pwClose"></div></div><div class="border"><div class="windowcontent"><div class="ntc">'+msg+'</div></div></div>');
-					$.blockUI({message:$('#frmWindow'),css:{width:'600px',top:'80px'}}); 
+					$.blockUI({message:$('#frmWindow'),fadeIn:700,fadeOut:700,css:{width:'600px',top:($(window).height() - 400) /2 + 'px'}}); 
 					$('.pwClose').click(function() { 
 						$.unblockUI(); 
 					}); 
@@ -299,79 +299,79 @@ $(document).ready(function(){
 });
 
 
-//会员注册表单提交
-$(document).ready(function(){
-	
-	$('#memberReg').submit(function(){ 
-		$('#memberReg').ajaxSubmit({
-			target: 'div#notice',
-			url: 'post.php',
-			success: function(msg) {
-				
-				switch(msg){
-					
-					case "OK":
-						$('div#notice').hide();
-						if($("#nextstep")[0].value=="enter"){
-							window.location='index.php';
-						}else{
-							window.location='reg.php?step='+$("#nextstep")[0].value;
-						}
-
-					break;
-
-					case "CHECK":
-						$('div#notice')[0].className='okdiv';
-						$('div#notice').html("会员注册成功！您注册的会员类型需要审核后才能登录，感谢您的注册");
-						$('div#notice').show();
-						$().setBg();
-					break;
-
-					default :
-						$('div#notice')[0].className='noticediv';
-						$('div#notice').show();
-						$().setBg();
-					break;
-				}
-				
-			}
-		}); 
-       return false; 
-
-   }); 
-});
-
-//会员注册分步提交
-$(document).ready(function(){
-	
-	$('#RegStep').submit(function(){ 
-		
-		$('#RegStep').ajaxSubmit({
-			target: 'div#notice',
-			url: 'post.php',
-			success: function(msg) {
-				if(msg=="OK"){
-					$('div#notice').hide();
-					
-					if($("#nextstep")[0].value=="enter"){
-						window.location='index.php';
-					}else{
-						window.location='reg.php?step='+$("#nextstep")[0].value;
-					}
-					
-				}else{
-					$('div#notice')[0].className='noticediv';
-					$('div#notice').show();
-					$().setBg();
-					
-				}
-			}
-		}); 
-		
-       return false; 
-
-   }); 
-});
+////会员注册表单提交
+//$(document).ready(function(){
+//	
+//	$('#memberReg').submit(function(){ 
+//		$('#memberReg').ajaxSubmit({
+//			target: 'div#notice',
+//			url: 'post.php',
+//			success: function(msg) {
+//				
+//				switch(msg){
+//					
+//					case "OK":
+//						$('div#notice').hide();
+//						if($("#nextstep")[0].value=="enter"){
+//							window.location='index.php';
+//						}else{
+//							window.location='reg.php?step='+$("#nextstep")[0].value;
+//						}
+//
+//					break;
+//
+//					case "CHECK":
+//						$('div#notice')[0].className='okdiv';
+//						$('div#notice').html("会员注册成功！您注册的会员类型需要审核后才能登录，感谢您的注册");
+//						$('div#notice').show();
+//						$().setBg();
+//					break;
+//
+//					default :
+//						$('div#notice')[0].className='noticediv';
+//						$('div#notice').show();
+//						$().setBg();
+//					break;
+//				}
+//				
+//			}
+//		}); 
+//       return false; 
+//
+//   }); 
+//});
+//
+////会员注册分步提交
+//$(document).ready(function(){
+//	
+//	$('#RegStep').submit(function(){ 
+//		
+//		$('#RegStep').ajaxSubmit({
+//			target: 'div#notice',
+//			url: 'post.php',
+//			success: function(msg) {
+//				if(msg=="OK"){
+//					$('div#notice').hide();
+//					
+//					if($("#nextstep")[0].value=="enter"){
+//						window.location='index.php';
+//					}else{
+//						window.location='reg.php?step='+$("#nextstep")[0].value;
+//					}
+//					
+//				}else{
+//					$('div#notice')[0].className='noticediv';
+//					$('div#notice').show();
+//					$().setBg();
+//					
+//				}
+//			}
+//		}); 
+//		
+//       return false; 
+//
+//   }); 
+//});
 
 //头像设置
 $(document).ready(function(){

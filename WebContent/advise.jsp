@@ -15,7 +15,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link href="css/pagetitlemenu_b2.css" rel="stylesheet" type="text/css" />
 	<link href="css/nav.css" rel="stylesheet" type="text/css" />
 	<link href="css/feedbackform.css" rel="stylesheet" type="text/css" />
-	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/jquery.toastmessage.js"></script>
     <link href="js/resource/css/jquery.toastmessage.css" rel="stylesheet" type="text/css" />
 	<script language="javascript" src="js/feedback.js"></script>
