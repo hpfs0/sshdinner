@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="GBK"%>
 <%@ taglib uri="/struts-tags" prefix="s" %>
-<%@ include file='header.jsp' %>
+<%@ include file='../header.jsp' %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";

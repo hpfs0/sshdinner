@@ -224,7 +224,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
                                 <a href="linkman.jsp" target="_self">联系方式</a>|
 
-                                <a href="advise.jsp" target="_self">投诉建议</a>
+                                <a href="admin/advise.jsp" target="_self">投诉建议</a>
                             </div>
                         </div>
                     </div>

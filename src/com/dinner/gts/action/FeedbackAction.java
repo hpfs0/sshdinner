@@ -89,4 +89,8 @@ public class FeedbackAction extends ActionSupport {
         // 更新时间
         feedback.setUpdateTime(new Date());
     }
+
+    public String toAdvise() {
+        return SUCCESS;
+    }
 }
