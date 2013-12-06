@@ -473,7 +473,7 @@ $(document).ready(function(){
 		var errCode = $('[src="images/error.png"]');
 
 		if($errDiv.length > 0){
-			showinfo = $errDiv.html();
+			showinfo = $errDiv.html().replace(/<.*>/,'');
 			showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
 		}else if(errCode.length > 0){
 			showinfo = "验证码不正确!";
