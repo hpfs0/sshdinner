@@ -12,15 +12,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>会员登录-网上快餐店</title>
-	<link href="css/common.css" rel="stylesheet" type="text/css" />
-	<link href="css/A.css" rel="stylesheet" type="text/css" />
-	<link href="css/topmenu_bk.css" rel="stylesheet" type="text/css" />
 	<link href="../member/templates/css/memberlogin_c.css" rel="stylesheet" type="text/css" />
-	<script type="text/javascript" src="js/base.js"></script>
-	<script type="text/javascript" src="js/common.js"></script>
-	<script type="text/javascript" src="js/form.js"></script>
-	<script type="text/javascript" src="js/blockui.js"></script>
-	<script type="text/javascript" src="js/channelmenu_dc.js"></script>
+	<script type="text/javascript" src="js/jquery-1.7.2.js"></script>
+    <script type="text/javascript" src="js/jquery.toastmessage.js"></script>
+    <link rel="stylesheet" href="poshytip-1.2/src/tip-yellow/tip-yellow.css" type="text/css" />
+    <script type="text/javascript" src="poshytip-1.2/src/jquery.poshytip.js"></script>
+    <script language="javascript" src="js/login.js"></script>
 	<style type="text/css">
     .formFieldError {
         font-family: verdana, arial, helvetica, sans-serif;
@@ -111,7 +108,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                                                 <input type="text" id="ImgCode" name="ImgCode" style="width:59px" class="input" />
                                                             </td>
                                                             <td>
-                                                                <img id="codeimg" src="../codeimg.php" width="70" height="20" style="border:1px #dddddd solid;cursor:pointer">
+                                                                <img id="codeimg" src="gifcode.action" width="70" height="20" style="border:1px #dddddd solid;cursor:pointer">
                                                             </td>
                                                         </tr>
                                                     </table>

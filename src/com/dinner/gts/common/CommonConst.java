@@ -68,4 +68,11 @@ public interface CommonConst {
 
     /** NG:投诉反馈失败 */
     public static final String COMMON_FEEDBACK_NG = "NG";
+    
+    /** OK:会员登陆成功*/
+    public static final String COMMON_MEMBERLOGIN_OK = "OK";
+
+    /** NG:会员登陆失败 */
+    public static final String COMMON_MEMBERLOGIN_NG = "NG";
+    
 }

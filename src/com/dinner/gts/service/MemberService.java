@@ -68,4 +68,19 @@ public class MemberService {
             return false;
         }
     }
+    
+    /**
+     * 登陆时会员信息验证
+     * 
+     * @param member 会员信息
+     * @return 会员信息修改是否能够成功登陆系统
+     */
+    public String checkServiceMember(String memberLoginId) {
+        if (null != dao && null != memberLoginId) {
+            return dao.checkMember(memberLoginId);
+        }
+        else {
+            return null;
+        }
+    }
 }
