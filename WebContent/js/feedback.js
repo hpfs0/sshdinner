@@ -2,70 +2,173 @@
 $(document).ready(function(){
 
 	//标题
-	$('#title').blur(function(){
-		var inputTitle = $('#title').val();
-		if(inputTitle.length > 0){
+	var $title = $('#title');
+	$title.poshytip({
+		className: 'tip-yellow',
+		showOn: 'focus',
+		alignTo: 'target',
+		alignX: 'right',
+		alignY: 'center',
+		offsetX: 10,
+		showTimeout: 200,
+		content: '<span class="msgdiv">请输入投诉或建议的标题</span>'
+	});
+	
+	$title.blur(function(){
+		var inputTitle = $title.val();
+		if(inputTitle.length){
 		    if(inputTitle.length > 50 ){
-		    	showinfo = "标题长度不能超过50个汉字";
-		    	showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
+		    	$title.poshytip('update','<span class="errdiv"><image src="images/error.png" width="17px" style="padding-right:5px" />标题长度不能超过50个汉字</span>',true);
+		    }else{
+		    	$title.poshytip('update','<span class="rightdiv"><image src="images/right.png" width="17px" style="padding-right:5px" />输入正确</span>',true);
 		    }
+		}else{
+			$title.poshytip('hide');
 		}
 	});
 	
 	//投诉建议
-	$('#content1').blur(function(){
-		var inputContent1 = $('#content1').val();
-		if(inputContent1.length > 0){
+	var $content1 = $('#content1');
+	$content1.poshytip({
+		className: 'tip-yellow',
+		showOn: 'focus',
+		alignTo: 'target',
+		alignX: 'right',
+		alignY: 'center',
+		offsetX: 10,
+		showTimeout: 200,
+		content: '<span class="msgdiv">请输入投诉或建议的内容</span>'
+	});
+	
+	$content1.blur(function(){
+		var inputContent1 = $content1.val();
+		if(inputContent1.length){
 		    if(inputContent1.length > 1000 ){
-		    	showinfo = "投诉内容长度不能超过1000个汉字";
-		    	showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
+		    	$content1.poshytip('update','<span class="errdiv"><image src="images/error.png" width="17px" style="padding-right:5px" />投诉内容长度不能超过1000个汉字</span>',true);
+		    }else{
+		    	$content1.poshytip('update','<span class="rightdiv"><image src="images/right.png" width="17px" style="padding-right:5px" />输入正确</span>',true);
 		    }
+		}else{
+			$content1.poshytip('hide');
 		}
 	});
 	
 	//姓名
-	$('#name').blur(function(){
-		var inputName = $('#name').val();
-		if(inputName.length > 0){
+	var $name = $('#name');
+	$name.poshytip({
+		className: 'tip-yellow',
+		showOn: 'focus',
+		alignTo: 'target',
+		alignX: 'right',
+		alignY: 'center',
+		offsetX: 10,
+		showTimeout: 200,
+		content: '<span class="msgdiv">请输入您的姓名</span>'
+	});
+	
+	$name.blur(function(){
+		var inputName = $name.val();
+		if(inputName.length){
 		    if(inputName.length < 2 ){
-		    	showinfo = "姓名至少有2个汉字组成";
-		    	showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
+		    	$name.poshytip('update','<span class="errdiv"><image src="images/error.png" width="17px" style="padding-right:5px" />姓名至少有2个汉字组成</span>',true);
+		    }else if(inputName.length <= 20){
+		    	$name.poshytip('update','<span class="rightdiv"><image src="images/right.png" width="17px" style="padding-right:5px" />输入正确</span>',true);
+		    }else{
+		    	$name.poshytip('update','<span class="errdiv"><image src="images/error.png" width="17px" style="padding-right:5px" />姓名长度不能超过20个汉字</span>',true);
 		    }
-		    if(inputName.length > 20){
-		    	showinfo = "姓名长度不能超过20个汉字";
-		    	showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
-		    }
+		}else{
+			$name.poshytip('hide');
 		}
 	});
 	
 	//登陆帐号
-	$('#loginid').blur(function(){
-		var inputLoginId = $('#loginid').val();
+	var $loginid = $('#loginid');
+	$loginid.poshytip({
+		className: 'tip-yellow',
+		showOn: 'focus',
+		alignTo: 'target',
+		alignX: 'right',
+		alignY: 'center',
+		offsetX: 10,
+		showTimeout: 200,
+		content: '<span class="msgdiv">登录账号由5-20个英文字母或数字组成</span>'
+	});
+	
+	$loginid.blur(function(){ 
+		var p=$loginid[0].value;
 		var patrn=/^(\w){5,20}$/;
-		if(inputLoginId.length > 0 && !patrn.exec(inputLoginId)){
-			showinfo = "登录账号必须由5-20个英文字母或数字组成";
-	    	showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
+		if(p.length){
+		    if(!patrn.exec(p)){
+		    	$loginid.poshytip('update','<span class="errdiv"><image src="images/error.png" width="17px" style="padding-right:5px" />登录账号必须由5-20个英文字母或数字组成</span>',true);
+		    }else{
+			    $.ajax({
+					    type: "POST",
+					    url: "checkuser.action",
+					    data: "username="+p,
+					    success: function(msg){
+						    if(msg!="1"){
+						    	$loginid.poshytip('update','<span class="rightdiv"><image src="images/right.png" width="17px" style="padding-right:5px" />该登录账号可以使用</span>',true);
+						    }else{
+						    	$loginid.poshytip('update','<span class="errdiv"><image src="images/error.png" width="17px" style="padding-right:5px" />该登录账号已经被使用，请更换一个</span>',true);
+							}
+						}
+			    });
+			}
+		}else{
+			$loginid.poshytip('hide');
 		}
 	});
 	
 	//联系电话
-	$('#tel').blur(function(){
-		var inputTel = $('#tel').val();
-		var patrn=/^[_.0-9a-z-]+-([0-9a-z][0-9a-z-])+[0-9]{4,8}$/;
-		if(inputTel.length > 0 && !patrn.exec(inputTel)){
-			showinfo = "请输入正确的固定电话号码，格式如：010-12345678";
-	    	showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
-		}
+	var $tel = $('#tel');
+	$tel.poshytip({
+		className: 'tip-yellow',
+		showOn: 'focus',
+		alignTo: 'target',
+		alignX: 'right',
+		alignY: 'center',
+		offsetX: 10,
+		showTimeout: 200,
+		content: '<span class="msgdiv">请输入固定电话号码，格式如：010-12345678</span>'
 	});
+
+	$tel.blur(function(){
+		var p=$("#tel")[0].value;
+		var patrn=/^[_.0-9a-z-]+-([0-9a-z][0-9a-z-])+[0-9]{4,8}$/;
+		if(p.length){
+			if(!patrn.exec(p)){
+				$tel.poshytip('update','<span class="errdiv"><image src="images/error.png" width="17px" style="padding-right:5px" />请输入正确的固定电话号码，格式如：010-12345678</span>',true);
+			}else{
+				$tel.poshytip('update','<span class="rightdiv"><image src="images/right.png" width="17px" style="padding-right:5px" />输入正确</span>',true);
+			}
+		}else{
+			$tel.poshytip('hide');
+		}
+	}); 
 	
 	//联系地址
-	$('#address').blur(function(){
-		var inputAddress = $('#address').val();
-		if(inputAddress.length > 0){
+	var $address = $('#address');
+	$address.poshytip({
+		className: 'tip-yellow',
+		showOn: 'focus',
+		alignTo: 'target',
+		alignX: 'right',
+		alignY: 'center',
+		offsetX: 10,
+		showTimeout: 200,
+		content: '<span class="msgdiv">请输入您的联系地址</span>'
+	});
+	
+	$address.blur(function(){
+		var inputAddress = $address.val();
+		if(inputAddress.length){
 		    if(inputAddress.length > 100 ){
-		    	showinfo = "标题长度不能超过100个汉字";
-		    	showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
+		    	$address.poshytip('update','<span class="errdiv"><image src="images/error.png" width="17px" style="padding-right:5px" />联系地址长度不能超过100个汉字</span>',true);
+		    }else{
+		    	$address.poshytip('update','<span class="rightdiv"><image src="images/right.png" width="17px" style="padding-right:5px" />输入正确</span>',true);
 		    }
+		}else{
+			$address.poshytip('hide');
 		}
 	});
 	
@@ -73,7 +176,7 @@ $(document).ready(function(){
 	$("#ImgCode").blur(function(){
 		//获取用户输入的验证码
 		var inputCode = $("#ImgCode").val();
-		if(inputCode.length > 0){
+		if(inputCode.length){
 			//发送ajax请求判断是否输入正确
 			$.ajax({
 				type: "POST",
@@ -89,6 +192,8 @@ $(document).ready(function(){
 					}
 				}
 			});
+		}else{
+			$('#codepng').remove();
 		}
 	});
 	

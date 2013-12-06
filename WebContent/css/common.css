@@ -34,9 +34,9 @@ select{font:12px Verdana, Arial, Helvetica, sans-serif;color:#505050;}
 
 /* ==提示样式== */
 
-.msgdiv {color:#336699;padding-left:53px;background:url(../images/chk_msg.gif) 30px no-repeat;}
-.errdiv {color:#FF0000;padding-left:53px;background:url(../images/chk_error.gif) 30px no-repeat;}
-.rightdiv {color:#505050;padding-left:53px;background:url(../images/chk_right.gif) 30px no-repeat;}
+.msgdiv {color:#336699;padding-left:0px;}
+.errdiv {color:#FF0000;padding-left:0px;}
+.rightdiv {color:#505050;padding-left:0px;}
 .noticediv{display:none;border:1px #fc5959 solid;background:#FFFDF4 url(../images/chk_error.gif) 10px no-repeat;padding-left:33px;line-height:25px;margin:3px 0px}
 .okdiv{display:none;border:1px #fc5959 solid;background:#FFFDF4 url(../images/chk_right.gif) 10px no-repeat;padding-left:33px;line-height:25px;margin:3px 0px}
 .securenotice{line-height:100px;color:#FF0000;text-align:center;}

@@ -15,8 +15,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link href="css/pagetitlemenu_b2.css" rel="stylesheet" type="text/css" />
 	<link href="css/nav.css" rel="stylesheet" type="text/css" />
 	<link href="css/feedbackform.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="js/jquery-1.7.2.js"></script>
 	<script type="text/javascript" src="js/jquery.toastmessage.js"></script>
     <link href="js/resource/css/jquery.toastmessage.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="poshytip-1.2/src/tip-yellow/tip-yellow.css" type="text/css" />
+    <script type="text/javascript" src="poshytip-1.2/src/jquery.poshytip.js"></script>
 	<script language="javascript" src="js/feedback.js"></script>
 </head>
 
@@ -102,69 +105,76 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                 <table width="100%" border="0" cellspacing="0" cellpadding="3">
 
                                     <tr>
-                                        <td width="80" align="right">标　　题：</td>
+                                        <td width="80" align="right">标　　题：
+                                        	<font style='color:red'>*</font> 
+                                        </td>
                                         <td>
                                             <input id="title" type="text" name="title" class="input" style="width:399px" />
-                                            <font style='color:red'>*</font> 
                                             <div style="padding-top:3px;color:#666"></div>
                                         </td>
                                     </tr>
 
                                     <tr>
-                                        <td width="80" align="right">投诉建议：</td>
+                                        <td width="80" align="right">投诉建议：
+                                        	<font style='color:red'>*</font> 
+                                        </td>
                                         <td>
                                             <textarea id="content1" name="content" rows="10" class="textarea" style="width:399px"></textarea>
-                                            <font style='color:red'>*</font> 
                                             <div style="padding-top:3px;color:#666"></div>
                                         </td>
                                     </tr>
 
 
                                     <tr>
-                                        <td width="80" align="right">您的姓名：</td>
+                                        <td width="80" align="right">您的姓名：
+                                        	<font style='color:red'>*</font> 
+                                        </td>
                                         <td>
                                             <input id="name" type="text" name="name" class="input" style="width:399px" />
-                                            <font style='color:red'>*</font> 
                                             <div style="padding-top:3px;color:#666"></div>
                                         </td>
                                     </tr>
 
                                     <tr>
-                                        <td width="80" align="right">性　　别：</td>
+                                        <td width="80" align="right">性　　别：
+                                        	<font style='color:red'>*</font> 
+                                        </td>
                                         <td>
                                             <select id="sex" name="sex">
                                                 <option value="0">先生</option>
                                                 <option value="1">女士</option>
                                             </select>
-                                            <font style='color:red'>*</font> 
                                             <div style="padding-top:3px;color:#666"></div>
                                         </td>
                                     </tr>
 
 
                                     <tr>
-                                        <td width="80" align="right">登陆帐号：</td>
+                                        <td width="80" align="right">登陆帐号：
+                                        	<font style='color:red'>*</font> 
+                                        </td>
                                         <td>
                                             <input id="loginid" type="text" name="loginid" class="input" style="width:399px" />
-                                            <font style='color:red'>*</font> 
                                             <div style="padding-top:3px;color:#666"></div>
                                         </td>
                                     </tr>
 
                                     <tr>
-                                        <td width="80" align="right">联系电话：</td>
+                                        <td width="80" align="right">联系电话：
+                                        	<font style='color:red'>*</font> 
+                                        </td>
                                         <td>
                                             <input id="tel" type="text" name="tel" class="input" style="width:399px" />
-                                            <font style='color:red'>*</font> 
                                             <div style="padding-top:3px;color:#666"></div>
                                         </td>
                                     </tr>
 
                                     <tr>
-                                        <td width="80" align="right">联系地址：</td>
+                                        <td width="80" align="right">联系地址：
+                                        	<font style='color:red'>*</font> 
+                                        </td>
                                         <td>
                                             <input id="address" type="text" name="address" class="input" style="width:399px" />
-                                            <font style='color:red'>*</font> 
                                             <div style="padding-top:3px;color:#666"></div>
                                         </td>
                                     </tr>
@@ -192,13 +202,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                             <input type="submit" id="Submit" value="提交" class="submit">
                                             <input type='hidden' name='act' value='formsend'>
                                             <input name='groupid' type='hidden' id="groupid" value='16'>
-
                                         </td>
                                     </tr>
                                 </table>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
