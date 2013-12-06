@@ -109,7 +109,7 @@ $(document).ready(function(){
 						    if(msg!="1"){
 						    	$loginid.poshytip('update','<span class="rightdiv"><image src="images/right.png" width="17px" style="padding-right:5px" />该登录账号可以使用</span>',true);
 						    }else{
-						    	$loginid.poshytip('update','<span class="errdiv"><image src="images/error.png" width="17px" style="padding-right:5px" />该登录账号已经被使用，请更换一个</span>',true);
+						    	$loginid.poshytip('update','<span class="errdiv"><image src="images/error.png" width="17px" style="padding-right:5px" />该登录账号未被注册，请填写正确的帐号</span>',true);
 							}
 						}
 			    });

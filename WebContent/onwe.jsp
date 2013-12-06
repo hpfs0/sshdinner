@@ -11,7 +11,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>订餐指南-网上快餐店</title>
+    <title>关于我-网上快餐店</title>
 	<link href="css/pagetitlemenu_b2.css" rel="stylesheet" type="text/css" />
 	<link href="css/pagecontent.css" rel="stylesheet" type="text/css" />
 	<link href="css/nav.css" rel="stylesheet" type="text/css" />
@@ -111,9 +111,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             
                             <div id='pagecontent' class='page_content'>
                                 &nbsp;&nbsp;&nbsp; 网上快餐店，主要经营的品种有快餐盒饭、营养套餐、中式小炒、饮料。摒弃了传统的店门经营，以Internet网为纽带，采取送餐上门的经营方式，直接把可口的快餐送到您手中。今天，只要您登陆了网上快餐店，您就可以享受真正的足不出户的网上快餐食品。我们拥有多名经验丰富的专业厨师和现代化的厨房设备，同时还聘请了资深营养学专家为我们的高级技术顾问，长期对我们进行营养技术方面的指导。我们的营养学专家根据现代人身体状况、工作强度，为您量身定做营养方案；我们的厨师，为您烹制出色香、味美的时尚佳肴；规范化的卫生制度，保证你就餐卫生安全；集团化的采购，充分降低成本，让你能吃到好而不贵的快餐食品。快来体会一下网上订餐的轻松感觉，请您浏览我们网站，选择您需要的美食，并联系我们。片刻后，您就可以享受我们为您提供的美味佳肴。不需犹豫，尽快通过拨打订餐热线、网上自选下单或订餐QQ跟我们联系吧，只需一个电话、一条订单或一条消息，丰盛的快餐会在最短的时间内送到你的身边。我们的口号就是：营养、卫生、美味、快捷、方便。
-                                <br
-                                />
-                                <br />
+                                <br/>
+                                <br/>
                             </div>
                             <script>
                                 $(document).ready(function () {
