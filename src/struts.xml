@@ -20,8 +20,5 @@
 		</action>
 		<action name = "agreement" class = "com.dinner.gts.action.RegisterAction" method="aquareAgreement">
 		</action>
-		<action name ="gotoadvise" class ="com.dinner.gts.action.FeedbackAction" method="toAdvise">
-			<result name="success">/admin/advise.jsp</result >
-		</action>
 	</package>
 </struts>

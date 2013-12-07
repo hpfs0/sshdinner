@@ -33,7 +33,7 @@
                             <a href="login.jsp" target="_self">会员登录</a>|
                             <a href="reg.jsp" target="_self">会员注册</a>|
                             <a href="linkman.jsp" target="_self">联系方式</a>|
-                            <a href="gotoadvise" target="_self">投诉建议</a>|
+                            <a href="admin/advise.jsp" target="_self">投诉建议</a>|
                             <a href="carryshow.jsp" target="_self">配送说明</a>|
                             <a href="onwe.jsp" target="_self">关于我们</a>|
                         </div>

@@ -33,7 +33,7 @@ public class SecurityFilter implements Filter {
         // 判断如果没有取到用户信息,就跳转到登陆页面
         if (username == null || "".equals(username)) {
             // 跳转到登陆页面
-            res.sendRedirect("login.jsp");
+            res.sendRedirect("../login.jsp");
         }
         else {
             // 已经登陆,继续此次请求

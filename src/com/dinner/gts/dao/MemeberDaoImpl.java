@@ -98,4 +98,9 @@ public class MemeberDaoImpl implements MemberDao {
         return true;
     }
 
+	@Override
+	public String checkMember(String memberLoginId) {
+		return null;
+	}
+
 }
