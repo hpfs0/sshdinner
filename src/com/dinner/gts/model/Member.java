@@ -64,6 +64,9 @@ public class Member implements Serializable {
     /** 活动区分 */
     private int deleteFlg;
 
+	/** 登陆状态 */
+    private int loginStatus;
+
     public String getMemberId() {
         return memberId;
     }
@@ -207,5 +210,13 @@ public class Member implements Serializable {
     public void setDeleteFlg(int deleteFlg) {
         this.deleteFlg = deleteFlg;
     }
+    
+    public int getLoginStatus() {
+		return loginStatus;
+	}
+
+	public void setLoginStatus(int loginStatus) {
+		this.loginStatus = loginStatus;
+	}
 
 }

@@ -20,5 +20,7 @@
 		</action>
 		<action name = "agreement" class = "com.dinner.gts.action.RegisterAction" method="aquareAgreement">
 		</action>
+		<action name = "logout" class = "com.dinner.gts.action.LoginAction" method="sessionRemove">
+		</action>
 	</package>
 </struts>

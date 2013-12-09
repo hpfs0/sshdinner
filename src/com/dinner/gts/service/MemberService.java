@@ -83,4 +83,16 @@ public class MemberService {
             return null;
         }
     }
+    
+    /**
+     * 登陆时更新会员信息
+     * 
+     * @param member 会员信息
+     * @return 标记该用户已经登陆系统
+     */
+    public void updateServiceMember(String memberLoginId) {
+        if (null != dao && null != memberLoginId) {
+        	dao.updateMember(memberLoginId);
+        }
+    }
 }

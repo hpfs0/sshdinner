@@ -117,26 +117,48 @@ $(document).ready(function(){
 $(document).ready(function(){
 	
 	$('#memberLogin').submit(function(){ 
+		// jquery找到有无输入不正确的选项
+		var $errDiv = $(".errdiv");
+		var showinfo = "";
+		var errCode = $('[src="images/error.png"]');
 
-		$('#memberLogin').ajaxSubmit({
-			target: 'div#notice',
-			url: PDV_RP+'post.php',
-			success: function(msg) {
-				if(msg=="OK"){
-					$('div#notice').hide();
-					window.location=PDV_RP+'member/index.php';
-				}else if(msg.substr(0,2)=="OK" && msg.substr(2,7)=="<script"){
-					$('div#notice')[0].className="okdiv";
-					$('div#notice').html(msg.substr(2)+"登录成功，稍候跳转到会员中心").show();
-					$().setBg();
-					setTimeout("window.location=PDV_RP+'member/index.php';",2000);
-				}else{
-					$('div#notice').show();
-					$().setBg();
-				}
+		if($errDiv.length > 0){
+			showinfo = $errDiv.html().replace(/<.*>/,'');
+			showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
+		}else if(errCode.length > 0){
+			showinfo = "验证码不正确!";
+			showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
+		}
+		else{
+			var memberLoginId = $("#memberLoginId").val();
+			var memberLoginPw = $("#memberLoginPw").val();
+			if(memberLoginId == ""){
+				showinfo = "请输入您的登录帐号！";
+				showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
+			}else if(memberLoginPw == ""){
+				showinfo = "请输入您的密码！";
+				showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
+			}else{
+				$('#memberLogin').ajaxSubmit({
+					target: 'div#notice',
+					url: 'index.jsp',
+					success: function(msg) {
+						if(msg=="OK"){
+							$('div#notice').hide();
+//							window.location='index.jsp';
+						}else if(msg.substr(0,2)=="OK" && msg.substr(2,7)=="<script"){
+							$('div#notice')[0].className="okdiv";
+							$('div#notice').html(msg.substr(2)+"您已登录成功，稍候跳转到会员中心").show();
+							$().setBg();
+//							setTimeout("window.location='index.jsp';",2000);
+						}else{
+							$('div#notice').show();
+							$().setBg();
+						}
+					}
+				}); 
 			}
-		}); 
-       
+		}
 		return false; 
 
    }); 

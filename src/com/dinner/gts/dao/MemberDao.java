@@ -44,4 +44,12 @@ public interface MemberDao {
      * @return update操作成功与否
      */
     public String checkMember(String memberLoginId);
+
+    /**
+     * 会员信息更新
+     * 
+     * @param member 会员信息
+     * @return 更新会员登陆标识
+     */
+	public void updateMember(String memberLoginId);
 }

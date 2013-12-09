@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="GBK"%>
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <%@ include file='header.jsp' %>
 <%
@@ -11,7 +11,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>»áÔ±µÇÂ¼-ÍøÉÏ¿ì²Íµê</title>
+    <title>ä¼šå‘˜ç™»å½•-ç½‘ä¸Šå¿«é¤åº—</title>
 	<link href="../member/templates/css/memberlogin_c.css" rel="stylesheet" type="text/css" />
 	<script type="text/javascript" src="js/jquery-1.7.2.js"></script>
     <script type="text/javascript" src="js/jquery.toastmessage.js"></script>
@@ -44,21 +44,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
     <div id='contain' style='width:900px;background:rgb(255,255,255);margin:0px auto;padding:0px'>
         <div id='content' style='width:900px;height:357px;background:none transparent scroll repeat 0% 0%;margin:10px auto'>
-            <!-- µ±Ç°Î»ÖÃÌáÊ¾Ìõ -->
-            <div id='pdv_392' class='pdv_class' title='µ±Ç°Î»ÖÃ' style='width:700px;height:30px;top:0px;left:203px; z-index:2'>
+            <!-- å½“å‰ä½ç½®æç¤ºæ¡ -->
+            <div id='pdv_392' class='pdv_class' title='å½“å‰ä½ç½®' style='width:700px;height:30px;top:0px;left:203px; z-index:2'>
                 <div id='spdv_392' class='pdv_content' style='overflow:hidden;width:100%;height:100%'>
                     <div class="pdv_border" style="margin:0;padding:0;height:100%;border:0px #4682b4 solid;background:#fff;">
                         <div style="height:25px;margin:1px;display:none;background:#4682b4;">
                             <div style="float:left;margin-left:12px;line-height:25px;font-weight:bold;color:#fff">
-                            µ±Ç°Î»ÖÃ
+                            å½“å‰ä½ç½®
                             </div>
                             <div style="float:right;margin-right:10px;display:none">
-                                <a href="-1" style="line-height:25px;color:#fff">¸ü¶à</a>
+                                <a href="-1" style="line-height:25px;color:#fff">æ›´å¤š</a>
                             </div>
                         </div>
                         <div style="padding:5px">
                             <div id="nav">
-                            ÄúÏÖÔÚµÄÎ»ÖÃ£º<a href="../">ÍøÉÏ¿ì²Íµê</a> &gt; <a href="../member/">»áÔ±ÖĞĞÄ</a> &gt; »áÔ±µÇÂ¼
+                            æ‚¨ç°åœ¨çš„ä½ç½®ï¼š<a href="../">ç½‘ä¸Šå¿«é¤åº—</a> &gt; <a href="../member/">ä¼šå‘˜ä¸­å¿ƒ</a> &gt; ä¼šå‘˜ç™»å½•
                             </div>
                         </div>
                     </div>
@@ -66,17 +66,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 </div>
             </div>
 
-            <!-- »áÔ±µÇÂ¼±íµ¥(´ó) -->
+            <!-- ä¼šå‘˜ç™»å½•è¡¨å•(å¤§) -->
 
-            <div id='pdv_391' class='pdv_class' title='»áÔ±µÇÂ¼' style='width:681px;height:300px;top:55px;left:145px; z-index:3'>
+            <div id='pdv_391' class='pdv_class' title='ä¼šå‘˜ç™»å½•' style='width:681px;height:300px;top:55px;left:145px; z-index:3'>
                 <div id='spdv_391' class='pdv_content' style='overflow:hidden;width:100%;height:100%'>
                     <div class="pdv_border" style="margin:0;padding:0;height:100%;border:0px  solid;background:#fff;">
                         <div style="height:25px;margin:1px;display:none;background:;">
                             <div style="float:left;margin-left:12px;line-height:25px;font-weight:bold;color:">
-                            »áÔ±µÇÂ¼
+                            ä¼šå‘˜ç™»å½•
                             </div>
                             <div style="float:right;margin-right:10px;display:none">
-                                <a href="-1" style="line-height:25px;color:">¸ü¶à</a>
+                                <a href="-1" style="line-height:25px;color:">æ›´å¤š</a>
                             </div>
                         </div>
                         <div style="padding:0px">
@@ -87,20 +87,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                         <div id="notice" class="noticediv"></div>
                                         <table width="100%" border="0" cellspacing="0" cellpadding="3">
                                             <tr>
-                                                <td width="80">µÇÂ¼ÕËºÅ</td>
+                                                <td width="80">ç™»å½•è´¦å·</td>
                                                 <td>
                                                     <input type="text" id="muser" name="memberLoginId" class="input" maxlength=20 style="width:135px">
                                                 </td>
                                                 <s:fielderror cssStyle="color:red"><s:param>memberLoginId</s:param></s:fielderror>
                                             </tr>
                                             <tr>
-                                                <td width="80">µÇÂ¼ÃÜÂë</td>
+                                                <td width="80">ç™»å½•å¯†ç </td>
                                                 <td>
                                                     <input type="password" id="mpass" name="memberLoginPw" class="input" style="width:135px" maxlength="20">
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td width="80">Ñé Ö¤ Âë</td>
+                                                <td width="80">éªŒ è¯ ç </td>
                                                 <td>
                                                     <table border="0" cellspacing="0" cellpadding="0">
                                                         <tr>
@@ -133,16 +133,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                 <div style="width:290px;padding:20px;float:right;text-align:left;border:1px #f59d5e solid;background-color:#ffffff;">
                                     <ul style="margin:0px;padding:0px">
                                         <li style=" list-style-type: none;line-height:30px; background:url(images/cateitems.gif) left no-repeat;padding-left:20px">
-                                        Èç¹ûÄúÒÑ¾­ÊÇ»áÔ±£¬ÇëÔÚ×ó²àµÇÂ¼
+                                        å¦‚æœæ‚¨å·²ç»æ˜¯ä¼šå‘˜ï¼Œè¯·åœ¨å·¦ä¾§ç™»å½•
                                         </li>
                                         <li style="list-style-type: none;line-height:30px; background:url(images/cateitems.gif) left no-repeat;padding-left:20px">
-                                        Èç¹ûÄú»¹Ã»ÓĞ×¢²á»áÔ±£¬<a href="reg.jsp"><font color="#FF6600">µãÕâÀï×¢²áĞÂ»áÔ±</font></a>
+                                        å¦‚æœæ‚¨è¿˜æ²¡æœ‰æ³¨å†Œä¼šå‘˜ï¼Œ<a href="reg.jsp"><font color="#FF6600">ç‚¹è¿™é‡Œæ³¨å†Œæ–°ä¼šå‘˜</font></a>
                                         </li>
                                         <li style="list-style-type: none;line-height:30px; background:url(images/cateitems.gif) left no-repeat;padding-left:20px">
-                                        Èç¹ûÄúÍü¼ÇÁËÃÜÂë£¬ <a href="../member/lostpass.php"><font color="#99CC00">µãÕâÀïÖØÉèÒ»¸öÃÜÂë</font></a>
+                                        å¦‚æœæ‚¨å¿˜è®°äº†å¯†ç ï¼Œ <a href="../member/lostpass.php"><font color="#99CC00">ç‚¹è¿™é‡Œé‡è®¾ä¸€ä¸ªå¯†ç </font></a>
                                         </li>
                                         <li style="list-style-type: none;line-height:30px; background:url(images/cateitems.gif) left no-repeat;padding-left:20px">
-                                        ±¾Õ¾Ê¹ÓÃCOOKIE£¬Çë´ò¿ªä¯ÀÀÆ÷µÄCOOKIE¹¦ÄÜ
+                                        æœ¬ç«™ä½¿ç”¨COOKIEï¼Œè¯·æ‰“å¼€æµè§ˆå™¨çš„COOKIEåŠŸèƒ½
                                         </li>
                                     </ul>
                                 </div>
@@ -154,7 +154,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>
         <div id='bottom' style='width:900px;height:175px;background:none transparent scroll repeat 0% 0%'>
 
-            <!-- µ×²¿²Ëµ¥£¨Ò»¼¶£© -->
+            <!-- åº•éƒ¨èœå•ï¼ˆä¸€çº§ï¼‰ -->
             <div id='pdv_3488' class='pdv_class' style='width:900px;height:35px;top:2px;left:2px; z-index:5'>
                 <div id='spdv_3488' class='pdv_bottom' style='overflow:hidden;width:100%;height:100%'>
                     <div class="pdv_border" style="margin:0;padding:0;height:100%;border:0px  solid;background:;">
@@ -163,39 +163,39 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
                             </div>
                             <div style="float:right;margin-right:10px;display:none">
-                                <a href="-1" style="line-height:25px;color:">¸ü¶à</a>
+                                <a href="-1" style="line-height:25px;color:">æ›´å¤š</a>
                             </div>
                         </div>
                         <div style="padding:0px">
                             <div id="bottommenu">
-                                <a href="onwe.jsp" target="_self">¹ØÓÚÎÒÃÇ</a>|
-                                <a href="orderhelp.jsp" target="_self">¶©²ÍÖ¸ÄÏ</a>|
-                                <a href="carryshow.jsp" target="_self">ÅäËÍËµÃ÷</a>|
-                                <a href="linkman.jsp" target="_self">ÁªÏµ·½Ê½</a>|
-                                <a href="advise.jsp" target="_self">Í¶Ëß½¨Òé</a>|
+                                <a href="onwe.jsp" target="_self">å…³äºæˆ‘ä»¬</a>|
+                                <a href="orderhelp.jsp" target="_self">è®¢é¤æŒ‡å—</a>|
+                                <a href="carryshow.jsp" target="_self">é…é€è¯´æ˜</a>|
+                                <a href="linkman.jsp" target="_self">è”ç³»æ–¹å¼</a>|
+                                <a href="advise.jsp" target="_self">æŠ•è¯‰å»ºè®®</a>|
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- µ×²¿ĞÅÏ¢±à¼­Çø -->
+            <!-- åº•éƒ¨ä¿¡æ¯ç¼–è¾‘åŒº -->
 
-            <div id='pdv_3484' class='pdv_class' title='½Å×¢ĞÅÏ¢' style='width:898px;height:106px;top:65px;left:0px; z-index:7'>
+            <div id='pdv_3484' class='pdv_class' title='è„šæ³¨ä¿¡æ¯' style='width:898px;height:106px;top:65px;left:0px; z-index:7'>
                 <div id='spdv_3484' class='pdv_bottom' style='overflow:hidden;width:100%;height:100%'>
                     <div class="pdv_border" style="margin:0;padding:0;height:100%;border:0px  solid;background:;">
                         <div style="height:25px;margin:1px;display:none;background:;">
                             <div style="float:left;margin-left:12px;line-height:25px;font-weight:bold;color:">
-                            ½Å×¢ĞÅÏ¢
+                            è„šæ³¨ä¿¡æ¯
                             </div>
                             <div style="float:right;margin-right:10px;display:none">
-                                <a href="-1" style="line-height:25px;color:">¸ü¶à</a>
+                                <a href="-1" style="line-height:25px;color:">æ›´å¤š</a>
                             </div>
                         </div>
                         <div style="padding:0px">
                             <div style="width:100%;text-align:center;font:12px/20px Arial, Helvetica, sans-serif">
-                                <div style="LINE-HEIGHT: 30px">µç»°£º0573-87654321 ÊÛÇ°QQ£º241457 45761112 µØÖ·£ºÕã½­Ê¡¼ÎĞËÊĞ½¨¹úÄÏÂ·1586ºÅ ÓÊ±à£º314000 £¨ÉÌÎñºÏ×÷£©</div>
-                                <div style="LINE-HEIGHT: 30px">ÍøÉÏ¿ì²Íµê Copyright(C)2009-2010</div>
+                                <div style="LINE-HEIGHT: 30px">ç”µè¯ï¼š0573-87654321 å”®å‰QQï¼š241457 45761112 åœ°å€ï¼šæµ™æ±Ÿçœå˜‰å…´å¸‚å»ºå›½å—è·¯1586å· é‚®ç¼–ï¼š314000 ï¼ˆå•†åŠ¡åˆä½œï¼‰</div>
+                                <div style="LINE-HEIGHT: 30px">ç½‘ä¸Šå¿«é¤åº— Copyright(C)2009-2010</div>
                             </div>
 
                         </div>
@@ -204,7 +204,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 </div>
             </div>
 
-            <!-- ÎÄ×ÖÓÑÇéÁ´½Ó -->
+            <!-- æ–‡å­—å‹æƒ…é“¾æ¥ -->
 
             <div id='pdv_3485' class='pdv_class' title='' style='width:900px;height:30px;top:37px;left:2px; z-index:8'>
                 <div id='spdv_3485' class='pdv_bottom' style='overflow:hidden;width:100%;height:100%'>
@@ -214,7 +214,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
                             </div>
                             <div style="float:right;margin-right:10px;display:inline">
-                                <a href="../advs/link/" style="line-height:25px;color:">¸ü¶à</a>
+                                <a href="../advs/link/" style="line-height:25px;color:">æ›´å¤š</a>
                             </div>
                         </div>
                         <div style="padding:5px">
@@ -222,47 +222,47 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             <ul style="margin:0;padding:0">
 
                                 <li style="list-style-type:none;float:left;margin:0px;padding:3px 10px 3px 10px; white-space:nowrap">
-                                    <a href="http://food.39.net/" target="_self">39½¡¿µÍø</a> 
+                                    <a href="http://food.39.net/" target="_self">39å¥åº·ç½‘</a> 
                                 </li>
 
                                 <li style="list-style-type:none;float:left;margin:0px;padding:3px 10px 3px 10px; white-space:nowrap">
-                                    <a href="http://eat.51ttyy.com/" target="_self">ÌìÌìÓªÑøÍø</a> 
+                                    <a href="http://eat.51ttyy.com/" target="_self">å¤©å¤©è¥å…»ç½‘</a> 
                                 </li>
 
                                 <li style="list-style-type:none;float:left;margin:0px;padding:3px 10px 3px 10px; white-space:nowrap">
-                                    <a href="http://www.canyin.com/" target="_self">ÖĞ¹ú²ÍÒûÍø</a> 
+                                    <a href="http://www.canyin.com/" target="_self">ä¸­å›½é¤é¥®ç½‘</a> 
                                 </li>
 
                                 <li style="list-style-type:none;float:left;margin:0px;padding:3px 10px 3px 10px; white-space:nowrap">
-                                    <a href="http://www.canyinshijie.com/" target="_self">²ÍÒûÊÀ½çÍø</a> 
+                                    <a href="http://www.canyinshijie.com/" target="_self">é¤é¥®ä¸–ç•Œç½‘</a> 
                                 </li>
 
                                 <li style="list-style-type:none;float:left;margin:0px;padding:3px 10px 3px 10px; white-space:nowrap">
-                                    <a href="http://www.tesecai.cn/" target="_self">ÌØÉ«²ËÍø</a> 
+                                    <a href="http://www.tesecai.cn/" target="_self">ç‰¹è‰²èœç½‘</a> 
                                 </li>
 
                                 <li style="list-style-type:none;float:left;margin:0px;padding:3px 10px 3px 10px; white-space:nowrap">
-                                    <a href="http://www.westfood.com.cn/" target="_self">ÖĞ¹úÎ÷²ÍÍø</a> 
+                                    <a href="http://www.westfood.com.cn/" target="_self">ä¸­å›½è¥¿é¤ç½‘</a> 
                                 </li>
 
                                 <li style="list-style-type:none;float:left;margin:0px;padding:3px 10px 3px 10px; white-space:nowrap">
-                                    <a href="http://www.chinavegan.com/" target="_self">ÖĞ»ªËØÊ³Íø</a> 
+                                    <a href="http://www.chinavegan.com/" target="_self">ä¸­åç´ é£Ÿç½‘</a> 
                                 </li>
 
                                 <li style="list-style-type:none;float:left;margin:0px;padding:3px 10px 3px 10px; white-space:nowrap">
-                                    <a href="http://www.kclm.org/" target="_self">ÖĞ¹ú¿ì²ÍÁªÃËÍø</a> 
+                                    <a href="http://www.kclm.org/" target="_self">ä¸­å›½å¿«é¤è”ç›Ÿç½‘</a> 
                                 </li>
 
                                 <li style="list-style-type:none;float:left;margin:0px;padding:3px 10px 3px 10px; white-space:nowrap">
-                                    <a href="http://www.souchu.com/" target="_self">ËÑ³øÍø</a> 
+                                    <a href="http://www.souchu.com/" target="_self">æœå¨ç½‘</a> 
                                 </li>
 
                                 <li style="list-style-type:none;float:left;margin:0px;padding:3px 10px 3px 10px; white-space:nowrap">
-                                    <a href="http://www.cantingsheji.com/" target="_self">²ÍÌüÉè¼ÆÍø</a> 
+                                    <a href="http://www.cantingsheji.com/" target="_self">é¤å…è®¾è®¡ç½‘</a> 
                                 </li>
 
                                 <li style="list-style-type:none;float:left;margin:0px;padding:3px 10px 3px 10px; white-space:nowrap">
-                                    <a href="http://www.meishichina.com/" target="_self">ÃÀÊ³ÖĞ¹ú</a> 
+                                    <a href="http://www.meishichina.com/" target="_self">ç¾é£Ÿä¸­å›½</a> 
                                 </li>
 
                             </ul>
@@ -273,7 +273,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 </div>
             </div>
 
-            <!-- Í¼Æ¬/FLASH -->
+            <!-- å›¾ç‰‡/FLASH -->
 
             <div id='pdv_3487' class='pdv_class' title='' style='width:123px;height:40px;top:107px;left:658px; z-index:9'>
                 <div id='spdv_3487' class='pdv_bottom' style='overflow:hidden;width:100%;height:100%'>
@@ -283,7 +283,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
                             </div>
                             <div style="float:right;margin-right:10px;display:none">
-                                <a href="-1" style="line-height:25px;color:">¸ü¶à</a>
+                                <a href="-1" style="line-height:25px;color:">æ›´å¤š</a>
                             </div>
                         </div>
                         <div style="padding:0px">
