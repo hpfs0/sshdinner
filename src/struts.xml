@@ -21,6 +21,7 @@
 		<action name = "agreement" class = "com.dinner.gts.action.RegisterAction" method="aquareAgreement">
 		</action>
 		<action name = "logout" class = "com.dinner.gts.action.LoginAction" method="sessionRemove">
+			<result name="success">/login.jsp</result>
 		</action>
 	</package>
 </struts>

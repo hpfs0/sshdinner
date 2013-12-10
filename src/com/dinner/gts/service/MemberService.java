@@ -68,7 +68,7 @@ public class MemberService {
             return false;
         }
     }
-    
+
     /**
      * 登陆时会员信息验证
      * 
@@ -83,7 +83,7 @@ public class MemberService {
             return null;
         }
     }
-    
+
     /**
      * 登陆时更新会员信息
      * 
@@ -92,7 +92,19 @@ public class MemberService {
      */
     public void updateServiceMember(String memberLoginId) {
         if (null != dao && null != memberLoginId) {
-        	dao.updateMember(memberLoginId);
+            dao.updateMember(memberLoginId);
+        }
+    }
+
+    /**
+     * 退出时更新会员信息
+     * 
+     * @param member 会员信息
+     * @return 标记该用户已经退出系统
+     */
+    public void updateServiceMemberWhenLogOut(String memberLoginId) {
+        if (null != dao && null != memberLoginId) {
+            dao.updateMemberWhenLogOut(memberLoginId);
         }
     }
 }

@@ -12,9 +12,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>会员登录-网上快餐店</title>
-	<link href="../member/templates/css/memberlogin_c.css" rel="stylesheet" type="text/css" />
+	<!-- <link href="../member/templates/css/memberlogin_c.css" rel="stylesheet" type="text/css" /> -->
 	<script type="text/javascript" src="js/jquery-1.7.2.js"></script>
     <script type="text/javascript" src="js/jquery.toastmessage.js"></script>
+    <link href="js/resource/css/jquery.toastmessage.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="poshytip-1.2/src/tip-yellow/tip-yellow.css" type="text/css" />
     <script type="text/javascript" src="poshytip-1.2/src/jquery.poshytip.js"></script>
     <script language="javascript" src="js/login.js"></script>
@@ -89,14 +90,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                             <tr>
                                                 <td width="80">登录账号</td>
                                                 <td>
-                                                    <input type="text" id="muser" name="memberLoginId" class="input" maxlength=20 style="width:135px">
+                                                    <input type="text" id="muser" name="memberLoginId" class="input" maxlength=20 style="width:135px" value="">
                                                 </td>
                                                 <s:fielderror cssStyle="color:red"><s:param>memberLoginId</s:param></s:fielderror>
                                             </tr>
                                             <tr>
                                                 <td width="80">登录密码</td>
                                                 <td>
-                                                    <input type="password" id="mpass" name="memberLoginPw" class="input" style="width:135px" maxlength="20">
+                                                    <input type="password" id="mpass" name="memberLoginPw" class="input" style="width:135px" maxlength="20" value="">
                                                 </td>
                                             </tr>
                                             <tr>
@@ -108,7 +109,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                                                 <input type="text" id="ImgCode" name="ImgCode" style="width:59px" class="input" />
                                                             </td>
                                                             <td>
-                                                                <img id="codeimg" src="gifcode.action" width="70" height="20" style="border:1px #dddddd solid;cursor:pointer">
+                                                                <img id="codeimg" src="gifcode.action" width="55" height="20" style="border:1px #dddddd solid;cursor:pointer">
                                                             </td>
                                                         </tr>
                                                     </table>
@@ -119,7 +120,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                                     <input name="act" type="hidden" id="act" value="memberlogin" />
                                                 </td>
                                                 <td>
-                                                    <input type="image" src="images/denglu.gif" border="0" value="1"/>
+                                                    <input type="image" src="images/denglu.gif" border="0" value="1" id="login"/>
                                                     <a href="reg.jsp" style="padding-left:1px">
                                                         <img src="images/zhuce.gif" width="40" height="19" border="0">
                                                     </a>

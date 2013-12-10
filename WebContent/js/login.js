@@ -1,4 +1,4 @@
-//登陆画面表单校验
+	//登陆画面表单校验
 $(document).ready(function(){
 
 	//初始提示
@@ -34,19 +34,26 @@ $(document).ready(function(){
 		if(p.length){
 		    if(!patrn.exec(p)){
 		    	$muser.poshytip('update','<span class="errdiv"><image src="images/error.png" width="17px" style="padding-right:5px" />登录账号必须由5-20个英文字母或数字组成</span>',true);
+		    	$muser.poshytip('hideDelayed',2500);
 		    }else{
 			    $.ajax({
 					    type: "POST",
 					    url: "checkuser.action",
 					    data: "username="+p,
 					    success: function(msg){
-						    if(msg=="2"){
-						    	$muser.poshytip('update','<span class="rightdiv"><image src="images/right.png" width="17px" style="padding-right:5px" />该登录账号可以登陆</span>',true);
-						    	$muser.poshytip('hideDelayed', 3000);
+						    if(msg=="3"){
+							  $muser.poshytip('update','<span class="errdiv"><image src="images/error.png" width="17px" style="padding-right:5px" />尊敬的会员您好，该会员账号已经在别的设备上登陆，请您稍后再登</span>',true);
+						    } else{
+						    	if(msg=="2"){
+							    	$muser.poshytip('update','<span class="rightdiv"><image src="images/right.png" width="17px" style="padding-right:5px" />该登录账号可以登陆</span>',true);
+							    	$muser.poshytip('hideDelayed', 2500);
 
-						    }else{
-						    	$muser.poshytip('update','<span class="errdiv"><image src="images/error.png" width="17px" style="padding-right:5px" />该登录账号不存在，请重新输入</span>',true);
-							}
+							    }else{
+							    	$muser.poshytip('update','<span class="errdiv"><image src="images/error.png" width="17px" style="padding-right:5px" />该登录账号不存在，请重新输入</span>',true);
+							    	$muser.poshytip('hideDelayed', 2500);
+								}
+						    }
+	
 						}
 			    });
 			}
@@ -72,12 +79,12 @@ $(document).ready(function(){
 		var p=$mpass[0].value;
 		var patrn=/^(\w){5,20}$/;
 		if(p.length){
-			if(!patrn.exec(p) && msg=="2"){
+			if(!patrn.exec(p)){
 				$mpass.poshytip('update','<span class="errdiv"><image src="images/error.png" width="17px" style="padding-right:5px" />登录密码必须由5-20个英文字母或数字组成</span>',true);
-			}else if(msg=="2"){
+				$mpass.poshytip('hideDelayed', 2500);
+			}else{
 				$mpass.poshytip('update','<span class="rightdiv"><image src="images/right.png" width="17px" style="padding-right:5px" />该登录密码可以使用</span>',true);
-			}else if(msg=="1"){
-				$mpass.poshytip('hide');
+				$mpass.poshytip('hideDelayed', 2500);
 			}
 		}else{
 			$mpass.poshytip('hide');
@@ -116,7 +123,7 @@ $(document).ready(function(){
 //会员登录
 $(document).ready(function(){
 	
-	$('#memberLogin').submit(function(){ 
+	$('#login').click(function(){ 
 		// jquery找到有无输入不正确的选项
 		var $errDiv = $(".errdiv");
 		var showinfo = "";
@@ -130,34 +137,35 @@ $(document).ready(function(){
 			showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
 		}
 		else{
-			var memberLoginId = $("#memberLoginId").val();
-			var memberLoginPw = $("#memberLoginPw").val();
+			var memberLoginId = $("#muser").val();
+			var memberLoginPw = $("#mpass").val();
 			if(memberLoginId == ""){
 				showinfo = "请输入您的登录帐号！";
 				showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
 			}else if(memberLoginPw == ""){
 				showinfo = "请输入您的密码！";
 				showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
-			}else{
-				$('#memberLogin').ajaxSubmit({
-					target: 'div#notice',
-					url: 'index.jsp',
-					success: function(msg) {
-						if(msg=="OK"){
-							$('div#notice').hide();
-//							window.location='index.jsp';
-						}else if(msg.substr(0,2)=="OK" && msg.substr(2,7)=="<script"){
-							$('div#notice')[0].className="okdiv";
-							$('div#notice').html(msg.substr(2)+"您已登录成功，稍候跳转到会员中心").show();
-							$().setBg();
-//							setTimeout("window.location='index.jsp';",2000);
-						}else{
-							$('div#notice').show();
-							$().setBg();
-						}
-					}
-				}); 
 			}
+//			else{
+//				$('#login').ajaxSubmit({
+//					target: 'div#notice',
+//					url: 'index.jsp',
+//					success: function(msg) {
+//						if(msg=="OK"){
+//							$('div#notice').hide();
+//							window.location='index.jsp';
+//						}else if(msg.substr(0,2)=="OK" && msg.substr(2,7)=="<script"){
+//							$('div#notice')[0].className="okdiv";
+//							$('div#notice').html(msg.substr(2)+"您已登录成功，稍候跳转到会员中心").show();
+//							$().setBg();
+//							setTimeout("window.location='index.jsp';",2000);
+//						}else{
+//							$('div#notice').show();
+//							$().setBg();
+//						}
+//					}
+//				}); 
+//			}
 		}
 		return false; 
 

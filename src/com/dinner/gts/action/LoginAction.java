@@ -51,6 +51,7 @@ public class LoginAction extends ActionSupport {
         session.setAttribute("memberLoginId", memberLoginId);
 
         return SUCCESS;
+
     }
 
     /**
@@ -62,7 +63,7 @@ public class LoginAction extends ActionSupport {
         HttpServletRequest req = CommonUtil.getHttpServletRequest();
         HttpServletResponse res = CommonUtil.getHttpServletResponse();
         HttpSession session = req.getSession();
-        // gif生成类
+        // 验证码生成类
         CommonGifCode commonGifCode = new CommonGifCode();
         // 保存生成的验证码字符
         String[] code = null;
@@ -123,46 +124,66 @@ public class LoginAction extends ActionSupport {
 
     private boolean isValid(String memberLoginId, String memberLoginPw) {
 
-        boolean validResult = true;
+        boolean validResult = false;
+        String pswEncryption = null;
+        String pswEncryptionDb = null;
+        String memberNickName = null;
+        int loginStatus = 0;
+
         // 会员登陆状态初始化
         String writeResult = CommonConst.COMMON_MEMBERLOGIN_NG;
 
         HttpServletRequest req = CommonUtil.getHttpServletRequest();
         HttpSession sessionRequest = req.getSession();
 
-        // 获取加密后的密码
-        String pswEncryption = CommonUtil.MD5(memberLoginPw);
+        if (memberLoginPw != null) {
+            // 获取加密后的密码
+            pswEncryption = CommonUtil.MD5(memberLoginPw);
+        }
 
         memberService = new MemberService();
 
         // 获取后台业务表中的会员信息
         Member loginMemberDetail = memberService.getServiceMemberBykey(memberLoginId);
 
-        // 取得画面输入用户名对应的密码
-        String pswEncryptionDb = loginMemberDetail.getMemberLoginPw();
-        // 获得该用户的昵称
-        String memberNickName = loginMemberDetail.getMemberNickName();
+        if (loginMemberDetail != null) {
+            // 取得画面输入用户名对应的密码
+            pswEncryptionDb = loginMemberDetail.getMemberLoginPw();
+            // 获得该用户的昵称
+            memberNickName = loginMemberDetail.getMemberNickName();
+            // 获取该用户的登陆状态
+            loginStatus = loginMemberDetail.getLoginStatus();
 
-        // 把该用户的详细信息存入request中
-        sessionRequest.setAttribute("memberLoginId", memberLoginId);
-        sessionRequest.setAttribute("memberNickName", memberNickName);
+            // 把该用户的详细信息存入request中
+            sessionRequest.setAttribute("memberLoginId", memberLoginId);
+            sessionRequest.setAttribute("memberNickName", memberNickName);
+        }
 
-        // 判断登陆时输入会员信息是否正确
-        if (pswEncryption.equalsIgnoreCase(pswEncryptionDb)) {
+        if (loginStatus == 0) {
+            // 判断登陆时输入会员信息是否正确
+            if (pswEncryption.equalsIgnoreCase(pswEncryptionDb) && pswEncryption != null) {
 
-            // 登陆时更新会员登录状态
-            memberService.updateServiceMember(memberLoginId);
-            // 设置会员登录状态为1（1：已登录）
-            int loginStatus = 1;
+                // 登陆时更新会员登录状态
+                memberService.updateServiceMember(memberLoginId);
+                // 设置会员登录状态为1（1：已登录）
+                loginStatus = 1;
 
-            sessionRequest.setAttribute("loginStatus", loginStatus);
+                sessionRequest.setAttribute("loginStatus", loginStatus);
 
-            // 登陆时用户名和密码可以匹配，登陆成功
-            writeResult = CommonConst.COMMON_CODE_CHECK_OK;
+                // 登陆时用户名和密码可以匹配，登陆成功
+                writeResult = CommonConst.COMMON_MEMBERLOGIN_OK;
+                validResult = true;
+            }
+            else {
+                // 登陆时用户名和密码不正确，登陆失败
+                writeResult = CommonConst.COMMON_MEMBERLOGIN_NG;
+                validResult = false;
+            }
         }
         else {
-            // 登陆时用户名和密码不正确，登陆失败
-            writeResult = CommonConst.COMMON_CODE_CHECK_NG;
+            // 会员已经在别的设备上登陆，该用户不能登陆
+            writeResult = CommonConst.COMMON_MEMBERLOGIN_NG;
+            validResult = false;
         }
         try {
             CommonUtil.getHttpServletResponse().getWriter().write(writeResult);
@@ -179,15 +200,36 @@ public class LoginAction extends ActionSupport {
      * 
      * @return
      */
-    public void sessionRemove() {
+    public String sessionRemove() {
         // 重新获取session
         HttpServletRequest req = CommonUtil.getHttpServletRequest();
         HttpSession sessionRequest = req.getSession();
+        String memberLoginId = null;
+
+        // 取得登录中的用户会员ID
+        memberLoginId = sessionRequest.getAttribute("memberLoginId")
+                .toString();
+
+        memberService = new MemberService();
+
+        // 登陆时更新会员登录状态
+        if (sessionRequest.getAttribute("memberLoginId")
+                .toString() != null) {
+            memberService.updateServiceMemberWhenLogOut(memberLoginId);
+        }
 
         // 清理session中原有的内容
         sessionRequest.removeAttribute("memberLoginId");
         sessionRequest.removeAttribute("memberNickName");
-        sessionRequest.removeAttribute("loginStatus");
+        // sessionRequest.removeAttribute("loginStatus");
+
+        // 设置会员登录状态为0（0：未登录）
+        int loginStatus = 0;
+
+        sessionRequest.setAttribute("loginStatus", loginStatus);
+
+        // 返回到登陆画面
+        return SUCCESS;
     }
 
 }

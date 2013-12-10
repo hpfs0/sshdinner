@@ -37,8 +37,11 @@ public interface CommonSqlConst {
 
     /** SQL:消息列表获取 */
     public static final String COMMON_SQL_011 = "SELECT MESSAGE_ID,MESSAGE_TYPE,MESSAGE_CONTENT,REGIST_TIME,UPDATE_TIME,DELETE_FLG FROM MT_MESSAGE";
-    
+
     /** SQL:会员登陆时，更新会员登陆状态 */
     public static final String COMMON_SQL_012 = "UPDATE MT_MEMBER SET LOGIN_STATUS = '1' WHERE MEMBER_LOGIN_ID = ?";
+
+    /** SQL:会员退出时，更新会员登陆状态 */
+    public static final String COMMON_SQL_013 = "UPDATE MT_MEMBER SET LOGIN_STATUS = '0' WHERE MEMBER_LOGIN_ID = ?";
 
 }

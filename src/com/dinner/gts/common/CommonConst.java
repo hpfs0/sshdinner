@@ -51,6 +51,9 @@ public interface CommonConst {
     /** 2:会员帐号已经被注册 */
     public static final String COMMON_USER_INVALID = "2";
 
+    /** 3:会员帐号已经处于登录状态 */
+    public static final String COMMON_USER_lOGIN = "3";
+
     /** OK:会员帐号注册成功 */
     public static final String COMMON_MEMBER_REGIST_OK = "OK";
 
@@ -68,11 +71,11 @@ public interface CommonConst {
 
     /** NG:投诉反馈失败 */
     public static final String COMMON_FEEDBACK_NG = "NG";
-    
-    /** OK:会员登陆成功*/
+
+    /** OK:会员登陆成功 */
     public static final String COMMON_MEMBERLOGIN_OK = "OK";
 
     /** NG:会员登陆失败 */
     public static final String COMMON_MEMBERLOGIN_NG = "NG";
-    
+
 }

@@ -110,6 +110,8 @@ public class RegisterAction extends ActionSupport {
      * @return 结果
      */
     public String checkUser() {
+        // 初始化会员登陆状态
+        int loginStatus = 0;
         // 获取request
         HttpServletRequest req = CommonUtil.getHttpServletRequest();
         // 从页面获取的用户名
@@ -125,8 +127,15 @@ public class RegisterAction extends ActionSupport {
                 writeResult = CommonConst.COMMON_USER_VALID;
             }
             else {
-                // 会员帐号已被注册
-                writeResult = CommonConst.COMMON_USER_INVALID;
+                loginStatus = member.getLoginStatus();
+                if (loginStatus == 1) {
+                    // 会员帐号已在别处登陆
+                    writeResult = CommonConst.COMMON_USER_lOGIN;
+                }
+                else {
+                    // 会员帐号已被注册
+                    writeResult = CommonConst.COMMON_USER_INVALID;
+                }
             }
         }
         try {
