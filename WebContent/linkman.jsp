@@ -109,9 +109,33 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         </div>
                         <div style="padding:10px">
                             <div id='pagecontent' class='page_content'>
-                                &nbsp;&nbsp;&nbsp; 联系方式
-                                <br />
-                                <br />
+                            <table>
+                            	<tr style="line-height: 40px;height: 40px;">
+                                	<td>
+                                		<span><b>&nbsp;&nbsp;&nbsp; 天一美食作为美食网站的优秀品牌， 一直以来深受广大网民的关注和喜爱。</b></span>
+                                	</td>
+                                </tr>
+                                <tr style="line-height: 40px;height: 40px;">
+                                	<td>
+                                		<span>&nbsp;&nbsp;&nbsp; 凡违法国家法律法规的网站，天一美食一律不予收录。</span>
+                                	</td>
+                                </tr>
+                                <tr style="line-height: 40px;height: 40px;">
+                                	<td>
+                                		<span><font color='red'>&nbsp;&nbsp;&nbsp; 24小时在线服务: QQ(8412430),(如没在线,请留言,我们将在第一时间处理)。</font></span>
+                                	</td>
+                                </tr>
+                                <tr style="line-height: 40px;height: 40px;">
+                                	<td>
+                                		<span>&nbsp;&nbsp;&nbsp; 特别提醒：因每日咨询人数较多，本QQ只接受天一美食相关事宜处理，不接受其他任何产品推销，望谅解。</span>
+                                	</td>
+                                </tr>
+                                <tr style="line-height: 40px;height: 40px;">
+                                	<td>
+                                		<span>&nbsp;&nbsp;&nbsp; 免责声明：天一美食所展示的资料、数据、广告等均真实,仅供大家参考。天一美食不承担任何责任。</span>
+                                	</td>
+                                </tr>
+                            </table>
                             </div>
                             <script>
                                 $(document).ready(function () {

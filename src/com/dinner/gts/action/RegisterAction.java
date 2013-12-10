@@ -13,7 +13,9 @@ import com.dinner.gts.common.CommonGifCode;
 import com.dinner.gts.common.CommonStringUtil;
 import com.dinner.gts.common.CommonUtil;
 import com.dinner.gts.model.Member;
+import com.dinner.gts.model.Message;
 import com.dinner.gts.service.MemberService;
+import com.dinner.gts.service.MessageService;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class RegisterAction extends ActionSupport {
@@ -25,6 +27,9 @@ public class RegisterAction extends ActionSupport {
 
     /** 会员服务类 */
     private MemberService memberService;
+
+    /** 消息服务类 */
+    private MessageService messageService;
 
     /**
      * 注册会员
@@ -65,11 +70,48 @@ public class RegisterAction extends ActionSupport {
     }
 
     /**
+     * 获取会员注册协议
+     * 
+     * @return 结果
+     */
+    public String aquareAgreement() {
+        Message messageKey = null;
+        Message reusltMessage = null;
+        try {
+            // 获取协议检索条件
+            messageKey = new Message();
+            messageKey.setMessageId(CommonConst.COMMON_MESSAGE_9999);
+            messageKey.setMessageType(CommonConst.COMMON_MESSAGE_TYPE_0);
+
+            // 获取消息协议
+            messageService = new MessageService();
+            reusltMessage = messageService.getServiceMessageBykey(messageKey);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        finally {
+            try {
+                HttpServletResponse response = CommonUtil.getHttpServletResponse();
+                response.setContentType("text/html; charset=utf-8");
+                response.getWriter()
+                        .write(reusltMessage.getMessageContent());
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return null;
+    }
+
+    /**
      * 注册用户时验证用户名是否可用
      * 
      * @return 结果
      */
     public String checkUser() {
+        // 初始化会员登陆状态
+        int loginStatus = 0;
         // 获取request
         HttpServletRequest req = CommonUtil.getHttpServletRequest();
         // 从页面获取的用户名
@@ -85,8 +127,15 @@ public class RegisterAction extends ActionSupport {
                 writeResult = CommonConst.COMMON_USER_VALID;
             }
             else {
-                // 会员帐号已被注册
-                writeResult = CommonConst.COMMON_USER_INVALID;
+                loginStatus = member.getLoginStatus();
+                if (loginStatus == 1) {
+                    // 会员帐号已在别处登陆
+                    writeResult = CommonConst.COMMON_USER_lOGIN;
+                }
+                else {
+                    // 会员帐号已被注册
+                    writeResult = CommonConst.COMMON_USER_INVALID;
+                }
             }
         }
         try {

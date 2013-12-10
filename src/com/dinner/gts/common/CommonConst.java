@@ -20,24 +20,39 @@ public interface CommonConst {
     /** 共通ID种类:反馈ID */
     public static final int COMMON_ID_FEEDBACK = 5;
 
+    /** 共通消息类型:提示 */
+    public static final int COMMON_MESSAGE_TYPE_0 = 0;
+
+    /** 共通消息类型:警告 */
+    public static final int COMMON_MESSAGE_TYPE_1 = 1;
+
+    /** 共通消息类型:错误 */
+    public static final int COMMON_MESSAGE_TYPE_2 = 2;
+
     /**************************** message ***************************/
     /** 会员帐号ID为空 */
-    public static final String COMMON_MESSAGE_001 = "会员帐号ID为空";
+    public static final String COMMON_MESSAGE_0001 = "会员帐号ID为空";
 
     /** 会员帐号密码为空 */
-    public static final String COMMON_MESSAGE_002 = "会员帐号密码为空";
+    public static final String COMMON_MESSAGE_0002 = "会员帐号密码为空";
 
     /** 会员帐号ID错误 */
-    public static final String COMMON_MESSAGE_003 = "会员帐号ID错误";
+    public static final String COMMON_MESSAGE_0003 = "会员帐号ID错误";
 
     /** 会员帐号密码错误 */
-    public static final String COMMON_MESSAGE_004 = "会员帐号密码错误";
+    public static final String COMMON_MESSAGE_0004 = "会员帐号密码错误";
+
+    /** 协议 */
+    public static final String COMMON_MESSAGE_9999 = "MS00009999";
 
     /** 1:会员帐号未被注册 */
     public static final String COMMON_USER_VALID = "1";
 
     /** 2:会员帐号已经被注册 */
     public static final String COMMON_USER_INVALID = "2";
+
+    /** 3:会员帐号已经处于登录状态 */
+    public static final String COMMON_USER_lOGIN = "3";
 
     /** OK:会员帐号注册成功 */
     public static final String COMMON_MEMBER_REGIST_OK = "OK";
@@ -56,4 +71,11 @@ public interface CommonConst {
 
     /** NG:投诉反馈失败 */
     public static final String COMMON_FEEDBACK_NG = "NG";
+
+    /** OK:会员登陆成功 */
+    public static final String COMMON_MEMBERLOGIN_OK = "OK";
+
+    /** NG:会员登陆失败 */
+    public static final String COMMON_MEMBERLOGIN_NG = "NG";
+
 }

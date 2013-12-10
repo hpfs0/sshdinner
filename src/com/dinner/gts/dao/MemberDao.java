@@ -36,4 +36,28 @@ public interface MemberDao {
      * @return update操作成功与否
      */
     public boolean modifyMember(Member member);
+
+    /**
+     * 会员信息验证
+     * 
+     * @param member 会员信息
+     * @return update操作成功与否
+     */
+    public String checkMember(String memberLoginId);
+
+    /**
+     * 会员信息更新（更新时）
+     * 
+     * @param member 会员信息
+     * @return 更新会员登陆标识
+     */
+    public void updateMember(String memberLoginId);
+
+    /**
+     * 会员信息更新(退出时)
+     * 
+     * @param member 会员信息
+     * @return 更新会员登陆标识
+     */
+    public void updateMemberWhenLogOut(String memberLoginId);
 }

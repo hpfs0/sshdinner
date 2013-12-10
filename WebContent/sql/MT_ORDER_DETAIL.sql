@@ -29,6 +29,6 @@ CREATE TABLE `mt_order_detail` (
   `ORDER_DETAIL_PRICE` double(20,2) DEFAULT NULL,
   `REGIST_TIME` datetime DEFAULT NULL,
   `UPDATE_TIME` datetime DEFAULT NULL,
-  `DETAIL_FLG` tinyint(4) DEFAULT 0
+  `DELETE_FLG` tinyint(4) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 ALTER TABLE mt_order_detail ADD INDEX orderdetailid(ORDER_DETAIL_ID(10));

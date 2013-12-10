@@ -26,9 +26,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <script type="text/javascript" src="js/jquery.jscrollpane.min.js"></script>
     <script type="text/javascript" src="js/scroll-startstop.events.jquery.js"></script>
     <script type="text/javascript" src="js/srollbar.js"></script>
-    <style type="text/css">
-        .jp-container{height:700px;}
-    </style>
 </head>
 
 <body style='background:transparent'>
@@ -689,7 +686,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <a href="orderhelp.jsp" target="_self">订餐指南</a>|
                 <a href="carryshow.jsp" target="_self">配送说明</a>|
                 <a href="linkman.jsp" target="_self">联系方式</a>|
-                <a href="advise.jsp" target="_self">投诉建议</a>|
+                <a href="admin/advise.jsp" target="_self">投诉建议</a>|
             </div>
             <!-- 底部菜单（一级） -->
 

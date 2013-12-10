@@ -12,7 +12,6 @@
     <script type="text/javascript" src="js/base.js"></script>
     <script type="text/javascript" src="js/common.js"></script>
     <script type="text/javascript" src="js/form.js"></script>
-    <script type="text/javascript" src="js/blockui.js"></script>
     <script type="text/javascript" src="js/channelmenu_dc.js"></script>
 </head>
 
@@ -31,10 +30,15 @@
                     </div>
                     <div style="padding:0px">
                         <div id="topmenu">
-                            <a href="login.jsp" target="_self">会员登录</a>|
+       						<s:if test="#session.loginStatus!=1"> 
+                            	<a href="login.jsp" target="_self">会员登录</a>|
+                            </s:if> 
+                            <s:if test="#session.loginStatus==1"> 
+                            	<a href="login.jsp" target="_self">${sessionScope.memberNickName}</a><a href="logout.action">退出</a>|
+                            </s:if> 
                             <a href="reg.jsp" target="_self">会员注册</a>|
                             <a href="linkman.jsp" target="_self">联系方式</a>|
-                            <a href="advise.jsp" target="_self">投诉建议</a>|
+                            <a href="admin/advise.jsp" target="_self">投诉建议</a>|
                             <a href="carryshow.jsp" target="_self">配送说明</a>|
                             <a href="onwe.jsp" target="_self">关于我们</a>|
                         </div>

@@ -13,25 +13,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>会员注册-网上快餐店</title>
-	<link href="css/reg.css" rel="stylesheet" type="text/css" />
-	<script language="javascript" src="js/reg.js"></script>
-    <script type="text/javascript" src="js/jquery.js"></script>
+	<link href="css/reg.css" rel="stylesheet" type="text/css" />	
+	<script type="text/javascript" src="js/jquery-1.7.2.js"></script>
     <script type="text/javascript" src="js/jquery.toastmessage.js"></script>
-    <script type="text/javascript">
-    function showErrorToast(message) {
-    	$().toastmessage('showToast', {
-    	            text     : message,
-    	            sticky   : false,
-    	            position : 'middle-center',
-    	            type     : 'error',
-    	            closeText: '',
-    	            close    : function () {
-    	                console.log("toast is closed ...");
-    	            }
-    	        });
-    	    }
-    </script>
     <link href="js/resource/css/jquery.toastmessage.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="poshytip-1.2/src/tip-yellow/tip-yellow.css" type="text/css" />
+    <script type="text/javascript" src="poshytip-1.2/src/jquery.poshytip.js"></script>
+    <script type="text/javascript" src="js/blockui.js"></script>
+    <script language="javascript" src="js/reg.js"></script>
 </head>
 
 <body style='background:transparent'>
@@ -173,10 +162,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                                 <table border="0" cellspacing="0" cellpadding="1">
                                                     <tr>
                                                         <td>
-                                                            <input id="ImgCode" type='text' name='ImgCode' style='width:40px' maxlength="4 " class="input"/>
+                                                            <input id="ImgCode" type='text' name='ImgCode' style='width:40px' maxlength="4" class="input"/>
                                                         </td>
                                                         <td>
-                                                            <img id="codeimg" src="gifcode.action" width='40' height='20' style='border:1px #dddddd solid;cursor:pointer' />
+                                                            <img id="codeimg" src="gifcode.action" width='60' height='20' style='border:1px #dddddd solid;cursor:pointer' />
                                                         </td>
                                                         <td><span id="getImgCode" style="cursor:pointer;margin-left:5px;">看不清？更换一张</span>
                                                         </td>
@@ -235,7 +224,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
                                 <a href="linkman.jsp" target="_self">联系方式</a>|
 
-                                <a href="advise.jsp" target="_self">投诉建议</a>
+                                <a href="admin/advise.jsp" target="_self">投诉建议</a>
                             </div>
                         </div>
                     </div>
