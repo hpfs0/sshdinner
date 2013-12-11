@@ -89,8 +89,6 @@ public class MessageDaoImpl implements MessageDao {
         // 设置参数
         query.setString(0, message.getMessageId());
         query.setInteger(1, message.getMessageType());
-        // 设置缓存
-        query.setCacheable(true);
         Message resultMessage = (Message) query.uniqueResult();
         // session关闭
         CommonUtil.closeSession(session);

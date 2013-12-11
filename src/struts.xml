@@ -5,8 +5,6 @@
 <struts>
 	<package name="struts2" extends="struts-default">
 		<action name ="login" class ="com.dinner.gts.action.LoginAction">
-          <result name="success">/index.jsp</result >
-          <result name="error">/login.jsp</result>
 		</action>
 		<action name ="checkuser" class ="com.dinner.gts.action.RegisterAction" method="checkUser">
 		</action>

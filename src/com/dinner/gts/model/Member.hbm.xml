@@ -25,6 +25,7 @@
         <property name="RegistTime" column="REGIST_TIME"/>
         <property name="updateTime" column="UPDATE_TIME"/>
         <property name="deleteFlg" column="DELETE_FLG"/>
+        <property name="loginStatus" column="LOGIN_STATUS"/>
     </class>
 
 </hibernate-mapping>

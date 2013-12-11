@@ -84,7 +84,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             
                             <div style="width:600px;height:180px; text-align:left;border:1px #f59d5e solid; background-color:#fdebd5;padding:30px;margin:0px">
                                 <div style="width:210px;float:left;text-align:left;border:1px #f59d5e solid;padding:20px;background-color:#ffffff;">
-                                    <form id="memberLogin" method="post" action="login.action">
                                         <div id="notice" class="noticediv"></div>
                                         <table width="100%" border="0" cellspacing="0" cellpadding="3">
                                             <tr>
@@ -127,7 +126,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                                 </td>
                                             </tr>
                                         </table>
-                                    </form>
                                 </div>
 
 
