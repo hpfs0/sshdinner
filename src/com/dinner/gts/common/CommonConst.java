@@ -78,4 +78,7 @@ public interface CommonConst {
     /** NG:会员登陆失败 */
     public static final String COMMON_MEMBERLOGIN_NG = "NG";
 
+    /** NG:会员已经登陆 */
+    public static final String COMMON_MEMBERLOGIN_LOGIN = "LG";
+
 }

@@ -33,8 +33,9 @@ public class LoginAction extends ActionSupport {
 
         HttpServletRequest req = CommonUtil.getHttpServletRequest();
         HttpSession session = req.getSession();
+        HttpServletResponse res = CommonUtil.getHttpServletResponse();
 
-        CommonUtil.getHttpServletResponse().setContentType("text/html; charset=utf-8");
+        res.setContentType("text/html; charset=utf-8");
 
         // 会员帐号ID
         String memberLoginId = req.getParameter("memberLoginId");
@@ -43,14 +44,69 @@ public class LoginAction extends ActionSupport {
         String memberLoginPw = req.getParameter("memberLoginPw");
 
         // 验证帐号正确性
-        if (!isValid(memberLoginId, memberLoginPw)) {
-            return ERROR;
+        String pswEncryption = null;
+        String pswEncryptionDb = null;
+        String memberNickName = null;
+        int loginStatus = 0;
+
+        // 会员登陆状态初始化
+        String writeResult = CommonConst.COMMON_MEMBERLOGIN_NG;
+
+        HttpSession sessionRequest = req.getSession();
+
+        if (memberLoginPw != null) {
+            // 获取加密后的密码
+            pswEncryption = CommonUtil.MD5(memberLoginPw);
         }
 
-        // session中保存的验证
-        session.setAttribute("memberLoginId", memberLoginId);
+        memberService = new MemberService();
 
-        return SUCCESS;
+        // 获取后台业务表中的会员信息
+        Member loginMemberDetail = memberService.getServiceMemberBykey(memberLoginId);
+
+        if (loginMemberDetail != null) {
+            // 取得画面输入用户名对应的密码
+            pswEncryptionDb = loginMemberDetail.getMemberLoginPw();
+            // 获得该用户的昵称
+            memberNickName = loginMemberDetail.getMemberNickName();
+            // 获取该用户的登陆状态
+            loginStatus = loginMemberDetail.getLoginStatus();
+
+            // 把该用户的详细信息存入request中
+            sessionRequest.setAttribute("memberLoginId", memberLoginId);
+            sessionRequest.setAttribute("memberNickName", memberNickName);
+        }
+
+        if (loginStatus == 0) {
+            // 判断登陆时输入会员信息是否正确
+            if (pswEncryption.equalsIgnoreCase(pswEncryptionDb) && pswEncryption != null) {
+
+                // 登陆时更新会员登录状态
+                memberService.updateServiceMember(memberLoginId);
+                // 设置会员登录状态为1（1：已登录）
+                loginStatus = 1;
+
+                sessionRequest.setAttribute("loginStatus", loginStatus);
+
+                // 登陆时用户名和密码可以匹配，登陆成功
+                writeResult = CommonConst.COMMON_MEMBERLOGIN_OK;
+            }
+            else {
+                // 登陆时用户名和密码不正确，登陆失败
+                writeResult = CommonConst.COMMON_MEMBERLOGIN_NG;
+            }
+        }
+        else {
+            // 会员已经在别的设备上登陆，该用户不能登陆
+            writeResult = CommonConst.COMMON_MEMBERLOGIN_LOGIN;
+        }
+        try {
+            res.getWriter().write(writeResult);
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
 
     }
 
@@ -122,79 +178,6 @@ public class LoginAction extends ActionSupport {
         return isSuccess;
     }
 
-    private boolean isValid(String memberLoginId, String memberLoginPw) {
-
-        boolean validResult = false;
-        String pswEncryption = null;
-        String pswEncryptionDb = null;
-        String memberNickName = null;
-        int loginStatus = 0;
-
-        // 会员登陆状态初始化
-        String writeResult = CommonConst.COMMON_MEMBERLOGIN_NG;
-
-        HttpServletRequest req = CommonUtil.getHttpServletRequest();
-        HttpSession sessionRequest = req.getSession();
-
-        if (memberLoginPw != null) {
-            // 获取加密后的密码
-            pswEncryption = CommonUtil.MD5(memberLoginPw);
-        }
-
-        memberService = new MemberService();
-
-        // 获取后台业务表中的会员信息
-        Member loginMemberDetail = memberService.getServiceMemberBykey(memberLoginId);
-
-        if (loginMemberDetail != null) {
-            // 取得画面输入用户名对应的密码
-            pswEncryptionDb = loginMemberDetail.getMemberLoginPw();
-            // 获得该用户的昵称
-            memberNickName = loginMemberDetail.getMemberNickName();
-            // 获取该用户的登陆状态
-            loginStatus = loginMemberDetail.getLoginStatus();
-
-            // 把该用户的详细信息存入request中
-            sessionRequest.setAttribute("memberLoginId", memberLoginId);
-            sessionRequest.setAttribute("memberNickName", memberNickName);
-        }
-
-        if (loginStatus == 0) {
-            // 判断登陆时输入会员信息是否正确
-            if (pswEncryption.equalsIgnoreCase(pswEncryptionDb) && pswEncryption != null) {
-
-                // 登陆时更新会员登录状态
-                memberService.updateServiceMember(memberLoginId);
-                // 设置会员登录状态为1（1：已登录）
-                loginStatus = 1;
-
-                sessionRequest.setAttribute("loginStatus", loginStatus);
-
-                // 登陆时用户名和密码可以匹配，登陆成功
-                writeResult = CommonConst.COMMON_MEMBERLOGIN_OK;
-                validResult = true;
-            }
-            else {
-                // 登陆时用户名和密码不正确，登陆失败
-                writeResult = CommonConst.COMMON_MEMBERLOGIN_NG;
-                validResult = false;
-            }
-        }
-        else {
-            // 会员已经在别的设备上登陆，该用户不能登陆
-            writeResult = CommonConst.COMMON_MEMBERLOGIN_NG;
-            validResult = false;
-        }
-        try {
-            CommonUtil.getHttpServletResponse().getWriter().write(writeResult);
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return validResult;
-    }
-
     /**
      * 退出登陆并清理session中的内容
      * 
@@ -225,7 +208,6 @@ public class LoginAction extends ActionSupport {
 
         // 设置会员登录状态为0（0：未登录）
         int loginStatus = 0;
-
         sessionRequest.setAttribute("loginStatus", loginStatus);
 
         // 返回到登陆画面

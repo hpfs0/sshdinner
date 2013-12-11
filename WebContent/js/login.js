@@ -12,20 +12,17 @@ $(document).ready(function(){
 		alignY: 'center',
 		offsetX: 75,
 		showTimeout: 200,
-		content: function(updateCallback) {
-			window.setTimeout(function() {
-				if(5<=$muser[0].value.length && $muser[0].value.length <= 20){
-					updateCallback('<span class="rightdiv"><image src="images/right.png" width="17px" style="padding-right:5px" />该登录账号可以登陆</span>');
-				}else{
-					updateCallback('<span class="msgdiv">登录账号由5-20个英文字母或数字组成</span>');
-				}
-			    
-//				else if($muser[0].value.length == 0){
+		content: '<span class="msgdiv">登录账号由5-20个英文字母或数字组成</span>'
+//		content: function(updateCallback) {
+//			window.setTimeout(function() {
+//				if(5<=$muser[0].value.length && $muser[0].value.length <= 20){
+//					updateCallback('<span class="rightdiv"><image src="images/right.png" width="17px" style="padding-right:5px" />该登录账号可以登陆</span>');
+//				}else{
 //					updateCallback('<span class="msgdiv">登录账号由5-20个英文字母或数字组成</span>');
-//				}
-			},300);
-			return '亲，正在验证中...';
-		}
+//				}			 
+//			},1);
+//			return '亲，正在验证中...';
+//		}
 	});
 	
 	$muser.blur(function(){ 
@@ -42,7 +39,8 @@ $(document).ready(function(){
 					    data: "username="+p,
 					    success: function(msg){
 						    if(msg=="3"){
-							  $muser.poshytip('update','<span class="errdiv"><image src="images/error.png" width="17px" style="padding-right:5px" />尊敬的会员您好，该会员账号已经在别的设备上登陆，请您稍后再登</span>',true);
+							  $muser.poshytip('update','<span class="errdiv"><image src="images/54097.gif" width="17px" style="padding-right:5px" />尊敬的会员您好，该会员账号已在其他地方登陆，请您注意账号安全</span>',true);
+							  $muser.poshytip('hideDelayed', 2500);
 						    } else{
 						    	if(msg=="2"){
 							    	$muser.poshytip('update','<span class="rightdiv"><image src="images/right.png" width="17px" style="padding-right:5px" />该登录账号可以登陆</span>',true);
@@ -146,26 +144,25 @@ $(document).ready(function(){
 				showinfo = "请输入您的密码！";
 				showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
 			}
-//			else{
-//				$('#login').ajaxSubmit({
-//					target: 'div#notice',
-//					url: 'index.jsp',
-//					success: function(msg) {
-//						if(msg=="OK"){
-//							$('div#notice').hide();
-//							window.location='index.jsp';
-//						}else if(msg.substr(0,2)=="OK" && msg.substr(2,7)=="<script"){
-//							$('div#notice')[0].className="okdiv";
-//							$('div#notice').html(msg.substr(2)+"您已登录成功，稍候跳转到会员中心").show();
-//							$().setBg();
-//							setTimeout("window.location='index.jsp';",2000);
-//						}else{
-//							$('div#notice').show();
-//							$().setBg();
-//						}
-//					}
-//				}); 
-//			}
+			else{
+				
+				$.ajax({
+					type: "POST",
+					url: "login.action",
+					data: "memberLoginId="+memberLoginId + "&memberLoginPw="+memberLoginPw,
+					success: function(msg){
+						if(msg == "NG"){
+							showinfo = "您的密码不正确，请重新输入";
+							showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
+						} else if(msg=="LG"){
+							showinfo = "您的账号已在其他地方登陆，请您注意账号安全";
+							showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
+						}else if(msg=="OK"){
+							window.location.href = "index.jsp";
+						}
+					}
+				});
+			}
 		}
 		return false; 
 
