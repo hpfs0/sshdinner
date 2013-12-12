@@ -21,6 +21,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <script type="text/javascript" src="poshytip-1.2/src/jquery.poshytip.js"></script>
     <script type="text/javascript" src="js/blockui.js"></script>
     <script language="javascript" src="js/reg.js"></script>
+    <!-- the mousewheel plugin -->
+    <link rel="stylesheet" type="text/css" href="css/jscrollpane2.css" />
+    <script type="text/javascript" src="js/jquery.mousewheel.js"></script>
+    <!-- the jScrollPane script -->
+    <script type="text/javascript" src="js/jquery.jscrollpane.min.js"></script>
+    <script type="text/javascript" src="js/scroll-startstop.events.jquery.js"></script>
+    <script type="text/javascript" src="js/srollbar.js"></script>
+    
 </head>
 
 <body style='background:transparent'>
@@ -29,6 +37,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         var PDV_COLTYPE = 'member';
         var PDV_PAGENAME = 'reg';
     </script>
+    <div id="jp-container" class="jp-container">
     <div id='contain' style='width:900px;background:rgb(255,255,255);margin:0px auto;padding:0px'>
         
         <div id='content' style='width:900px;height:346px;background:none transparent scroll repeat 0% 0%;margin:10px auto'>
@@ -349,6 +358,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 </div>
             </div>
         </div>
+    </div>
     </div>
     <div id='bodyex'>
 
