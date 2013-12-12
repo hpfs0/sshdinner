@@ -91,6 +91,13 @@ $(document).ready(function(){
 	
 	//验证码
 	var $imgCode = $("#ImgCode");
+	var $codeimg = $("#codeimg");
+	$codeimg.click(function(){
+		$("#ImgCode").val("");
+		$("#codepng").remove();
+		$("#ImgCode").focus();
+	});
+	
 	$imgCode.blur(function(){
 		//获取用户输入的验证码
 		var inputCode = $imgCode.val();

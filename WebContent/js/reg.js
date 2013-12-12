@@ -539,13 +539,11 @@ $(document).ready(function(){
 //新验证码生成
 $(document).ready(function(){
 	$("#getImgCode").click(function(){
-		$("#codeimg").attr("src","gifcode.action?aa=" + Math.random());
 		$("#ImgCode").val("");
 		$("#codepng").remove();
 		$("#ImgCode").focus();
 	});
 	$("#codeimg").click(function(){
-		$("#codeimg").attr("src","gifcode.action?aa=" + Math.random());
 		$("#ImgCode").val("");
 		$("#codepng").remove();
 		$("#ImgCode").focus();
