@@ -17,7 +17,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script type="text/javascript" src="js/guestbook.js"></script>
 	<!-- the mousewheel plugin -->
 	<link rel="stylesheet" type="text/css" href="css/jscrollpane2.css" />
-    <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
     <script type="text/javascript" src="js/jquery.mousewheel.js"></script>
     <!-- the jScrollPane script -->
     <script type="text/javascript" src="js/jquery.jscrollpane.min.js"></script>
