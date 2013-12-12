@@ -20,15 +20,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <script language="javascript" src="js/dingcanall.js"></script>
     <!-- the mousewheel plugin -->
     <link rel="stylesheet" type="text/css" href="css/jscrollpane2.css" />
-    <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="js/jquery-1.7.2.js"></script>
     <script type="text/javascript" src="js/jquery.mousewheel.js"></script>
     <!-- the jScrollPane script -->
     <script type="text/javascript" src="js/jquery.jscrollpane.min.js"></script>
     <script type="text/javascript" src="js/scroll-startstop.events.jquery.js"></script>
     <script type="text/javascript" src="js/srollbar.js"></script>
+    <script type="text/javascript" src="js/srollresize.js"></script>
 </head>
 
 <body style='background:transparent'>
+
     <script>
         var PDV_PAGEID = '1';
         var PDV_RP = '';
