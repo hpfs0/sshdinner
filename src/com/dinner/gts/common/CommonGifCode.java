@@ -75,15 +75,15 @@ public class CommonGifCode {
         // 利用指定颜色填充背景
         g2d.setColor(bgcolor);
         g2d.fillRect(0, 0, width, height);
-        // 画背景线 4*4
+        // 画背景线 8*8
         g2d.setColor(linecolor);
-        for (int i = 0; i < height / 4; i++) {
+        for (int i = 0; i < height / 8; i++) {
 
-            g2d.drawLine(0, i * 4, width, i * 4);
+            g2d.drawLine(0, i * 8, width, i * 8);
         }
-        for (int i = 0; i < width / 4; i++) {
+        for (int i = 0; i < width / 8; i++) {
 
-            g2d.drawLine(i * 4, 0, i * 4, height);
+            g2d.drawLine(i * 8, 0, i * 8, height);
         }
         AlphaComposite ac = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.2f);
         g2d.setComposite(ac);

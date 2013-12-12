@@ -285,6 +285,94 @@ $(document).ready(function(){
 			$('#codepng').remove();
 		}
 	});
+	
+	//注册点击处理
+	$("#tijiao").click(function(){
+		// jquery找到有无输入不正确的选项
+		var $errDiv = $(".errdiv");
+		var showinfo = "";
+		var errCode = $('[src="images/error.png"]');
+
+		if($errDiv.length > 0){
+			showinfo = $errDiv.html().replace(/<.*>/,'');
+			showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
+		}else if(errCode.length > 0){
+			showinfo = "验证码不正确!";
+			showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
+		}
+		else{
+			var membertypeid = $("#membertypeid").val();
+			var user = $("#user").val();
+			var password = $("#password").val();
+			var repass = $("#repass").val();
+			var email = $("#email").val();
+			var pname = $("#pname").val();
+			var name = $("#name").val();
+			var company = $("#company").val();
+			var mov = $("#mov").val();
+			
+			if(user == ""){
+				showinfo = "请输入您的登录帐号！";
+				showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
+			}else if(password == ""){
+				showinfo = "请输入您的密码！";
+				showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
+			}else if(repass == ""){
+				showinfo = "请再次输入您的密码！";
+				showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
+			}else if(email == ""){
+				showinfo = "请输入您的电子邮箱！";
+				showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
+			}else if(pname == ""){
+				showinfo = "请输入您的昵称！";
+				showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
+			}else if(name == ""){
+				showinfo = "请输入您的姓名！";
+				showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
+			}else if(company == ""){
+				showinfo = "请输入您的公司！如果是个人用户,填写您的姓名即可。";
+				showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
+			}else if(company == ""){
+				showinfo = "请输入您的公司！如果是个人用户,填写您的姓名即可。";
+				showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
+			}else if(mov == ""){
+				showinfo = "请输入您的手机号码！";
+				showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
+			}else{
+				$user.poshytip('hide');
+				$password.poshytip('hide');
+				$repass.poshytip('hide');
+				$email.poshytip('hide');
+				$pname.poshytip('hide');
+				$name.poshytip('hide');
+				$company.poshytip('hide');
+				$tel.poshytip('hide');
+				$mov.poshytip('hide');
+				// 所有输入部分隐藏
+				$(".row").css("display","none");
+				// 调用registerAction
+				$.ajax({
+					type: "POST",
+					url: "reguser.action",
+					data: "membertypeid="+ membertypeid +"&user="+ user 
+					+ "&password=" + password + "&email=" + email + "&name=" + name + 
+					"&pname=" + pname + "&company=" + company + "&mov=" + mov,
+					success: function(msg){
+						if(msg=="OK"){
+							$('div#notice')[0].className='okdiv';
+							$('div#notice').html("会员注册成功！感谢您的注册! <a href='login.jsp'><b>点此登录</b></>");
+							$('div#notice').show();
+							$().setBg();
+						}else{
+							$('div#notice').html("会员注册失败！给您带来的不便非常抱歉！ <a href='reg.jsp'><b>点此重新注册</b></>");
+							$('div#notice').show();
+							$().setBg();
+						}
+					}
+				});
+		    }
+		}
+	});
 });
 
 
@@ -451,97 +539,15 @@ $(document).ready(function(){
 //新验证码生成
 $(document).ready(function(){
 	$("#getImgCode").click(function(){
-		$("#codeimg").attr("src","gifcode.action");
+		$("#codeimg").attr("src","gifcode.action?aa=" + Math.random());
 		$("#ImgCode").val("");
 		$("#codepng").remove();
 		$("#ImgCode").focus();
 	});
 	$("#codeimg").click(function(){
-		$("#codeimg").attr("src","gifcode.action");
+		$("#codeimg").attr("src","gifcode.action?aa=" + Math.random());
 		$("#ImgCode").val("");
 		$("#codepng").remove();
 		$("#ImgCode").focus();
-	});
-});
-
-//注册点击处理
-$(document).ready(function(){
-	$("#tijiao").click(function(){
-		// jquery找到有无输入不正确的选项
-		var $errDiv = $(".errdiv");
-		var showinfo = "";
-		var errCode = $('[src="images/error.png"]');
-
-		if($errDiv.length > 0){
-			showinfo = $errDiv.html().replace(/<.*>/,'');
-			showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
-		}else if(errCode.length > 0){
-			showinfo = "验证码不正确!";
-			showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
-		}
-		else{
-			var membertypeid = $("#membertypeid").val();
-			var user = $("#user").val();
-			var password = $("#password").val();
-			var repass = $("#repass").val();
-			var email = $("#email").val();
-			var pname = $("#pname").val();
-			var name = $("#name").val();
-			var company = $("#company").val();
-			var mov = $("#mov").val();
-			
-			if(user == ""){
-				showinfo = "请输入您的登录帐号！";
-				showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
-			}else if(password == ""){
-				showinfo = "请输入您的密码！";
-				showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
-			}else if(repass == ""){
-				showinfo = "请再次输入您的密码！";
-				showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
-			}else if(email == ""){
-				showinfo = "请输入您的电子邮箱！";
-				showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
-			}else if(pname == ""){
-				showinfo = "请输入您的昵称！";
-				showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
-			}else if(name == ""){
-				showinfo = "请输入您的姓名！";
-				showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
-			}else if(company == ""){
-				showinfo = "请输入您的公司！如果是个人用户,填写您的姓名即可。";
-				showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
-			}else if(company == ""){
-				showinfo = "请输入您的公司！如果是个人用户,填写您的姓名即可。";
-				showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
-			}else if(mov == ""){
-				showinfo = "请输入您的手机号码！";
-				showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
-			}else{
-				// 所有输入部分隐藏
-				$(".row").css("display","none");
-				// 调用registerAction
-				$.ajax({
-					type: "POST",
-					url: "reguser.action",
-					data: "membertypeid="+ membertypeid +"&user="+ user 
-					+ "&password=" + password + "&email=" + email + "&name=" + name + 
-					"&pname=" + pname + "&company=" + company + "&mov=" + mov,
-					success: function(msg){
-						if(msg=="OK"){
-							$('div#notice')[0].className='okdiv';
-							$('div#notice').html("会员注册成功！感谢您的注册! <a href='login.jsp'><b>点此登录</b></>");
-							$('div#notice').show();
-							$().setBg();
-						}else{
-							$('div#notice')[0].className='okdiv';
-							$('div#notice').html("会员注册失败！给您带来的不便非常抱歉！ <a href='reg.jsp'><b>点此重新注册</b></>");
-							$('div#notice').show();
-							$().setBg();
-						}
-					}
-				});
-		    }
-		}
 	});
 });
