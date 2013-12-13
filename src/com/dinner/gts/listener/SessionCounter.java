@@ -22,8 +22,10 @@ public class SessionCounter implements HttpSessionListener {
     public void sessionDestroyed(HttpSessionEvent se) {
         String memberLoginId = null;
         HttpSession session = se.getSession();
-        memberLoginId =
-                session.getAttribute("memberLoginId").toString();
+        if (session.getAttribute("memberLoginId") != null) {
+            memberLoginId =
+                    session.getAttribute("memberLoginId").toString();
+        }
         memberService = new MemberService();
 
         // 未退出并且长时间未登录网页时更新会员登录状态为未登录

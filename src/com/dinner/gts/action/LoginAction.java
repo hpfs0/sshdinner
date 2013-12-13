@@ -190,14 +190,15 @@ public class LoginAction extends ActionSupport {
         String memberLoginId = null;
 
         // 取得登录中的用户会员ID
-        memberLoginId = sessionRequest.getAttribute("memberLoginId")
-                .toString();
+        if (sessionRequest.getAttribute("memberLoginId") != null) {
+            memberLoginId = sessionRequest.getAttribute("memberLoginId")
+                    .toString();
+        }
 
         memberService = new MemberService();
 
         // 登陆时更新会员登录状态
-        if (sessionRequest.getAttribute("memberLoginId")
-                .toString() != null) {
+        if (memberLoginId != null) {
             memberService.updateServiceMemberWhenLogOut(memberLoginId);
         }
 
