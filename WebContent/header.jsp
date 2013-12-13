@@ -13,6 +13,7 @@
     <script type="text/javascript" src="js/common.js"></script>
     <script type="text/javascript" src="js/form.js"></script>
     <script type="text/javascript" src="js/channelmenu_dc.js"></script>
+    <script type="text/javascript" src="js/quit.js"></script>
 </head>
 
 <body style='background:transparent'>
