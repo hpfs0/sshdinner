@@ -32,7 +32,6 @@ public class LoginAction extends ActionSupport {
         this.clearErrorsAndMessages();
 
         HttpServletRequest req = CommonUtil.getHttpServletRequest();
-        HttpSession session = req.getSession();
         HttpServletResponse res = CommonUtil.getHttpServletResponse();
 
         res.setContentType("text/html; charset=utf-8");
@@ -87,6 +86,11 @@ public class LoginAction extends ActionSupport {
                 loginStatus = 1;
 
                 sessionRequest.setAttribute("loginStatus", loginStatus);
+//                Cookie cookiememberLoginId = new Cookie("memberLoginId",loginMemberDetail.getMemberId());
+//                HttpServletResponse response = null;
+//                cookiememberLoginId.setMaxAge(10*24*60*60);
+//                response.addCookie(cookiememberLoginId);
+                
 
                 // 登陆时用户名和密码可以匹配，登陆成功
                 writeResult = CommonConst.COMMON_MEMBERLOGIN_OK;
@@ -154,17 +158,21 @@ public class LoginAction extends ActionSupport {
         String inputCode = req.getParameter("inputCode");
         // session中保存的验证
         String sessionCode = session.getAttribute("gifcode").toString();
-        if (inputCode.equalsIgnoreCase(sessionCode)) {
-            writeResult = CommonConst.COMMON_CODE_CHECK_OK;
-        }
-        else {
-            writeResult = CommonConst.COMMON_CODE_CHECK_NG;
-        }
-        try {
-            CommonUtil.getHttpServletResponse().getWriter().write(writeResult);
-        }
-        catch (IOException e) {
-            e.printStackTrace();
+        if(inputCode == null){
+            writeResult = CommonConst.COMMON_CODE_CHECK_NG; 
+        } else{
+            if (inputCode.equalsIgnoreCase(sessionCode)) {
+                writeResult = CommonConst.COMMON_CODE_CHECK_OK;
+            }
+            else {
+                writeResult = CommonConst.COMMON_CODE_CHECK_NG;
+            }
+            try {
+                CommonUtil.getHttpServletResponse().getWriter().write(writeResult);
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+            }
         }
         return null;
     }
@@ -186,6 +194,7 @@ public class LoginAction extends ActionSupport {
     public String sessionRemove() {
         // 重新获取session
         HttpServletRequest req = CommonUtil.getHttpServletRequest();
+        HttpServletResponse res = CommonUtil.getHttpServletResponse();
         HttpSession sessionRequest = req.getSession();
         String memberLoginId = null;
 
@@ -210,9 +219,16 @@ public class LoginAction extends ActionSupport {
         // 设置会员登录状态为0（0：未登录）
         int loginStatus = 0;
         sessionRequest.setAttribute("loginStatus", loginStatus);
-
+        
+//        Cookie cookies[] = req.getCookies();
+//        for (int i = 0; cookies != null && i < cookies.length; i++) {
+//            if(cookies[i].getName()=="loginStatus"){
+//            Cookie cookie = cookies[i];
+//            cookie.setMaxAge(0);
+//            res.addCookie(cookie);
+//            }
+//        }
         // 返回到登陆画面
         return SUCCESS;
     }
-
 }

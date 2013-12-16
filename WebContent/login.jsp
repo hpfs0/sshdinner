@@ -89,7 +89,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                             <tr>
                                                 <td width="80">登录账号</td>
                                                 <td>
-                                                    <input type="text" id="muser" name="memberLoginId" class="input" maxlength=20 style="width:135px" value="">
+                                                    <input type="text" id="muser" name="memberLoginId" class="input" maxlength=20 style="width:135px" value="${cookie['cookiememberLoginId']}">
                                                 </td>
                                                 <s:fielderror cssStyle="color:red"><s:param>memberLoginId</s:param></s:fielderror>
                                             </tr>
@@ -113,6 +113,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                                         </tr>
                                                     </table>
                                                 </td>
+                                            </tr>
+                                            <tr>
+                                            	<td width="80"></td>
+                                            	<td><input type="checkbox" name="isRememberMsg" style="vertical-align:middle;" id="isRememberMsg">记住密码</td>
                                             </tr>
                                             <tr>
                                                 <td width="80">

@@ -14,6 +14,7 @@
     <script type="text/javascript" src="js/form.js"></script>
     <script type="text/javascript" src="js/channelmenu_dc.js"></script>
     <script type="text/javascript" src="js/quit.js"></script>
+    <script type="text/javascript" src="js/jquery.cookie.js"></script>
 </head>
 
 <body style='background:transparent'>
@@ -31,10 +32,10 @@
                     </div>
                     <div style="padding:0px">
                         <div id="topmenu">
-       						<s:if test="#session.loginStatus!=1"> 
+       						<s:if test="#session.loginStatus!=1">
                             	<a href="login.jsp" target="_self">会员登录</a>|
                             </s:if> 
-                            <s:if test="#session.loginStatus==1"> 
+                            <s:if test="#session.loginStatus==1">
                             	<a href="login.jsp" target="_self">${sessionScope.memberNickName}</a><a href="logout.action">退出</a>|
                             </s:if> 
                             <a href="reg.jsp" target="_self">会员注册</a>|
