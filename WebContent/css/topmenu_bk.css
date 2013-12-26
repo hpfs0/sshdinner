@@ -3,12 +3,11 @@ div#topmenu{
 	margin: 0;
 	padding:0;
 	border: 0;
-	height: 25px;
-	line-height:25px;
+	
 	color:#555;
 	text-align:center;
 	background:url(../images/topmenu_bg.jpg) no-repeat;
-	background-size:100%;
+	background-size:100% 25px;
 }
 
 
