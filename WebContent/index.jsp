@@ -71,7 +71,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                             <div style="height:20px;font-size:12px;color:#e52614;">注：周六日或其他时间用餐，请提前来电</div>
                                             <div style="height:24px;font-size:14px;font-weight:bold;color:#f16906;">电话订餐：4008008818</div>
                                             <div style="text-align:center;" title='联系我'>
-                                                <a target=blank href=tencent://message/?uin=84312430&Site=im.qq.com&Menu=No>&nbsp;<img src="http://wpa.qq.com/pa?p=1:84312430:10" border="0" align="middle" ></a></div>
+                                                <a title="点击这里给我发消息" href="http://wpa.qq.com/msgrd?v=3&amp;uin=84312430&amp;site=qq&amp;menu=yes" target="_blank"><img src="http://wpa.qq.com/pa?p=1:84312430:47"></a>
+                                                <a title="点击这里给我发消息" href="http://wpa.qq.com/msgrd?v=3&amp;uin=389314570&amp;site=qq&amp;menu=yes" target="_blank"><img src="http://wpa.qq.com/pa?p=1:389314570:47"></a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
