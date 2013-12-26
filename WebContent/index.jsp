@@ -38,7 +38,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </script>
     <div id="jp-container" class="jp-container">
     <div id='contain' style='width:900px;background:rgb(255,255,255);margin:0px auto;padding:0px'>
-        <div id='content' style='width:900px;height:1574px;background:none transparent scroll repeat 0% 0%;margin:10px auto'>
+        <div id='content' style='width:900px;height:616px;background:none transparent scroll repeat 0% 0%;margin:10px auto'>
             <!-- 订餐时间信息 -->
             <div id='pdv_3604' class='pdv_class' title='订餐时间' style='width:243px;height:195px;top:0px;left:655px; z-index:1'>
                 <div id='spdv_3604' class='pdv_content' style='overflow:hidden;width:100%;height:100%'>
@@ -70,32 +70,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                             </div>
                                             <div style="height:20px;font-size:12px;color:#e52614;">注：周六日或其他时间用餐，请提前来电</div>
                                             <div style="height:24px;font-size:14px;font-weight:bold;color:#f16906;">电话订餐：4008008818</div>
-                                            <div style="text-align:center;">
-
-
-                                                <img src='images/qq_offline.gif' border='0' />&nbsp;&nbsp;&nbsp;</div>
-                                            <div style="text-align:center;padding-top:5px;"><a href='msnim:chat?contact=dingcan@hotmail.com' style='font-weight:bold;color:#ee6a06;' target='_blank'>msn:dingcan@hotmail.com<img src='images/msn.gif' border='0' /></a>
-                                            </div>
+                                            <div style="text-align:center;" title='联系我'>
+                                                <a target=blank href=tencent://message/?uin=84312430&Site=im.qq.com&Menu=No>&nbsp;<img src="http://wpa.qq.com/pa?p=1:84312430:10" border="0" align="middle" ></a></div>
                                         </div>
-
-
                                     </div>
-
                                 </div>
                             </div>
-
                             <div id="dingcantime_bottom_left">&nbsp;</div>
                             <div id="dingcantime_bottom_right">&nbsp;</div>
-
                         </div>
                     </div>
-
                 </div>
             </div>
 
             <!-- 订餐车 -->
-
-            <div id='pdv_3614' class='pdv_class' title='我的餐车' style='width:243px;height:123px;top:201px;left:655px; z-index:2'>
+            <div id='pdv_3614' class='pdv_class' title='我的餐车' style='width:243px;height:123px;top:180px;left:655px; z-index:2'>
                 <div id='spdv_3614' class='pdv_content' style='overflow:visible;width:100%;'>
                     <div class="pdv_border" style="margin:0;padding:0;height:100%;border:0px  solid;background:;">
                         <div style="height:25px;margin:1px;display:none;background:;">
@@ -171,8 +160,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </div>
 
             <!-- 文章列表 -->
-
-            <div id='pdv_3603' class='pdv_class' title='网站公告' style='width:243px;height:186px;top:336px;left:655px; z-index:3'>
+            <div id='pdv_3603' class='pdv_class' title='网站公告' style='width:243px;height:186px;top:310px;left:655px; z-index:3'>
                 <div id='spdv_3603' class='pdv_content' style='overflow:hidden;width:100%;height:100%'>
                     <div class="pdv_border" style="border:0px;height:100%;padding:0;margin:0;background:url(base/border/640/images/left.jpg) repeat-y">
                         <div style="height:100%;background:url(images/right.jpg) right repeat-y">
@@ -221,8 +209,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </div>
 
             <!-- 本周菜单 -->
-
-            <div id='pdv_3613' class='pdv_class' title='本周菜单' style='width:243px;height:100px;top:534px;left:655px; z-index:5'>
+            <div id='pdv_3613' class='pdv_class' title='本周菜单' style='width:243px;height:100px;top:505px;left:655px; z-index:5'>
                 <div id='spdv_3613' class='pdv_content' style='overflow:hidden;width:100%;height:100%'>
                     <div class="pdv_border" style="margin:0;padding:0;height:100%;border:0px  solid;background:;">
                         <div style="height:25px;margin:1px;display:none;background:;">
@@ -249,8 +236,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
                                             <table width="100%" border="0" cellspacing="0" cellpadding="3" height="30" style="background:#fef0d3;">
                                                 <tr>
-                                                    <td rowspan="2" align="center"><span style="background:#f99d20;color:#ffffff;">07</span>
-                                                    </td>
                                                     <td>一</td>
                                                     <td>二</td>
                                                     <td>三</td>
@@ -260,6 +245,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                                     <td>日</td>
                                                 </tr>
 
+                                                <!-- 根据当前日期自动标注底色TODO -->
                                                 <tr>
                                                     <td class='riqi'><a href='dingcan/caipu.php?m=07&d=04' class='puriqiclass'>04</a>
                                                     </td>
@@ -267,7 +253,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                                     </td>
                                                     <td class='riqi'><a href='dingcan/caipu.php?m=07&d=06' class='puriqiclass'>06</a>
                                                     </td>
-                                                    <td class='riqi'><a href='dingcan/caipu.php?m=07&d=07' class='puriqiclass'>07</a>
+                                                    <td class='riqi'><a href='dingcan/caipu.php?m=07&d=07' class='puriqiclass'><span style="background:#f99d20;color:#ffffff;">07</span></a>
                                                     </td>
                                                     <td class='riqi'><a href='dingcan/caipu.php?m=07&d=08' class='puriqiclass'>08</a>
                                                     </td>
@@ -297,7 +283,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </div>
 
             <!-- 餐品展示与订购 -->
-
             <div id='pdv_3606' class='pdv_class' title='' style='width:648px;height:1409px;top:0px;left:0px; z-index:12'>
                 <div id='spdv_3606' class='pdv_content' style='overflow:visible;width:100%;'>
                     <div class="pdv_border" style="margin:0;padding:0;height:100%;border:0px  solid;background:;">
@@ -632,7 +617,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </div>
 
             <!-- 图片/FLASH -->
-
             <div id='pdv_3602' class='pdv_class' title='' style='width:649px;height:151px;top:1421px;left:0px; z-index:13'>
                 <div id='spdv_3602' class='pdv_content' style='overflow:hidden;width:100%;height:100%'>
                     <div class="pdv_border" style="margin:0;padding:0;height:100%;border:0px  solid;background:;">
@@ -654,9 +638,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>
         <div id='bottom' style='width:900px;height:173px;background:none transparent scroll repeat 0% 0%'>
 
-
             <!-- 底部信息编辑区 -->
-
             <div id='pdv_3610' class='pdv_class' title='脚注信息' style='width:898px;height:106px;top:65px;left:0px; z-index:7'>
                 <div id='spdv_3610' class='pdv_bottom' style='overflow:hidden;width:100%;height:100%'>
                     <div class="pdv_border" style="margin:0;padding:0;height:100%;border:0px  solid;background:;">
@@ -690,7 +672,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <a href="admin/advise.jsp" target="_self">投诉建议</a>|
             </div>
             <!-- 底部菜单（一级） -->
-
             <div id='pdv_3612' class='pdv_class' style='width:898px;height:35px;top:0px;left:0px; z-index:8'>
                 <div id='spdv_3612' class='pdv_bottom' style='overflow:hidden;width:100%;height:100%'>
                     <div class="pdv_border" style="margin:0;padding:0;height:100%;border:0px  solid;background:;">
@@ -709,7 +690,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </div>
 
             <!-- 文字友情链接 -->
-
             <div id='pdv_3609' class='pdv_class' title='' style='width:898px;height:30px;top:35px;left:0px; z-index:10'>
                 <div id='spdv_3609' class='pdv_bottom' style='overflow:hidden;width:100%;height:100%'>
                     <div class="pdv_border" style="margin:0;padding:0;height:100%;border:0px  solid;background:;">
@@ -775,7 +755,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </div>
 
             <!-- 图片/FLASH -->
-
             <div id='pdv_3611' class='pdv_class' title='' style='width:121px;height:44px;top:94px;left:656px; z-index:11'>
                 <div id='spdv_3611' class='pdv_bottom' style='overflow:hidden;width:100%;height:100%'>
                     <div class="pdv_border" style="margin:0;padding:0;height:100%;border:0px  solid;background:;">
