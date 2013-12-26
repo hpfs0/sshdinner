@@ -196,17 +196,18 @@ $(document).ready(function(){
 				showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
 			}
 			else{
-				//SetCookie("loginStatus","1"); 
+				SetCookie("loginStatus","1"); 
 				if(document.getElementById("isRememberMsg").checked){
 					    SetCookie("memberLoginId",$("#muser").val()); // 把页面上的登陆ID存入cookie中
 					    SetCookie("memberLoginPw",$("#mpass").val()); // 把页面上的登陆密码存入cookie中
 					    SetCookie("isRememberMsg","1"); 
 					   }else{
-					    DelCookie("memberLoginId");
-					    DelCookie("memberLoginPw");
+						//DelCookie("memberLoginId");
+					    //DelCookie("memberLoginPw");
+						SetCookie("memberLoginId",$("#muser").val()); // 把页面上的登陆ID存入cookie中
+						SetCookie("memberLoginPw",$("#mpass").val()); // 把页面上的登陆密码存入cookie中
 					    SetCookie("isRememberMsg","0");
-					   }
-					
+					   }				
 				$.ajax({
 					type: "POST",
 					url: "login.action",
@@ -236,14 +237,28 @@ function initValue(){
    var memberLoginId;
    var memberLoginPw;
    isRMsg = GetCookie("isRememberMsg");
-   if(isRMsg==1){
-	   memberLoginId = GetCookie("memberLoginId");
-	   memberLoginPw = GetCookie("memberLoginPw");
-	   document.all.isRememberMsg.checked = true;
+   memberLoginId = GetCookie("memberLoginId");
+   memberLoginPw = GetCookie("memberLoginPw");
+   loginStatus = GetCookie("loginStatus");
+   if(loginStatus==1){
 	   memberLoginIdInput = top.document.getElementById("muser");
 	   memberLoginPwInput = top.document.getElementById("mpass");
 	   memberLoginIdInput.value = memberLoginId;
 	   memberLoginPwInput.value = memberLoginPw;
    }
+   if(isRMsg==1){
+	   document.all.isRememberMsg.checked = true;
+	   memberLoginIdInput = top.document.getElementById("muser");
+	   memberLoginPwInput = top.document.getElementById("mpass");
+	   memberLoginIdInput.value = memberLoginId;
+	   memberLoginPwInput.value = memberLoginPw;
+   } 
+   if(loginStatus==1){
+		$.ajax({
+			type: "POST",
+			url: "loginStatus.action"
+		});   
+   }
+
   };
 

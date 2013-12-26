@@ -3,6 +3,7 @@ package com.dinner.gts.action;
 import java.io.IOException;
 import java.io.OutputStream;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -37,10 +38,37 @@ public class LoginAction extends ActionSupport {
         res.setContentType("text/html; charset=utf-8");
 
         // 会员帐号ID
-        String memberLoginId = req.getParameter("memberLoginId");
-
+        String memberLoginId = null;
         // 会员帐号密码
-        String memberLoginPw = req.getParameter("memberLoginPw");
+        String memberLoginPw = null;
+        // 缓存（cookie）中的会员登陆状态
+        String cookieLoginStatus = null;
+
+        Cookie cookies[] = req.getCookies();
+        for (int i = 0; cookies != null && i <
+                cookies.length; i++) {
+            if (cookies[i].getName().equals("memberLoginId")) {
+                memberLoginId = cookies[i].getValue();
+            }
+            else if (cookies[i].getName().equals("memberLoginPw"))
+            {
+                memberLoginPw = cookies[i].getValue();
+            }
+            else if (cookies[i].getName().equals("loginStatus"))
+            {
+                cookieLoginStatus = cookies[i].getValue();
+            }
+        }
+
+        if (memberLoginId == null) {
+            // 会员帐号ID
+            memberLoginId = req.getParameter("memberLoginId");
+        }
+
+        if (memberLoginPw == null) {
+            // 会员帐号密码
+            memberLoginPw = req.getParameter("memberLoginPw");
+        }
 
         // 验证帐号正确性
         String pswEncryption = null;
@@ -76,9 +104,10 @@ public class LoginAction extends ActionSupport {
             sessionRequest.setAttribute("memberNickName", memberNickName);
         }
 
-        if (loginStatus == 0) {
+        // 用户处于未登录状态或者用户上次登陆成功后异常退出的可以正常登陆系统
+        if (loginStatus == 0 || cookieLoginStatus.equals("1")) {
             // 判断登陆时输入会员信息是否正确
-            if (pswEncryption.equalsIgnoreCase(pswEncryptionDb) && pswEncryption != null) {
+            if (pswEncryption != null && pswEncryption.equalsIgnoreCase(pswEncryptionDb)) {
 
                 // 登陆时更新会员登录状态
                 memberService.updateServiceMember(memberLoginId);
@@ -86,11 +115,11 @@ public class LoginAction extends ActionSupport {
                 loginStatus = 1;
 
                 sessionRequest.setAttribute("loginStatus", loginStatus);
-//                Cookie cookiememberLoginId = new Cookie("memberLoginId",loginMemberDetail.getMemberId());
-//                HttpServletResponse response = null;
-//                cookiememberLoginId.setMaxAge(10*24*60*60);
-//                response.addCookie(cookiememberLoginId);
-                
+                // Cookie cookiememberLoginId = new
+                // Cookie("memberLoginId",loginMemberDetail.getMemberId());
+                // HttpServletResponse response = null;
+                // cookiememberLoginId.setMaxAge(10*24*60*60);
+                // response.addCookie(cookiememberLoginId);
 
                 // 登陆时用户名和密码可以匹配，登陆成功
                 writeResult = CommonConst.COMMON_MEMBERLOGIN_OK;
@@ -112,6 +141,55 @@ public class LoginAction extends ActionSupport {
         }
         return null;
 
+    }
+
+    /**
+     * 检查当前用户的登陆状态
+     */
+    public String checkLoginUserStatus() {
+        HttpServletRequest req = CommonUtil.getHttpServletRequest();
+        // HttpServletResponse res =
+        // CommonUtil.getHttpServletResponse();
+        memberService = new MemberService();
+
+        // 获取cookie中的登录状态
+        String strLoginStatus = null;
+        String strMemberLoginId = null;
+        Cookie cookies[] = req.getCookies();
+        for (int i = 0; cookies != null && i <
+                cookies.length; i++) {
+            if (cookies[i].getName().equals("loginStatus")) {
+                strLoginStatus = cookies[i].getValue();
+            }
+            else if (cookies[i].getName().equals("memberLoginId"))
+            {
+                strMemberLoginId = cookies[i].getValue();
+            }
+        }
+        // // 会员帐号ID
+        // strMemberLoginId =
+        // req.getParameter("strMemberLoginId");
+        //
+        // // 会员登陆状态
+        // strLoginStatus =
+        // req.getParameter("strLoginStatus");
+
+        if (strLoginStatus == null || strLoginStatus.length() == 0) {
+            strLoginStatus = "0";
+        }
+        if (strLoginStatus.equals("1")) {
+            // 登陆时更新会员登录状态
+            if (strMemberLoginId != null) {
+                memberService.updateServiceMember(strMemberLoginId);
+            }
+        }
+        else {
+            // 退出时更新会员登录状态
+            if (strMemberLoginId != null) {
+                memberService.updateServiceMemberWhenLogOut(strMemberLoginId);
+            }
+        }
+        return SUCCESS;
     }
 
     /**
@@ -158,9 +236,10 @@ public class LoginAction extends ActionSupport {
         String inputCode = req.getParameter("inputCode");
         // session中保存的验证
         String sessionCode = session.getAttribute("gifcode").toString();
-        if(inputCode == null){
-            writeResult = CommonConst.COMMON_CODE_CHECK_NG; 
-        } else{
+        if (inputCode == null) {
+            writeResult = CommonConst.COMMON_CODE_CHECK_NG;
+        }
+        else {
             if (inputCode.equalsIgnoreCase(sessionCode)) {
                 writeResult = CommonConst.COMMON_CODE_CHECK_OK;
             }
@@ -194,7 +273,8 @@ public class LoginAction extends ActionSupport {
     public String sessionRemove() {
         // 重新获取session
         HttpServletRequest req = CommonUtil.getHttpServletRequest();
-        HttpServletResponse res = CommonUtil.getHttpServletResponse();
+        HttpServletResponse res =
+                CommonUtil.getHttpServletResponse();
         HttpSession sessionRequest = req.getSession();
         String memberLoginId = null;
 
@@ -206,7 +286,7 @@ public class LoginAction extends ActionSupport {
 
         memberService = new MemberService();
 
-        // 登陆时更新会员登录状态
+        // 退出时更新会员登录状态
         if (memberLoginId != null) {
             memberService.updateServiceMemberWhenLogOut(memberLoginId);
         }
@@ -219,15 +299,27 @@ public class LoginAction extends ActionSupport {
         // 设置会员登录状态为0（0：未登录）
         int loginStatus = 0;
         sessionRequest.setAttribute("loginStatus", loginStatus);
-        
-//        Cookie cookies[] = req.getCookies();
-//        for (int i = 0; cookies != null && i < cookies.length; i++) {
-//            if(cookies[i].getName()=="loginStatus"){
-//            Cookie cookie = cookies[i];
-//            cookie.setMaxAge(0);
-//            res.addCookie(cookie);
-//            }
-//        }
+
+        Cookie cookies[] = req.getCookies();
+        String isRememberMsg = null;
+        for (int i = 0; cookies != null && i <
+                cookies.length; i++) {
+            if (cookies[i].getName().equals("isRememberMsg"))
+            {
+                isRememberMsg = cookies[i].getValue();
+            }
+        }
+
+        if (isRememberMsg != "1") {
+            for (int i = 0; cookies != null && i <
+                    cookies.length; i++) {
+                if (cookies[i].getName().equals("loginStatus")) {
+                    Cookie cookie = cookies[i];
+                    cookie.setMaxAge(0);
+                    res.addCookie(cookie);
+                }
+            }
+        }
         // 返回到登陆画面
         return SUCCESS;
     }

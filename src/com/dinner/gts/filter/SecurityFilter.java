@@ -28,7 +28,7 @@ public class SecurityFilter implements Filter {
         HttpSession session = req.getSession(true);
 
         // 从session里取的用户名信息
-        String username = (String) session.getAttribute("userLoginId");
+        String username = (String) session.getAttribute("memberLoginId");
 
         // 判断如果没有取到用户信息,就跳转到登陆页面
         if (username == null || "".equals(username)) {

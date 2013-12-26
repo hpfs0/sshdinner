@@ -6,6 +6,9 @@
 	<package name="struts2" extends="struts-default">
 		<action name ="login" class ="com.dinner.gts.action.LoginAction">
 		</action>
+		<action name = "loginStatus" class ="com.dinner.gts.action.LoginAction" method="checkLoginUserStatus">
+			<result name="success" type="chain">login</result>
+		</action>
 		<action name ="checkuser" class ="com.dinner.gts.action.RegisterAction" method="checkUser">
 		</action>
 		<action name ="reguser" class ="com.dinner.gts.action.RegisterAction">
