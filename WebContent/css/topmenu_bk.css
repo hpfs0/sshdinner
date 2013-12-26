@@ -8,6 +8,7 @@ div#topmenu{
 	color:#555;
 	text-align:center;
 	background:url(../images/topmenu_bg.jpg) no-repeat;
+	background-size:100%;
 }
 
 
