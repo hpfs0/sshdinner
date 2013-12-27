@@ -19,9 +19,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" type="text/css" href="css/jscrollpane2.css" />
     <script type="text/javascript" src="js/jquery.mousewheel.js"></script>
     <!-- the jScrollPane script -->
-    <script type="text/javascript" src="js/jquery.jscrollpane.min.js"></script>
+    <!--<script type="text/javascript" src="js/jquery.jscrollpane.min.js"></script>
     <script type="text/javascript" src="js/scroll-startstop.events.jquery.js"></script>
-    <script type="text/javascript" src="js/srollbar.js"></script>	
+    <script type="text/javascript" src="js/srollbar.js"></script>-->	
 </head>
 
 <body style='background:transparent'>

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="GBK"%>
 <%@ taglib uri="/struts-tags" prefix="s" %>
-<%@ include file='../header.jsp' %>
+<%@ include file='header.jsp' %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -12,21 +12,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>网上快餐店</title>
-	<link href="css/pagetitlemenu_b2.css" rel="stylesheet" type="text/css" />
-	<link href="css/nav.css" rel="stylesheet" type="text/css" />
-	<link href="css/feedbackform.css" rel="stylesheet" type="text/css" />
-	<script type="text/javascript" src="js/jquery-1.7.2.js"></script>
-	<script type="text/javascript" src="js/jquery.toastmessage.js"></script>
-    <link href="js/resource/css/jquery.toastmessage.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="poshytip-1.2/src/tip-yellow/tip-yellow.css" type="text/css" />
-    <script type="text/javascript" src="poshytip-1.2/src/jquery.poshytip.js"></script>
-	<script language="javascript" src="js/feedback.js"></script>
+	<link href="../css/pagetitlemenu_b2.css" rel="stylesheet" type="text/css" />
+	<link href="../css/nav.css" rel="stylesheet" type="text/css" />
+	<link href="../css/feedbackform.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="../js/jquery-1.7.2.js"></script>
+	<script type="text/javascript" src="../js/jquery.toastmessage.js"></script>
+    <link href="../js/resource/css/jquery.toastmessage.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="../poshytip-1.2/src/tip-yellow/tip-yellow.css" type="text/css" />
+    <script type="text/javascript" src="../poshytip-1.2/src/jquery.poshytip.js"></script>
+	<script language="javascript" src="../js/feedback.js"></script>
 </head>
 
 <body style='background:transparent'>
     <script>
         var PDV_PAGEID = '317';
-        var PDV_RP = '../../';
+        var PDV_RP = '../../../';
         var PDV_COLTYPE = 'page';
         var PDV_PAGENAME = 'html_tsjy';
     </script>
@@ -36,9 +36,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <!-- 网页标题(菜单) -->
             <div id='pdv_3798' class='pdv_class' title='栏目导航' style='width:245px;height:300px;top:0px;left:0px; z-index:2'>
                 <div id='spdv_3798' class='pdv_content' style='overflow:hidden;width:100%;height:100%'>
-                    <div class="pdv_border" style="border:0px;height:100%;padding:0;margin:0;background:url(images/left.jpg) repeat-y">
-                        <div style="height:100%;background:url(images/right.jpg) right repeat-y">
-                            <div style="height:43px;background:url(images/bg.jpg) 0px 0px no-repeat">
+                    <div class="pdv_border" style="border:0px;height:100%;padding:0;margin:0;background:url(../images/left.jpg) repeat-y">
+                        <div style="height:100%;background:url(../images/right.jpg) right repeat-y">
+                            <div style="height:43px;background:url(../images/bg.jpg) 0px 0px no-repeat">
                                 <div style="float:left;font:bold 16px/43px 'Microsoft YaHei','SimSun',Arial,Sans-Serif;text-align:left;padding-left:50px;color:#feab43;">
                                 栏目导航
                                 </div>
@@ -48,17 +48,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             </div>
                             <div style="margin:0px 3px;padding:5px;">
                                 <div class="titlemenu_b2">
-                                    <a href="onwe.jsp" target="_self" class="titlemenu_b2">关于我们</a>
-                                    <a href="orderhelp.jsp" target="_self" class="titlemenu_b2">订餐指南</a>
-                                    <a href="carryshow.jsp" target="_self" class="titlemenu_b2">配送说明</a>
-                                    <a href="linkman.jsp" target="_self" class="titlemenu_b2">联系方式</a>
-                                    <a href="advise.jsp" target="_self" class="titlemenu_b2">投诉建议</a>
+                                    <a href="../onwe.jsp" target="_self" class="titlemenu_b2">关于我们</a>
+                                    <a href="../orderhelp.jsp" target="_self" class="titlemenu_b2">订餐指南</a>
+                                    <a href="../carryshow.jsp" target="_self" class="titlemenu_b2">配送说明</a>
+                                    <a href="../linkman.jsp" target="_self" class="titlemenu_b2">联系方式</a>
+                                    <a href="../advise.jsp" target="_self" class="titlemenu_b2">投诉建议</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div style="margin-top:-10px;height:10px;line-height:10px;background:url(images/bg.jpg) 0px -220px no-repeat">&nbsp;</div>
-                    <div style="float:right;margin-top:-10px;width:10px;height:10px;line-height:10px;background:url(images/bg.jpg) -890px -220px no-repeat">&nbsp;</div>
+                    <div style="margin-top:-10px;height:10px;line-height:10px;background:url(../images/bg.jpg) 0px -220px no-repeat">&nbsp;</div>
+                    <div style="float:right;margin-top:-10px;width:10px;height:10px;line-height:10px;background:url(../images/bg.jpg) -890px -220px no-repeat">&nbsp;</div>
 
                 </div>
             </div>
@@ -228,11 +228,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         </div>
                         <div style="padding:0px">
                             <div id="bottommenu">
-                                <a href="onwe.jsp" target="_self">关于我们</a>|
-                                <a href="orderhelp.jsp" target="_self">订餐指南</a>|
-                                <a href="carryshow.jsp" target="_self">配送说明</a>|
-                                <a href="linkman.jsp" target="_self">联系方式</a>|
-                                <a href="advise.jsp" target="_self">投诉建议</a>
+                                <a href="../onwe.jsp" target="_self">关于我们</a>|
+                                <a href="../orderhelp.jsp" target="_self">订餐指南</a>|
+                                <a href="../carryshow.jsp" target="_self">配送说明</a>|
+                                <a href="../linkman.jsp" target="_self">联系方式</a>|
+                                <a href="../advise.jsp" target="_self">投诉建议</a>
                             </div>
                         </div>
                     </div>
@@ -274,7 +274,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
                             </div>
                             <div style="float:right;margin-right:10px;display:inline">
-                                <a href="../../advs/link/" style="line-height:25px;color:">更多</a>
+                                <a href="../../../advs/link/" style="line-height:25px;color:">更多</a>
                             </div>
                         </div>
                         <div style="padding:5px">
@@ -349,7 +349,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         <div style="padding:0px">
 
 
-                            <img src="images/1253157163.jpg" border="0" width="100%" />
+                            <img src="../images/1253157163.jpg" border="0" width="100%" />
 
                         </div>
                     </div>

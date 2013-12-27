@@ -1,4 +1,3 @@
-
 //三种订餐方式的点击切换
 function changeBq(bqnow,bq1,bq2){
 	//标签切换之标题
