@@ -19,8 +19,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <link href="css/dingcantimeinfo.css" rel="stylesheet" type="text/css">
     <script language="javascript" src="js/dingcanall.js"></script>
     <!-- the mousewheel plugin -->
-    <link rel="stylesheet" type="text/css" href="css/jscrollpane2.css" />
-    <script type="text/javascript" src="js/jquery.mousewheel.js"></script>
+    <!--<link rel="stylesheet" type="text/css" href="css/jscrollpane2.css" />
+    <script type="text/javascript" src="js/jquery.mousewheel.js"></script>-->
     <!-- the jScrollPane script -->
     <!--<script type="text/javascript" src="js/jquery.jscrollpane.min.js"></script>
     <script type="text/javascript" src="js/scroll-startstop.events.jquery.js"></script>
@@ -352,7 +352,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                                                 </tr>
                                                                 <tr>
                                                                     <td colspan="2" style="height:40px;">
-                                                                        <img src="images/cart.png" />
+                                                                        <img class="clickimg" src="images/cart.png"/>
                                                                     </td>
                                                                     <td></td>
                                                                 </tr>
@@ -397,7 +397,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                                                 </tr>
                                                                 <tr>
                                                                     <td colspan="2" style="height:40px;">
-                                                                        <img src="images/cart.png" />
+                                                                        <img class="clickimg" src="images/cart.png" />
                                                                     </td>
                                                                 </tr>
                                                             </table>
@@ -448,7 +448,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                                                 </tr>
                                                                 <tr>
                                                                     <td colspan="2" style="height:40px;">
-                                                                        <img src="images/cart.png" />
+                                                                        <img class="clickimg" src="images/cart.png" />
                                                                     </td>
                                                                 </tr>
                                                             </table>
@@ -492,7 +492,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                                                 </tr>
                                                                 <tr>
                                                                     <td colspan="2" style="height:40px;">
-                                                                        <img src="images/cart.png" />
+                                                                        <img class="clickimg" src="images/cart.png" />
                                                                     </td>
                                                                 </tr>
                                                             </table>
@@ -544,7 +544,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                                                 </tr>
                                                                 <tr>
                                                                     <td colspan="2" style="height:40px;">
-                                                                        <img src="images/cart.png" />
+                                                                        <img class="clickimg" src="images/cart.png" />
                                                                     </td>
                                                                 </tr>
                                                             </table>
@@ -588,7 +588,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                                                 </tr>
                                                                 <tr>
                                                                     <td colspan="2" style="height:40px;">
-                                                                        <img src="images/cart.png" />
+                                                                        <img class="clickimg" src="images/cart.png" />
                                                                     </td>
                                                                 </tr>
                                                             </table>

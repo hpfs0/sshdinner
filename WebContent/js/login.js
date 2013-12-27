@@ -188,14 +188,18 @@ $(document).ready(function(){
 		else{
 			var memberLoginId = $("#muser").val();
 			var memberLoginPw = $("#mpass").val();
+			var imgCode = $("#ImgCode").val();
+			
 			if(memberLoginId == ""){
 				showinfo = "请输入您的登录帐号！";
 				showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
 			}else if(memberLoginPw == ""){
 				showinfo = "请输入您的密码！";
 				showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
-			}
-			else{
+			}else if(imgCode == ""){
+				showinfo = "请输入验证码！";
+				showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
+			}else{
 				SetCookie("loginStatus","1"); 
 				if(document.getElementById("isRememberMsg").checked){
 					    SetCookie("memberLoginId",$("#muser").val()); // 把页面上的登陆ID存入cookie中

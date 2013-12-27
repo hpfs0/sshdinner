@@ -61,3 +61,6 @@ div#alert .button{border:1px #97A0AA solid;height:22px;line-height:20px;padding:
 #frmWindow .windowcontent{width:100%;height:380px;overflow:auto;background:#fff;border:0}
 #frmWindow .topBar{height:20px;line-height:20px;background:#cbddef;text-align:left;padding:0px 0px 5px 5px ;font-size:12px;}
 #frmWindow .topBar .pwClose{position: absolute;top:2px;right:8px;width:52px;height:20px;background:url(../images/pwin3.gif) no-repeat;cursor:pointer}
+
+/* ============°´Å¥ ============== */
+.flyEffect {position:absolute!important;padding:0 8px;height:26px;line-height:26px;background:#FFA312;color:#FFF;border-radius:5px;opacity:0;z-index:10;}

@@ -310,6 +310,7 @@ $(document).ready(function(){
 			var name = $("#name").val();
 			var company = $("#company").val();
 			var mov = $("#mov").val();
+			var imgCode = $("#ImgCode").val();
 			
 			if(user == ""){
 				showinfo = "请输入您的登录帐号！";
@@ -337,6 +338,9 @@ $(document).ready(function(){
 				showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
 			}else if(mov == ""){
 				showinfo = "请输入您的手机号码！";
+				showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
+			}else if(imgCode == ""){
+				showinfo = "请输入验证码！";
 				showErrorToast("<font color='red'><b>" + showinfo + "</b><font>");
 			}else{
 				$user.poshytip('hide');

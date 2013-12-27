@@ -268,111 +268,131 @@ function checkSelNumsAll(dg){
 
 
 //首页的餐品展示与订购--加入购物车
+$(document).ready(function(){
+	var $clickedImg = $(".clickimg");
+	$clickedImg.click(function(){
+		var b = $(this).offset();
+        g = $("#pdv_3614").offset();
+        g.top += $("#pdv_3614").height() / 2;
+        var flyEffectTxt = $('<div class="flyEffect">' + "1234" + "</div>");
+        flyEffectTxt.offset(b);
+        flyEffectTxt.appendTo("body").animate({
+            left: g.left + 20 + "px",
+            top: g.top + 20 + "px",
+            opacity: 1
+        }, function () {
+            $(this).animate({
+                opacity: 0
+            }, function () {
+                $(this).remove();
+            });
+        });
+	});
+});
 function addCart(dg){
-
-	var imgid=dg.id;
-	var imgid_arr=imgid.split("_");
-	var goodstype=imgid_arr[0];  //当前餐品类型：diy,tc zh
-	var gid=imgid_arr[1];  //当前餐品ID
-	var perprice=imgid_arr[2];  //当前餐品单价
-	var nowallnums=$("#allnums").html();  //餐车中的餐品总数量
-	var nowcpprice=$("#cpprice").html();  //餐车中的餐品总价
-	var div_id_strold="div_"+goodstype+"_"+gid;
-	
-	if(goodstype!="zh"){
-		var snid=goodstype+"_"+gid+"_sn";
-		var nums=$("#"+snid)[0].value;  //当前餐品所选数量
-	}else{
-		var nums=1;
-		var memo=$("#zhmemo")[0].value;
-	}
-
-	var cpd=$(".cpline_d").length;
-	var cps=$(".cpline_s").length;
-	
-	var ifhave_cpd="";
-	var ifhave_cps="";
-	
-	for(var i=0; i<cpd; i++){
-		var div_id_stri=$(".cpline_d")[i].id;
-		if(goodstype!="zh" && div_id_stri==div_id_strold){
-			ifhave_cpd="yes";
-		}
-	}
-	
-	for(var k=0; k<cps; k++){
-		var div_id_strk=$(".cpline_s")[k].id;
-		if(goodstype!="zh" && div_id_strk==div_id_strold){
-			ifhave_cps="yes";
-		}
-	}
-
-	if(ifhave_cpd=="yes" || ifhave_cps=="yes"){
-	
-		var nowcpnums=$("input#cpnums_"+goodstype+"_"+gid)[0].value;
-		$("input#cpnums_"+goodstype+"_"+gid)[0].value=parseFloat(nowcpnums)+parseFloat(nums);
-		$("#allnums").html(parseFloat(nowallnums)+parseFloat(nums));
-		$("#cpprice").html(parseFloat(nowcpprice)+(parseFloat(perprice)*parseFloat(nums)));
-		
-		//写入cookie
-		$.ajax({
-			type: "POST",
-			url:PDV_RP+"setcookie.php",
-			data: "act=setcookie&cookietype=add&cookiename=DINGCANCART&goodstype="+goodstype+"&gid="+gid+"&nums="+nums+"&fz=",
-			success: function(msg){
-				if(msg=="OK"){
-					//window.location=PDV_RP+'shop/cart.php';
-				}else if(msg=="1000"){
-					alert("订购数量错误");
-				}else{
-					alert(msg);
-				}
-			}
-		});
-		
-	}else{
-	
-		$.ajax({
-			type: "POST",
-			url:PDV_RP+"dingcan/post.php?goodstype="+goodstype+"&gid="+gid+"&nums="+nums,
-			data: "act=addcart",
-			success: function(msg){
-				
-				eval(msg);
-				
-				if(M.O=="OK"){
-					$('div#dcinfo').append(M.S);
-					$("#allnums").html(parseFloat(nowallnums)+parseFloat(nums));
-					$("#cpprice").html(parseFloat(nowcpprice)+(parseFloat(perprice)*parseFloat(nums)));
-					$().setBg();
-					$("div.cpline_d:even").addClass("cpline_s");
-					
-					//写入cookie
-					var fz=$("#zhmemo")[0].value;
-					$.ajax({
-						type: "POST",
-						url:PDV_RP+"setcookie.php",
-						data: "act=setcookie&cookietype=add&cookiename=DINGCANCART&goodstype="+goodstype+"&gid="+gid+"&nums="+nums+"&fz="+fz,
-						success: function(msg){
-							if(msg=="OK"){
-								//window.location=PDV_RP+'shop/cart.php';
-							}else if(msg=="1000"){
-								alert("订购数量错误");
-							}else{
-								alert(msg);
-							}
-						}
-					});
-					
-				}else{
-					//$().alertwindow(M.S,"");
-					alert(M.S);
-				}
-						
-			}
-		});
-	
-	}
+//	var imgid=dg.id;
+//	var imgid_arr=imgid.split("_");
+//	var goodstype=imgid_arr[0];  //当前餐品类型：diy,tc zh
+//	var gid=imgid_arr[1];  //当前餐品ID
+//	var perprice=imgid_arr[2];  //当前餐品单价
+//	var nowallnums=$("#allnums").html();  //餐车中的餐品总数量
+//	var nowcpprice=$("#cpprice").html();  //餐车中的餐品总价
+//	var div_id_strold="div_"+goodstype+"_"+gid;
+//	
+//	if(goodstype!="zh"){
+//		var snid=goodstype+"_"+gid+"_sn";
+//		var nums=$("#"+snid)[0].value;  //当前餐品所选数量
+//	}else{
+//		var nums=1;
+//		var memo=$("#zhmemo")[0].value;
+//	}
+//
+//	var cpd=$(".cpline_d").length;
+//	var cps=$(".cpline_s").length;
+//	
+//	var ifhave_cpd="";
+//	var ifhave_cps="";
+//	
+//	for(var i=0; i<cpd; i++){
+//		var div_id_stri=$(".cpline_d")[i].id;
+//		if(goodstype!="zh" && div_id_stri==div_id_strold){
+//			ifhave_cpd="yes";
+//		}
+//	}
+//	
+//	for(var k=0; k<cps; k++){
+//		var div_id_strk=$(".cpline_s")[k].id;
+//		if(goodstype!="zh" && div_id_strk==div_id_strold){
+//			ifhave_cps="yes";
+//		}
+//	}
+//
+//	if(ifhave_cpd=="yes" || ifhave_cps=="yes"){
+//	
+//		var nowcpnums=$("input#cpnums_"+goodstype+"_"+gid)[0].value;
+//		$("input#cpnums_"+goodstype+"_"+gid)[0].value=parseFloat(nowcpnums)+parseFloat(nums);
+//		$("#allnums").html(parseFloat(nowallnums)+parseFloat(nums));
+//		$("#cpprice").html(parseFloat(nowcpprice)+(parseFloat(perprice)*parseFloat(nums)));
+//		
+//		//写入cookie
+//		$.ajax({
+//			type: "POST",
+//			url:PDV_RP+"setcookie.php",
+//			data: "act=setcookie&cookietype=add&cookiename=DINGCANCART&goodstype="+goodstype+"&gid="+gid+"&nums="+nums+"&fz=",
+//			success: function(msg){
+//				if(msg=="OK"){
+//					//window.location=PDV_RP+'shop/cart.php';
+//				}else if(msg=="1000"){
+//					alert("订购数量错误");
+//				}else{
+//					alert(msg);
+//				}
+//			}
+//		});
+//		
+//	}else{
+//	
+//		$.ajax({
+//			type: "POST",
+//			url:PDV_RP+"dingcan/post.php?goodstype="+goodstype+"&gid="+gid+"&nums="+nums,
+//			data: "act=addcart",
+//			success: function(msg){
+//				
+//				eval(msg);
+//				
+//				if(M.O=="OK"){
+//					$('div#dcinfo').append(M.S);
+//					$("#allnums").html(parseFloat(nowallnums)+parseFloat(nums));
+//					$("#cpprice").html(parseFloat(nowcpprice)+(parseFloat(perprice)*parseFloat(nums)));
+//					$().setBg();
+//					$("div.cpline_d:even").addClass("cpline_s");
+//					
+//					//写入cookie
+//					var fz=$("#zhmemo")[0].value;
+//					$.ajax({
+//						type: "POST",
+//						url:PDV_RP+"setcookie.php",
+//						data: "act=setcookie&cookietype=add&cookiename=DINGCANCART&goodstype="+goodstype+"&gid="+gid+"&nums="+nums+"&fz="+fz,
+//						success: function(msg){
+//							if(msg=="OK"){
+//								//window.location=PDV_RP+'shop/cart.php';
+//							}else if(msg=="1000"){
+//								alert("订购数量错误");
+//							}else{
+//								alert(msg);
+//							}
+//						}
+//					});
+//					
+//				}else{
+//					//$().alertwindow(M.S,"");
+//					alert(M.S);
+//				}
+//						
+//			}
+//		});
+//	
+//	}
 	
 }
 
