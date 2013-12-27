@@ -102,38 +102,20 @@ public class MemeberDaoImpl implements MemberDao {
     }
 
     @Override
-    public String checkMember(String memberLoginId) {
+    public String checkMember(Member member) {
         return null;
     }
 
     @Transient
-    public void updateMember(String memberLoginId) {
+    public void updateMember(Member member) {
         Session session = CommonUtil.getSessionFactory().openSession();
         Transaction tx = session.beginTransaction();
         SQLQuery query = session.createSQLQuery(CommonSqlConst.COMMON_SQL_012);
         query.addEntity(Member.class);
         // 设置参数
-        query.setString(0, memberLoginId);
-        // 设置缓存
-        query.setCacheable(true);
-        // 执行更新
-        query.executeUpdate();
-        // 清理缓存
-        session.flush();
-        // 提交事务
-        tx.commit();
-        // session关闭
-        CommonUtil.closeSession(session);
-    }
-
-    @Transient
-    public void updateMemberWhenLogOut(String memberLoginId) {
-        Session session = CommonUtil.getSessionFactory().openSession();
-        Transaction tx = session.beginTransaction();
-        SQLQuery query = session.createSQLQuery(CommonSqlConst.COMMON_SQL_013);
-        query.addEntity(Member.class);
-        // 设置参数
-        query.setString(0, memberLoginId);
+        query.setInteger(0, member.getLoginStatus());
+        query.setString(1, member.getMemberMacAddress());
+        query.setString(2, member.getMemberId());
         // 设置缓存
         query.setCacheable(true);
         // 执行更新

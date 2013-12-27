@@ -30,9 +30,9 @@ public class MemberService {
      * @param memberLoginId 会员登录帐号
      * @return 会员信息
      */
-    public Member getServiceMemberBykey(String memberLoginId) {
-        if (null != dao && null != memberLoginId) {
-            return dao.getMemberBykey(memberLoginId);
+    public Member getServiceMemberBykey(String MemberId) {
+        if (null != dao && null != MemberId) {
+            return dao.getMemberBykey(MemberId);
         }
         else {
             return null;
@@ -75,9 +75,9 @@ public class MemberService {
      * @param member 会员信息
      * @return 会员信息修改是否能够成功登陆系统
      */
-    public String checkServiceMember(String memberLoginId) {
-        if (null != dao && null != memberLoginId) {
-            return dao.checkMember(memberLoginId);
+    public String checkServiceMember(Member member) {
+        if (null != dao && null != member) {
+            return dao.checkMember(member);
         }
         else {
             return null;
@@ -85,26 +85,15 @@ public class MemberService {
     }
 
     /**
-     * 登陆时更新会员信息
+     * 更新会员信息
      * 
      * @param member 会员信息
      * @return 标记该用户已经登陆系统
      */
-    public void updateServiceMember(String memberLoginId) {
-        if (null != dao && null != memberLoginId) {
-            dao.updateMember(memberLoginId);
+    public void updateServiceMember(Member member) {
+        if (null != dao && null != member) {
+            dao.updateMember(member);
         }
     }
 
-    /**
-     * 退出时更新会员信息
-     * 
-     * @param member 会员信息
-     * @return 标记该用户已经退出系统
-     */
-    public void updateServiceMemberWhenLogOut(String memberLoginId) {
-        if (null != dao && null != memberLoginId) {
-            dao.updateMemberWhenLogOut(memberLoginId);
-        }
-    }
 }

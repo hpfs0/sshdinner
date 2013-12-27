@@ -19,7 +19,7 @@ public interface MemberDao {
      * @param memberLoginId 会员登录帐号
      * @return 会员信息
      */
-    public Member getMemberBykey(String memberLoginId);
+    public Member getMemberBykey(String MemberId);
 
     /**
      * 会员表的INSERT操作
@@ -43,21 +43,14 @@ public interface MemberDao {
      * @param member 会员信息
      * @return update操作成功与否
      */
-    public String checkMember(String memberLoginId);
+    public String checkMember(Member member);
 
     /**
-     * 会员信息更新（更新时）
+     * 会员登录状态更新
      * 
      * @param member 会员信息
      * @return 更新会员登陆标识
      */
-    public void updateMember(String memberLoginId);
+    public void updateMember(Member member);
 
-    /**
-     * 会员信息更新(退出时)
-     * 
-     * @param member 会员信息
-     * @return 更新会员登陆标识
-     */
-    public void updateMemberWhenLogOut(String memberLoginId);
 }

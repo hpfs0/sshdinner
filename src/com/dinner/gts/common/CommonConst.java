@@ -81,4 +81,10 @@ public interface CommonConst {
     /** NG:会员已经登陆 */
     public static final String COMMON_MEMBERLOGIN_LOGIN = "LG";
 
+    /** 1:会员登录状态：已登录 */
+    public static final int COMMON_LOGINED_STATUS = 1;
+
+    /** 0:会会员登录状态：未登录 */
+    public static final int COMMON_NOTLOGINED_STATUS = 0;
+
 }

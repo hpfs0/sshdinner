@@ -28,6 +28,9 @@ public class Member implements Serializable {
     /** 注册IP */
     private String memberRegisterIp;
 
+    /** 登录MAC地址 */
+    private String memberMacAddress;
+
     /** 登录次数 */
     private int memberLoginCount;
 
@@ -64,7 +67,7 @@ public class Member implements Serializable {
     /** 活动区分 */
     private int deleteFlg;
 
-	/** 登陆状态 */
+    /** 登陆状态 */
     private int loginStatus;
 
     public String getMemberId() {
@@ -210,13 +213,21 @@ public class Member implements Serializable {
     public void setDeleteFlg(int deleteFlg) {
         this.deleteFlg = deleteFlg;
     }
-    
-    public int getLoginStatus() {
-		return loginStatus;
-	}
 
-	public void setLoginStatus(int loginStatus) {
-		this.loginStatus = loginStatus;
-	}
+    public int getLoginStatus() {
+        return loginStatus;
+    }
+
+    public void setLoginStatus(int loginStatus) {
+        this.loginStatus = loginStatus;
+    }
+
+    public String getMemberMacAddress() {
+        return memberMacAddress;
+    }
+
+    public void setMemberMacAddress(String memberMacAddress) {
+        this.memberMacAddress = memberMacAddress;
+    }
 
 }

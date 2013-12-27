@@ -13,6 +13,7 @@
         <property name="memberNickName" column="MEMBER_NICK_NAME"/>
         <property name="memberMail" column="MEMBER_MAIL"/>
         <property name="memberRegisterIp" column="MEMBER_REGISTER_IP"/>
+        <property name="memberMacAddress" column="MEMBER_LOGIN_MACADDRESS"/>
         <property name="memberLoginCount" column="MEMBER_LOGIN_COUNT"/>
         <property name="memberRealName" column="MEMBER_REAL_NAME"/>
         <property name="memberType" column="MEMBER_TYPE"/>

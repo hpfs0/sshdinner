@@ -2,6 +2,9 @@ package com.dinner.gts.action;
 
 import java.io.IOException;
 import java.io.OutputStream;
+import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.net.UnknownHostException;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -22,6 +25,12 @@ public class LoginAction extends ActionSupport {
 
     /** 会员服务类 */
     private MemberService memberService;
+
+    /** 会员登录的MAC地址 */
+    String memberLoginMacId = null;
+
+    /** 会员登录后台操作参数对象 */
+    Member memberSqlDetail = new Member();
 
     /**
      * VersionUID
@@ -74,6 +83,7 @@ public class LoginAction extends ActionSupport {
         String pswEncryption = null;
         String pswEncryptionDb = null;
         String memberNickName = null;
+        String memberLoginMacIdDb = null;
         int loginStatus = 0;
 
         // 会员登陆状态初始化
@@ -98,28 +108,51 @@ public class LoginAction extends ActionSupport {
             memberNickName = loginMemberDetail.getMemberNickName();
             // 获取该用户的登陆状态
             loginStatus = loginMemberDetail.getLoginStatus();
+            // 获取该用户在数据库中的登陆MAC地址
+            memberLoginMacIdDb = loginMemberDetail.getMemberMacAddress();
 
             // 把该用户的详细信息存入request中
             sessionRequest.setAttribute("memberLoginId", memberLoginId);
             sessionRequest.setAttribute("memberNickName", memberNickName);
         }
 
+        // 取得用户的MAC地址
+        InetAddress ia = null;
+        try {
+            // 获取本地IP对象
+            ia = InetAddress.getLocalHost();
+        }
+        catch (UnknownHostException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+        try {
+            memberLoginMacId = getMACAddress(ia);
+            System.out.println("MAC ......... " + memberLoginMacId);
+        }
+        catch (Exception e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+
         // 用户处于未登录状态或者用户上次登陆成功后异常退出的可以正常登陆系统
-        if (loginStatus == 0 || cookieLoginStatus.equals("1")) {
+        if (loginStatus == 0 || (cookieLoginStatus.equals("1")
+                && (memberLoginMacIdDb == null || memberLoginMacIdDb.equals(memberLoginMacId)))) {
             // 判断登陆时输入会员信息是否正确
             if (pswEncryption != null && pswEncryption.equalsIgnoreCase(pswEncryptionDb)) {
 
-                // 登陆时更新会员登录状态
-                memberService.updateServiceMember(memberLoginId);
                 // 设置会员登录状态为1（1：已登录）
-                loginStatus = 1;
+                loginStatus = CommonConst.COMMON_LOGINED_STATUS;
+
+                // 设置登录后台操作的参数信息
+                memberSqlDetail.setMemberId(memberLoginId);
+                memberSqlDetail.setMemberMacAddress(memberLoginMacId);
+                memberSqlDetail.setLoginStatus(loginStatus);
+
+                // 登陆时更新会员登录状态
+                memberService.updateServiceMember(memberSqlDetail);
 
                 sessionRequest.setAttribute("loginStatus", loginStatus);
-                // Cookie cookiememberLoginId = new
-                // Cookie("memberLoginId",loginMemberDetail.getMemberId());
-                // HttpServletResponse response = null;
-                // cookiememberLoginId.setMaxAge(10*24*60*60);
-                // response.addCookie(cookiememberLoginId);
 
                 // 登陆时用户名和密码可以匹配，登陆成功
                 writeResult = CommonConst.COMMON_MEMBERLOGIN_OK;
@@ -148,8 +181,25 @@ public class LoginAction extends ActionSupport {
      */
     public String checkLoginUserStatus() {
         HttpServletRequest req = CommonUtil.getHttpServletRequest();
-        // HttpServletResponse res =
-        // CommonUtil.getHttpServletResponse();
+        // 取得用户的MAC地址
+        InetAddress ia = null;
+        try {
+            // 获取本地IP对象
+            ia = InetAddress.getLocalHost();
+        }
+        catch (UnknownHostException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+        try {
+            memberLoginMacId = getMACAddress(ia);
+            System.out.println("MAC ......... " + memberLoginMacId);
+        }
+        catch (Exception e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+
         memberService = new MemberService();
 
         // 获取cookie中的登录状态
@@ -166,13 +216,6 @@ public class LoginAction extends ActionSupport {
                 strMemberLoginId = cookies[i].getValue();
             }
         }
-        // // 会员帐号ID
-        // strMemberLoginId =
-        // req.getParameter("strMemberLoginId");
-        //
-        // // 会员登陆状态
-        // strLoginStatus =
-        // req.getParameter("strLoginStatus");
 
         if (strLoginStatus == null || strLoginStatus.length() == 0) {
             strLoginStatus = "0";
@@ -180,13 +223,19 @@ public class LoginAction extends ActionSupport {
         if (strLoginStatus.equals("1")) {
             // 登陆时更新会员登录状态
             if (strMemberLoginId != null) {
-                memberService.updateServiceMember(strMemberLoginId);
+                memberSqlDetail.setMemberMacAddress(memberLoginMacId);
+                memberSqlDetail.setMemberId(strMemberLoginId);
+                memberSqlDetail.setLoginStatus(CommonConst.COMMON_LOGINED_STATUS);
+                memberService.updateServiceMember(memberSqlDetail);
             }
         }
         else {
             // 退出时更新会员登录状态
             if (strMemberLoginId != null) {
-                memberService.updateServiceMemberWhenLogOut(strMemberLoginId);
+                memberSqlDetail.setMemberMacAddress(memberLoginMacId);
+                memberSqlDetail.setMemberId(strMemberLoginId);
+                memberSqlDetail.setLoginStatus(CommonConst.COMMON_NOTLOGINED_STATUS);
+                memberService.updateServiceMember(memberSqlDetail);
             }
         }
         return SUCCESS;
@@ -288,7 +337,10 @@ public class LoginAction extends ActionSupport {
 
         // 退出时更新会员登录状态
         if (memberLoginId != null) {
-            memberService.updateServiceMemberWhenLogOut(memberLoginId);
+            memberSqlDetail.setMemberMacAddress(memberLoginMacId);
+            memberSqlDetail.setMemberId(memberLoginId);
+            memberSqlDetail.setLoginStatus(CommonConst.COMMON_NOTLOGINED_STATUS);
+            memberService.updateServiceMember(memberSqlDetail);
         }
 
         // 清理session中原有的内容
@@ -322,5 +374,26 @@ public class LoginAction extends ActionSupport {
         }
         // 返回到登陆画面
         return SUCCESS;
+    }
+
+    // 获取登录用户本机的MAC地址
+    private static String getMACAddress(InetAddress ia) throws Exception {
+        // 获得网络接口对象（即网卡），并得到MAC地址，MAC地址存在于一个byte数组中。
+        byte[] mac = NetworkInterface.getByInetAddress(ia).getHardwareAddress();
+
+        // 下面代码是把MAC地址拼装成String
+        StringBuffer sb = new StringBuffer();
+
+        for (int i = 0; i < mac.length; i++) {
+            if (i != 0) {
+                sb.append("-");
+            }
+            // mac[i] & 0xFF 是为了把byte转化为正整数
+            String s = Integer.toHexString(mac[i] & 0xFF);
+            sb.append(s.length() == 1 ? 0 + s : s);
+        }
+
+        // 把字符串所有小写字母改为大写成为正规的MAC地址并返回
+        return sb.toString().toUpperCase();
     }
 }
