@@ -365,7 +365,9 @@ public class LoginAction extends ActionSupport {
         if (isRememberMsg != "1") {
             for (int i = 0; cookies != null && i <
                     cookies.length; i++) {
-                if (cookies[i].getName().equals("loginStatus")) {
+                if (cookies[i].getName().equals("loginStatus")
+                        || cookies[i].getName().equals("memberLoginId")
+                        || cookies[i].getName().equals("memberLoginPw")) {
                     Cookie cookie = cookies[i];
                     cookie.setMaxAge(0);
                     res.addCookie(cookie);
