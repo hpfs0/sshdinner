@@ -223,7 +223,7 @@ public class LoginAction extends ActionSupport {
         if (strLoginStatus.equals("1")) {
             // 登陆时更新会员登录状态
             if (strMemberLoginId != null) {
-                memberSqlDetail.setMemberMacAddress(memberLoginMacId);
+                memberSqlDetail.setMemberMacAddress(null);
                 memberSqlDetail.setMemberId(strMemberLoginId);
                 memberSqlDetail.setLoginStatus(CommonConst.COMMON_LOGINED_STATUS);
                 memberService.updateServiceMember(memberSqlDetail);
@@ -232,7 +232,7 @@ public class LoginAction extends ActionSupport {
         else {
             // 退出时更新会员登录状态
             if (strMemberLoginId != null) {
-                memberSqlDetail.setMemberMacAddress(memberLoginMacId);
+                memberSqlDetail.setMemberMacAddress(null);
                 memberSqlDetail.setMemberId(strMemberLoginId);
                 memberSqlDetail.setLoginStatus(CommonConst.COMMON_NOTLOGINED_STATUS);
                 memberService.updateServiceMember(memberSqlDetail);
@@ -337,7 +337,7 @@ public class LoginAction extends ActionSupport {
 
         // 退出时更新会员登录状态
         if (memberLoginId != null) {
-            memberSqlDetail.setMemberMacAddress(memberLoginMacId);
+            memberSqlDetail.setMemberMacAddress(null);
             memberSqlDetail.setMemberId(memberLoginId);
             memberSqlDetail.setLoginStatus(CommonConst.COMMON_NOTLOGINED_STATUS);
             memberService.updateServiceMember(memberSqlDetail);
