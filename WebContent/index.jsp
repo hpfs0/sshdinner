@@ -17,7 +17,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <link href="css/newslist_time2.css" rel="stylesheet" type="text/css" />
     <link href="css/dingcanche.css" rel="stylesheet" type="text/css">
     <link href="css/dingcantimeinfo.css" rel="stylesheet" type="text/css">
+    <link href="css/accordion.css" rel="stylesheet" type="text/css">
     <script language="javascript" src="js/dingcanall.js"></script>
+    <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+	<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
     <!-- the mousewheel plugin -->
     <!--<link rel="stylesheet" type="text/css" href="css/jscrollpane2.css" />
     <script type="text/javascript" src="js/jquery.mousewheel.js"></script>-->
@@ -26,6 +29,41 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <script type="text/javascript" src="js/scroll-startstop.events.jquery.js"></script>
     <script type="text/javascript" src="js/srollbar.js"></script>-->
     <!--<script type="text/javascript" src="js/srollresize.js"></script>-->
+    <script type="text/javascript">
+		/* UEFA Players Slider */
+		$(document).ready(function(){
+			var movetime=500;	
+			var maxw=252;
+			var avgw= parseInt((1130-maxw-2)/11);	
+			var index;
+			var t=false; //延时执行
+			var _this;
+		
+			//标记当前
+			function cur(ele){		
+				ele=$(ele)? $(ele):ele;
+				ele.addClass("cur").siblings().removeClass("cur");	
+			};
+			
+			$("#picon li:eq(0)").addClass("cur").animate({"width":maxw+"px"});
+			
+			$("#picon").find("li").mouseover(function(){									  
+				_this=$(this);		
+				index=$( "#picon li" ).index( $(this)[0] );
+				var act=function (){
+					_this.siblings("li").removeClass("cur");
+					_this.animate({"width":maxw+"px"},{duration:movetime,easing:"easeOutQuart",complete:function(){cur(_this)}}).siblings("li").animate({"width":avgw+"px"},{duration:movetime})
+				}
+				t=setTimeout(act,200);			
+				return false;			
+			}).mouseout(function(){
+				if(t){
+					clearTimeout(t);
+				}
+			});
+		
+		})
+	</script>
 </head>
 
 <body style='background:transparent' onload="changeBq('01','02','03')">
@@ -310,101 +348,53 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                     </div>
 
                                     <div style="margin-top:-35px;">
-
                                         <div id="mm_01" class="dingcanall_connow">
-                                            <table>
-                                                <tr>
-                                                    <td>
-                                                        <div>
-                                                            <table>
-                                                                <tr>
-                                                                    <td rowspan="5" class="bookPic">
-                                                                        <img src="images/1253519531.jpg" style="border:1px solid #300;" />
-                                                                    </td>
-                                                                    <td><span>菜名:</span>
-                                                                    </td>
-                                                                    <td><span><strong>测试文字</strong></span>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><span>市场价格:</span>
-                                                                    </td>
-                                                                    <td><span>测试文字</span>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><span>会员价格:</span>
-                                                                    </td>
-                                                                    <td><span><strong style="color:red;">测试文字</strong></span>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><span>制做说明:</span>
-                                                                    </td>
-                                                                    <td><span>测试文字</span>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><span>菜品类型:</span>
-                                                                    </td>
-                                                                    <td><span>测试文字</span>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td colspan="2" style="height:40px;">
-                                                                        <img class="clickimg" src="images/cart.png"/>
-                                                                    </td>
-                                                                    <td></td>
-                                                                </tr>
-                                                            </table>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <div>
-                                                            <table>
-                                                                <tr>
-                                                                    <td rowspan="5" class="bookPic">
-                                                                        <img src="images/1257397703.jpg" style="border:1px solid #300;" />
-                                                                    </td>
-                                                                    <td><span>菜名:</span>
-                                                                    </td>
-                                                                    <td><span><strong>测试文字</strong></span>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><span>市场价格:</span>
-                                                                    </td>
-                                                                    <td><span>测试文字</span>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><span>会员价格:</span>
-                                                                    </td>
-                                                                    <td><span><strong style="color:red;">测试文字</strong></span>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><span>制做说明:</span>
-                                                                    </td>
-                                                                    <td><span>测试文字</span>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><span>菜品类型:</span>
-                                                                    </td>
-                                                                    <td><span>测试文字</span>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td colspan="2" style="height:40px;">
-                                                                        <img class="clickimg" src="images/cart.png" />
-                                                                    </td>
-                                                                </tr>
-                                                            </table>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            </table>
+											<div class="picon" id="picon">
+												<ul>
+													<li>
+														<img width="252" height="400" alt="jquery flow 图片切换滚动插件 带分页索引按钮控制图片左右滚动" src="images/food1.jpg" />
+														<div>
+															<h3><font color="#000079">香芹炒腊肉</font></h3>
+															<p><a href="http://home.meishichina.com/recipe-97066.html" target="_blank"><font color="#006000">主料：香芹 瘦腊肉 辅料：葱姜 辣椒 盐和鸡精</font></a></p>
+														</div>
+													</li>
+													<li>
+														<img width="252" height="400" alt="jquery图片切换滚动 水平手风琴切换滚动鼠标滑过图片水平切换" src="images/food2.jpg" />
+														<div>
+															<h3><font color="#000079">干锅牛蛙</font></h3>
+															<p><a href="http://www.haodou.com/recipe/294319" target="_blank"><font color="#006000">主料：牛蛙 辅料：油 盐 料酒 生姜片 八角 干辣椒 豆瓣酱 剁椒 莴苣 洋葱 蒜</font></a></p>
+														</div>
+													</li>
+													<li>
+														<img width="252" height="400" alt="jquery 导航菜单 jquery和CSS3制作一个动画导航的向下滑动框菜单" src="images/food3.jpg" />
+														<div>
+															<h3><font color="#000079">椒盐大虾</font></h3>
+															<p><a href="http://www.haodou.com/recipe/54469" target="_blank"><font color="#006000">主料：大对虾 辅料：料酒 生抽 白糖 胡椒粉 盐 竹签 色拉油 鸡蛋 淀粉 蒜 椒盐</font></a></p>
+														</div>
+													</li>
+													<li>
+														<img width="252" height="400" alt="jquery 文字滚动大全 scroll 支持文字或图片 单行滚动 多行滚动 带按钮控制滚动" src="images/food4.jpg" />
+														<div>
+															<h3><font color="#000079">海蚌炖蛋</font></h3>
+															<p><a href="http://blog.sina.com.cn/s/blog_49cb90a40100t3bv.html" target="_blank"><font color="#006000">主料：海蚌8只，鸡蛋5个  辅料：牛奶200克，香葱少许，盐适量</font></a></p>
+														</div>
+													</li>
+													<li>
+														<img width="252" height="400" alt="jquery 文字特效霓虹灯文字效果使用jQuery和CSS" src="images/food5.jpg" />
+														<div>
+															<h3><font color="#000079">青椒肚片</font></h3>
+															<p><a href="http://home.meishichina.com/recipe-9541.html" target="_blank"><font color="#006000">主料：熟猪肚150克，青椒400克 辅料：蒜片10克，湿淀粉10克调料：料酒12克，精盐2克，醋2克，汤25克，植物油20克</font></a></p>
+														</div>
+													</li>
+													<li>
+														<img width="252" height="400" alt="jquery表单验证 formvalidator 插件解决整站提交表单验证问题" src="images/food6.jpg" />
+														<div>
+															<h3><font color="#000079">油膜排骨</font></h3>
+															<p><a href="http://food.lanzhou.cn/system/2012/08/03/010208871.shtml" target="_blank"><font color="#006000">油面筋，排骨，姜，冰糖，盐，酱油，玫瑰腐乳，八角，香叶，辣椒</font></a></p>
+														</div>
+													</li>
+												</ul>
+											</div>
                                         </div>
 
                                         <div id="mm_02" class="dingcanall_con">
