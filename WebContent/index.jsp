@@ -29,41 +29,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <script type="text/javascript" src="js/scroll-startstop.events.jquery.js"></script>
     <script type="text/javascript" src="js/srollbar.js"></script>-->
     <!--<script type="text/javascript" src="js/srollresize.js"></script>-->
-    <script type="text/javascript">
-		/* UEFA Players Slider */
-		$(document).ready(function(){
-			var movetime=500;	
-			var maxw=252;
-			var avgw= parseInt((1130-maxw-2)/11);	
-			var index;
-			var t=false; //延时执行
-			var _this;
-		
-			//标记当前
-			function cur(ele){		
-				ele=$(ele)? $(ele):ele;
-				ele.addClass("cur").siblings().removeClass("cur");	
-			};
-			
-			$("#picon li:eq(0)").addClass("cur").animate({"width":maxw+"px"});
-			
-			$("#picon").find("li").mouseover(function(){									  
-				_this=$(this);		
-				index=$( "#picon li" ).index( $(this)[0] );
-				var act=function (){
-					_this.siblings("li").removeClass("cur");
-					_this.animate({"width":maxw+"px"},{duration:movetime,easing:"easeOutQuart",complete:function(){cur(_this)}}).siblings("li").animate({"width":avgw+"px"},{duration:movetime})
-				}
-				t=setTimeout(act,200);			
-				return false;			
-			}).mouseout(function(){
-				if(t){
-					clearTimeout(t);
-				}
-			});
-		
-		})
-	</script>
+	<script type="text/javascript" src="js/expansion.js"></script>
 </head>
 
 <body style='background:transparent' onload="changeBq('01','02','03')">
@@ -405,7 +371,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                                             <table>
                                                                 <tr>
                                                                     <td rowspan="5" class="bookPic">
-                                                                        <img src="images/1257398155.jpg" style="border:1px solid #300;" />
+                                                                        <img src="images/food30.jpg" style="border:1px solid #300;" />
                                                                     </td>
                                                                     <td><span>菜名:</span>
                                                                     </td>
@@ -449,7 +415,97 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                                             <table>
                                                                 <tr>
                                                                     <td rowspan="5" class="bookPic">
-                                                                        <img src="images/1257835997.jpg" style="border:1px solid #300;" />
+                                                                        <img src="images/food31.jpg" style="border:1px solid #300;" />
+                                                                    </td>
+                                                                    <td><span>菜名:</span>
+                                                                    </td>
+                                                                    <td><span><strong>测试文字</strong></span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><span>市场价格:</span>
+                                                                    </td>
+                                                                    <td><span>测试文字</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><span>会员价格:</span>
+                                                                    </td>
+                                                                    <td><span><strong style="color:red;">测试文字</strong></span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><span>制做说明:</span>
+                                                                    </td>
+                                                                    <td><span>测试文字</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><span>菜品类型:</span>
+                                                                    </td>
+                                                                    <td><span>测试文字</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td colspan="2" style="height:40px;">
+                                                                        <img class="clickimg" src="images/cart.png" />
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div>
+                                                            <table>
+                                                                <tr>
+                                                                    <td rowspan="5" class="bookPic">
+                                                                        <img src="images/food32.jpg" style="border:1px solid #300;" />
+                                                                    </td>
+                                                                    <td><span>菜名:</span>
+                                                                    </td>
+                                                                    <td><span><strong>测试文字</strong></span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><span>市场价格:</span>
+                                                                    </td>
+                                                                    <td><span>测试文字</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><span>会员价格:</span>
+                                                                    </td>
+                                                                    <td><span><strong style="color:red;">测试文字</strong></span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><span>制做说明:</span>
+                                                                    </td>
+                                                                    <td><span>测试文字</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><span>菜品类型:</span>
+                                                                    </td>
+                                                                    <td><span>测试文字</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td colspan="2" style="height:40px;">
+                                                                        <img class="clickimg" src="images/cart.png" />
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div>
+                                                            <table>
+                                                                <tr>
+                                                                    <td rowspan="5" class="bookPic">
+                                                                        <img src="images/food33.jpg" style="border:1px solid #300;" />
                                                                     </td>
                                                                     <td><span>菜名:</span>
                                                                     </td>
@@ -494,14 +550,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 
                                         <div id="mm_03" class="dingcanall_con">
-                                            <table>
+                                           <table>
                                                 <tr>
                                                     <td>
                                                         <div>
                                                             <table>
                                                                 <tr>
                                                                     <td rowspan="5" class="bookPic">
-                                                                        <img src="images/1257397027.jpg" style="border:1px solid #300;" />
+                                                                        <img src="images/food34.jpg" style="border:1px solid #300;" />
                                                                     </td>
                                                                     <td><span>菜名:</span>
                                                                     </td>
@@ -545,7 +601,97 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                                             <table>
                                                                 <tr>
                                                                     <td rowspan="5" class="bookPic">
-                                                                        <img src="images/1257396703.jpg" style="border:1px solid #300;" />
+                                                                        <img src="images/food35.jpg" style="border:1px solid #300;" />
+                                                                    </td>
+                                                                    <td><span>菜名:</span>
+                                                                    </td>
+                                                                    <td><span><strong>测试文字</strong></span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><span>市场价格:</span>
+                                                                    </td>
+                                                                    <td><span>测试文字</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><span>会员价格:</span>
+                                                                    </td>
+                                                                    <td><span><strong style="color:red;">测试文字</strong></span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><span>制做说明:</span>
+                                                                    </td>
+                                                                    <td><span>测试文字</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><span>菜品类型:</span>
+                                                                    </td>
+                                                                    <td><span>测试文字</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td colspan="2" style="height:40px;">
+                                                                        <img class="clickimg" src="images/cart.png" />
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div>
+                                                            <table>
+                                                                <tr>
+                                                                    <td rowspan="5" class="bookPic">
+                                                                        <img src="images/food38.jpg" style="border:1px solid #300;" />
+                                                                    </td>
+                                                                    <td><span>菜名:</span>
+                                                                    </td>
+                                                                    <td><span><strong>测试文字</strong></span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><span>市场价格:</span>
+                                                                    </td>
+                                                                    <td><span>测试文字</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><span>会员价格:</span>
+                                                                    </td>
+                                                                    <td><span><strong style="color:red;">测试文字</strong></span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><span>制做说明:</span>
+                                                                    </td>
+                                                                    <td><span>测试文字</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><span>菜品类型:</span>
+                                                                    </td>
+                                                                    <td><span>测试文字</span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td colspan="2" style="height:40px;">
+                                                                        <img class="clickimg" src="images/cart.png" />
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div>
+                                                            <table>
+                                                                <tr>
+                                                                    <td rowspan="5" class="bookPic">
+                                                                        <img src="images/food39.jpg" style="border:1px solid #300;" />
                                                                     </td>
                                                                     <td><span>菜名:</span>
                                                                     </td>

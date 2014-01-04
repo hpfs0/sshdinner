@@ -18,7 +18,6 @@ function changeBq(bqnow,bq1,bq2){
 	mm1.className="dingcanall_con";
 	mm2.className="dingcanall_con";
 	
-	$().setBg();
 }
 
 
