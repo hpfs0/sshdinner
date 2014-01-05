@@ -136,7 +136,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
                                         <div style="height:26px;margin:5px 3px 1px 3px;">
                                             <div id="cartsubmit" style="float:left;padding-left:90px;cursor:pointer;">
-                                                <img src="images/canche_submit.gif" border="0" />
+                                                <img src="images/canche_submit.gif" border="0" onClick = "window.location='startorder.jsp'"/>
                                             </div>
                                             <div style="float:left;padding-left:10px;cursor:pointer;" onClick="delAll();">
                                                 <img src="images/quxiao2.gif" border="0" />

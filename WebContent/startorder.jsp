@@ -56,7 +56,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <div class="pdv_border" style="margin:0;padding:0;height:100%;border:0px #dddddd solid;background:#fff;">
                         <div style="height:25px;margin:1px;display:none;background:;">
                             <div style="float:left;margin-left:12px;line-height:25px;font-weight:bold;color:">
-                                订单处理
+                                	订单处理
                             </div>
                             <div style="float:right;margin-right:10px;display:none">
                                 <a href="-1" style="line-height:25px;color:">更多</a>
@@ -75,27 +75,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             <table width="100%" border="0" cellpadding="3" cellspacing="0" class="startorder">
                                 <tr>
                                     <td class="cap" width="3" height="23">&nbsp;</td>
-                                    <td class="cap" width="75" height="23">餐品类型</td>
-                                    <td class="cap" height="23">名称</td>
-                                    <td class="cap" width="60" height="23">单价(元)</td>
-                                    <td width="50" height="23" class="cap">数量</td>
-                                    <td class="cap" width="60" height="23">小计(元)</td>
-                                    <td class="cap" width="30" height="23" style="display:none;">积分</td>
-                                    <td class="cap" width="50" height="23" style="display:none;">积分小计</td>
-                                    <td class="cap" width="35" height="23">取消</td>
+                                    <td class="cap" width="75" height="23"><b>餐品类型</b></td>
+                                    <td class="cap" height="23"><b>餐品名称</b></td>
+                                    <td class="cap" width="80" height="23"><b>优惠活动</b></td>
+                                    <td class="cap" width="70" height="23"><b>市场价(元)</b></td>
+                                    <td class="cap" width="70" height="23"><font color="red"><b>会员价(元)</b></font></td>
+                                    <td width="50" height="23" class="cap"><b>数量</b></td>
+                                    <td class="cap" width="60" height="23"><b>小计(元)</b></td>
+                                    <td class="cap" width="30" height="23" style="display:none;"><b>积分</b></td>
+                                    <td class="cap" width="50" height="23" style="display:none;"><b>积分小计</b></td>
+                                    <td class="cap" width="35" height="23"><b>删除</b></td>
                                 </tr>
-
-
                                 <tr id="div_diy_34">
                                     <td width="3" height="28"></td>
                                     <td width="75" height="28">自选餐品</td>
                                     <td height="28">碧绿榨菜<span style="display:none">{}</span>
                                     </td>
-                                    <td width="60" height="28">6.00</td>
+                                    <td width="60" height="28">666.00</td>
                                     <td width="50" height="28">
                                         <input type="text" name="cpnums" id="cpnums_diy_34" value="1" class="input" style="width:19px;height:21px;" onFocus="giveModNums(this);" onBlur="modNums(this, '6.00', '6');" />
                                     </td>
-                                    <td width="60" height="28"><span id="jine_34">6.00</span>
+                                    <td width="60" height="28"><span id="jine_34">666.00</span>
                                     </td>
                                     <td width="30" height="28" style="display:none;">6</td>
                                     <td width="50" height="28" style="display:none;"><span id="cent_34">6</span>
@@ -103,10 +103,41 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                     <td width="35" height="28">
                                         <img src="images/quxiao3.gif" border="0" style="cursor:pointer;" onClick="delOne('div_diy_34', '6.00', '6');" />
                                     </td>
-                                </tr>
+                                </tr> 
+                                
+                                <s:iterator value="orderList" id="row" status="st">
+                               		<!-- 奇数行，背景为白色 -->
+                                	<s:if test="#st.odd">
+                                		<tr class="text" align="center" bgcolor="#FFFFFF">
+                                	</s:if>
+                                	<!-- 偶数行背景为浅灰色 -->
+                                	<s:else>
+                                		<tr class="text" align="center" bgcolor="#F7F3F7">
+                                	</s:else>
+                                	<td><s:property value="foodType" /></td>
+									<td><s:property value="foodName" /></td>
+									<td><s:property value="promotions" /></td>
+									<td><s:property value="marketPrice" /></td>
+									<td><s:property value="memberPrice" /></td>
+									<td><input type="text" onChange="window.location='updateSeletctedNumber.action?selId=&number='+this.value;"
+									value="" size="4"/></td>
+                                    <td width="60" height="28"><span id="jine_34">666.00</span>
+                                    </td>
+                                    <td width="30" height="28" style="display:none;">6</td>
+                                    <td width="50" height="28" style="display:none;"><span id="cent_34">6</span>
+                                    </td>
+                                    <td width="35" height="28">
+                                        <img src="images/quxiao3.gif" border="0" style="cursor:pointer;" onClick="window.location='delCartselectedmer.action?selId=${row.id}';" />
+                                    </td>
+                                </s:iterator>
 
                             </table>
                             <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            	<!--<s:if test="orderList==null|| orderList.size<1">
+                            		<tr height="26" class="blackbold" align="center" bgcolor="#FFFFFF">
+                            			<td colspan="6"  class="redtext" align="left">&nbsp;对不起，你目前尚未点任何的菜品！</td>
+                            		</tr>
+                            	</s:if>-->
                                 <tr>
                                     <td>
                                         <table border="0" cellpadding="3" cellspacing="0" style="margin:5px 0px">
@@ -119,10 +150,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                             </tr>
                                         </table>
                                     </td>
-                                    <td width="23" align="right">
-                                        <img src="images/smallcart.png" width="16" height="16">
+
+                                    <td>
+                                    	<img style="cursor:pointer" onClick="window.location='clearCart.action?memberId=${memberId}';" src="images/clear_cart.jpg">
                                     </td>
-                                    <td width="75" align="center"><a href="index.jsp">继续选餐</a>
+                                     <td>
+                                        <img src="images/goon_order.jpg" onClick="window.location='index.jsp';">
+                                    </td>
+                                    <td>
                                     </td>
                                 </tr>
                             </table>
