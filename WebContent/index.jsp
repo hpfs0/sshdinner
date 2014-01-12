@@ -55,7 +55,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                 <a href="-1" style="line-height:25px;color:">更多</a>
                             </div>
                         </div>
-                        <div style="padding:0px">
+                        <div style="padding:0px;height">
 
                             <div id="dingcantime">
                                 <div id="dingcantime2">
@@ -253,19 +253,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
                                                 <!-- 根据当前日期自动标注底色TODO -->
                                                 <tr>
-                                                    <td class='riqi'><a href='dingcan/caipu.php?m=07&d=04' class='puriqiclass'>04</a>
+                                                    <td class='riqi'><a href='dingcan/caipu.php?m=07&d=04' class='puriqiclass'></a>
                                                     </td>
-                                                    <td class='riqi'><a href='dingcan/caipu.php?m=07&d=05' class='puriqiclass'>05</a>
+                                                    <td class='riqi'><a href='dingcan/caipu.php?m=07&d=05' class='puriqiclass'></a>
                                                     </td>
-                                                    <td class='riqi'><a href='dingcan/caipu.php?m=07&d=06' class='puriqiclass'>06</a>
+                                                    <td class='riqi'><a href='dingcan/caipu.php?m=07&d=06' class='puriqiclass'></a>
                                                     </td>
-                                                    <td class='riqi'><a href='dingcan/caipu.php?m=07&d=07' class='puriqiclass'><span style="background:#f99d20;color:#ffffff;">07</span></a>
+                                                    <td class='riqi'><a href='dingcan/caipu.php?m=07&d=07' class='puriqiclass'></a>
                                                     </td>
-                                                    <td class='riqi'><a href='dingcan/caipu.php?m=07&d=08' class='puriqiclass'>08</a>
+                                                    <td class='riqi'><a href='dingcan/caipu.php?m=07&d=08' class='puriqiclass'></a>
                                                     </td>
-                                                    <td class='riqi'><a href='dingcan/caipu.php?m=07&d=09' class='puriqiclass'>09</a>
+                                                    <td class='riqi'><a href='dingcan/caipu.php?m=07&d=09' class='puriqiclass'></a>
                                                     </td>
-                                                    <td class='riqi'><a href='dingcan/caipu.php?m=07&d=10' class='puriqiclass'>10</a>
+                                                    <td class='riqi'><a href='dingcan/caipu.php?m=07&d=10' class='puriqiclass'></a>
                                                     </td>
                                                 </tr>
 
@@ -296,7 +296,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             <div style="float:left;margin-left:12px;line-height:25px;font-weight:bold;">
                             </div>
                         </div>
-                        <div style="padding:0px">
+                        <div style="padding:0px;height:405px">
 
                             <div id="dingcanall">
                                 <div id="dingcanall2">
@@ -321,42 +321,42 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 														<img width="252" height="400" alt="jquery flow 图片切换滚动插件 带分页索引按钮控制图片左右滚动" src="images/food1.jpg" />
 														<div>
 															<h3><font color="#000079">香芹炒腊肉</font></h3>
-															<p><a href="http://home.meishichina.com/recipe-97066.html" target="_blank"><font color="#006000">主料：香芹 瘦腊肉 辅料：葱姜 辣椒 盐和鸡精</font></a></p>
+															<p><a href="http://home.meishichina.com/recipe-97066.html" target="_blank"><font color="#006000" style="display:none">主料：香芹 瘦腊肉 辅料：葱姜 辣椒 盐和鸡精</font></a><img class="clickimg" src="images/cart.png" /></p>
 														</div>
 													</li>
 													<li>
 														<img width="252" height="400" alt="jquery图片切换滚动 水平手风琴切换滚动鼠标滑过图片水平切换" src="images/food2.jpg" />
 														<div>
 															<h3><font color="#000079">干锅牛蛙</font></h3>
-															<p><a href="http://www.haodou.com/recipe/294319" target="_blank"><font color="#006000">主料：牛蛙 辅料：油 盐 料酒 生姜片 八角 干辣椒 豆瓣酱 剁椒 莴苣 洋葱 蒜</font></a></p>
+															<p><a href="http://www.haodou.com/recipe/294319" target="_blank"><font color="#006000" style="display:none">主料：牛蛙 辅料：油 盐 料酒 生姜片 八角 干辣椒 豆瓣酱 剁椒 莴苣 洋葱 蒜</font></a><img class="clickimg" src="images/cart.png" /></p>
 														</div>
 													</li>
 													<li>
 														<img width="252" height="400" alt="jquery 导航菜单 jquery和CSS3制作一个动画导航的向下滑动框菜单" src="images/food3.jpg" />
 														<div>
 															<h3><font color="#000079">椒盐大虾</font></h3>
-															<p><a href="http://www.haodou.com/recipe/54469" target="_blank"><font color="#006000">主料：大对虾 辅料：料酒 生抽 白糖 胡椒粉 盐 竹签 色拉油 鸡蛋 淀粉 蒜 椒盐</font></a></p>
+															<p><a href="http://www.haodou.com/recipe/54469" target="_blank"><font color="#006000" style="display:none">主料：大对虾 辅料：料酒 生抽 白糖 胡椒粉 盐 竹签 色拉油 鸡蛋 淀粉 蒜 椒盐</font></a><img class="clickimg" src="images/cart.png" /></p>
 														</div>
 													</li>
 													<li>
 														<img width="252" height="400" alt="jquery 文字滚动大全 scroll 支持文字或图片 单行滚动 多行滚动 带按钮控制滚动" src="images/food4.jpg" />
 														<div>
 															<h3><font color="#000079">海蚌炖蛋</font></h3>
-															<p><a href="http://blog.sina.com.cn/s/blog_49cb90a40100t3bv.html" target="_blank"><font color="#006000">主料：海蚌8只，鸡蛋5个  辅料：牛奶200克，香葱少许，盐适量</font></a></p>
+															<p><a href="http://blog.sina.com.cn/s/blog_49cb90a40100t3bv.html" target="_blank"><font color="#006000" style="display:none">主料：海蚌8只，鸡蛋5个  辅料：牛奶200克，香葱少许，盐适量</font></a><img class="clickimg" src="images/cart.png" /></p>
 														</div>
 													</li>
 													<li>
 														<img width="252" height="400" alt="jquery 文字特效霓虹灯文字效果使用jQuery和CSS" src="images/food5.jpg" />
 														<div>
 															<h3><font color="#000079">青椒肚片</font></h3>
-															<p><a href="http://home.meishichina.com/recipe-9541.html" target="_blank"><font color="#006000">主料：熟猪肚150克，青椒400克 辅料：蒜片10克，湿淀粉10克调料：料酒12克，精盐2克，醋2克，汤25克，植物油20克</font></a></p>
+															<p><a href="http://home.meishichina.com/recipe-9541.html" target="_blank"><font color="#006000" style="display:none">主料：熟猪肚150克，青椒400克 辅料：蒜片10克，湿淀粉10克调料：料酒12克，精盐2克，醋2克，汤25克，植物油20克</font></a><img class="clickimg" src="images/cart.png" /></p>
 														</div>
 													</li>
 													<li>
 														<img width="252" height="400" alt="jquery表单验证 formvalidator 插件解决整站提交表单验证问题" src="images/food6.jpg" />
 														<div>
 															<h3><font color="#000079">油膜排骨</font></h3>
-															<p><a href="http://food.lanzhou.cn/system/2012/08/03/010208871.shtml" target="_blank"><font color="#006000">油面筋，排骨，姜，冰糖，盐，酱油，玫瑰腐乳，八角，香叶，辣椒</font></a></p>
+															<p><a href="http://food.lanzhou.cn/system/2012/08/03/010208871.shtml" target="_blank"><font color="#006000" style="display:none">油面筋，排骨，姜，冰糖，盐，酱油，玫瑰腐乳，八角，香叶，辣椒</font></a><img class="clickimg" src="images/cart.png" /></p>
 														</div>
 													</li>
 												</ul>
@@ -755,7 +755,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </div>
 
             <!-- 图片/FLASH -->
-            <div id='pdv_3602' class='pdv_class' title='' style='width:649px;height:151px;top:1421px;left:0px; z-index:13'>
+            <div id='pdv_3602' class='pdv_class' title='' style='width:649px;height:151px;top:435px;left:0px; z-index:13'>
                 <div id='spdv_3602' class='pdv_content' style='overflow:hidden;width:100%;height:100%'>
                     <div class="pdv_border" style="margin:0;padding:0;height:100%;border:0px  solid;background:;">
                         <div style="height:25px;margin:1px;display:none;background:;">

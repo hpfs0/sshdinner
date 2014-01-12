@@ -5,11 +5,11 @@
 *{margin:0;padding:0;list-style-type:none;}
 a,img{border:0;}
 .main{width:653px;margin:100px auto;border:solid 1px #ddd;}
-.picon{clear:both;height:350px;padding-left:4px;overflow:hidden;background:#000;position:relative;}
-.picon ul{position:absolute;top:0;left:0;height:400px;width:1000px;}
-.picon li{float:left;height:350px;border-right:1px solid #ddd;width:79px;position:relative;overflow:hidden;}
+.picon{margin:10px 0 10px 0;height:350px;overflow:hidden;position:relative;}
+.picon ul{top:0;left:0;height:400px;width:1000px;}
+.picon li{float:left;height:350px;border-right:1px solid #ddd;width:72px;position:relative;overflow:hidden;}
 .picon li.cur div{display:block;}
-.picon li div{position:absolute;bottom:0;left:0;z-index:9;height:76px;background:url(images/shadow.png) repeat;font-family:Arial, Helvetica, sans-serif;font-weight:900;width:100%;color:#fff;display:none;}
+.picon li div{margin-bottom:12px;position:absolute;bottom:0;left:0;z-index:9;height:76px;background:url(images/shadow.png) repeat;font-family:Arial, Helvetica, sans-serif;font-weight:900;width:100%;color:#fff;display:none;}
 *html .picon li div{filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=scale, src="images/shadow.png");background:none;}
 .picon li div h3{padding:4px 0 0 10px;line-height:30px;font-size:16px;line-height:26px;font-weight:900;}
 .picon li div p{line-height:20px;padding:0px 10px 0;font-size:13px;}
