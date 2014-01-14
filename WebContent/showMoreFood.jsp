@@ -71,8 +71,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		return "#"; 
 		} 
 	</script>
-	 <script type="text/javascript">
-		 function openDetail(){
+	<script type="text/javascript">
+		// 点击更多按钮打开检索栏
+		function openDetail(){
 			var divStyle =document.getElementById("foodSearchDetail").style.display;
 			if(divStyle=="none"){
 		  		document.getElementById("foodSearchDetail").style.display="";
@@ -81,10 +82,32 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				document.getElementById("foodSearchDetail").style.display="none";
 				document.getElementById('choose').style.backgroundImage="url(images/more_1.jpg)";
 			}
-			
-		  
 		 }
-	 </script> 
+		// 鼠标移入时，显示图标为选中状态
+		function changePictureMouseOver(){
+			var divStyle =document.getElementById("foodSearchDetail").style.display;
+			if(divStyle=="none"){
+				document.getElementById('choose').style.backgroundImage="url(images/more_2.jpg)";
+			} else {
+				document.getElementById('choose').style.backgroundImage="url(images/backup_2.jpg)";
+			}
+		}
+		// 鼠标移出时，恢复图标为未选中状态
+		function changePictureMouseOut(){
+			var divStyle =document.getElementById("foodSearchDetail").style.display;
+			if(divStyle=="none"){
+				document.getElementById('choose').style.backgroundImage="url(images/more_1.jpg)";
+			} else {
+				document.getElementById('choose').style.backgroundImage="url(images/backup_1.jpg)";
+			}
+		}
+	 </script>
+	 <script>
+		function crud(type) {
+			document.myForm.actionType.value=type;
+			document.myForm.submit();
+		}
+	</script> 
 </head>
 
 <body style='background:transparent'>
@@ -119,7 +142,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </div>
             <!-- 订单处理 -->
 
-            <div id='pdv_3535' class='pdv_class' title='订单处理' style='width:650px;height:1079px;top:36px;left:0px; z-index:9' >
+            <div id='pdv_3535' class='pdv_class' title='订单处理' style='width:700px;height:1079px;top:36px;left:0px; z-index:9' >
 				<table border="0">
 					<tr>
 						<td><b>菜品名称：</b></td>
@@ -144,13 +167,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<td>&nbsp;</td>
 						<td><input type="checkbox" id="preferential" value="preferential" style=" vertical-align:middle" >
 						<b>今日优惠</b></td> 
-						<td><input id="choose" type="button" onclick="openDetail();" style="width:60px;border:0;background-image:url(images/more_1.jpg)"></td>
-						
+						<td><input id="choose" type="button" onclick="openDetail();" style="width:60px;border:0;background-image:url(images/more_1.jpg)" onMouseOver="changePictureMouseOver();" onMouseOut="changePictureMouseOut();"></td>
+						<td>
+							<input type="button" value="查询"onclick="crud('select')"/>
+						</td>	
 					</tr>
 					<tr id="foodSearchDetail" style="display: none">
 						<td><b>菜品菜系：</b></td>
 						<td>
-							<select name="foodKind" >
+							<select name="foodKind" id="foodSearchDetail">
 								<option value="1">鲁菜</option>
 								<option value="2">川菜</option>
 								<option value="3">粤菜</option>
@@ -166,14 +191,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<td>&nbsp;</td>
 						<td><b>菜品辣度：</b></td>
 						<td>
-							<select name="foodPungencyDegree">
+							<select name="foodPungencyDegree" id="foodSearchDetail">
 								<option value="0">不辣</option>
 								<option value="1">微辣</option>
 								<option value="2">辣</option>
 								<option value="3">很辣</option>
 								<option value="4">变态辣</option>				
 							</select>
-						</td>										
+						</td>									
 					</tr>
 				</table>
             </div>
