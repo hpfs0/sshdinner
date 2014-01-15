@@ -190,7 +190,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</td>
 						<td>&nbsp;</td>
 						<td><b>²ËÆ·À±¶È£º</b></td>
-						<td>
+						<td colspan="2">
 							<select name="foodPungencyDegree" id="foodSearchDetail">
 								<option value="0">²»À±</option>
 								<option value="1">Î¢À±</option>
