@@ -143,64 +143,82 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <!-- 订单处理 -->
 
             <div id='pdv_3535' class='pdv_class' title='订单处理' style='width:700px;height:1079px;top:36px;left:0px; z-index:9' >
-				<table border="0">
-					<tr>
-						<td><b>菜品名称：</b></td>
-						<td>
-						    <input name="foodName" type="text" id="foodName" value="关键词" style = "width:150px"  
-	
-							      onmouseover=this.focus();this.select();  
-							
-							      onclick="if(value==defaultValue){value='';this.style.color='#000'}"   
-							
-							      onBlur="if(!value){value=defaultValue;this.style.color='#999'}" style="color:#999" />
-						</td>
-						<td>&nbsp;</td>
-						<td><b>菜品价格：</b></td>
-						<td> 
-							<input name="foodPrizeFrom" type="text" id="foodPrizeFrom" style="ime-mode:disabled;width:60px" onkeydown="return check(event)" onkeyup="if(isNaN(this.value)||this.value<0||this.value>999999) this.value='0'"
-							/> 
-						</td>
-						<td><b> &nbsp;~ &nbsp;</b></td>
-						<td><input name="foodPrizeTo" type="text" id="foodPrizeTo" style="ime-mode:disabled;width:60px" onkeydown="return check(event)" onkeyup="if(isNaN(this.value)||this.value<0||this.value>999999) this.value='0'"
-						/></td>
-						<td>&nbsp;</td>
-						<td><input type="checkbox" id="preferential" value="preferential" style=" vertical-align:middle" >
-						<b>今日优惠</b></td> 
-						<td><input id="choose" type="button" onclick="openDetail();" style="width:60px;border:0;background-image:url(images/more_1.jpg)" onMouseOver="changePictureMouseOver();" onMouseOut="changePictureMouseOut();"></td>
-						<td>
-							<input type="button" value="查询"onclick="crud('select')"/>
-						</td>	
-					</tr>
-					<tr id="foodSearchDetail" style="display: none">
-						<td><b>菜品菜系：</b></td>
-						<td>
-							<select name="foodKind" id="foodSearchDetail">
-								<option value="1">鲁菜</option>
-								<option value="2">川菜</option>
-								<option value="3">粤菜</option>
-								<option value="4">苏菜</option>
-								<option value="5">闽菜</option>
-								<option value="6">浙菜</option>
-								<option value="7">湘菜</option>
-								<option value="8">徽菜</option>
-								<option value="9">其他</option>
-								<option value="0">西洋菜</option>
-							</select>
-						</td>
-						<td>&nbsp;</td>
-						<td><b>菜品辣度：</b></td>
-						<td colspan="2">
-							<select name="foodPungencyDegree" id="foodSearchDetail">
-								<option value="0">不辣</option>
-								<option value="1">微辣</option>
-								<option value="2">辣</option>
-								<option value="3">很辣</option>
-								<option value="4">变态辣</option>				
-							</select>
-						</td>									
-					</tr>
-				</table>
+            	<form name="myForm" action="More.action" method="post">
+					<table border="0">
+						<tr>
+							<td><b>菜品名称：</b></td>
+							<td>
+							    <input name="foodName" type="text" id="foodName" value="关键词" style = "width:150px"  
+		
+								      onmouseover=this.focus();this.select();  
+								
+								      onclick="if(value==defaultValue){value='';this.style.color='#000'}"   
+								
+								      onBlur="if(!value){value=defaultValue;this.style.color='#999'}" style="color:#999" />
+							</td>
+							<td>&nbsp;</td>
+							<td><b>菜品价格：</b></td>
+							<td> 
+								<input name="foodPrizeFrom" type="text" id="foodPrizeFrom" style="ime-mode:disabled;width:60px" onkeydown="return check(event)" onkeyup="if(isNaN(this.value)||this.value<0||this.value>999999) this.value='0'"
+								/> 
+							</td>
+							<td><b> &nbsp;~ &nbsp;</b></td>
+							<td><input name="foodPrizeTo" type="text" id="foodPrizeTo" style="ime-mode:disabled;width:60px" onkeydown="return check(event)" onkeyup="if(isNaN(this.value)||this.value<0||this.value>999999) this.value='0'"
+							/></td>
+							<td>&nbsp;</td>
+							<td><input type="checkbox" id="preferential" value="preferential" style=" vertical-align:middle" >
+							<b>今日优惠</b></td> 
+							<td><input id="choose" type="button" onclick="openDetail();" style="width:60px;border:0;background-image:url(images/more_1.jpg)" onMouseOver="changePictureMouseOver();" onMouseOut="changePictureMouseOut();"></td>
+							<td>
+								<input type="button" value="查询"onclick="crud('select')"/>
+								<s:hidden name="actionType" ></s:hidden>
+							</td>	
+						</tr>
+						<tr id="foodSearchDetail" style="display: none">
+							<td><b>菜品菜系：</b></td>
+							<td>
+								<select name="foodKind" id="foodSearchDetail">
+									<option value="1">鲁菜</option>
+									<option value="2">川菜</option>
+									<option value="3">粤菜</option>
+									<option value="4">苏菜</option>
+									<option value="5">闽菜</option>
+									<option value="6">浙菜</option>
+									<option value="7">湘菜</option>
+									<option value="8">徽菜</option>
+									<option value="9">其他</option>
+									<option value="0">西洋菜</option>
+								</select>
+							</td>
+							<td>&nbsp;</td>
+							<td><b>菜品辣度：</b></td>
+							<td colspan="2">
+								<select name="foodPungencyDegree" id="foodSearchDetail">
+									<option value="0">不辣</option>
+									<option value="1">微辣</option>
+									<option value="2">辣</option>
+									<option value="3">很辣</option>
+									<option value="4">变态辣</option>				
+								</select>
+							</td>									
+						</tr>
+						<s:iterator value="showMoreFoodlist">
+						  <tr>
+						  	<td rowspan="3"><a href="Show.action?Id=<s:property value="foodId"/>" target=3><img src="<%=request.getContextPath()%>/images/<s:property value="foodPhoteUrlpath"/>" width="150" height="150"></a></td>
+						  	<td><s:property value="foodName" /></td>
+						  </tr>
+						  <tr>
+						  	<td>本站会员价：￥</td><td><s:property value="foodMemberPrice" /></td>
+						  </tr>
+						  <tr>
+						  	<td><s>店面价格: ￥</s></td><td><s><s:property value="foodUnitPrice" /></td></s>
+						  </tr>
+						  <tr>
+						  	<td><s>菜品人气: ￥</s></td><td><s><s:property value="foodSalesCopies" /></td></s>
+						  </tr>
+						</s:iterator>
+					</table>
+				</form>
             </div>
         </div>
         <div id='bottom' style='width:900px;height:173px;background:none transparent scroll repeat 0% 0%'>
