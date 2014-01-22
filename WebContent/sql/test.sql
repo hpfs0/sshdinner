@@ -1,4 +1,4 @@
-/*
+﻿/*
 Navicat MySQL Data Transfer
 
 Source Server         : MYDB
@@ -139,6 +139,27 @@ CREATE TABLE `mt_message` (
   `UPDATE_TIME` datetime DEFAULT NULL,
   `DETAIL_FLG` tinyint(4) DEFAULT NULL,
   PRIMARY KEY (`MESSAGE_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Table structure for mt_note
+-- ----------------------------
+DROP TABLE IF EXISTS MT_NOTE;
+CREATE TABLE MT_NOTE(
+	NOTE_ID varchar(10) NOT NULL,
+	NOTE_TOPIC varchar(20) NOT NULL,
+	NOTE_CONTENT varchar(500) NOT NULL,
+	NOTE_LOGIN_ID varchar(20) NOT NULL,
+	NOTE_REAL_NAME varchar(20) NOT NULL,
+	NOTE_MAIL varchar(50) DEFAULT NULL,
+	NOTE_QQ varchar(20) DEFAULT NULL,
+	NOTE_PERSONAL_HOME_PAGE varchar(100) DEFAULT NULL,
+	NOTE_MOOD varchar(10) DEFAULT NULL,
+	NOTE_SECRET tinyint(4) DEFAULT 0,
+	NOTE_TIME datetime DEFAULT NULL,
+	UPDATE_TIME datetime DEFAULT NULL,
+	DELETE_FLG tinyint(4) DEFAULT 0,
+	PRIMARY KEY (NOTE_ID)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
