@@ -85,7 +85,7 @@
                                     <li><a href="restaurant.jsp" target="_self">µÍ∆ÃœÍ«È</a>
                                     </li>
 
-                                    <li><a href="note.jsp" target="_self">πÀøÕ¡Ù—‘</a>
+                                    <li><a href="notelist.action" target="_self">πÀøÕ¡Ù—‘</a>
                                     </li>
 
                                 </ul>

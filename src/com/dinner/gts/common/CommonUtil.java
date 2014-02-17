@@ -93,6 +93,10 @@ public class CommonUtil {
             case CommonConst.COMMON_ID_FEEDBACK:
                 sql = CommonSqlConst.COMMON_SQL_009;
                 break;
+            // 留言ID
+            case CommonConst.COMMON_ID_NOTE:
+            	sql = CommonSqlConst.COMMON_SQL_013;
+            	break;
         }
 
         query = session.createSQLQuery(sql);

@@ -15,6 +15,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link href="css/guestbookquery.css" rel="stylesheet" type="text/css" />
 	<link href="css/guestbookform.css" rel="stylesheet" type="text/css" />
 	<script type="text/javascript" src="js/guestbook.js"></script>
+	<script type="text/javascript" src="js/jquery-1.7.2.js"></script>
+    <script type="text/javascript" src="js/jquery.toastmessage.js"></script>
+    <link href="js/resource/css/jquery.toastmessage.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="poshytip-1.2/src/tip-yellow/tip-yellow.css" type="text/css" />
+    <script type="text/javascript" src="poshytip-1.2/src/jquery.poshytip.js"></script>
+    <script type="text/javascript" src="js/blockui.js"></script>
 	<!-- the mousewheel plugin -->
 	<link rel="stylesheet" type="text/css" href="css/jscrollpane2.css" />
     <script type="text/javascript" src="js/jquery.mousewheel.js"></script>
@@ -46,57 +52,52 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                 <a href="-1" style="line-height:25px;color:">更多</a>
                             </div>
                         </div>
-                        <div style="padding:0px">
-                            <div id="guestbookquery">
-
-                                <div class="cap">
-                                    <div class="au"><strong><font class="auz">作者信息</font></strong>
-                                    </div>
-                                    <div class="gb"><strong><font class="gbz">留言信息</font></strong>
-                                    </div>
-                                </div>
-
-
-
-                                <div class="guestbook">
-
-                                    <div class="auinfo">
-                                        <div class="aupic">
-                                            <img src="images/m01.gif" border="0" />
-                                        </div>
-                                        <div class="auname">aaaa</div>
-                                        <div class="lynum">第61条留言</div>
-                                    </div>
-
-                                    <div class="gbinfo">
-                                        <div class="ttinfo">
-                                            <div class="title">标题：rrrr</div>
-                                            <div class="fjinfo">
-                                                <img src="images/homepage.gif" border="0" /><a href='http://'>主页</a>&nbsp;&nbsp;
-                                                <img src="images/email.gif" border="0" />信箱&nbsp;&nbsp;
-                                                <img src="images/qq.gif" border="0" />&nbsp;QQ</div>
-                                        </div>
-                                        <div class="lyinfo">
-                                            <div class="mood">
-                                                <img src="images/s1.gif" border="0" />
-                                            </div>
-                                            <div class="bdinfo2">????</div>
-                                        </div>
-                                        <div class="hfinfo">
-                                            <div class="hf" style="display:none;">版主回复：</div>
-                                            <div class="hfanswer" style="display:none;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
-                                        </div>
-                                        <div class="btinfo">
-                                            <img src="images/posttime.gif" border="0" />&nbsp;&nbsp;2011-07-06 10:37:08&nbsp;&nbsp;&nbsp;&nbsp;
-                                            <img src="images/ip.gif" border="0" />&nbsp;&nbsp;222.78.129.168
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div id="showpages">
+                        <s:iterator value="#request.noteList" status="note">
+	                        <div style="padding:0px">
+	                            <div id="guestbookquery">
+	                                <div class="guestbook">
+	
+	                                    <div class="auinfo">
+	                                        <div class="aupic">
+	                                            <a href="http://www.baidu.com" target="_blank"><img src="images/m01.gif" border="0" /></a>
+	                                        </div>
+	                                        <div class="auname"><a href="http://www.baidu.com" target="_blank"><s:property value="noteLoginId"/></a></div>
+	                                        <div class="lynum">第<s:property value="#note.index+1"/>条留言</div>
+	                                    </div>
+	
+	                                    <div class="gbinfo">
+	                                        <div class="ttinfo">
+	                                            <div class="title"><s:property value="noteTopic"/></div>
+	                                            <div class="fjinfo">
+	                                                <!-- <img src="images/homepage.gif" border="0" /><a href="http://www.baidu.com" target="_blank">主页</a>&nbsp;&nbsp;  -->
+	                                                <img src="images/email.gif" border="0" />信箱&nbsp;&nbsp;
+	                                                <img src="images/qq.gif" border="0" />&nbsp;QQ</div>
+	                                        </div>
+	                                        <div class="lyinfo">
+	                                            <div class="mood">
+	                                                <img src="images/s1.gif" border="0" />
+	                                            </div>
+	                                            <div class="bdinfo2">????</div>
+	                                        </div>
+	                                        <div class="hfinfo">
+	                                            <div class="hf" style="display:none;">版主回复：</div>
+	                                            <div class="hfanswer" style="display:none;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+	                                        </div>
+	                                        <div class="btinfo">
+	                                            <img src="images/posttime.gif" border="0" />&nbsp;&nbsp;<s:date name="noteTime" />&nbsp;&nbsp;&nbsp;&nbsp;
+	                                            <img src="images/ip.gif" border="0" />&nbsp;&nbsp;<s:property value="notePersonalHomePage.substring(0,7)+\"*.*\""/>
+	                                        </div>
+	                                    </div>
+	
+	                                </div>
+	
+	                            </div>
+	
+	                        </div>
+                        </s:iterator>
+                        
+                        
+                        <div id="showpages">
                                 <div id="pagesinfo">共60个职位 每页10个 页次：1/6</div>
                                 <div id="pages">
                                     <ul>
@@ -131,9 +132,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                     </ul>
                                 </div>
                             </div>
-
-
-                        </div>
                     </div>
 
                 </div>
@@ -154,12 +152,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         </div>
                         <div style="padding:0px">
                             <div id="notice"></div>
-                            <form id="guestbookform" method="post" action="" name="myform">
+                            <!-- <form id="guestbookform" method="post" action="" name="myform">  -->
                                 <table width="100%" border="0" cellspacing="0" cellpadding="0" style="border:1px #d2d2d2 solid;">
                                     <tr>
                                         <td width="123" height="30" align="right" style="border-right:1px #d2d2d2 solid; border-bottom:1px #d2d2d2 solid;">留言标题：</td>
                                         <td colspan="2" style="border-bottom:1px #d2d2d2 solid; padding-left:5px;">
-                                            <input type="text" name="title" value="" class="input" maxlength="20" style="width:300px;" />&nbsp;<font style="color:#ff0000;">*</font>&nbsp;&nbsp;不得超过 20 个字符</td>
+                                            <input type="text" id="title" name="title" value="" class="input" maxlength="20" style="width:300px;" />&nbsp;<font style="color:#ff0000;">*</font>&nbsp;&nbsp;不得超过 20 个字符</td>
                                         <td width="130" rowspan="4" id="headpic" style="border-bottom:1px #d2d2d2 solid; border-left:1px #d2d2d2 solid; text-align:center;">
                                             <div id="headpic2"></div>
                                             <img src="images/m01.gif" border="0" />
@@ -169,7 +167,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                     <tr>
                                         <td height="30" align="right" style="border-right:1px #d2d2d2 solid; border-bottom:1px #d2d2d2 solid;">您的名字：</td>
                                         <td style="border-bottom:1px #d2d2d2 solid; padding-left:5px;">
-                                            <input type="text" name="name" value="" class="input" maxlength="15" />&nbsp;<font style="color:#ff0000;">*</font> 
+                                            <input type="text" id="name" name="name" value="" class="input" maxlength="15" />&nbsp;<font style="color:#ff0000;">*</font> 
                                         </td>
                                         <td width="160" style="border-bottom:1px #d2d2d2 solid; padding-left:5px;">
                                             选择头像：
@@ -317,7 +315,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                         <td height="30" align="right" style="border-right:1px #d2d2d2 solid; border-bottom:1px #d2d2d2 solid;">留言内容：</td>
                                         <td colspan="3" style="border-bottom:1px #d2d2d2 solid; padding-left:5px;">
                                             <div id="remLen" style="float:right; padding-top:10px; padding-right:30px;">您还能填写500个字符</div>
-                                            <textarea class="textarea" name="body" id="message" style="width:600px; height:60px;" onKeyDown="textCounter();" onKeyUp="textCounter();"></textarea>&nbsp;<font color="#FF0000">*</font>
+                                            <textarea class="textarea" id="body" name="body" id="message" style="width:600px; height:60px;" onKeyDown="textCounter();" onKeyUp="textCounter();"></textarea>&nbsp;<font color="#FF0000">*</font>
                                         </td>
                                     </tr>
                                     <tr>
@@ -346,13 +344,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                     <tr>
                                         <td width="123" align="right" style="border-right:1px #d2d2d2 solid;">&nbsp;</td>
                                         <td height="30" colspan="3" style="padding-left:5px;">
-                                            <input type="submit" name="Submit" value="提交" class="submit">
+                                            <input type="submit" id="Submit" name="Submit" value="提交" class="submit">
                                             <input type='hidden' name='act' value='formsend'>
                                             <input name='groupid' type='hidden' id="groupid" value=''>
                                         </td>
                                     </tr>
                                 </table>
-                            </form>
+                            <!-- </form>  -->
                             <script language="JavaScript">
                                 function textCounter() {
                                     if (myform.message.value.length > 500) {
