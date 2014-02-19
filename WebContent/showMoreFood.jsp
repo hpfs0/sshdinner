@@ -166,7 +166,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<td><input name="foodPrizeTo" type="text" id="foodPrizeTo" style="ime-mode:disabled;width:60px" onkeydown="return check(event)" onkeyup="if(isNaN(this.value)||this.value<0||this.value>999999) this.value='0'"
 							/></td>
 							<td>&nbsp;</td>
-							<td><input type="checkbox" id="preferential" value="preferential" style=" vertical-align:middle" >
+							<td><input type="checkbox" id="preferential" value="1" style=" vertical-align:middle" >
 							<b>ΩÒ»’”≈ª›</b></td> 
 							<td><input id="choose" type="button" onclick="openDetail();" style="width:60px;border:0;background-image:url(images/more_1.jpg)" onMouseOver="changePictureMouseOver();" onMouseOut="changePictureMouseOut();"></td>
 							<td>
