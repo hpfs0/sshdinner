@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.dinner.gts.model">
+    
+       <class name="FoodDetail" table="MT_FREE_FOOD">
+	        <id name="foodId" column="FOOD_ID">
+	            <generator class="assigned" />
+	        </id>
+	        <property name="foodName" column="FOOD_NAME"/>
+	        <property name="foodUnitPrice" column="FOOD_UNIT_PRICE"/>
+	        <property name="foodMemberPrice" column="FOOD_MEMBER_PRICE"/>
+	        <property name="foodCuisineKind" column="FOOD_CUISINE_KIND"/>
+	        <property name="foodPungencyDegree" column="FOOD_PUNGENCY_DEGREE"/>
+	        <property name="foodStock" column="FOOD_STOCK"/>
+	        <property name="foodPhoteUrlpath" column="FOOD_PHOTE_URLPATH"/>
+	        <property name="foodSalesCopies" column="FOOD_SALES_COPIES"/>
+	        <property name="preferentialStatus" column="PREFERENTIAL_STATUS"/>
+	        <property name="preferentialPrice" column="PREFERENTIAL_PRICE"/>
+	        <property name="preferentialStartTime" column="PREFERENTIAL_START_TIME"/>
+	        <property name="preferentialEndTime" column="PREFERENTIAL_END_TIME"/>
+	        <property name="registTime" column="REGIST_TIME"/>
+	        <property name="updateTime" column="UPDATE_TIME"/>
+	        <property name="deleteFlg" column="DELETE_FLG"/>
+        </class>
+
+</hibernate-mapping>

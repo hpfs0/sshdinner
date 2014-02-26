@@ -4,7 +4,7 @@
     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="com.dinner.gts.model">
 
-    <class name="Feedback" table="MT_FEEDBACK">
+     <class name="Feedback" table="MT_FEEDBACK">
         <id name="feedbackId" column="FEEDBACK_ID">
             <generator class="assigned" />
         </id>
