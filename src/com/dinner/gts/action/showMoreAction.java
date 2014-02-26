@@ -6,7 +6,7 @@ import com.dinner.gts.dao.FoodDetailDaoImpl;
 import com.dinner.gts.model.FoodDetail;
 import com.opensymphony.xwork2.ActionSupport;
 @SuppressWarnings("serial")
-public class showMoreAction extends ActionSupport{
+public class ShowMoreAction extends ActionSupport{
   private List<FoodDetail> showMoreFoodlist = new ArrayList<FoodDetail>();
   private String actionType;
   private String foodName;
