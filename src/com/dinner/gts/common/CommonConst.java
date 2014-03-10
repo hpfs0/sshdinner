@@ -19,6 +19,9 @@ public interface CommonConst {
 
     /** 共通ID种类:反馈ID */
     public static final int COMMON_ID_FEEDBACK = 5;
+    
+    /** 共通ID种类:留言ID */
+    public static final int COMMON_ID_NOTE = 6;
 
     /** 共通消息类型:提示 */
     public static final int COMMON_MESSAGE_TYPE_0 = 0;
@@ -71,6 +74,12 @@ public interface CommonConst {
 
     /** NG:投诉反馈失败 */
     public static final String COMMON_FEEDBACK_NG = "NG";
+    
+    /** OK:留言成功 */
+    public static final String COMMON_NOTE_OK = "OK";
+
+    /** NG:留言失败 */
+    public static final String COMMON_NOTE_NG = "NG";
 
     /** OK:会员登陆成功 */
     public static final String COMMON_MEMBERLOGIN_OK = "OK";

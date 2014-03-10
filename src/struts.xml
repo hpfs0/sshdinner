@@ -24,5 +24,13 @@
 		<action name = "logout" class = "com.dinner.gts.action.LoginAction" method="sessionRemove">
 			<result name="success">/login.jsp</result>
 		</action>
+		<action name = "note" class= "com.dinner.gts.action.NoteAction">
+		</action>
+		<action name = "notelist" class = "com.dinner.gts.action.NoteAction" method="findNote">
+			<result name="success">/note.jsp</result>
+		</action>
+		<action name="More" class="com.dinner.gts.action.ShowMoreAction">
+	        <result name="success">/jsp/ShowMoreFood.jsp</result>
+	    </action>
 	</package>
 </struts>

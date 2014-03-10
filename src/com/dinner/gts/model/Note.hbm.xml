@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.dinner.gts.model">
+    
+    <class name="Note" table="MT_NOTE">
+        <id name="noteId" column="NOTE_ID">
+            <generator class="assigned" />
+        </id>
+        <property name="noteTopic" column="NOTE_TOPIC"/>
+        <property name="noteContent" column="NOTE_CONTENT"/>
+        <property name="noteLoginId" column="NOTE_LOGIN_ID"/>
+        <property name="noteRealName" column="NOTE_REAL_NAME"/>
+        <property name="noteMail" column="NOTE_MAIL"/>
+        <property name="noteQq" column="NOTE_QQ"/>
+        <property name="notePersonalHomePage" column="NOTE_PERSONAL_HOME_PAGE"/>
+        <property name="noteMood" column="NOTE_MOOD"/>
+        <property name="noteSecret" column="NOTE_SECRET"/>
+        <property name="noteTime" column="NOTE_TIME"/>
+        <property name="updateTime" column="UPDATE_TIME"/>
+        <property name="deleteFlg" column="DELETE_FLG"/>
+    </class>
+    
+</hibernate-mapping>

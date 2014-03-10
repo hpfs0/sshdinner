@@ -273,7 +273,7 @@ $(document).ready(function(){
 		var b = $(this).offset();
         g = $("#pdv_3614").offset();
         g.top += $("#pdv_3614").height() / 2;
-        var flyEffectTxt = $('<div class="flyEffect">' + "1234" + "</div>");
+        var flyEffectTxt = $('<div class="flyEffect" style="z-index:99">' + "1234" + "</div>");
         flyEffectTxt.offset(b);
         flyEffectTxt.appendTo("body").animate({
             left: g.left + 20 + "px",
