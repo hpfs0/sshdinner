@@ -20,7 +20,7 @@ public class Message implements Serializable {
     private String messageContent;
 
     /** 注册时间 */
-    private Date RegistTime;
+    private Date registTime;
 
     /** 更新时间 */
     private Date updateTime;
@@ -53,11 +53,11 @@ public class Message implements Serializable {
     }
 
     public Date getRegistTime() {
-        return RegistTime;
+        return registTime;
     }
 
     public void setRegistTime(Date registTime) {
-        RegistTime = registTime;
+        this.registTime = registTime;
     }
 
     public Date getUpdateTime() {

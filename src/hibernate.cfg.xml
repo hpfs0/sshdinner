@@ -8,7 +8,7 @@
             com.mysql.jdbc.Driver
         </property>
         <property name="hibernate.connection.url">
-            jdbc:mysql://localhost/test?characterEncoding=utf-8
+            jdbc:mysql://localhost/test
         </property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="hibernate.connection.username">root</property>

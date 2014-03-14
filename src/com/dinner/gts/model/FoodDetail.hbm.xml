@@ -14,7 +14,7 @@
 	        <property name="foodCuisineKind" column="FOOD_CUISINE_KIND"/>
 	        <property name="foodPungencyDegree" column="FOOD_PUNGENCY_DEGREE"/>
 	        <property name="foodStock" column="FOOD_STOCK"/>
-	        <property name="foodPhoteUrlpath" column="FOOD_PHOTE_URLPATH"/>
+	        <property name="foodPhotoUrlpath" column="FOOD_PHOTO_URLPATH"/>
 	        <property name="foodSalesCopies" column="FOOD_SALES_COPIES"/>
 	        <property name="preferentialStatus" column="PREFERENTIAL_STATUS"/>
 	        <property name="preferentialPrice" column="PREFERENTIAL_PRICE"/>
