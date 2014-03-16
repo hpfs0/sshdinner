@@ -177,7 +177,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<tr id="foodSearchDetail" style="display: none">
 							<td><b>²ËÆ·²ËÏµ£º</b></td>
 							<td>
-								<select name="foodKind" id="foodSearchDetail">
+								<select name="foodKind" id="foodKind">
 									<option value="1">Â³²Ë</option>
 									<option value="2">´¨²Ë</option>
 									<option value="3">ÔÁ²Ë</option>
@@ -193,7 +193,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<td>&nbsp;</td>
 							<td><b>²ËÆ·À±¶È£º</b></td>
 							<td colspan="2">
-								<select name="foodPungencyDegree" id="foodSearchDetail">
+								<select name="foodPungencyDegree" id="foodPungencyDegree">
 									<option value="0">²»À±</option>
 									<option value="1">Î¢À±</option>
 									<option value="2">À±</option>

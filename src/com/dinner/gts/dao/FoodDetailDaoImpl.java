@@ -25,7 +25,7 @@ public class FoodDetailDaoImpl implements FoodDetailDao {
         SQLQuery query = session.createSQLQuery(CommonSqlConst.COMMON_SQL_O15);
         query.addEntity(FoodDetail.class);
         // 设置参数
-        query.setString(0, foodDetailForSelectQuery.getFoodName());
+        query.setString(0, "%" + foodDetailForSelectQuery.getFoodName() + "%");
         query.setDouble(1, foodDetailForSelectQuery.getFoodMemberPriceFrom());
         query.setDouble(2, foodDetailForSelectQuery.getFoodMemberPriceTo());
         query.setString(3, foodDetailForSelectQuery.getPreferentialStatus());
