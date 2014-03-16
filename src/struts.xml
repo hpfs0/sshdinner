@@ -30,7 +30,7 @@
 			<result name="success">/note.jsp</result>
 		</action>
 		<action name="More" class="com.dinner.gts.action.ShowMoreAction">
-	        <result name="success">/jsp/ShowMoreFood.jsp</result>
+	        <result name="success">/showMoreFood.jsp</result>
 	    </action>
 	</package>
 </struts>
