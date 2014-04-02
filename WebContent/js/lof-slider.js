@@ -98,7 +98,7 @@ function handler(event) {
 			// get instance of the lofSiderNew.
 			new  $.lofSidernews( this, settings ); 
 		});
- 	 }
+ 	 };
 	 $.lofSidernews = function( obj, settings ){
 		this.settings = {
 			direction	    	: '',
@@ -107,8 +107,8 @@ function handler(event) {
 			navSelector  		: 'li' ,
 			navigatorEvent		: 'click'/* click|mouseenter */,
 			wapperSelector: 	'.sliders-wrap-inner',
-			interval	  	 	: 1000,
-			auto			    : false, // whether to automatic play the slideshow
+			interval	  	 	: 3000,
+			auto			    : true, // whether to automatic play the slideshow
 			maxItemDisplay	 	: 3,
 			startItem			: 0,
 			navPosition			: 'vertical',/* values: horizontal|vertical*/ 
@@ -127,8 +127,6 @@ function handler(event) {
 		this.previousNo     = null;
 		this.maxWidth  = this.settings.mainWidth || 284;
 		
-		
-
 		this.wrapper = $( obj ).find( this.settings.wapperSelector );	
 		var wrapOuter = $('<div class="sliders-wrapper"></div>').width( this.maxWidth );
 		this.wrapper.wrap( wrapOuter );
@@ -191,15 +189,15 @@ function handler(event) {
 		
 		$( obj ).hover(function(){
 				self.stop();	
-				$buttonControl.addClass("action-start").removeClass("action-stop").addClass("hover-stop");
+				//$buttonControl.addClass("action-start").removeClass("action-stop").addClass("hover-stop");
 		}, function(){
-			if( $buttonControl.hasClass("hover-stop") ){
+			//if( $buttonControl.hasClass("hover-stop") ){
 		
 				if(	self.settings.auto ){
 					$buttonControl.removeClass("action-start").removeClass("hover-stop").addClass("action-stop");
 					self.play( self.settings.interval,'next', true );		
 				}
-			}
+			//}
 		} );
 		
 		
@@ -214,7 +212,7 @@ function handler(event) {
 				$buttonControl.addClass("action-start").removeClass("action-stop");
 			}
 		} );
-	 }
+	 };
      $.lofSidernews.fn =  $.lofSidernews.prototype;
      $.lofSidernews.fn.extend =  $.lofSidernews.extend = $.extend;
 	 
@@ -229,7 +227,7 @@ function handler(event) {
 					seft.setNavActive( index, item );					
 				} ));
 				$(item).css( {'height': seft.settings.navigatorHeight, 'width':  seft.settings.navigatorWidth} );
-			})
+			});
 			this.registerWheelHandler( this.navigatorOuter, this );
 			this.setNavActive( this.currentNo );
 			this.settings.onComplete( this.slides.eq(this.currentNo ),this.currentNo  );
@@ -257,13 +255,13 @@ function handler(event) {
 						if( count >= images.length ){
 							self.onComplete();
 						}
-					}
+					};
 					image.onerror =function(){ 
 						count++;
 						if( count >= images.length ){
 							self.onComplete();
 						}	
-					}
+					};
 				}else {
 					count++;
 					if( count >= images.length ){
@@ -320,10 +318,10 @@ function handler(event) {
 			for( var action in objects ){ 
 				switch (action.toString() ){
 					case 'next':
-						objects[action].click( function() { self.next( true) } );
+						objects[action].click( function() { self.next( true); } );
 						break;
 					case 'previous':
-						objects[action].click( function() { self.previous( true) } );
+						objects[action].click( function() { self.previous( true); } );
 						break;
 				}
 			}
@@ -350,7 +348,7 @@ function handler(event) {
 				if( this.settings.direction == 'opacity' ) { 
 					
 					$(this.slides).stop().animate({opacity:0}, {duration: this.settings.duration, easing:this.settings.easing,complete:function(){ 
-																					s.slides.css("z-index","1")
+																					s.slides.css("z-index","1");
 																					s.slides.eq(index).css("z-index","3");															
 																						}} );
 					$(this.slides).eq(index).stop().animate( {opacity:1}, { duration : this.settings.duration, 
@@ -358,7 +356,7 @@ function handler(event) {
 																		    complete :function(){ s.settings.onComplete($(s.slides).eq(index),index); }} );
 				}else {
 					this.wrapper.stop().animate( obj, {duration: this.settings.duration, easing:this.settings.easing,complete:function(){ 
-																										s.settings.onComplete($(s.slides).eq(index),index)								   
+																										s.settings.onComplete($(s.slides).eq(index),index);						   
 																									} } );
 				}
 			return this;
@@ -396,6 +394,6 @@ function handler(event) {
 			clearTimeout(this.isRun);
             this.isRun = null; 
 		}
-	})
+	});
 })(jQuery)
 

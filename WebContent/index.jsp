@@ -41,11 +41,11 @@ $(document).ready(function($){
 	};	
 
 	$('#home-slider').lofJSidernews( {
-		interval 		: 1000,
+		interval 		: 3000,
 		direction		: 'opacitys',	
 		easing			: 'easeInOutExpo',
 		duration		: 1200,
-		auto		 	: false,
+		auto		 	: true,
 		maxItemDisplay  : 5,
 		navPosition     : 'horizontal', // horizontal
 		navigatorHeight : 0,
@@ -59,6 +59,8 @@ $(document).ready(function($){
 	},function(){
 		$(this).removeClass("hover");
 	});
+	
+	
 
 });
 </script>
