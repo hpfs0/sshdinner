@@ -32,10 +32,10 @@ public class FoodDetailDaoImpl implements FoodDetailDao {
     public List<FoodDetail> getAllFoodDetails(FoodDetail foodDetailForSelectQuery) {
         Criteria criteria = detachedCrit.getExecutableCriteria(session);
         if (null != foodDetailForSelectQuery.getFoodName()
-                && foodDetailForSelectQuery.getFoodName().trim().length() > 0) {
-            detachedCrit.add(Restrictions.like("foodName", "'"
-                    + foodDetailForSelectQuery.getFoodName()
-                            .trim() + "'", MatchMode.ANYWHERE));
+                && foodDetailForSelectQuery.getFoodName().trim().length() > 0 &&
+                !foodDetailForSelectQuery.getFoodName().trim().equals("关键词")) {
+            detachedCrit.add(Restrictions.like("foodName", foodDetailForSelectQuery.getFoodName()
+                    .trim(), MatchMode.ANYWHERE));
         }
         if (foodDetailForSelectQuery.getFoodMemberPriceFrom() > 0.0) {
             detachedCrit.add(Restrictions.ge("foodMemberPrice",

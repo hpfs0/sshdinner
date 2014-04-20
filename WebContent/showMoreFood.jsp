@@ -202,19 +202,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								</select>
 							</td>									
 						</tr>
+					</table>
+					<table border="0">
 						<s:iterator value="showMoreFoodlist">
 						  <tr>
-						  	<td rowspan="3"><a href="Show.action?Id=<s:property value="foodId"/>" target=3><img src="<%=request.getContextPath()%>/images/<s:property value="foodPhoteUrlpath"/>" width="150" height="150"></a></td>
-						  	<td><s:property value="foodName" /></td>
+						  	<td rowspan="4"><a href="Show.action?Id=<s:property value="foodId"/>" target=3><img src="<%=request.getContextPath()%>/images/<s:property value="foodPhotoUrlpath"/>" width="150" height="150"></a></td>
+						  	<td colspan="2"><s:property value="foodName" /></td>
 						  </tr>
 						  <tr>
-						  	<td>本站会员价：￥</td><td><s:property value="foodMemberPrice" /></td>
+						  	<td><font color="red">本站会员价: </td><td>￥<s:property value="foodMemberPrice"/></font></td>
 						  </tr>
 						  <tr>
-						  	<td><s>店面价格: ￥</s></td><td><s><s:property value="foodUnitPrice" /></td></s>
+						  	<td><s>店面价格: </s></td><td><s>￥<s:property value="foodUnitPrice" /></td></s>
 						  </tr>
 						  <tr>
-						  	<td><s>菜品人气: ￥</s></td><td><s><s:property value="foodSalesCopies" /></td></s>
+						  	<td>菜品人气: </td><td><s:property value="foodSalesCopies" /></td>
 						  </tr>
 						</s:iterator>
 					</table>
