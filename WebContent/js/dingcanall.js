@@ -270,10 +270,19 @@ function checkSelNumsAll(dg){
 $(document).ready(function(){
 	var $clickedImg = $(".clickimg");
 	$clickedImg.click(function(){
+		// 获取菜品名称
+		var dinnerName = "";
+		var $tag1 = $("#mm_01");
+		if($tag1.css("display") == "block" ){
+			dinnerName = $(this).parent().prev().children().html();
+		}else{
+			dinnerName = $(this).parent().parent().prev().prev().prev().prev().prev().children().next().next().children().children().html();
+		}
+		
 		var b = $(this).offset();
         g = $("#pdv_3614").offset();
         g.top += $("#pdv_3614").height() / 2;
-        var flyEffectTxt = $('<div class="flyEffect" style="z-index:99">' + "1234" + "</div>");
+        var flyEffectTxt = $('<div class="flyEffect" style="z-index:99">' + dinnerName + "</div>");
         flyEffectTxt.offset(b);
         flyEffectTxt.appendTo("body").animate({
             left: g.left + 20 + "px",

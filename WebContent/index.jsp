@@ -41,7 +41,7 @@ $(document).ready(function($){
 	};	
 
 	$('#home-slider').lofJSidernews( {
-		interval 		: 3000,
+		interval 		: 2000,
 		direction		: 'opacitys',	
 		easing			: 'easeInOutExpo',
 		duration		: 1200,
@@ -431,36 +431,57 @@ $(document).ready(function($){
 															alt="alt" />
 															<div class="slider-description">
 																<h2><font color="#000079">œ„«€≥¥¿∞»‚</font></h2>
+																<div align="right" style="display:inline">
+																	<img class="clickimg" src="images/cart.png" />
+																</div>
 															</div></li>
 														<li><img src="images/food2.jpg" width="100%" height="350px"
 															alt="alt" />
 															<div class="slider-description">
 																<h2><font color="#000079">∏…π¯≈£Õ‹</font></h2>
+																<div align="right" style="display:inline">
+																	<img class="clickimg" src="images/cart.png" />
+																</div>
 															</div></li>
 														<li><img src="images/food3.jpg" width="100%" height="350px"
 															alt="alt" />
 															<div class="slider-description">
 																<h2><font color="#000079">Ω∑—Œ¥Ûœ∫</font></h2>
+																<div align="right" style="display:inline">
+																	<img class="clickimg" src="images/cart.png" />
+																</div>
 															</div></li>
 														<li><img src="images/food4.jpg" width="100%" height="350px"
 															alt="alt" />
 															<div class="slider-description">
 																<h2><font color="#000079">∫£∞ˆÏ¿µ∞</font></h2>
+																<div align="right" style="display:inline">
+																	<img class="clickimg" src="images/cart.png" />
+																</div>
 															</div></li>
 														<li><img src="images/food5.jpg" width="100%" height="350px"
 															alt="alt" />
 															<div class="slider-description">
 																<h2><font color="#000079">«‡Ω∑∂«∆¨</font></h2>
+																<div align="right" style="display:inline">
+																	<img class="clickimg" src="images/cart.png" />
+																</div>
 															</div></li>
 														<li><img src="images/food6.jpg" width="100%" height="350px"
 															alt="alt" />
 															<div class="slider-description">
 																<h2><font color="#000079">”Õƒ§≈≈π«</font></h2>
+																<div align="right" style="display:inline">
+																	<img class="clickimg" src="images/cart.png" />
+																</div>
 															</div></li>
 														<li><img src="images/food7.jpg" width="100%" height="350px"
 															alt="alt" />
 															<div class="slider-description">
 																<h2><font color="blue">ÀÆ÷Û”„</font></h2>
+																<div align="right" style="display:inline">
+																	<img class="clickimg" src="images/cart.png" />
+																</div>
 															</div></li>
 													</ul>
 
