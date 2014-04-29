@@ -272,11 +272,15 @@ $(document).ready(function(){
 	$clickedImg.click(function(){
 		// 获取菜品名称
 		var dinnerName = "";
+		// 获取菜品单价
+		var dinnerPrice = 0;
 		var $tag1 = $("#mm_01");
 		if($tag1.css("display") == "block" ){
-			dinnerName = $(this).parent().prev().children().html();
+			dinnerName = $(this).parent().prev().prev().children().html();
+			dinnerPrice = $(this).parent().prev().val();
 		}else{
 			dinnerName = $(this).parent().parent().prev().prev().prev().prev().prev().children().next().next().children().children().html();
+			dinnerPrice = $(this).parent().parent().prev().prev().prev().prev().next().children().children().html();
 		}
 		
 		var b = $(this).offset();
@@ -295,8 +299,44 @@ $(document).ready(function(){
                 $(this).remove();
             });
         });
+        
+        // 向餐车中加入订购的菜品
+        var $dcinfo = $("#dcinfo");
 	});
 });
+
+// “+”和"-"和"×"功能实现
+function changeCount(id){
+	if(id){
+		var info = id.split('_');
+		var selectedGood = "#"+info[0];
+		var selectedGoodCountString = selectedGood+"_COUNT";
+		var $selectedGoodCount = $(selectedGoodCountString);
+		if(info[1] == "ADD"){
+			if(parseInt($selectedGoodCount.val())<99){
+			    $selectedGoodCount.val((parseInt($selectedGoodCount.val()) + 1));
+			}else{
+				$selectedGoodCount.val(99);
+			}
+		}else if(info[1] == "SUBTRACT"){
+			if(parseInt($selectedGoodCount.val())>1){
+			    $selectedGoodCount.val((parseInt($selectedGoodCount.val()) - 1));
+			}else{
+				$selectedGoodCount.val(1);
+			}
+		}else if(info[1] == "DEL"){
+			$(selectedGood).fadeOut("slow", function (){
+			    $(this).remove()();
+			});
+		}
+	}
+}
+
+// 判断此菜品是否已经在购物车中
+function isInGoodsBox(dinnerName){
+//	var dinnerNames = $("#dcinfo>#dinnerName");
+}
+
 function addCart(dg){
 //	var imgid=dg.id;
 //	var imgid_arr=imgid.split("_");

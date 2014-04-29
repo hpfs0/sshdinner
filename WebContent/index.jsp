@@ -176,13 +176,31 @@ $(document).ready(function($){
 
 											<div
 												style="height: 13px; background: #f6f6f6; margin: 0px 3px 1px 3px;">
-												<div style="float: left; padding-left: 60px;">名称</div>
+												<div style="float: left; padding-left: 40px;">名称</div>
 												<div style="float: right; padding-right: 3px;">取消</div>
-												<div style="float: right; padding-right: 10px;">份数</div>
-												<div style="float: right; padding-right: 10px;">单价</div>
+												<div style="float: right; padding-right: 38px;">份数</div>
+												<div style="float: right; padding-right: 28px;">单价</div>
 											</div>
 
-											<div id="dcinfo" style="margin: 0px 3px 1px 3px;"></div>
+											<div id="dcinfo" style="margin: 0px 3px 1px 3px;">
+												<div id="F000000002">
+													<div style="float: left; padding-left: 40px;">干锅牛蛙</div>
+													<div style="float: right; padding-right: 10px;">
+														<a id="F000000002_DEL" onclick="changeCount(this.id)" style="text-decoration: none; cursor:pointer; ">×</a>
+													</div>
+													<div style="float: right; margin-right: 30px;">
+														<input type="button" id="F000000002_ADD"
+															onclick="changeCount(this.id)" value="+"
+															style="text-align: center; float: right; width: 14px" />
+														<input type="text" id="F000000002_COUNT"
+															style="float: right; width: 16px" value="1" maxlength="2" />
+														<input type="button" id="F000000002_SUBTRACT"
+															onclick="changeCount(this.id)" value="-"
+															style="text-align: center; float: right; width: 14px" />
+													</div>
+													<div style="float: right; padding-right: 23px;">88</div>
+												</div>
+											</div>
 
 											<div style="height: 24px; margin: 5px 3px 1px 3px;">
 												<div
@@ -430,7 +448,10 @@ $(document).ready(function($){
 														<li><img src="images/food1.jpg" width="100%" height="350px"
 															alt="alt" />
 															<div class="slider-description">
+															    <input type="hidden" value="F000000001" />
 																<h2><font color="#000079">香芹炒腊肉</font></h2>
+																<!-- 单价 -->
+																<input type="hidden" value="38" />
 																<div align="right" style="display:inline">
 																	<img class="clickimg" src="images/cart.png" />
 																</div>
@@ -438,7 +459,10 @@ $(document).ready(function($){
 														<li><img src="images/food2.jpg" width="100%" height="350px"
 															alt="alt" />
 															<div class="slider-description">
+															    <input type="hidden" value="F000000002" />
 																<h2><font color="#000079">干锅牛蛙</font></h2>
+																<!-- 单价 -->
+																<input type="hidden" value="88" />
 																<div align="right" style="display:inline">
 																	<img class="clickimg" src="images/cart.png" />
 																</div>
@@ -446,7 +470,10 @@ $(document).ready(function($){
 														<li><img src="images/food3.jpg" width="100%" height="350px"
 															alt="alt" />
 															<div class="slider-description">
+															    <input type="hidden" value="F000000003" />
 																<h2><font color="#000079">椒盐大虾</font></h2>
+																<!-- 单价 -->
+																<input type="hidden" value="32" />
 																<div align="right" style="display:inline">
 																	<img class="clickimg" src="images/cart.png" />
 																</div>
@@ -454,7 +481,10 @@ $(document).ready(function($){
 														<li><img src="images/food4.jpg" width="100%" height="350px"
 															alt="alt" />
 															<div class="slider-description">
+															    <input type="hidden" value="F000000004" />
 																<h2><font color="#000079">海蚌炖蛋</font></h2>
+																<!-- 单价 -->
+																<input type="hidden" value="45" />
 																<div align="right" style="display:inline">
 																	<img class="clickimg" src="images/cart.png" />
 																</div>
@@ -462,7 +492,10 @@ $(document).ready(function($){
 														<li><img src="images/food5.jpg" width="100%" height="350px"
 															alt="alt" />
 															<div class="slider-description">
+															    <input type="hidden" value="F000000005" />
 																<h2><font color="#000079">青椒肚片</font></h2>
+																<!-- 单价 -->
+																<input type="hidden" value="20" />
 																<div align="right" style="display:inline">
 																	<img class="clickimg" src="images/cart.png" />
 																</div>
@@ -470,7 +503,10 @@ $(document).ready(function($){
 														<li><img src="images/food6.jpg" width="100%" height="350px"
 															alt="alt" />
 															<div class="slider-description">
+															    <input type="hidden" value="F000000006" />
 																<h2><font color="#000079">油膜排骨</font></h2>
+																<!-- 单价 -->
+																<input type="hidden" value="35" />
 																<div align="right" style="display:inline">
 																	<img class="clickimg" src="images/cart.png" />
 																</div>
@@ -478,7 +514,10 @@ $(document).ready(function($){
 														<li><img src="images/food7.jpg" width="100%" height="350px"
 															alt="alt" />
 															<div class="slider-description">
+															    <input type="hidden" value="F000000007" />
 																<h2><font color="blue">水煮鱼</font></h2>
+																<!-- 单价 -->
+																<input type="hidden" value="29" />
 																<div align="right" style="display:inline">
 																	<img class="clickimg" src="images/cart.png" />
 																</div>
