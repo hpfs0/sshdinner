@@ -269,18 +269,22 @@ function checkSelNumsAll(dg){
 //首页的餐品展示与订购--加入购物车
 $(document).ready(function(){
 	var $clickedImg = $(".clickimg");
-	$clickedImg.click(function(){
+	$clickedImg.unbind("click").click(function(){
 		// 获取菜品名称
 		var dinnerName = "";
 		// 获取菜品单价
 		var dinnerPrice = 0;
+		// 获取菜品ID
+		var dinnerId = "";
 		var $tag1 = $("#mm_01");
 		if($tag1.css("display") == "block" ){
 			dinnerName = $(this).parent().prev().prev().children().html();
 			dinnerPrice = $(this).parent().prev().val();
+			dinnerId = $(this).parent().prev().prev().prev().val();
 		}else{
 			dinnerName = $(this).parent().parent().prev().prev().prev().prev().prev().children().next().next().children().children().html();
 			dinnerPrice = $(this).parent().parent().prev().prev().prev().prev().next().children().children().html();
+			dinnerId = $(this).next().val();
 		}
 		
 		var b = $(this).offset();
@@ -297,11 +301,37 @@ $(document).ready(function(){
                 opacity: 0
             }, function () {
                 $(this).remove();
+                // 向餐车中加入订购的菜品
+                var $dcinfo = $("#dcinfo");
+				// 构建加入元素的html字符串
+				var appendHtml = "<tr id='"
+					+ dinnerId
+					+ "'><td><div style='float: left; padding-left: 20px;'>"
+					+ dinnerName
+					+ "</div></td>"
+					+ "<td><div style='float: right; padding-right: 23px;'>"
+					+ dinnerPrice
+					+ "</div></td>"
+					+ "<td><div style='float: right; margin-right: 30px;'><input type='button' id='"
+					+ dinnerId
+					+ "_ADD' onclick='changeCount(this.id)' value='+' style='text-align: center; float: right; width: 14px' />"
+					+ "<input type='text' id='"
+					+ dinnerId
+					+ "_COUNT' style='float: right; width: 16px' value='1' maxlength='2' /><input type='button' id='"
+					+ dinnerId
+					+ "_SUBTRACT' onclick='changeCount(this.id)' value='-' style='text-align: center; float: right; width: 14px' /></div></td>"
+					+ "<td><div style='float: right; padding-right: 10px;'><a id='"
+					+ dinnerId
+					+ "_DEL' onclick='changeCount(this.id)' style='text-decoration: none; cursor:pointer; '>×</a></div></td>";
+				var hasDinnerId = "#"+dinnerId;
+                if($(hasDinnerId).length == 0){
+                    $dcinfo.append(appendHtml);
+                }else{
+                    changeCount(dinnerId+"_ADD");
+                }
             });
         });
         
-        // 向餐车中加入订购的菜品
-        var $dcinfo = $("#dcinfo");
 	});
 });
 
@@ -326,15 +356,10 @@ function changeCount(id){
 			}
 		}else if(info[1] == "DEL"){
 			$(selectedGood).fadeOut("slow", function (){
-			    $(this).remove()();
+			    $(this).remove();
 			});
 		}
 	}
-}
-
-// 判断此菜品是否已经在购物车中
-function isInGoodsBox(dinnerName){
-//	var dinnerNames = $("#dcinfo>#dinnerName");
 }
 
 function addCart(dg){

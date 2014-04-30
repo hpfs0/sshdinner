@@ -174,7 +174,54 @@ $(document).ready(function($){
 
 										<div style="padding: px; margin-bottom: 10px;">
 
-											<div
+											<table style="width:100%;" cellspacing="0" >
+												<thead style="height: 13px; background: #f6f6f6; margin: 0px 3px 1px 3px;">
+													<tr>
+														<th>
+															<div style="float: left; padding-left: 20px;">名称</div>
+														</th>
+														<th>
+															<div style="float: right; padding-right: 20px;">单价</div>
+														</th>
+														<th>
+															<div style="float: right; padding-right: 42px;">份数</div>
+														</th>
+														<th>
+															<div style="float: right; padding-right: 3px;">取消</div>
+														</th>
+													</tr>
+												</thead>
+												<tbody id="dcinfo" style="margin: 0px 3px 1px 3px;">
+													<tr id="F000000002">
+														<td>
+															<div style="float: left; padding-left: 20px;">干锅牛蛙</div>
+														</td>
+														<td>
+															<div style="float: right; padding-right: 23px;">88</div>
+														</td>
+														<td>
+															<div style="float: right; margin-right: 30px;">
+																<input type="button" id="F000000002_ADD"
+																	onclick="changeCount(this.id)" value="+"
+																	style="text-align: center; float: right; width: 14px" />
+																<input type="text" id="F000000002_COUNT"
+																	style="float: right; width: 16px" value="1"
+																	maxlength="2" />
+																<input type="button"
+																	id="F000000002_SUBTRACT" onclick="changeCount(this.id)"
+																	value="-"
+																	style="text-align: center; float: right; width: 14px" />
+															</div>
+														</td>
+														<td>
+															<div style="float: right; padding-right: 10px;">
+																<a id="F000000002_DEL" onclick="changeCount(this.id)" style="text-decoration: none; cursor:pointer; ">×</a>
+															</div>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+											<!--  <div
 												style="height: 13px; background: #f6f6f6; margin: 0px 3px 1px 3px;">
 												<div style="float: left; padding-left: 40px;">名称</div>
 												<div style="float: right; padding-right: 3px;">取消</div>
@@ -201,6 +248,7 @@ $(document).ready(function($){
 													<div style="float: right; padding-right: 23px;">88</div>
 												</div>
 											</div>
+											-->
 
 											<div style="height: 24px; margin: 5px 3px 1px 3px;">
 												<div
@@ -581,8 +629,10 @@ $(document).ready(function($){
 																		<td><span>测试文字</span></td>
 																	</tr>
 																	<tr>
-																		<td colspan="2" style="height: 40px;"><img
-																			class="clickimg" src="images/cart.png" /></td>
+																		<td colspan="2" style="height: 40px;">
+																			<img class="clickimg" src="images/cart.png" />
+																			<input type="hidden" value="F000000021" />
+																		</td>
 																	</tr>
 																</table>
 															</div>
@@ -615,8 +665,10 @@ $(document).ready(function($){
 																		<td><span>测试文字</span></td>
 																	</tr>
 																	<tr>
-																		<td colspan="2" style="height: 40px;"><img
-																			class="clickimg" src="images/cart.png" /></td>
+																		<td colspan="2" style="height: 40px;">
+																			<img class="clickimg" src="images/cart.png" />
+																			<input type="hidden" value="F000000022" />
+																		</td>
 																	</tr>
 																</table>
 															</div>
@@ -651,8 +703,10 @@ $(document).ready(function($){
 																		<td><span>测试文字</span></td>
 																	</tr>
 																	<tr>
-																		<td colspan="2" style="height: 40px;"><img
-																			class="clickimg" src="images/cart.png" /></td>
+																		<td colspan="2" style="height: 40px;">
+																			<img class="clickimg" src="images/cart.png" />
+																			<input type="hidden" value="F000000023" />
+																		</td>
 																	</tr>
 																</table>
 															</div>
@@ -685,8 +739,10 @@ $(document).ready(function($){
 																		<td><span>测试文字</span></td>
 																	</tr>
 																	<tr>
-																		<td colspan="2" style="height: 40px;"><img
-																			class="clickimg" src="images/cart.png" /></td>
+																		<td colspan="2" style="height: 40px;">
+																			<img class="clickimg" src="images/cart.png" />
+																			<input type="hidden" value="F000000024" />
+																		</td>
 																	</tr>
 																</table>
 															</div>
@@ -727,8 +783,10 @@ $(document).ready(function($){
 																		<td><span>测试文字</span></td>
 																	</tr>
 																	<tr>
-																		<td colspan="2" style="height: 40px;"><img
-																			class="clickimg" src="images/cart.png" /></td>
+																		<td colspan="2" style="height: 40px;">
+																			<img class="clickimg" src="images/cart.png" />
+																			<input type="hidden" value="F000000025" />
+																		</td>
 																	</tr>
 																</table>
 															</div>
@@ -761,8 +819,10 @@ $(document).ready(function($){
 																		<td><span>测试文字</span></td>
 																	</tr>
 																	<tr>
-																		<td colspan="2" style="height: 40px;"><img
-																			class="clickimg" src="images/cart.png" /></td>
+																		<td colspan="2" style="height: 40px;">
+																			<img class="clickimg" src="images/cart.png" />
+																			<input type="hidden" value="F000000026" />
+																		</td>
 																	</tr>
 																</table>
 															</div>
@@ -797,8 +857,10 @@ $(document).ready(function($){
 																		<td><span>测试文字</span></td>
 																	</tr>
 																	<tr>
-																		<td colspan="2" style="height: 40px;"><img
-																			class="clickimg" src="images/cart.png" /></td>
+																		<td colspan="2" style="height: 40px;">
+																			<img class="clickimg" src="images/cart.png" />
+																			<input type="hidden" value="F000000027" />
+																		</td>
 																	</tr>
 																</table>
 															</div>
@@ -831,8 +893,10 @@ $(document).ready(function($){
 																		<td><span>测试文字</span></td>
 																	</tr>
 																	<tr>
-																		<td colspan="2" style="height: 40px;"><img
-																			class="clickimg" src="images/cart.png" /></td>
+																		<td colspan="2" style="height: 40px;">
+																			<img class="clickimg" src="images/cart.png" />
+																			<input type="hidden" value="F000000028" />
+																		</td>
 																	</tr>
 																</table>
 															</div>
