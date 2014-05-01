@@ -283,7 +283,7 @@ $(document).ready(function(){
 			dinnerId = $(this).parent().prev().prev().prev().val();
 		}else{
 			dinnerName = $(this).parent().parent().prev().prev().prev().prev().prev().children().next().next().children().children().html();
-			dinnerPrice = $(this).parent().parent().prev().prev().prev().prev().next().children().children().html();
+			dinnerPrice = $(this).parent().parent().prev().prev().prev().children().next().children().children().html();
 			dinnerId = $(this).next().val();
 		}
 		

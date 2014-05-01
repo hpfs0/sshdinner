@@ -304,7 +304,7 @@ $(document).ready(function($){
 					<div id='spdv_3603' class='pdv_content'
 						style='overflow: hidden; width: 100%; height: 100%'>
 						<div class="pdv_border"
-							style="border: 0px; height: 100%; padding: 0; margin: 0; background: url(base/border/640/images/left.jpg) repeat-y">
+							style="border: 0px; height: 100%; padding: 0; margin: 0; background: url(images/left.jpg) repeat-y">
 							<div
 								style="height: 100%; background: url(images/right.jpg) right repeat-y">
 								<div
