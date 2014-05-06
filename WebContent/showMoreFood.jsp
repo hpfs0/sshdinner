@@ -203,22 +203,46 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</td>									
 						</tr>
 					</table>
-					<table border="0">
-						<s:iterator value="showMoreFoodlist">
-						  <tr>
-						  	<td rowspan="4"><a href="Show.action?Id=<s:property value="foodId"/>" target=3><img src="<%=request.getContextPath()%>/images/<s:property value="foodPhotoUrlpath"/>" width="150" height="150"></a></td>
-						  	<td colspan="2"><s:property value="foodName" /></td>
-						  </tr>
-						  <tr>
-						  	<td><font color="red">本站会员价: </td><td>￥<s:property value="foodMemberPrice"/></font></td>
-						  </tr>
-						  <tr>
-						  	<td><s>店面价格: </s></td><td><s>￥<s:property value="foodUnitPrice" /></td></s>
-						  </tr>
-						  <tr>
-						  	<td>菜品人气: </td><td><s:property value="foodSalesCopies" /></td>
-						  </tr>
+					<table>
+						<tr>
+							<s:iterator value="showMoreFoodlist" id="showMorefoodDetail" status="L">
+								<td>
+									<table border="0">
+										<tr>
+											<td colspan="2"><a
+												href="Show.action?Id=<s:property value="foodId"/>" target=3>
+													<img
+													src="<%=request.getContextPath()%>/images/<s:property value="foodPhotoUrlpath"/>"
+													width="200" height="180">
+											</a></td>
+										</tr>
+										<tr>
+											<td><b><s:property value="foodName" /></b></td>
+										</tr>
+										<tr>
+											<td><b><font color="red" style="font-size: 12px">本站会员价:
+												</font></b></td>
+											<td><b><font color="red" style="font-size: 16px">￥<s:property
+															value="foodMemberPrice" /></b></font></td>
+										</tr>
+										<tr>
+											<td><s>店面价格: </s></td>
+											<td><s>￥<s:property value="foodUnitPrice" /></td>
+											</s>
+										</tr>
+										<tr>
+											<td>菜品人气:</td>
+											<td><s:property value="foodSalesCopies" /></td>
+
+										</tr>
+									</table>
+								</td>
+							<s:if test="%{(#L.index+1)%4 == 0}">
+								</tr>
+								<tr>
+							</s:if>
 						</s:iterator>
+						</tr>
 					</table>
 				</form>
             </div>
