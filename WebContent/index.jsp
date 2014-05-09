@@ -350,7 +350,7 @@ $(document).ready(function($){
 										<li class="newslist_time2">
 											<div class="time">09/27</div>
 											<a href="news/html/?293.jsp" target="_self"
-											class="newslist_time2">节日放假通知</a>
+											class="newslist_time2">大鹏加入test</a>
 										</li>
 
 									</ul>
