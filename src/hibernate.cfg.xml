@@ -26,5 +26,6 @@
         <mapping resource="com/dinner/gts/model/Message.hbm.xml" />
         <mapping resource="com/dinner/gts/model/Note.hbm.xml" />
         <mapping resource="com/dinner/gts/model/FoodDetail.hbm.xml" />
+        <mapping resource="com/dinner/gts/model/Order.hbm.xml" />
     </session-factory>
 </hibernate-configuration>

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.dinner.gts.model">
+
+	<class name="Order" table="MT_ORDER">
+		<id name="orderId" column="ORDER_ID">
+			<generator class="assigned" />
+		</id>
+		<property name="orderType" column="ORDER_TYPE" />
+		<property name="orderMemberId" column="ORDER_MEMBER_ID" />
+		<property name="orderPrice" column="ORDER_PRICE" />
+		<property name="registTime" column="REGIST_TIME" />
+		<property name="updateTime" column="UPDATE_TIME" />
+		<property name="deleteFlg" column="DELETE_FLG" />
+	</class>
+
+</hibernate-mapping>
