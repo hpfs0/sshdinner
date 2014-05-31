@@ -148,7 +148,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<tr>
 							<td><b>≤À∆∑√˚≥∆£∫</b></td>
 							<td>
-							    <input name="foodName" type="text" id="foodName" value="πÿº¸¥ " style = "width:150px"  
+							    <input name="foodName" type="text" id="foodName" value="${sessionScope.foodName}" style = "width:150px"  
 		
 								      onmouseover=this.focus();this.select();  
 								
@@ -160,11 +160,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<td><b>≤À∆∑º€∏Ò£∫</b></td>
 							<td> 
 								<input name="foodPrizeFrom" type="text" id="foodPrizeFrom" style="ime-mode:disabled;width:60px" onkeydown="return check(event)" onkeyup="if(isNaN(this.value)||this.value<0||this.value>999999) this.value='0'"
-								/> 
+									value="${sessionScope.foodPrizeFrom}"/> 
 							</td>
 							<td><b> &nbsp;~ &nbsp;</b></td>
 							<td><input name="foodPrizeTo" type="text" id="foodPrizeTo" style="ime-mode:disabled;width:60px" onkeydown="return check(event)" onkeyup="if(isNaN(this.value)||this.value<0||this.value>999999) this.value='0'"
-							/></td>
+								value="${sessionScope.foodPrizeTo}"/></td>
 							<td>&nbsp;</td>
 							<td><input type="checkbox" id="preferential" value="1" style=" vertical-align:middle" >
 							<b>ΩÒ»’”≈ª›</b></td> 
@@ -177,28 +177,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<tr id="foodSearchDetail" style="display: none">
 							<td><b>≤À∆∑≤Àœµ£∫</b></td>
 							<td>
-								<select name="foodKind" id="foodKind">
-									<option value="1">¬≥≤À</option>
-									<option value="2">¥®≤À</option>
-									<option value="3">‘¡≤À</option>
-									<option value="4">À’≤À</option>
-									<option value="5">√ˆ≤À</option>
-									<option value="6">’„≤À</option>
-									<option value="7">œÊ≤À</option>
-									<option value="8">ª’≤À</option>
-									<option value="9">∆‰À˚</option>
-									<option value="0">Œ˜—Û≤À</option>
+								<select style="width: 100px;" id="foodKind" name="foodKind">
+									<option value="1" <s:if test="foodKind==1">selected="selected"</s:if>>¬≥≤À</option>
+									<option value="2" <s:if test="foodKind==2">selected="selected"</s:if>>¥®≤À</option>
+									<option value="3" <s:if test="foodKind==3">selected="selected"</s:if>>‘¡≤À</option>
+									<option value="4" <s:if test="foodKind==4">selected="selected"</s:if>>À’≤À</option>
+									<option value="5" <s:if test="foodKind==5">selected="selected"</s:if>>√ˆ≤À</option>
+									<option value="6" <s:if test="foodKind==6">selected="selected"</s:if>>’„≤À</option>
+									<option value="7" <s:if test="foodKind==7">selected="selected"</s:if>>œÊ≤À</option>
+									<option value="8" <s:if test="foodKind==8">selected="selected"</s:if>>ª’≤À</option>
+									<option value="9" <s:if test="foodKind==9">selected="selected"</s:if>>∆‰À˚</option>
+									<option value="0" <s:if test="foodKind==0">selected="selected"</s:if>>Œ˜—Û≤À</option>
 								</select>
 							</td>
 							<td>&nbsp;</td>
 							<td><b>≤À∆∑¿±∂»£∫</b></td>
 							<td colspan="2">
-								<select name="foodPungencyDegree" id="foodPungencyDegree">
-									<option value="0">≤ª¿±</option>
-									<option value="1">Œ¢¿±</option>
-									<option value="2">¿±</option>
-									<option value="3">∫‹¿±</option>
-									<option value="4">±‰Ã¨¿±</option>				
+								<select style="width: 100px;" id="foodPungencyDegree" name="foodPungencyDegree">
+									<option value="0" <s:if test="foodPungencyDegree==0">selected="selected"</s:if>>≤ª¿±</option>
+									<option value="1" <s:if test="foodPungencyDegree==1">selected="selected"</s:if>>Œ¢¿±</option>
+									<option value="2" <s:if test="foodPungencyDegree==2">selected="selected"</s:if>>¿±</option>
+									<option value="3" <s:if test="foodPungencyDegree==3">selected="selected"</s:if>>∫‹¿±</option>
+									<option value="4" <s:if test="foodPungencyDegree==4">selected="selected"</s:if>>±‰Ã¨¿±</option>
 								</select>
 							</td>									
 						</tr>
