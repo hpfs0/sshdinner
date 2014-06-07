@@ -15,7 +15,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <link href="css/navpath.css" rel="stylesheet" type="text/css" />
     <link href="css/startorder.css" rel="stylesheet" type="text/css" />
     <link href="css/dingcanweekmenu28.css" rel="stylesheet" type="text/css">
-    <link href="css/newslist.css" rel="stylesheet" type="text/css" />
+    <link href="css/newslist.css" rel="stylesheet" type="text/css" /> 	
+    <link href="css/navigationBar.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript"> 
 		function check(event) { 
 		var e = window.event || event; 
@@ -118,135 +119,457 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         var PDV_PAGENAME = 'startorder';
     </script>
 
-    <div id='contain' style='width:900px;background:rgb(255,255,255);margin:0px auto;padding:0px'>
-        <div id='content' style='width:900px;height:1117px;background:none transparent scroll repeat 0% 0%;margin:10px auto'>
-            <!-- 当前位置提示条 -->
-            <div id='pdv_3534' class='pdv_class' title='当前位置' style='width:650px;height:30px;top:0px;left:0px; z-index:8'>
-                <div id='spdv_3534' class='pdv_content' style='overflow:hidden;width:100%;height:100%'>
-                    <div class="pdv_border" style="margin:0;padding:0;height:100%;border:0px #dddddd solid;background:#fff;">
-                        <div style="height:25px;margin:1px;display:none;background:#cccccc;">
-                            <div style="float:left;margin-left:12px;line-height:25px;font-weight:bold;color:#fff">
-                                当前位置
-                            </div>
-                            <div style="float:right;margin-right:10px;display:none">
-                                <a href="-1" style="line-height:25px;color:#fff">更多</a>
-                            </div>
-                        </div>
-                        <div style="padding:5px">
-                            <div id="nav">
-                                您现在的位置：<a href="../">网上快餐店</a> &gt; <a href="../dingcan/">网上订餐</a> &gt; 菜品详细
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- 订单处理 -->
+	<div class="sidebar">
+		<h2>商品目录</h2>
+		<ul id="foodmenu">
 
-            <div id='pdv_3535' class='pdv_class' title='订单处理' style='width:700px;height:1079px;top:36px;left:0px; z-index:9' >
-            	<form name="myForm" action="More.action" method="post">
-					<table border="0">
-						<tr>
-							<td><b>菜品名称：</b></td>
-							<td>
-							    <input name="foodName" type="text" id="foodName" value="${sessionScope.foodName}" style = "width:150px"  
-		
-								      onmouseover=this.focus();this.select();  
-								
-								      onclick="if(value==defaultValue){value='';this.style.color='#000'}"   
-								
-								      onBlur="if(!value){value=defaultValue;this.style.color='#999'}" style="color:#999" />
-							</td>
-							<td>&nbsp;</td>
-							<td><b>菜品价格：</b></td>
-							<td> 
-								<input name="foodPrizeFrom" type="text" id="foodPrizeFrom" style="ime-mode:disabled;width:60px" onkeydown="return check(event)" onkeyup="if(isNaN(this.value)||this.value<0||this.value>999999) this.value='0'"
-									value="${sessionScope.foodPrizeFrom}"/> 
-							</td>
-							<td><b> &nbsp;~ &nbsp;</b></td>
-							<td><input name="foodPrizeTo" type="text" id="foodPrizeTo" style="ime-mode:disabled;width:60px" onkeydown="return check(event)" onkeyup="if(isNaN(this.value)||this.value<0||this.value>999999) this.value='0'"
-								value="${sessionScope.foodPrizeTo}"/></td>
-							<td>&nbsp;</td>
-							<td><input type="checkbox" id="preferential" value="1" style=" vertical-align:middle" >
-							<b>今日优惠</b></td> 
-							<td><input id="choose" type="button" onclick="openDetail();" style="width:60px;border:0;background-image:url(images/more_1.jpg)" onMouseOver="changePictureMouseOver();" onMouseOut="changePictureMouseOut();"></td>
-							<td>
-								<input type="button" value="查询"onclick="crud('select')"/>
-								<s:hidden name="actionType" ></s:hidden>
-							</td>	
-						</tr>
-						<tr id="foodSearchDetail" style="display: none">
-							<td><b>菜品菜系：</b></td>
-							<td>
-								<select style="width: 100px;" id="foodKind" name="foodKind">
-									<option value="1" <s:if test="foodKind==1">selected="selected"</s:if>>鲁菜</option>
-									<option value="2" <s:if test="foodKind==2">selected="selected"</s:if>>川菜</option>
-									<option value="3" <s:if test="foodKind==3">selected="selected"</s:if>>粤菜</option>
-									<option value="4" <s:if test="foodKind==4">selected="selected"</s:if>>苏菜</option>
-									<option value="5" <s:if test="foodKind==5">selected="selected"</s:if>>闽菜</option>
-									<option value="6" <s:if test="foodKind==6">selected="selected"</s:if>>浙菜</option>
-									<option value="7" <s:if test="foodKind==7">selected="selected"</s:if>>湘菜</option>
-									<option value="8" <s:if test="foodKind==8">selected="selected"</s:if>>徽菜</option>
-									<option value="9" <s:if test="foodKind==9">selected="selected"</s:if>>其他</option>
-									<option value="0" <s:if test="foodKind==0">selected="selected"</s:if>>西洋菜</option>
-								</select>
-							</td>
-							<td>&nbsp;</td>
-							<td><b>菜品辣度：</b></td>
-							<td colspan="2">
-								<select style="width: 100px;" id="foodPungencyDegree" name="foodPungencyDegree">
-									<option value="0" <s:if test="foodPungencyDegree==0">selected="selected"</s:if>>不辣</option>
-									<option value="1" <s:if test="foodPungencyDegree==1">selected="selected"</s:if>>微辣</option>
-									<option value="2" <s:if test="foodPungencyDegree==2">selected="selected"</s:if>>辣</option>
-									<option value="3" <s:if test="foodPungencyDegree==3">selected="selected"</s:if>>很辣</option>
-									<option value="4" <s:if test="foodPungencyDegree==4">selected="selected"</s:if>>变态辣</option>
-								</select>
-							</td>									
-						</tr>
-					</table>
-					<table>
-						<tr>
-							<s:iterator value="showMoreFoodlist" id="showMorefoodDetail" status="L">
+			<li><a href="#">炒菜</a>
+				<div class="dropdown_4columns">
+					<div class="col_1">
+						<h3>热门菜系</h3>
+						<ul>
+							<li><a href="#">川菜系列</a></li>
+							<li><a href="#">粤菜系列</a></li>
+							<li><a href="#">淮扬菜系列</a></li>
+							<li><a href="#">东北菜系列</a></li>
+							<li><a href="#">西餐系列</a></li>
+						</ul>
+					</div>
+					<div class="col_1">
+						<h3>价格区间</h3>
+						<ul>
+							<li><a href="#">100元以下</a></li>
+							<li><a href="#">100-300元</a></li>
+							<li><a href="#">300-500元</a></li>
+							<li><a href="#">500-1000元</a></li>
+							<li><a href="#">1000元以上</a></li>
+						</ul>
+					</div>
+					<div class="col_1">
+						<h3>促销活动</h3>
+						<ul>
+							<li><a href="#">川菜系列促销</a></li>
+							<li><a href="#">春节5折促销</a></li>
+							<li><a href="#">促销一折起</a></li>
+							<li><a href="#">优惠活动</a></li>
+							<li><a href="#">降价促销</a></li>
+						</ul>
+					</div>
+					<div class="col_1">
+						<h3>推荐菜品</h3>
+						<ul>
+							<li><a href="#">鱼香肉丝</a></li>
+							<li><a href="#">油焖茄子</a></li>
+							<li><a href="#">干煸四季豆</a></li>
+							<li><a href="#">阳澄湖大闸蟹</a></li>
+							<li><a href="#">北京烤鸭</a></li>
+						</ul>
+					</div>
+				</div></li>
+			<!-- End 4 columns Item -->
+
+			<li><a href="#">精品套餐</a>
+				<div class="dropdown_4columns">
+					<div class="col_1">
+						<h3>热门菜系</h3>
+						<ul>
+							<li><a href="#">川菜系列</a></li>
+							<li><a href="#">粤菜系列</a></li>
+							<li><a href="#">淮扬菜系列</a></li>
+							<li><a href="#">东北菜系列</a></li>
+							<li><a href="#">西餐系列</a></li>
+						</ul>
+					</div>
+					<div class="col_1">
+						<h3>价格区间</h3>
+						<ul>
+							<li><a href="#">100元以下</a></li>
+							<li><a href="#">100-300元</a></li>
+							<li><a href="#">300-500元</a></li>
+							<li><a href="#">500-1000元</a></li>
+							<li><a href="#">1000元以上</a></li>
+						</ul>
+					</div>
+					<div class="col_1">
+						<h3>促销活动</h3>
+						<ul>
+							<li><a href="#">川菜系列促销</a></li>
+							<li><a href="#">春节5折促销</a></li>
+							<li><a href="#">促销一折起</a></li>
+							<li><a href="#">优惠活动</a></li>
+							<li><a href="#">降价促销</a></li>
+						</ul>
+					</div>
+					<div class="col_1">
+						<h3>推荐菜品</h3>
+						<ul>
+							<li><a href="#">鱼香肉丝</a></li>
+							<li><a href="#">油焖茄子</a></li>
+							<li><a href="#">干煸四季豆</a></li>
+							<li><a href="#">阳澄湖大闸蟹</a></li>
+							<li><a href="#">北京烤鸭</a></li>
+						</ul>
+					</div>
+				</div></li>
+			<!-- End 4 columns Item -->
+
+			<li><a href="#">极品儿童餐</a>
+				<div class="dropdown_4columns">
+					<div class="col_1">
+						<h3>热门菜系</h3>
+						<ul>
+							<li><a href="#">川菜系列</a></li>
+							<li><a href="#">粤菜系列</a></li>
+							<li><a href="#">淮扬菜系列</a></li>
+							<li><a href="#">东北菜系列</a></li>
+							<li><a href="#">西餐系列</a></li>
+						</ul>
+					</div>
+					<div class="col_1">
+						<h3>价格区间</h3>
+						<ul>
+							<li><a href="#">100元以下</a></li>
+							<li><a href="#">100-300元</a></li>
+							<li><a href="#">300-500元</a></li>
+							<li><a href="#">500-1000元</a></li>
+							<li><a href="#">1000元以上</a></li>
+						</ul>
+					</div>
+					<div class="col_1">
+						<h3>促销活动</h3>
+						<ul>
+							<li><a href="#">川菜系列促销</a></li>
+							<li><a href="#">春节5折促销</a></li>
+							<li><a href="#">促销一折起</a></li>
+							<li><a href="#">优惠活动</a></li>
+							<li><a href="#">降价促销</a></li>
+						</ul>
+					</div>
+					<div class="col_1">
+						<h3>推荐菜品</h3>
+						<ul>
+							<li><a href="#">鱼香肉丝</a></li>
+							<li><a href="#">油焖茄子</a></li>
+							<li><a href="#">干煸四季豆</a></li>
+							<li><a href="#">阳澄湖大闸蟹</a></li>
+							<li><a href="#">北京烤鸭</a></li>
+						</ul>
+					</div>
+				</div></li>
+			<!-- End 4 columns Item -->
+
+			<li><a href="#">营养餐</a>
+				<div class="dropdown_4columns">
+					<div class="col_1">
+						<h3>热门菜系</h3>
+						<ul>
+							<li><a href="#">川菜系列</a></li>
+							<li><a href="#">粤菜系列</a></li>
+							<li><a href="#">淮扬菜系列</a></li>
+							<li><a href="#">东北菜系列</a></li>
+							<li><a href="#">西餐系列</a></li>
+						</ul>
+					</div>
+					<div class="col_1">
+						<h3>价格区间</h3>
+						<ul>
+							<li><a href="#">100元以下</a></li>
+							<li><a href="#">100-300元</a></li>
+							<li><a href="#">300-500元</a></li>
+							<li><a href="#">500-1000元</a></li>
+							<li><a href="#">1000元以上</a></li>
+						</ul>
+					</div>
+					<div class="col_1">
+						<h3>促销活动</h3>
+						<ul>
+							<li><a href="#">川菜系列促销</a></li>
+							<li><a href="#">春节5折促销</a></li>
+							<li><a href="#">促销一折起</a></li>
+							<li><a href="#">优惠活动</a></li>
+							<li><a href="#">降价促销</a></li>
+						</ul>
+					</div>
+					<div class="col_1">
+						<h3>推荐菜品</h3>
+						<ul>
+							<li><a href="#">鱼香肉丝</a></li>
+							<li><a href="#">油焖茄子</a></li>
+							<li><a href="#">干煸四季豆</a></li>
+							<li><a href="#">阳澄湖大闸蟹</a></li>
+							<li><a href="#">北京烤鸭</a></li>
+						</ul>
+					</div>
+				</div></li>
+			<!-- End 4 columns Item -->
+
+			<li><a href="#">高档宴席</a>
+				<div class="dropdown_4columns">
+					<div class="col_1">
+						<h3>热门菜系</h3>
+						<ul>
+							<li><a href="#">川菜系列</a></li>
+							<li><a href="#">粤菜系列</a></li>
+							<li><a href="#">淮扬菜系列</a></li>
+							<li><a href="#">东北菜系列</a></li>
+							<li><a href="#">西餐系列</a></li>
+						</ul>
+					</div>
+					<div class="col_1">
+						<h3>价格区间</h3>
+						<ul>
+							<li><a href="#">100元以下</a></li>
+							<li><a href="#">100-300元</a></li>
+							<li><a href="#">300-500元</a></li>
+							<li><a href="#">500-1000元</a></li>
+							<li><a href="#">1000元以上</a></li>
+						</ul>
+					</div>
+					<div class="col_1">
+						<h3>促销活动</h3>
+						<ul>
+							<li><a href="#">川菜系列促销</a></li>
+							<li><a href="#">春节5折促销</a></li>
+							<li><a href="#">促销一折起</a></li>
+							<li><a href="#">优惠活动</a></li>
+							<li><a href="#">降价促销</a></li>
+						</ul>
+					</div>
+					<div class="col_1">
+						<h3>推荐菜品</h3>
+						<ul>
+							<li><a href="#">鱼香肉丝</a></li>
+							<li><a href="#">油焖茄子</a></li>
+							<li><a href="#">干煸四季豆</a></li>
+							<li><a href="#">阳澄湖大闸蟹</a></li>
+							<li><a href="#">北京烤鸭</a></li>
+						</ul>
+					</div>
+				</div></li>
+			<!-- End 4 columns Item -->
+
+			<li><a href="#">西餐系列</a>
+				<div class="dropdown_4columns">
+					<div class="col_1">
+						<h3>热门菜系</h3>
+						<ul>
+							<li><a href="#">川菜系列</a></li>
+							<li><a href="#">粤菜系列</a></li>
+							<li><a href="#">淮扬菜系列</a></li>
+							<li><a href="#">东北菜系列</a></li>
+							<li><a href="#">西餐系列</a></li>
+						</ul>
+					</div>
+					<div class="col_1">
+						<h3>价格区间</h3>
+						<ul>
+							<li><a href="#">100元以下</a></li>
+							<li><a href="#">100-300元</a></li>
+							<li><a href="#">300-500元</a></li>
+							<li><a href="#">500-1000元</a></li>
+							<li><a href="#">1000元以上</a></li>
+						</ul>
+					</div>
+					<div class="col_1">
+						<h3>促销活动</h3>
+						<ul>
+							<li><a href="#">川菜系列促销</a></li>
+							<li><a href="#">春节5折促销</a></li>
+							<li><a href="#">促销一折起</a></li>
+							<li><a href="#">优惠活动</a></li>
+							<li><a href="#">降价促销</a></li>
+						</ul>
+					</div>
+					<div class="col_1">
+						<h3>推荐菜品</h3>
+						<ul>
+							<li><a href="#">鱼香肉丝</a></li>
+							<li><a href="#">油焖茄子</a></li>
+							<li><a href="#">干煸四季豆</a></li>
+							<li><a href="#">阳澄湖大闸蟹</a></li>
+							<li><a href="#">北京烤鸭</a></li>
+						</ul>
+					</div>
+				</div></li>
+			<!-- End 4 columns Item -->
+
+			<li><a href="#">东北菜系列</a>
+				<div class="dropdown_4columns">
+					<div class="col_1">
+						<h3>热门菜系</h3>
+						<ul>
+							<li><a href="#">川菜系列</a></li>
+							<li><a href="#">粤菜系列</a></li>
+							<li><a href="#">淮扬菜系列</a></li>
+							<li><a href="#">东北菜系列</a></li>
+							<li><a href="#">西餐系列</a></li>
+						</ul>
+					</div>
+					<div class="col_1">
+						<h3>价格区间</h3>
+						<ul>
+							<li><a href="#">100元以下</a></li>
+							<li><a href="#">100-300元</a></li>
+							<li><a href="#">300-500元</a></li>
+							<li><a href="#">500-1000元</a></li>
+							<li><a href="#">1000元以上</a></li>
+						</ul>
+					</div>
+					<div class="col_1">
+						<h3>促销活动</h3>
+						<ul>
+							<li><a href="#">川菜系列促销</a></li>
+							<li><a href="#">春节5折促销</a></li>
+							<li><a href="#">促销一折起</a></li>
+							<li><a href="#">优惠活动</a></li>
+							<li><a href="#">降价促销</a></li>
+						</ul>
+					</div>
+					<div class="col_1">
+						<h3>推荐菜品</h3>
+						<ul>
+							<li><a href="#">鱼香肉丝</a></li>
+							<li><a href="#">油焖茄子</a></li>
+							<li><a href="#">干煸四季豆</a></li>
+							<li><a href="#">阳澄湖大闸蟹</a></li>
+							<li><a href="#">北京烤鸭</a></li>
+						</ul>
+					</div>
+				</div></li>
+			<!-- End 4 columns Item -->
+
+			<div class="clear"></div>
+		</ul>
+	</div>
+
+	<div id='contain' style='width:900px;background:rgb(255,255,255);margin:0px auto;padding:0px'>
+	        <div id='content' style='width:900px;height:1117px;background:none transparent scroll repeat 0% 0%;margin:10px auto'>
+	            <!-- 当前位置提示条 -->
+	            <div id='pdv_3534' class='pdv_class' title='当前位置' style='width:650px;height:30px;top:0px;left:0px; z-index:8'>
+	                <div id='spdv_3534' class='pdv_content' style='overflow:hidden;width:100%;height:100%'>
+	                    <div class="pdv_border" style="margin:0;padding:0;height:100%;border:0px #dddddd solid;background:#fff;">
+	                        <div style="height:25px;margin:1px;display:none;background:#cccccc;">
+	                            <div style="float:left;margin-left:12px;line-height:25px;font-weight:bold;color:#fff">
+	                                当前位置
+	                            </div>
+	                            <div style="float:right;margin-right:10px;display:none">
+	                                <a href="-1" style="line-height:25px;color:#fff">更多</a>
+	                            </div>
+	                        </div>
+	                        <div style="padding:5px">
+	                            <div id="nav">
+	                                您现在的位置：<a href="../">网上快餐店</a> &gt; <a href="../dingcan/">网上订餐</a> &gt; 菜品详细
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	            <!-- 订单处理 -->
+	
+	            <div id='pdv_3535' class='pdv_class' title='订单处理' style='width:700px;height:1079px;top:36px;left:0px; z-index:9' >
+	            	<form name="myForm" action="More.action" method="post">
+						<table border="0">
+							<tr>
+								<td><b>菜品名称：</b></td>
 								<td>
-									<table border="0">
-										<tr>
-											<td colspan="2"><a
-												href="Show.action?Id=<s:property value="foodId"/>" target=3>
-													<img
-													src="<%=request.getContextPath()%>/images/<s:property value="foodPhotoUrlpath"/>"
-													width="200" height="180">
-											</a></td>
-										</tr>
-										<tr>
-											<td><b><s:property value="foodName" /></b></td>
-										</tr>
-										<tr>
-											<td><b><font color="red" style="font-size: 12px">本站会员价:
-												</font></b></td>
-											<td><b><font color="red" style="font-size: 16px">￥<s:property
-															value="foodMemberPrice" /></b></font></td>
-										</tr>
-										<tr>
-											<td><s>店面价格: </s></td>
-											<td><s>￥<s:property value="foodUnitPrice" /></td>
-											</s>
-										</tr>
-										<tr>
-											<td>菜品人气:</td>
-											<td><s:property value="foodSalesCopies" /></td>
-
-										</tr>
-									</table>
+								    <input name="foodName" type="text" id="foodName" value="${sessionScope.foodName}" style = "width:150px"  
+			
+									      onmouseover=this.focus();this.select();  
+									
+									      onclick="if(value==defaultValue){value='';this.style.color='#000'}"   
+									
+									      onBlur="if(!value){value=defaultValue;this.style.color='#999'}" style="color:#999" />
 								</td>
-							<s:if test="%{(#L.index+1)%4 == 0}">
-								</tr>
-								<tr>
-							</s:if>
-						</s:iterator>
-						</tr>
-					</table>
-				</form>
-            </div>
-        </div>
+								<td>&nbsp;</td>
+								<td><b>菜品价格：</b></td>
+								<td> 
+									<input name="foodPrizeFrom" type="text" id="foodPrizeFrom" style="ime-mode:disabled;width:60px" onkeydown="return check(event)" onkeyup="if(isNaN(this.value)||this.value<0||this.value>999999) this.value='0'"
+										value="${sessionScope.foodPrizeFrom}"/> 
+								</td>
+								<td><b> &nbsp;~ &nbsp;</b></td>
+								<td><input name="foodPrizeTo" type="text" id="foodPrizeTo" style="ime-mode:disabled;width:60px" onkeydown="return check(event)" onkeyup="if(isNaN(this.value)||this.value<0||this.value>999999) this.value='0'"
+									value="${sessionScope.foodPrizeTo}"/></td>
+								<td>&nbsp;</td>
+								<td><input type="checkbox" id="preferential" value="1" style=" vertical-align:middle" >
+								<b>今日优惠</b></td> 
+								<td><input id="choose" type="button" onclick="openDetail();" style="width:60px;border:0;background-image:url(images/more_1.jpg)" onMouseOver="changePictureMouseOver();" onMouseOut="changePictureMouseOut();"></td>
+								<td>
+									<input type="button" value="查询"onclick="crud('select')"/>
+									<s:hidden name="actionType" ></s:hidden>
+								</td>	
+							</tr>
+							<tr id="foodSearchDetail" style="display: none">
+								<td><b>菜品菜系：</b></td>
+								<td>
+									<select style="width: 100px;" id="foodKind" name="foodKind">
+										<option value="1" <s:if test="foodKind==1">selected="selected"</s:if>>鲁菜</option>
+										<option value="2" <s:if test="foodKind==2">selected="selected"</s:if>>川菜</option>
+										<option value="3" <s:if test="foodKind==3">selected="selected"</s:if>>粤菜</option>
+										<option value="4" <s:if test="foodKind==4">selected="selected"</s:if>>苏菜</option>
+										<option value="5" <s:if test="foodKind==5">selected="selected"</s:if>>闽菜</option>
+										<option value="6" <s:if test="foodKind==6">selected="selected"</s:if>>浙菜</option>
+										<option value="7" <s:if test="foodKind==7">selected="selected"</s:if>>湘菜</option>
+										<option value="8" <s:if test="foodKind==8">selected="selected"</s:if>>徽菜</option>
+										<option value="9" <s:if test="foodKind==9">selected="selected"</s:if>>其他</option>
+										<option value="0" <s:if test="foodKind==0">selected="selected"</s:if>>西洋菜</option>
+									</select>
+								</td>
+								<td>&nbsp;</td>
+								<td><b>菜品辣度：</b></td>
+								<td colspan="2">
+									<select style="width: 100px;" id="foodPungencyDegree" name="foodPungencyDegree">
+										<option value="0" <s:if test="foodPungencyDegree==0">selected="selected"</s:if>>不辣</option>
+										<option value="1" <s:if test="foodPungencyDegree==1">selected="selected"</s:if>>微辣</option>
+										<option value="2" <s:if test="foodPungencyDegree==2">selected="selected"</s:if>>辣</option>
+										<option value="3" <s:if test="foodPungencyDegree==3">selected="selected"</s:if>>很辣</option>
+										<option value="4" <s:if test="foodPungencyDegree==4">selected="selected"</s:if>>变态辣</option>
+									</select>
+								</td>									
+							</tr>
+						</table>
+						<table>
+							<tr>
+								<s:iterator value="showMoreFoodlist" id="showMorefoodDetail" status="L">
+									<td>
+										<table border="0">
+											<tr>
+												<td colspan="2"><a
+													href="Show.action?Id=<s:property value="foodId"/>" target=3>
+														<img
+														src="<%=request.getContextPath()%>/images/<s:property value="foodPhotoUrlpath"/>"
+														width="200" height="180">
+												</a></td>
+											</tr>
+											<tr>
+												<td><b><s:property value="foodName" /></b></td>
+											</tr>
+											<tr>
+												<td><b><font color="red" style="font-size: 12px">本站会员价:
+													</font></b></td>
+												<td><b><font color="red" style="font-size: 16px">￥<s:property
+																value="foodMemberPrice" /></b></font></td>
+											</tr>
+											<tr>
+												<td><s>店面价格: </s></td>
+												<td><s>￥<s:property value="foodUnitPrice" /></td>
+												</s>
+											</tr>
+											<tr>
+												<td>菜品人气:</td>
+												<td><s:property value="foodSalesCopies" /></td>
+											</tr>
+										</table>
+									</td>
+								<s:if test="%{(#L.index+1)%4 == 0}">
+									</tr>
+									<tr>
+								</s:if>
+							</s:iterator>
+							</tr>
+						</table>
+					</form>
+	            </div>
+	        </div>
         <div id='bottom' style='width:900px;height:173px;background:none transparent scroll repeat 0% 0%'>
 
 
@@ -336,12 +659,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                 <li style="list-style-type:none;float:left;margin:0px;padding:3px 10px 3px 10px; white-space:nowrap">
                                     <a href="http://www.meishichina.com/" target="_self">美食中国</a> 
                                 </li>
-
                             </ul>
-
                         </div>
                     </div>
-
                 </div>
             </div>
 
@@ -371,7 +691,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </div>
 
             <!-- 图片/FLASH -->
-
             <div id='pdv_3532' class='pdv_class' title='' style='width:123px;height:40px;top:105px;left:656px; z-index:7'>
                 <div id='spdv_3532' class='pdv_bottom' style='overflow:hidden;width:100%;height:100%'>
                     <div class="pdv_border" style="margin:0;padding:0;height:100%;border:0px  solid;background:;">
@@ -384,10 +703,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             </div>
                         </div>
                         <div style="padding:0px">
-
-
                             <img src="images/1253157163.jpg" border="0" width="100%" />
-
                         </div>
                     </div>
 
