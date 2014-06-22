@@ -19,7 +19,7 @@ public interface CommonConst {
 
     /** 共通ID种类:反馈ID */
     public static final int COMMON_ID_FEEDBACK = 5;
-    
+
     /** 共通ID种类:留言ID */
     public static final int COMMON_ID_NOTE = 6;
 
@@ -74,7 +74,7 @@ public interface CommonConst {
 
     /** NG:投诉反馈失败 */
     public static final String COMMON_FEEDBACK_NG = "NG";
-    
+
     /** OK:留言成功 */
     public static final String COMMON_NOTE_OK = "OK";
 
@@ -95,5 +95,11 @@ public interface CommonConst {
 
     /** 0:会会员登录状态：未登录 */
     public static final int COMMON_NOTLOGINED_STATUS = 0;
+
+    /** OK:数据检索成功 */
+    public static final String COMMON_SELECTEDRESULT_OK = "OK";
+
+    /** NG:数据检索失败 */
+    public static final String COMMON_SELECTEDRESULT_NG = "NG";
 
 }

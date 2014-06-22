@@ -12,6 +12,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>订单处理-网上快餐店</title>
+    <script type="text/javascript" src="js/jquery-1.7.2.js"></script>
     <link href="css/navpath.css" rel="stylesheet" type="text/css" />
     <link href="css/startorder.css" rel="stylesheet" type="text/css" />
     <link href="css/dingcanweekmenu28.css" rel="stylesheet" type="text/css">
@@ -108,7 +109,32 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			document.myForm.actionType.value=type;
 			document.myForm.submit();
 		}
-	</script> 
+	</script>
+	
+	<script type="text/javascript">
+		function linkSelect(type){
+			// 获取页面上方检索部的菜品名称
+			var foodName = $("#foodName").val();
+			// 获取页面上方检索部的菜品价格（起）
+			var foodPrizeFrom = $("#foodPrizeFrom").val();
+			// 获取页面上方检索部的菜品价格（终）
+			var foodPrizeTo = $("#foodPrizeTo").val();
+			// 获取页面上方检索部的优惠状况
+			var preferential = $("#preferential").val();
+			// 设置检索条件中的菜系为“川菜”
+			var foodKind = '2';
+			// 设置模式为检索
+			var actionType = 'select';
+			$.ajax({
+				type: "POST",
+				url: "More.action",
+				data: "&foodName="+ foodName + "&foodPrizeFrom=" + foodPrizeFrom 
+				+ "&foodPrizeTo=" + foodPrizeTo + "&preferential=" + preferential
+				+ "&foodKind=" + foodKind + "&foodPungencyDegree" + foodPungencyDegree
+				+ "&actionType="+ actionType
+			});
+		} 
+	</script>
 </head>
 
 <body style='background:transparent'>
@@ -128,7 +154,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<div class="col_1">
 						<h3>热门菜系</h3>
 						<ul>
-							<li><a href="#">川菜系列</a></li>
+							<li><a id="chuancai" href="javascript:void(0)" onclick="linkSelect('select')">川菜系列</a></li>
 							<li><a href="#">粤菜系列</a></li>
 							<li><a href="#">淮扬菜系列</a></li>
 							<li><a href="#">东北菜系列</a></li>
@@ -437,7 +463,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</div>
 				</div></li>
 			<!-- End 4 columns Item -->
-
 			<div class="clear"></div>
 		</ul>
 	</div>
@@ -490,7 +515,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<td><input name="foodPrizeTo" type="text" id="foodPrizeTo" style="ime-mode:disabled;width:60px" onkeydown="return check(event)" onkeyup="if(isNaN(this.value)||this.value<0||this.value>999999) this.value='0'"
 									value="${sessionScope.foodPrizeTo}"/></td>
 								<td>&nbsp;</td>
-								<td><input type="checkbox" id="preferential" value="1" style=" vertical-align:middle" >
+								<td><input name="preferential" type="checkbox" id="preferential" value="1" style=" vertical-align:middle" >
 								<b>今日优惠</b></td> 
 								<td><input id="choose" type="button" onclick="openDetail();" style="width:60px;border:0;background-image:url(images/more_1.jpg)" onMouseOver="changePictureMouseOver();" onMouseOut="changePictureMouseOut();"></td>
 								<td>

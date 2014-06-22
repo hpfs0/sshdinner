@@ -106,11 +106,11 @@ public class ShowMoreAction extends ActionSupport {
             foodDetailForSelectQuery.setFoodMemberPriceFrom(foodPrizeFrom);
             foodDetailForSelectQuery.setFoodMemberPriceTo(foodPrizeTo);
             foodDetailForSelectQuery.setPreferentialStatus(preferential);
+            foodDetailForSelectQuery.setFoodCuisineKind(foodKind);
             foodDetailForSelectQuery.setFoodPungencyDegree(foodPungencyDegree);
             showMoreFoodlist = new FoodDetailDaoImpl().getAllFoodDetails(foodDetailForSelectQuery);
 
         }
         return SUCCESS;
     }
-
 }

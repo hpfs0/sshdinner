@@ -50,6 +50,10 @@ public class FoodDetailDaoImpl implements FoodDetailDao {
                     foodDetailForSelectQuery.getPreferentialStatus()));
         }
         if (null != foodDetailForSelectQuery.getFoodCuisineKind()) {
+            detachedCrit.add(Restrictions.eq("foodCuisineKind",
+                    foodDetailForSelectQuery.getFoodCuisineKind()));
+        }
+        if (null != foodDetailForSelectQuery.getFoodPungencyDegree()) {
             detachedCrit.add(Restrictions.eq("foodPungencyDegree",
                     foodDetailForSelectQuery.getFoodPungencyDegree()));
         }
