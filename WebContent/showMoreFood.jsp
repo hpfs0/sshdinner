@@ -111,28 +111,32 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		}
 	</script>
 	
-	<script type="text/javascript">
-		function linkSelect(type){
+	<script>
+		function linkSelect(){
 			// 获取页面上方检索部的菜品名称
-			var foodName = $("#foodName").val();
+			var foodName = document.getElementById("foodName").value;
 			// 获取页面上方检索部的菜品价格（起）
-			var foodPrizeFrom = $("#foodPrizeFrom").val();
+			var foodPrizeFrom = document.getElementById("foodPrizeFrom").value;
 			// 获取页面上方检索部的菜品价格（终）
-			var foodPrizeTo = $("#foodPrizeTo").val();
+			var foodPrizeTo = document.getElementById("foodPrizeTo").value;
 			// 获取页面上方检索部的优惠状况
-			var preferential = $("#preferential").val();
-			// 设置检索条件中的菜系为“川菜”
+			var preferential = document.getElementById("preferential").value;
+			// 获取页面上方检索部的菜品辣度
+			var foodPungencyDegree = document.getElementById("foodPungencyDegree").value;
+			// 设置检索条件中的菜系为[川菜]
 			var foodKind = '2';
 			// 设置模式为检索
-			var actionType = 'select';
-			$.ajax({
-				type: "POST",
-				url: "More.action",
-				data: "&foodName="+ foodName + "&foodPrizeFrom=" + foodPrizeFrom 
-				+ "&foodPrizeTo=" + foodPrizeTo + "&preferential=" + preferential
-				+ "&foodKind=" + foodKind + "&foodPungencyDegree" + foodPungencyDegree
-				+ "&actionType="+ actionType
-			});
+			var actionType = 'linkSelect';
+			// 把检索部的值作为参数传到后台
+			document.barForm.actionType.value = actionType;
+			document.barForm.foodNameBar.value = foodName;
+			document.barForm.foodPrizeFromBar.value = foodPrizeFrom;
+			document.barForm.foodPrizeToBar.value = foodPrizeTo;
+			document.barForm.preferentialBar.value = preferential;
+			document.barForm.foodKindBar.value = foodKind;
+			document.barForm.foodPungencyDegreeBar.value = foodPungencyDegree;
+			document.barForm.submit();
+			
 		} 
 	</script>
 </head>
@@ -145,327 +149,336 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         var PDV_PAGENAME = 'startorder';
     </script>
 
-	<div class="sidebar">
-		<h2>商品目录</h2>
-		<ul id="foodmenu">
-
-			<li><a href="#">炒菜</a>
-				<div class="dropdown_4columns">
-					<div class="col_1">
-						<h3>热门菜系</h3>
-						<ul>
-							<li><a id="chuancai" href="javascript:void(0)" onclick="linkSelect('select')">川菜系列</a></li>
-							<li><a href="#">粤菜系列</a></li>
-							<li><a href="#">淮扬菜系列</a></li>
-							<li><a href="#">东北菜系列</a></li>
-							<li><a href="#">西餐系列</a></li>
-						</ul>
-					</div>
-					<div class="col_1">
-						<h3>价格区间</h3>
-						<ul>
-							<li><a href="#">100元以下</a></li>
-							<li><a href="#">100-300元</a></li>
-							<li><a href="#">300-500元</a></li>
-							<li><a href="#">500-1000元</a></li>
-							<li><a href="#">1000元以上</a></li>
-						</ul>
-					</div>
-					<div class="col_1">
-						<h3>促销活动</h3>
-						<ul>
-							<li><a href="#">川菜系列促销</a></li>
-							<li><a href="#">春节5折促销</a></li>
-							<li><a href="#">促销一折起</a></li>
-							<li><a href="#">优惠活动</a></li>
-							<li><a href="#">降价促销</a></li>
-						</ul>
-					</div>
-					<div class="col_1">
-						<h3>推荐菜品</h3>
-						<ul>
-							<li><a href="#">鱼香肉丝</a></li>
-							<li><a href="#">油焖茄子</a></li>
-							<li><a href="#">干煸四季豆</a></li>
-							<li><a href="#">阳澄湖大闸蟹</a></li>
-							<li><a href="#">北京烤鸭</a></li>
-						</ul>
-					</div>
-				</div></li>
-			<!-- End 4 columns Item -->
-
-			<li><a href="#">精品套餐</a>
-				<div class="dropdown_4columns">
-					<div class="col_1">
-						<h3>热门菜系</h3>
-						<ul>
-							<li><a href="#">川菜系列</a></li>
-							<li><a href="#">粤菜系列</a></li>
-							<li><a href="#">淮扬菜系列</a></li>
-							<li><a href="#">东北菜系列</a></li>
-							<li><a href="#">西餐系列</a></li>
-						</ul>
-					</div>
-					<div class="col_1">
-						<h3>价格区间</h3>
-						<ul>
-							<li><a href="#">100元以下</a></li>
-							<li><a href="#">100-300元</a></li>
-							<li><a href="#">300-500元</a></li>
-							<li><a href="#">500-1000元</a></li>
-							<li><a href="#">1000元以上</a></li>
-						</ul>
-					</div>
-					<div class="col_1">
-						<h3>促销活动</h3>
-						<ul>
-							<li><a href="#">川菜系列促销</a></li>
-							<li><a href="#">春节5折促销</a></li>
-							<li><a href="#">促销一折起</a></li>
-							<li><a href="#">优惠活动</a></li>
-							<li><a href="#">降价促销</a></li>
-						</ul>
-					</div>
-					<div class="col_1">
-						<h3>推荐菜品</h3>
-						<ul>
-							<li><a href="#">鱼香肉丝</a></li>
-							<li><a href="#">油焖茄子</a></li>
-							<li><a href="#">干煸四季豆</a></li>
-							<li><a href="#">阳澄湖大闸蟹</a></li>
-							<li><a href="#">北京烤鸭</a></li>
-						</ul>
-					</div>
-				</div></li>
-			<!-- End 4 columns Item -->
-
-			<li><a href="#">极品儿童餐</a>
-				<div class="dropdown_4columns">
-					<div class="col_1">
-						<h3>热门菜系</h3>
-						<ul>
-							<li><a href="#">川菜系列</a></li>
-							<li><a href="#">粤菜系列</a></li>
-							<li><a href="#">淮扬菜系列</a></li>
-							<li><a href="#">东北菜系列</a></li>
-							<li><a href="#">西餐系列</a></li>
-						</ul>
-					</div>
-					<div class="col_1">
-						<h3>价格区间</h3>
-						<ul>
-							<li><a href="#">100元以下</a></li>
-							<li><a href="#">100-300元</a></li>
-							<li><a href="#">300-500元</a></li>
-							<li><a href="#">500-1000元</a></li>
-							<li><a href="#">1000元以上</a></li>
-						</ul>
-					</div>
-					<div class="col_1">
-						<h3>促销活动</h3>
-						<ul>
-							<li><a href="#">川菜系列促销</a></li>
-							<li><a href="#">春节5折促销</a></li>
-							<li><a href="#">促销一折起</a></li>
-							<li><a href="#">优惠活动</a></li>
-							<li><a href="#">降价促销</a></li>
-						</ul>
-					</div>
-					<div class="col_1">
-						<h3>推荐菜品</h3>
-						<ul>
-							<li><a href="#">鱼香肉丝</a></li>
-							<li><a href="#">油焖茄子</a></li>
-							<li><a href="#">干煸四季豆</a></li>
-							<li><a href="#">阳澄湖大闸蟹</a></li>
-							<li><a href="#">北京烤鸭</a></li>
-						</ul>
-					</div>
-				</div></li>
-			<!-- End 4 columns Item -->
-
-			<li><a href="#">营养餐</a>
-				<div class="dropdown_4columns">
-					<div class="col_1">
-						<h3>热门菜系</h3>
-						<ul>
-							<li><a href="#">川菜系列</a></li>
-							<li><a href="#">粤菜系列</a></li>
-							<li><a href="#">淮扬菜系列</a></li>
-							<li><a href="#">东北菜系列</a></li>
-							<li><a href="#">西餐系列</a></li>
-						</ul>
-					</div>
-					<div class="col_1">
-						<h3>价格区间</h3>
-						<ul>
-							<li><a href="#">100元以下</a></li>
-							<li><a href="#">100-300元</a></li>
-							<li><a href="#">300-500元</a></li>
-							<li><a href="#">500-1000元</a></li>
-							<li><a href="#">1000元以上</a></li>
-						</ul>
-					</div>
-					<div class="col_1">
-						<h3>促销活动</h3>
-						<ul>
-							<li><a href="#">川菜系列促销</a></li>
-							<li><a href="#">春节5折促销</a></li>
-							<li><a href="#">促销一折起</a></li>
-							<li><a href="#">优惠活动</a></li>
-							<li><a href="#">降价促销</a></li>
-						</ul>
-					</div>
-					<div class="col_1">
-						<h3>推荐菜品</h3>
-						<ul>
-							<li><a href="#">鱼香肉丝</a></li>
-							<li><a href="#">油焖茄子</a></li>
-							<li><a href="#">干煸四季豆</a></li>
-							<li><a href="#">阳澄湖大闸蟹</a></li>
-							<li><a href="#">北京烤鸭</a></li>
-						</ul>
-					</div>
-				</div></li>
-			<!-- End 4 columns Item -->
-
-			<li><a href="#">高档宴席</a>
-				<div class="dropdown_4columns">
-					<div class="col_1">
-						<h3>热门菜系</h3>
-						<ul>
-							<li><a href="#">川菜系列</a></li>
-							<li><a href="#">粤菜系列</a></li>
-							<li><a href="#">淮扬菜系列</a></li>
-							<li><a href="#">东北菜系列</a></li>
-							<li><a href="#">西餐系列</a></li>
-						</ul>
-					</div>
-					<div class="col_1">
-						<h3>价格区间</h3>
-						<ul>
-							<li><a href="#">100元以下</a></li>
-							<li><a href="#">100-300元</a></li>
-							<li><a href="#">300-500元</a></li>
-							<li><a href="#">500-1000元</a></li>
-							<li><a href="#">1000元以上</a></li>
-						</ul>
-					</div>
-					<div class="col_1">
-						<h3>促销活动</h3>
-						<ul>
-							<li><a href="#">川菜系列促销</a></li>
-							<li><a href="#">春节5折促销</a></li>
-							<li><a href="#">促销一折起</a></li>
-							<li><a href="#">优惠活动</a></li>
-							<li><a href="#">降价促销</a></li>
-						</ul>
-					</div>
-					<div class="col_1">
-						<h3>推荐菜品</h3>
-						<ul>
-							<li><a href="#">鱼香肉丝</a></li>
-							<li><a href="#">油焖茄子</a></li>
-							<li><a href="#">干煸四季豆</a></li>
-							<li><a href="#">阳澄湖大闸蟹</a></li>
-							<li><a href="#">北京烤鸭</a></li>
-						</ul>
-					</div>
-				</div></li>
-			<!-- End 4 columns Item -->
-
-			<li><a href="#">西餐系列</a>
-				<div class="dropdown_4columns">
-					<div class="col_1">
-						<h3>热门菜系</h3>
-						<ul>
-							<li><a href="#">川菜系列</a></li>
-							<li><a href="#">粤菜系列</a></li>
-							<li><a href="#">淮扬菜系列</a></li>
-							<li><a href="#">东北菜系列</a></li>
-							<li><a href="#">西餐系列</a></li>
-						</ul>
-					</div>
-					<div class="col_1">
-						<h3>价格区间</h3>
-						<ul>
-							<li><a href="#">100元以下</a></li>
-							<li><a href="#">100-300元</a></li>
-							<li><a href="#">300-500元</a></li>
-							<li><a href="#">500-1000元</a></li>
-							<li><a href="#">1000元以上</a></li>
-						</ul>
-					</div>
-					<div class="col_1">
-						<h3>促销活动</h3>
-						<ul>
-							<li><a href="#">川菜系列促销</a></li>
-							<li><a href="#">春节5折促销</a></li>
-							<li><a href="#">促销一折起</a></li>
-							<li><a href="#">优惠活动</a></li>
-							<li><a href="#">降价促销</a></li>
-						</ul>
-					</div>
-					<div class="col_1">
-						<h3>推荐菜品</h3>
-						<ul>
-							<li><a href="#">鱼香肉丝</a></li>
-							<li><a href="#">油焖茄子</a></li>
-							<li><a href="#">干煸四季豆</a></li>
-							<li><a href="#">阳澄湖大闸蟹</a></li>
-							<li><a href="#">北京烤鸭</a></li>
-						</ul>
-					</div>
-				</div></li>
-			<!-- End 4 columns Item -->
-
-			<li><a href="#">东北菜系列</a>
-				<div class="dropdown_4columns">
-					<div class="col_1">
-						<h3>热门菜系</h3>
-						<ul>
-							<li><a href="#">川菜系列</a></li>
-							<li><a href="#">粤菜系列</a></li>
-							<li><a href="#">淮扬菜系列</a></li>
-							<li><a href="#">东北菜系列</a></li>
-							<li><a href="#">西餐系列</a></li>
-						</ul>
-					</div>
-					<div class="col_1">
-						<h3>价格区间</h3>
-						<ul>
-							<li><a href="#">100元以下</a></li>
-							<li><a href="#">100-300元</a></li>
-							<li><a href="#">300-500元</a></li>
-							<li><a href="#">500-1000元</a></li>
-							<li><a href="#">1000元以上</a></li>
-						</ul>
-					</div>
-					<div class="col_1">
-						<h3>促销活动</h3>
-						<ul>
-							<li><a href="#">川菜系列促销</a></li>
-							<li><a href="#">春节5折促销</a></li>
-							<li><a href="#">促销一折起</a></li>
-							<li><a href="#">优惠活动</a></li>
-							<li><a href="#">降价促销</a></li>
-						</ul>
-					</div>
-					<div class="col_1">
-						<h3>推荐菜品</h3>
-						<ul>
-							<li><a href="#">鱼香肉丝</a></li>
-							<li><a href="#">油焖茄子</a></li>
-							<li><a href="#">干煸四季豆</a></li>
-							<li><a href="#">阳澄湖大闸蟹</a></li>
-							<li><a href="#">北京烤鸭</a></li>
-						</ul>
-					</div>
-				</div></li>
-			<!-- End 4 columns Item -->
-			<div class="clear"></div>
-		</ul>
-	</div>
+	<form name="barForm" action="More.action" method="post" target="_self">
+		<div class="sidebar">
+			<h2>商品目录</h2>
+			<ul id="foodmenu">
+	
+				<li><a href="#">炒菜</a>
+					<div class="dropdown_4columns">
+						<div class="col_1">
+							<h3>热门菜系</h3>
+							<ul>
+								<li><a id="chuancai" href="javascript:void(0)" onclick="linkSelect()">川菜系列</a></li>
+								<s:hidden name="actionType" ></s:hidden>
+								<s:hidden name="foodNameBar" value="222"></s:hidden>
+								<s:hidden name="foodPrizeFromBar" ></s:hidden>
+								<s:hidden name="foodPrizeToBar" ></s:hidden>
+								<s:hidden name="preferentialBar" ></s:hidden>
+								<s:hidden name="foodPungencyDegreeBar" ></s:hidden>
+								<s:hidden name="foodKindBar" ></s:hidden>
+								<li><a href="#">粤菜系列</a></li>
+								<li><a href="#">淮扬菜系列</a></li>
+								<li><a href="#">东北菜系列</a></li>
+								<li><a href="#">西餐系列</a></li>
+							</ul>
+						</div>
+						<div class="col_1">
+							<h3>价格区间</h3>
+							<ul>
+								<li><a href="#">100元以下</a></li>
+								<li><a href="#">100-300元</a></li>
+								<li><a href="#">300-500元</a></li>
+								<li><a href="#">500-1000元</a></li>
+								<li><a href="#">1000元以上</a></li>
+							</ul>
+						</div>
+						<div class="col_1">
+							<h3>促销活动</h3>
+							<ul>
+								<li><a href="#">川菜系列促销</a></li>
+								<li><a href="#">春节5折促销</a></li>
+								<li><a href="#">促销一折起</a></li>
+								<li><a href="#">优惠活动</a></li>
+								<li><a href="#">降价促销</a></li>
+							</ul>
+						</div>
+						<div class="col_1">
+							<h3>推荐菜品</h3>
+							<ul>
+								<li><a href="#">鱼香肉丝</a></li>
+								<li><a href="#">油焖茄子</a></li>
+								<li><a href="#">干煸四季豆</a></li>
+								<li><a href="#">阳澄湖大闸蟹</a></li>
+								<li><a href="#">北京烤鸭</a></li>
+							</ul>
+						</div>
+					</div></li>
+				<!-- End 4 columns Item -->
+	
+				<li><a href="#">精品套餐</a>
+					<div class="dropdown_4columns">
+						<div class="col_1">
+							<h3>热门菜系</h3>
+							<ul>
+								<li><a href="#">川菜系列</a></li>
+								<li><a href="#">粤菜系列</a></li>
+								<li><a href="#">淮扬菜系列</a></li>
+								<li><a href="#">东北菜系列</a></li>
+								<li><a href="#">西餐系列</a></li>
+							</ul>
+						</div>
+						<div class="col_1">
+							<h3>价格区间</h3>
+							<ul>
+								<li><a href="#">100元以下</a></li>
+								<li><a href="#">100-300元</a></li>
+								<li><a href="#">300-500元</a></li>
+								<li><a href="#">500-1000元</a></li>
+								<li><a href="#">1000元以上</a></li>
+							</ul>
+						</div>
+						<div class="col_1">
+							<h3>促销活动</h3>
+							<ul>
+								<li><a href="#">川菜系列促销</a></li>
+								<li><a href="#">春节5折促销</a></li>
+								<li><a href="#">促销一折起</a></li>
+								<li><a href="#">优惠活动</a></li>
+								<li><a href="#">降价促销</a></li>
+							</ul>
+						</div>
+						<div class="col_1">
+							<h3>推荐菜品</h3>
+							<ul>
+								<li><a href="#">鱼香肉丝</a></li>
+								<li><a href="#">油焖茄子</a></li>
+								<li><a href="#">干煸四季豆</a></li>
+								<li><a href="#">阳澄湖大闸蟹</a></li>
+								<li><a href="#">北京烤鸭</a></li>
+							</ul>
+						</div>
+					</div></li>
+				<!-- End 4 columns Item -->
+	
+				<li><a href="#">极品儿童餐</a>
+					<div class="dropdown_4columns">
+						<div class="col_1">
+							<h3>热门菜系</h3>
+							<ul>
+								<li><a href="#">川菜系列</a></li>
+								<li><a href="#">粤菜系列</a></li>
+								<li><a href="#">淮扬菜系列</a></li>
+								<li><a href="#">东北菜系列</a></li>
+								<li><a href="#">西餐系列</a></li>
+							</ul>
+						</div>
+						<div class="col_1">
+							<h3>价格区间</h3>
+							<ul>
+								<li><a href="#">100元以下</a></li>
+								<li><a href="#">100-300元</a></li>
+								<li><a href="#">300-500元</a></li>
+								<li><a href="#">500-1000元</a></li>
+								<li><a href="#">1000元以上</a></li>
+							</ul>
+						</div>
+						<div class="col_1">
+							<h3>促销活动</h3>
+							<ul>
+								<li><a href="#">川菜系列促销</a></li>
+								<li><a href="#">春节5折促销</a></li>
+								<li><a href="#">促销一折起</a></li>
+								<li><a href="#">优惠活动</a></li>
+								<li><a href="#">降价促销</a></li>
+							</ul>
+						</div>
+						<div class="col_1">
+							<h3>推荐菜品</h3>
+							<ul>
+								<li><a href="#">鱼香肉丝</a></li>
+								<li><a href="#">油焖茄子</a></li>
+								<li><a href="#">干煸四季豆</a></li>
+								<li><a href="#">阳澄湖大闸蟹</a></li>
+								<li><a href="#">北京烤鸭</a></li>
+							</ul>
+						</div>
+					</div></li>
+				<!-- End 4 columns Item -->
+	
+				<li><a href="#">营养餐</a>
+					<div class="dropdown_4columns">
+						<div class="col_1">
+							<h3>热门菜系</h3>
+							<ul>
+								<li><a href="#">川菜系列</a></li>
+								<li><a href="#">粤菜系列</a></li>
+								<li><a href="#">淮扬菜系列</a></li>
+								<li><a href="#">东北菜系列</a></li>
+								<li><a href="#">西餐系列</a></li>
+							</ul>
+						</div>
+						<div class="col_1">
+							<h3>价格区间</h3>
+							<ul>
+								<li><a href="#">100元以下</a></li>
+								<li><a href="#">100-300元</a></li>
+								<li><a href="#">300-500元</a></li>
+								<li><a href="#">500-1000元</a></li>
+								<li><a href="#">1000元以上</a></li>
+							</ul>
+						</div>
+						<div class="col_1">
+							<h3>促销活动</h3>
+							<ul>
+								<li><a href="#">川菜系列促销</a></li>
+								<li><a href="#">春节5折促销</a></li>
+								<li><a href="#">促销一折起</a></li>
+								<li><a href="#">优惠活动</a></li>
+								<li><a href="#">降价促销</a></li>
+							</ul>
+						</div>
+						<div class="col_1">
+							<h3>推荐菜品</h3>
+							<ul>
+								<li><a href="#">鱼香肉丝</a></li>
+								<li><a href="#">油焖茄子</a></li>
+								<li><a href="#">干煸四季豆</a></li>
+								<li><a href="#">阳澄湖大闸蟹</a></li>
+								<li><a href="#">北京烤鸭</a></li>
+							</ul>
+						</div>
+					</div></li>
+				<!-- End 4 columns Item -->
+	
+				<li><a href="#">高档宴席</a>
+					<div class="dropdown_4columns">
+						<div class="col_1">
+							<h3>热门菜系</h3>
+							<ul>
+								<li><a href="#">川菜系列</a></li>
+								<li><a href="#">粤菜系列</a></li>
+								<li><a href="#">淮扬菜系列</a></li>
+								<li><a href="#">东北菜系列</a></li>
+								<li><a href="#">西餐系列</a></li>
+							</ul>
+						</div>
+						<div class="col_1">
+							<h3>价格区间</h3>
+							<ul>
+								<li><a href="#">100元以下</a></li>
+								<li><a href="#">100-300元</a></li>
+								<li><a href="#">300-500元</a></li>
+								<li><a href="#">500-1000元</a></li>
+								<li><a href="#">1000元以上</a></li>
+							</ul>
+						</div>
+						<div class="col_1">
+							<h3>促销活动</h3>
+							<ul>
+								<li><a href="#">川菜系列促销</a></li>
+								<li><a href="#">春节5折促销</a></li>
+								<li><a href="#">促销一折起</a></li>
+								<li><a href="#">优惠活动</a></li>
+								<li><a href="#">降价促销</a></li>
+							</ul>
+						</div>
+						<div class="col_1">
+							<h3>推荐菜品</h3>
+							<ul>
+								<li><a href="#">鱼香肉丝</a></li>
+								<li><a href="#">油焖茄子</a></li>
+								<li><a href="#">干煸四季豆</a></li>
+								<li><a href="#">阳澄湖大闸蟹</a></li>
+								<li><a href="#">北京烤鸭</a></li>
+							</ul>
+						</div>
+					</div></li>
+				<!-- End 4 columns Item -->
+	
+				<li><a href="#">西餐系列</a>
+					<div class="dropdown_4columns">
+						<div class="col_1">
+							<h3>热门菜系</h3>
+							<ul>
+								<li><a href="#">川菜系列</a></li>
+								<li><a href="#">粤菜系列</a></li>
+								<li><a href="#">淮扬菜系列</a></li>
+								<li><a href="#">东北菜系列</a></li>
+								<li><a href="#">西餐系列</a></li>
+							</ul>
+						</div>
+						<div class="col_1">
+							<h3>价格区间</h3>
+							<ul>
+								<li><a href="#">100元以下</a></li>
+								<li><a href="#">100-300元</a></li>
+								<li><a href="#">300-500元</a></li>
+								<li><a href="#">500-1000元</a></li>
+								<li><a href="#">1000元以上</a></li>
+							</ul>
+						</div>
+						<div class="col_1">
+							<h3>促销活动</h3>
+							<ul>
+								<li><a href="#">川菜系列促销</a></li>
+								<li><a href="#">春节5折促销</a></li>
+								<li><a href="#">促销一折起</a></li>
+								<li><a href="#">优惠活动</a></li>
+								<li><a href="#">降价促销</a></li>
+							</ul>
+						</div>
+						<div class="col_1">
+							<h3>推荐菜品</h3>
+							<ul>
+								<li><a href="#">鱼香肉丝</a></li>
+								<li><a href="#">油焖茄子</a></li>
+								<li><a href="#">干煸四季豆</a></li>
+								<li><a href="#">阳澄湖大闸蟹</a></li>
+								<li><a href="#">北京烤鸭</a></li>
+							</ul>
+						</div>
+					</div></li>
+				<!-- End 4 columns Item -->
+	
+				<li><a href="#">东北菜系列</a>
+					<div class="dropdown_4columns">
+						<div class="col_1">
+							<h3>热门菜系</h3>
+							<ul>
+								<li><a href="#">川菜系列</a></li>
+								<li><a href="#">粤菜系列</a></li>
+								<li><a href="#">淮扬菜系列</a></li>
+								<li><a href="#">东北菜系列</a></li>
+								<li><a href="#">西餐系列</a></li>
+							</ul>
+						</div>
+						<div class="col_1">
+							<h3>价格区间</h3>
+							<ul>
+								<li><a href="#">100元以下</a></li>
+								<li><a href="#">100-300元</a></li>
+								<li><a href="#">300-500元</a></li>
+								<li><a href="#">500-1000元</a></li>
+								<li><a href="#">1000元以上</a></li>
+							</ul>
+						</div>
+						<div class="col_1">
+							<h3>促销活动</h3>
+							<ul>
+								<li><a href="#">川菜系列促销</a></li>
+								<li><a href="#">春节5折促销</a></li>
+								<li><a href="#">促销一折起</a></li>
+								<li><a href="#">优惠活动</a></li>
+								<li><a href="#">降价促销</a></li>
+							</ul>
+						</div>
+						<div class="col_1">
+							<h3>推荐菜品</h3>
+							<ul>
+								<li><a href="#">鱼香肉丝</a></li>
+								<li><a href="#">油焖茄子</a></li>
+								<li><a href="#">干煸四季豆</a></li>
+								<li><a href="#">阳澄湖大闸蟹</a></li>
+								<li><a href="#">北京烤鸭</a></li>
+							</ul>
+						</div>
+					</div></li>
+				<!-- End 4 columns Item -->
+				<div class="clear"></div>
+			</ul>
+		</div>
+	</form>
 
 	<div id='contain' style='width:900px;background:rgb(255,255,255);margin:0px auto;padding:0px'>
 	        <div id='content' style='width:900px;height:1117px;background:none transparent scroll repeat 0% 0%;margin:10px auto'>

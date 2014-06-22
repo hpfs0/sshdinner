@@ -22,6 +22,12 @@ public class ShowMoreAction extends ActionSupport {
     private String foodKind;
     private String preferential;
     private String foodPungencyDegree;
+    private String foodNameBar;
+    private double foodPrizeFromBar;
+    private double foodPrizeToBar;
+    private String foodKindBar;
+    private String preferentialBar;
+    private String foodPungencyDegreeBar;
 
     public String getActionType() {
         return actionType;
@@ -87,12 +93,59 @@ public class ShowMoreAction extends ActionSupport {
         this.showMoreFoodlist = showMoreFoodlist;
     }
 
+    public String getFoodNameBar() {
+        return foodNameBar;
+    }
+
+    public void setFoodNameBar(String foodNameBar) {
+        this.foodNameBar = foodNameBar;
+    }
+
+    public String getFoodKindBar() {
+        return foodKindBar;
+    }
+
+    public void setFoodKindBar(String foodKindBar) {
+        this.foodKindBar = foodKindBar;
+    }
+
+    public String getPreferentialBar() {
+        return preferentialBar;
+    }
+
+    public void setPreferentialBar(String preferentialBar) {
+        this.preferentialBar = preferentialBar;
+    }
+
+    public String getFoodPungencyDegreeBar() {
+        return foodPungencyDegreeBar;
+    }
+
+    public void setFoodPungencyDegreeBar(String foodPungencyDegreeBar) {
+        this.foodPungencyDegreeBar = foodPungencyDegreeBar;
+    }
+
+    public double getFoodPrizeFromBar() {
+        return foodPrizeFromBar;
+    }
+
+    public void setFoodPrizeFromBar(double foodPrizeFromBar) {
+        this.foodPrizeFromBar = foodPrizeFromBar;
+    }
+
+    public double getFoodPrizeToBar() {
+        return foodPrizeToBar;
+    }
+
+    public void setFoodPrizeToBar(double foodPrizeToBar) {
+        this.foodPrizeToBar = foodPrizeToBar;
+    }
+
     public String execute() throws Exception {
+        HttpServletRequest req = CommonUtil.getHttpServletRequest();
+        HttpSession sessionRequest = req.getSession();
         if ("select".equals(actionType))
         {
-            HttpServletRequest req = CommonUtil.getHttpServletRequest();
-            HttpSession sessionRequest = req.getSession();
-
             // 把该用户选择的点菜信息存入request中
             sessionRequest.setAttribute("foodName", foodName);
             sessionRequest.setAttribute("foodPrizeFrom", foodPrizeFrom);
@@ -110,6 +163,24 @@ public class ShowMoreAction extends ActionSupport {
             foodDetailForSelectQuery.setFoodPungencyDegree(foodPungencyDegree);
             showMoreFoodlist = new FoodDetailDaoImpl().getAllFoodDetails(foodDetailForSelectQuery);
 
+        }
+        else if ("linkSelect".equals(actionType)) {
+            // 把该用户选择的点菜信息存入request中
+            sessionRequest.setAttribute("foodNameBar", foodNameBar);
+            sessionRequest.setAttribute("foodPrizeFromBar", foodPrizeFromBar);
+            sessionRequest.setAttribute("foodPrizeToBar", foodPrizeToBar);
+            sessionRequest.setAttribute("foodKindBar", foodKindBar);
+            sessionRequest.setAttribute("preferentialBar", preferentialBar);
+            sessionRequest.setAttribute("foodPungencyDegreeBar", foodPungencyDegreeBar);
+
+            FoodDetail foodDetailForSelectQuery = new FoodDetail();
+            foodDetailForSelectQuery.setFoodName(foodNameBar);
+            foodDetailForSelectQuery.setFoodMemberPriceFrom(foodPrizeFromBar);
+            foodDetailForSelectQuery.setFoodMemberPriceTo(foodPrizeToBar);
+            foodDetailForSelectQuery.setPreferentialStatus(preferentialBar);
+            foodDetailForSelectQuery.setFoodCuisineKind(foodKindBar);
+            foodDetailForSelectQuery.setFoodPungencyDegree(foodPungencyDegreeBar);
+            showMoreFoodlist = new FoodDetailDaoImpl().getAllFoodDetails(foodDetailForSelectQuery);
         }
         return SUCCESS;
     }
