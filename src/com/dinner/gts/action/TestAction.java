@@ -10,7 +10,7 @@ public class TestAction  {
     	String orderId = "1234567890";
     	
     	OrderService orderService = new OrderService();
-    	Order order = orderService.getOrderInfoByOrderId(orderId);
+    	Order order = orderService.getServiceOrder(orderId);
     	
     	System.out.println(order.getOrderId());
     	System.out.println(order.getOrderMemberId());

@@ -15,16 +15,23 @@ $(document).ready(function(){
 	$("#showyun").attr("value",$("#nowshowyun")[0].value);
 	$("#showok").attr("value",$("#nowshowok")[0].value);
 
-//	if($("#key")[0].value==""){
-//		$("#key")[0].value="餐品名称/订单号";
-//		$("#key").css({color:'#909090'});
-//		$("#key").click(function(){
-//			if($("#key")[0].value=="餐品名称/订单号"){
-//				$("#key")[0].value="";
-//				$("#key").css({color:'#505050'});
-//			}
-//		});
-//	}
+	if($("#key")[0].value==""){
+		$("#key")[0].value="餐品名称/订单号";
+		$("#key").css({color:'#909090'});
+		$("#key").click(function(){
+			if($("#key")[0].value=="餐品名称/订单号"){
+				$("#key")[0].value="";
+				$("#key").css({color:'#505050'});
+			}
+		});
+	}
 
+	$("#searchbutton").mouseover(function(){
+		if($("#key")[0].value=="餐品名称/订单号"){
+			$("#key")[0].value="";
+			$("#key").css({color:'#505050'});
+		}
+	});
+	
 });
 

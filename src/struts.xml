@@ -32,8 +32,5 @@
 		<action name="More" class="com.dinner.gts.action.ShowMoreAction">
 	        <result name="success">/showMoreFood.jsp</result>
 	    </action>
-	    <action name="orderSearch" class="com.dinner.gts.action.OrderSearchAction" method="getOrderInfo">
-	        <result name="success">/order.jsp</result>
-	    </action>
 	</package>
 </struts>
