@@ -103,6 +103,9 @@ CREATE TABLE `mt_order` (
   KEY `orderid` (`ORDER_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- 一条测试数据
+INSERT INTO mt_order VALUES ('1234567890', 1, '123', 123.59, "2014/5/13 21:43:23", "2014/5/13 21:43:23", 0);
+
 -- ----------------------------
 -- Table structure for mt_order_detail
 -- ----------------------------

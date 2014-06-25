@@ -2,6 +2,7 @@
     pageEncoding="GBK"%>
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <%@ include file='header.jsp' %>
+
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -15,7 +16,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link href="css/G.css" rel="stylesheet" type="text/css" />
 	<link href="css/order.css" rel="stylesheet" type="text/css" />
 	<script type="text/javascript" src="js/order.js"></script>
-    <script language="javascript" src="js/Date/WdatePicker.js"></script>
 </head>
 
 <body style='background:transparent'>
@@ -134,21 +134,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             <table width="100%" border="0" cellpadding="5" cellspacing="1" class="ordersearch">
                                 <tr>
                                     <td>
-                                        <form action="" method="get" name="ordersearch" id="ordersearch">
+                                        <form action="orderSearch.action" method="get" name="getOrderInfo" id="ordersearch">
                                             &nbsp;
-                                            <input name="startday" type="text" class="input" id="startday" style="cursor:pointer" onClick="WdatePicker()" value="2011-06-29" size="10" readonly/>-
-                                            <input name="endday" type="text" class="input" id="endday" style="cursor:pointer" onClick="WdatePicker()" value="2011-07-06" size="10" readonly/>
-                                            <select name="showyun" id="showyun">
+                                            <input name="orderDateFrom" type="text" class="input" id="orderDateFrom" value="2011-06-29" size="10"/>-
+                                            <input name="orderDateTo" type="text" class="input" id="orderDateTo" value="2016-07-06" size="10"/>
+                                            <select name="deliveryState" id="deliveryState">
                                                 <option value="all">配送状态</option>
                                                 <option value="0">未配送</option>
                                                 <option value="1">已配送</option>
                                             </select>
-                                            <select name="showok" id="showok">
+                                            <select name="processState" id="processState">
+                                                <option value="all">处理状态</option>
                                                 <option value="0">处理中订单</option>
                                                 <option value="1">已完成订单</option>
                                             </select>
                                             <input name="key" type="text" class="input" id="key" value="" size="15">
-                                            <input name="imageField" id="searchbutton" type="image" src="images/search5.gif" border="0">
+                                            <input name="imageField" id="searchbutton" type="submit" value="检索">
                                             <input type="hidden" id="nowshowpay" value="">
                                             <input type="hidden" id="nowshowyun" value="all">
                                             <input type="hidden" id="nowshowok" value="0">
@@ -166,8 +167,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                     <td width="35" class="biaoti">完成</td>
                                     <td width="35" height="26" class="biaoti">详情</td>
                                 </tr>
-
-
+                                <s:iterator value="orderList">
+	                                <tr>
+	                                    <td><s:property value="orderId"></s:property></td>
+	                                    <td>商品摘要</td>
+	                                    <td><s:property value="orderPrice"></s:property></td>
+	                                    <td><s:property value="updateTime"></s:property></td>
+	                                    <td>配送</td>
+	                                    <td>完成</td>
+	                                    <td><a href="#">详情</a></td>
+	                                </tr>
+	                           </s:iterator>
                             </table>
                             <div id="showpages">
                                 <div id="pagesinfo">共0条 每页10条 页次：1/1</div>
