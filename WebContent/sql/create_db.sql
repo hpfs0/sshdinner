@@ -4,7 +4,7 @@ Navicat MySQL Data Transfer
 Source Server         : MYDB
 Source Server Version : 50701
 Source Host           : localhost:3306
-Source Database       : test
+Source Database       : test2222
 
 Target Server Type    : MYSQL
 Target Server Version : 50701
@@ -15,9 +15,9 @@ Date: 2013-12-12 22:46:58
 
 SET FOREIGN_KEY_CHECKS=0;
 SET CHARACTER SET UTF8;
-DROP DATABASE IF EXISTS TEST;
-CREATE DATABASE TEST DEFAULT CHARACTER SET UTF8;
-USE TEST;
+DROP DATABASE IF EXISTS test2222;
+CREATE DATABASE test2222 DEFAULT CHARACTER SET UTF8;
+USE test2222;
 
 -- ----------------------------
 -- Table structure for mt_fixed_package
