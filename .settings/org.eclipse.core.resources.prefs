@@ -1,5 +1,9 @@
 eclipse.preferences.version=1
+encoding//WebContent/css=GBK
+encoding//WebContent/css/accordion.css=GBK
 encoding//WebContent/css/common.css=GBK
 encoding//WebContent/css/datepicker.css=GBK
+encoding//WebContent/css/dingcanall.css=GBK
+encoding//WebContent/css/dingcanche.css=GBK
 encoding//WebContent/doc/\u8BF4\u660E.txt=GBK
 encoding/<project>=UTF-8

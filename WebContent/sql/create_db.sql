@@ -179,3 +179,18 @@ CREATE TABLE MT_NOTE(
 	PRIMARY KEY (NOTE_ID)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- ----------------------------
+-- Table structure for tt_shop_box
+-- ----------------------------
+DROP TABLE IF EXISTS `tt_shop_box`;
+CREATE TABLE `tt_shop_box` (
+  `BOX_ID` varchar(10) NOT NULL COMMENT '购物车ID',
+  `MEMBER_ID` varchar(10) NOT NULL COMMENT '会员ID',
+  `FOOD_ID` varchar(10) NOT NULL COMMENT '菜品ID',
+  `BUY_COUNT` int(8) NOT NULL COMMENT '购买数量',
+  `BOX_STAUTS` tinyint(4) NOT NULL DEFAULT '0' COMMENT '购物车状态',
+  `REGIST_TIME` datetime DEFAULT NULL COMMENT '注册时间',
+  `UPDATE_TIME` datetime DEFAULT NULL COMMENT '更新时间',
+  `DELETE_FLG` tinyint(4) DEFAULT '0' COMMENT '活动区分'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
