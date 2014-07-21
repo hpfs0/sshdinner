@@ -4,6 +4,9 @@ import java.util.List;
 
 import com.dinner.gts.model.Feedback;
 
+/**
+ * @author yangdw
+ */
 public interface FeedbackDao {
 
     /**

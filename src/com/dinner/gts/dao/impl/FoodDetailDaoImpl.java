@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.dinner.gts.dao;
+package com.dinner.gts.dao.impl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +12,9 @@ import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
 
+import com.dinner.gts.common.CommonConst;
 import com.dinner.gts.common.CommonUtil;
+import com.dinner.gts.dao.FoodDetailDao;
 import com.dinner.gts.model.FoodDetail;
 
 /**
@@ -33,7 +35,7 @@ public class FoodDetailDaoImpl implements FoodDetailDao {
         Criteria criteria = detachedCrit.getExecutableCriteria(session);
         if (null != foodDetailForSelectQuery.getFoodName()
                 && foodDetailForSelectQuery.getFoodName().trim().length() > 0 &&
-                !foodDetailForSelectQuery.getFoodName().trim().equals("关键词")) {
+                !foodDetailForSelectQuery.getFoodName().trim().equals(CommonConst.COMMON_KEYWORD)) {
             detachedCrit.add(Restrictions.like("foodName", foodDetailForSelectQuery.getFoodName()
                     .trim(), MatchMode.ANYWHERE));
         }

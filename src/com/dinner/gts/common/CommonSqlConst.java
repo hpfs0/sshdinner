@@ -53,4 +53,7 @@ public interface CommonSqlConst {
 
     /****************************** 订单表 ******************************/
     public static final String COMMON_SQL_016 = "SELECT ORDER_ID, ORDER_TYPE,ORDER_MEMBER_ID,ORDER_PRICE,REGIST_TIME,UPDATE_TIME, DELETE_FLG FROM MT_ORDER WHERE ORDER_ID = ?";
+
+    /****************************** 购物车表 ******************************/
+    public static final String COMMON_SQL_017 = "SELECT MEMBER_ID, FOOD_ID, BUY_COUNT FROM TT_SHOP_BOX WHERE BOX_ID = ? AND MEMBER_ID = ? AND BOX_STAUTS = 1 AND TO_DAYS(NOW()) - TO_DAYS(UPDATE_TIME) <= 7 AND DELETE_FLG = ?";
 }

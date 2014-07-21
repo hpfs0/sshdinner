@@ -1,5 +1,8 @@
 package com.dinner.gts.common;
 
+/**
+ * @author yangdw
+ */
 public class CommonStringUtil {
 
     /**

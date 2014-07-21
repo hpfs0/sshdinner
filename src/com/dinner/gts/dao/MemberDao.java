@@ -4,6 +4,9 @@ import java.util.List;
 
 import com.dinner.gts.model.Member;
 
+/**
+ * @author yangdw
+ */
 public interface MemberDao {
 
     /**

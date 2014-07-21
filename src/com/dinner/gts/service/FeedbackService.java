@@ -3,9 +3,12 @@ package com.dinner.gts.service;
 import java.util.List;
 
 import com.dinner.gts.dao.FeedbackDao;
-import com.dinner.gts.dao.FeedbackDaoImpl;
+import com.dinner.gts.dao.impl.FeedbackDaoImpl;
 import com.dinner.gts.model.Feedback;
 
+/**
+ * @author yangdw
+ */
 public class FeedbackService {
 
     private FeedbackDao dao = new FeedbackDaoImpl();

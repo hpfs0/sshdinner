@@ -7,10 +7,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import com.dinner.gts.common.CommonUtil;
-import com.dinner.gts.dao.FoodDetailDaoImpl;
+import com.dinner.gts.dao.impl.FoodDetailDaoImpl;
 import com.dinner.gts.model.FoodDetail;
 import com.opensymphony.xwork2.ActionSupport;
 
+/**
+ * @author yux
+ */
 @SuppressWarnings("serial")
 public class ShowMoreAction extends ActionSupport {
 

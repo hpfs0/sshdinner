@@ -18,6 +18,9 @@ import com.dinner.gts.service.MemberService;
 import com.dinner.gts.service.MessageService;
 import com.opensymphony.xwork2.ActionSupport;
 
+/**
+ * @author yangdw
+ */
 public class RegisterAction extends ActionSupport {
 
     /**

@@ -4,6 +4,9 @@ import java.util.List;
 
 import com.dinner.gts.model.Note;
 
+/**
+ * @author gaof
+ */
 public interface NoteDao {
 
     /**
@@ -12,12 +15,13 @@ public interface NoteDao {
      * @param note 留言信息
      * @return insert操作成功与否
      */
-	public boolean putNote(Note note);
-	
-	/**
-	 * 取得Note表中信息
-	 * @param currentPage 当前页码
-	 * @return note记录
-	 */
-	public List<Note> getNote();
+    public boolean putNote(Note note);
+
+    /**
+     * 取得Note表中信息
+     * 
+     * @param currentPage 当前页码
+     * @return note记录
+     */
+    public List<Note> getNote();
 }

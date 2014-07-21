@@ -1,5 +1,8 @@
 package com.dinner.gts.common;
 
+/**
+ * @author yangdw
+ */
 public interface CommonConst {
 
     /** 共通ID种类:会员ID */
@@ -101,5 +104,8 @@ public interface CommonConst {
 
     /** NG:数据检索失败 */
     public static final String COMMON_SELECTEDRESULT_NG = "NG";
+
+    /** 菜品提示 */
+    public static final String COMMON_KEYWORD = "关键词";
 
 }

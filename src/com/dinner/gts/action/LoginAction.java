@@ -18,6 +18,9 @@ import com.dinner.gts.model.Member;
 import com.dinner.gts.service.MemberService;
 import com.opensymphony.xwork2.ActionSupport;
 
+/**
+ * @author yux
+ */
 public class LoginAction extends ActionSupport {
 
     // 是否登录成功

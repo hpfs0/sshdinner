@@ -4,6 +4,9 @@ import java.util.List;
 
 import com.dinner.gts.model.FoodDetail;
 
+/**
+ * @author yux
+ */
 public interface FoodDetailDao {
 
     /**

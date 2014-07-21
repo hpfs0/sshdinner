@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.dinner.gts.model">
+    
+    <class name="ShopBox" table="TT_SHOP_BOX">
+        <id name="boxId" column="BOX_ID">
+            <generator class="assigned" />
+        </id>
+        <property name="memberId" column="MEMBER_ID"/>
+        <property name="foodId" column="FOOD_ID"/>
+        <property name="buyCount" column="BUY_COUNT"/>
+        <property name="boxStauts" column="BOX_STAUTS"/>
+        <property name="registTime" column="REGIST_TIME"/>
+        <property name="updateTime" column="UPDATE_TIME"/>
+        <property name="deleteFlg" column="DELETE_FLG"/>
+    </class>
+    
+</hibernate-mapping>

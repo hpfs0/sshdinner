@@ -11,6 +11,9 @@ import com.dinner.gts.model.Feedback;
 import com.dinner.gts.service.FeedbackService;
 import com.opensymphony.xwork2.ActionSupport;
 
+/**
+ * @author yangdw
+ */
 public class FeedbackAction extends ActionSupport {
 
     /**

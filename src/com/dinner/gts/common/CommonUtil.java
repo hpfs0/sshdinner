@@ -13,6 +13,9 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
 
+/**
+ * @author yangdw
+ */
 public class CommonUtil {
 
     /**
@@ -95,8 +98,8 @@ public class CommonUtil {
                 break;
             // 留言ID
             case CommonConst.COMMON_ID_NOTE:
-            	sql = CommonSqlConst.COMMON_SQL_013;
-            	break;
+                sql = CommonSqlConst.COMMON_SQL_013;
+                break;
         }
 
         query = session.createSQLQuery(sql);

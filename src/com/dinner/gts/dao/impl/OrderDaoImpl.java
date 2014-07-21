@@ -1,4 +1,4 @@
-package com.dinner.gts.dao;
+package com.dinner.gts.dao.impl;
 
 import java.beans.Transient;
 
@@ -7,6 +7,7 @@ import org.hibernate.Session;
 
 import com.dinner.gts.common.CommonSqlConst;
 import com.dinner.gts.common.CommonUtil;
+import com.dinner.gts.dao.OrderDao;
 import com.dinner.gts.model.Order;
 
 public class OrderDaoImpl implements OrderDao {

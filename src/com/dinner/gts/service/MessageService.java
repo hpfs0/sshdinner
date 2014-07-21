@@ -3,9 +3,12 @@ package com.dinner.gts.service;
 import java.util.List;
 
 import com.dinner.gts.dao.MessageDao;
-import com.dinner.gts.dao.MessageDaoImpl;
+import com.dinner.gts.dao.impl.MessageDaoImpl;
 import com.dinner.gts.model.Message;
 
+/**
+ * @author yangdw
+ */
 public class MessageService {
 
     private MessageDao dao = new MessageDaoImpl();

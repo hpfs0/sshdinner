@@ -1,4 +1,4 @@
-package com.dinner.gts.dao;
+package com.dinner.gts.dao.impl;
 
 import java.beans.Transient;
 import java.util.List;
@@ -10,8 +10,12 @@ import org.hibernate.Transaction;
 
 import com.dinner.gts.common.CommonSqlConst;
 import com.dinner.gts.common.CommonUtil;
+import com.dinner.gts.dao.MemberDao;
 import com.dinner.gts.model.Member;
 
+/**
+ * @author yangdw
+ */
 public class MemeberDaoImpl implements MemberDao {
 
     // Session初始化

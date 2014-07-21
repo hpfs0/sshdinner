@@ -3,9 +3,12 @@ package com.dinner.gts.service;
 import java.util.List;
 
 import com.dinner.gts.dao.MemberDao;
-import com.dinner.gts.dao.MemeberDaoImpl;
+import com.dinner.gts.dao.impl.MemeberDaoImpl;
 import com.dinner.gts.model.Member;
 
+/**
+ * @author yangdw
+ */
 public class MemberService {
 
     private MemberDao dao = new MemeberDaoImpl();

@@ -8,6 +8,9 @@ import com.dinner.gts.common.CommonConst;
 import com.dinner.gts.model.Member;
 import com.dinner.gts.service.MemberService;
 
+/**
+ * @author yux
+ */
 public class SessionCounter implements HttpSessionListener {
 
     /** 会员服务类 */
