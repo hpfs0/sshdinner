@@ -480,7 +480,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 	</form>
 
-	<div id='contain' style='width:900px;background:rgb(255,255,255);margin:0px auto;padding:0px'>
+	<div id='contain' style='width:900px;background:rgb(255,255,255);margin:0px 0px 0px 240px;padding:0px'>
 	        <div id='content' style='width:900px;height:1117px;background:none transparent scroll repeat 0% 0%;margin:10px auto'>
 	            <!-- 当前位置提示条 -->
 	            <div id='pdv_3534' class='pdv_class' title='当前位置' style='width:650px;height:30px;top:0px;left:0px; z-index:8'>
@@ -540,6 +540,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<td><b>菜品菜系：</b></td>
 								<td>
 									<select style="width: 100px;" id="foodKind" name="foodKind">
+										<option value="0" <s:if test="foodKind==0">selected="selected"</s:if>>不限</option>
 										<option value="1" <s:if test="foodKind==1">selected="selected"</s:if>>鲁菜</option>
 										<option value="2" <s:if test="foodKind==2">selected="selected"</s:if>>川菜</option>
 										<option value="3" <s:if test="foodKind==3">selected="selected"</s:if>>粤菜</option>
@@ -549,18 +550,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 										<option value="7" <s:if test="foodKind==7">selected="selected"</s:if>>湘菜</option>
 										<option value="8" <s:if test="foodKind==8">selected="selected"</s:if>>徽菜</option>
 										<option value="9" <s:if test="foodKind==9">selected="selected"</s:if>>其他</option>
-										<option value="0" <s:if test="foodKind==0">selected="selected"</s:if>>西洋菜</option>
+										<option value="10"<s:if test="foodKind==10">selected="selected"</s:if>>西洋菜</option>
 									</select>
 								</td>
 								<td>&nbsp;</td>
 								<td><b>菜品辣度：</b></td>
 								<td colspan="2">
 									<select style="width: 100px;" id="foodPungencyDegree" name="foodPungencyDegree">
-										<option value="0" <s:if test="foodPungencyDegree==0">selected="selected"</s:if>>不辣</option>
-										<option value="1" <s:if test="foodPungencyDegree==1">selected="selected"</s:if>>微辣</option>
-										<option value="2" <s:if test="foodPungencyDegree==2">selected="selected"</s:if>>辣</option>
-										<option value="3" <s:if test="foodPungencyDegree==3">selected="selected"</s:if>>很辣</option>
-										<option value="4" <s:if test="foodPungencyDegree==4">selected="selected"</s:if>>变态辣</option>
+										<option value="0" <s:if test="foodPungencyDegree==0">selected="selected"</s:if>>不限</option>
+										<option value="1" <s:if test="foodPungencyDegree==1">selected="selected"</s:if>>不辣</option>
+										<option value="2" <s:if test="foodPungencyDegree==2">selected="selected"</s:if>>微辣</option>
+										<option value="3" <s:if test="foodPungencyDegree==3">selected="selected"</s:if>>辣</option>
+										<option value="4" <s:if test="foodPungencyDegree==4">selected="selected"</s:if>>很辣</option>
+										<option value="5" <s:if test="foodPungencyDegree==5">selected="selected"</s:if>>变态辣</option>
 									</select>
 								</td>									
 							</tr>
@@ -609,7 +611,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	            </div>
 	        </div>
         <div id='bottom' style='width:900px;height:173px;background:none transparent scroll repeat 0% 0%'>
-
 
             <!-- 底部菜单（一级） -->
 
