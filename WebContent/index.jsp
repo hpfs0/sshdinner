@@ -192,6 +192,7 @@ $(document).ready(function($){
 													</tr>
 												</thead>
 												<tbody id="dcinfo" style="margin: 0px 3px 1px 3px;">
+												    <!--  
 													<tr id="F000000002">
 														<td>
 															<div style="float: left; padding-left: 20px;">干锅牛蛙</div>
@@ -219,36 +220,9 @@ $(document).ready(function($){
 															</div>
 														</td>
 													</tr>
+													-->
 												</tbody>
 											</table>
-											<!--  <div
-												style="height: 13px; background: #f6f6f6; margin: 0px 3px 1px 3px;">
-												<div style="float: left; padding-left: 40px;">名称</div>
-												<div style="float: right; padding-right: 3px;">取消</div>
-												<div style="float: right; padding-right: 38px;">份数</div>
-												<div style="float: right; padding-right: 28px;">单价</div>
-											</div>
-
-											<div id="dcinfo" style="margin: 0px 3px 1px 3px;">
-												<div id="F000000002">
-													<div style="float: left; padding-left: 40px;">干锅牛蛙</div>
-													<div style="float: right; padding-right: 10px;">
-														<a id="F000000002_DEL" onclick="changeCount(this.id)" style="text-decoration: none; cursor:pointer; ">×</a>
-													</div>
-													<div style="float: right; margin-right: 30px;">
-														<input type="button" id="F000000002_ADD"
-															onclick="changeCount(this.id)" value="+"
-															style="text-align: center; float: right; width: 14px" />
-														<input type="text" id="F000000002_COUNT"
-															style="float: right; width: 16px" value="1" maxlength="2" />
-														<input type="button" id="F000000002_SUBTRACT"
-															onclick="changeCount(this.id)" value="-"
-															style="text-align: center; float: right; width: 14px" />
-													</div>
-													<div style="float: right; padding-right: 23px;">88</div>
-												</div>
-											</div>
-											-->
 
 											<div style="height: 24px; margin: 5px 3px 1px 3px;">
 												<div
@@ -613,11 +587,11 @@ $(document).ready(function($){
 																	</tr>
 																	<tr>
 																		<td><span>市场价格:</span></td>
-																		<td><span>测试文字</span></td>
+																		<td><span>100</span></td>
 																	</tr>
 																	<tr>
 																		<td><span>会员价格:</span></td>
-																		<td><span><strong style="color: red;">测试文字</strong></span>
+																		<td><span><strong style="color: red;">100</strong></span>
 																		</td>
 																	</tr>
 																	<tr>
@@ -649,11 +623,11 @@ $(document).ready(function($){
 																	</tr>
 																	<tr>
 																		<td><span>市场价格:</span></td>
-																		<td><span>测试文字</span></td>
+																		<td><span>100</span></td>
 																	</tr>
 																	<tr>
 																		<td><span>会员价格:</span></td>
-																		<td><span><strong style="color: red;">测试文字</strong></span>
+																		<td><span><strong style="color: red;">80</strong></span>
 																		</td>
 																	</tr>
 																	<tr>
@@ -687,11 +661,11 @@ $(document).ready(function($){
 																	</tr>
 																	<tr>
 																		<td><span>市场价格:</span></td>
-																		<td><span>测试文字</span></td>
+																		<td><span>100</span></td>
 																	</tr>
 																	<tr>
 																		<td><span>会员价格:</span></td>
-																		<td><span><strong style="color: red;">测试文字</strong></span>
+																		<td><span><strong style="color: red;">80</strong></span>
 																		</td>
 																	</tr>
 																	<tr>
@@ -723,11 +697,11 @@ $(document).ready(function($){
 																	</tr>
 																	<tr>
 																		<td><span>市场价格:</span></td>
-																		<td><span>测试文字</span></td>
+																		<td><span>100</span></td>
 																	</tr>
 																	<tr>
 																		<td><span>会员价格:</span></td>
-																		<td><span><strong style="color: red;">测试文字</strong></span>
+																		<td><span><strong style="color: red;">80</strong></span>
 																		</td>
 																	</tr>
 																	<tr>

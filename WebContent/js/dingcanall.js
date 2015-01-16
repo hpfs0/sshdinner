@@ -278,12 +278,14 @@ $(document).ready(function(){
 		var dinnerId = "";
 		var $tag1 = $("#mm_01");
 		if($tag1.css("display") == "block" ){
-			dinnerName = $(this).parent().prev().prev().children().html();
+			var temp = $(this).parents("div.slider-description");
+			dinnerName = temp.find("font").text();
 			dinnerPrice = $(this).parent().prev().val();
-			dinnerId = $(this).parent().prev().prev().prev().val();
+			dinnerId = temp.children("input:first").val();
 		}else{
-			dinnerName = $(this).parent().parent().prev().prev().prev().prev().prev().children().next().next().children().children().html();
-			dinnerPrice = $(this).parent().parent().prev().prev().prev().children().next().children().children().html();
+			dinnerName = $(this).parents("table:first").find("strong:first").text();
+			// 非会员
+			dinnerPrice = $(this).parents("table:first").find("span:eq(3)").text();
 			dinnerId = $(this).next().val();
 		}
 		
@@ -326,14 +328,52 @@ $(document).ready(function(){
 				var hasDinnerId = "#"+dinnerId;
                 if($(hasDinnerId).length == 0){
                     $dcinfo.append(appendHtml);
+                    orderWithDivMov(true);
+                    setAllNums();
                 }else{
                     changeCount(dinnerId+"_ADD");
                 }
             });
         });
-        
 	});
 });
+
+// 修复订餐导致边框不对齐
+function orderWithDivMov(addFlg){
+	if(addFlg){
+		// 显示不正确部分下移
+        var pdv3603Top = $("#pdv_3603").css("top");
+        var pdv3613Top = $("#pdv_3613").css("top");
+        var bottomMagrginTop = $("#bottom").css("margin-top");
+        
+        $("#pdv_3603").css("top", parseInt(pdv3603Top.substring(0,pdv3603Top.indexOf("px"))) + 19 + "px");
+        $("#pdv_3613").css("top", parseInt(pdv3613Top.substring(0,pdv3613Top.indexOf("px"))) + 19 + "px");
+        if(bottomMagrginTop == "0"){
+        	$("#bottom").css("margin-top", "19px");
+        } else {
+        	$("#bottom").css("margin-top", parseInt(bottomMagrginTop.substring(0,bottomMagrginTop.indexOf("px"))) + 19 + "px");
+        }
+	}else{
+		// 显示不正确部分上移
+		var pdv3603Top = $("#pdv_3603").css("top");
+        var pdv3613Top = $("#pdv_3613").css("top");
+        var bottomMagrginTop = $("#bottom").css("margin-top");
+        
+        $("#pdv_3603").css("top", (parseInt(pdv3603Top.substring(0,pdv3603Top.indexOf("px"))) - 19) + "px");
+        $("#pdv_3613").css("top", (parseInt(pdv3613Top.substring(0,pdv3613Top.indexOf("px"))) - 19) + "px");
+        $("#bottom").css("margin-top", (parseInt(bottomMagrginTop.substring(0,bottomMagrginTop.indexOf("px"))) - 19) + "px");
+	}
+}
+
+// 结算总数
+function setAllNums(){
+	var result = 0;
+	var goods = $("#dcinfo tr");
+	for(var i = 0; i < goods.length; i++){
+		result += parseInt($(goods[i]).find("input:eq(1)").val());
+	}
+	$("#allnums").text(result + "");
+}
 
 // “+”和"-"和"×"功能实现
 function changeCount(id){
@@ -345,20 +385,26 @@ function changeCount(id){
 		if(info[1] == "ADD"){
 			if(parseInt($selectedGoodCount.val())<99){
 			    $selectedGoodCount.val((parseInt($selectedGoodCount.val()) + 1));
+			    setAllNums();
 			}else{
 				$selectedGoodCount.val(99);
 			}
 		}else if(info[1] == "SUBTRACT"){
 			if(parseInt($selectedGoodCount.val())>1){
 			    $selectedGoodCount.val((parseInt($selectedGoodCount.val()) - 1));
+			    setAllNums();
 			}else{
 				$selectedGoodCount.val(1);
 			}
+			setAllNums();
 		}else if(info[1] == "DEL"){
 			$(selectedGood).fadeOut("slow", function (){
 			    $(this).remove();
+			    orderWithDivMov(false);
+			    setAllNums();
 			});
 		}
+		
 	}
 }
 
