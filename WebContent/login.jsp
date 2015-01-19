@@ -13,7 +13,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>会员登录-网上快餐店</title>
 	<!-- <link href="../member/templates/css/memberlogin_c.css" rel="stylesheet" type="text/css" /> -->
-	<script type="text/javascript" src="js/jquery-1.7.2.js"></script>
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="js/jquery.toastmessage.js"></script>
     <link href="js/resource/css/jquery.toastmessage.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="poshytip-1.2/src/tip-yellow/tip-yellow.css" type="text/css" />

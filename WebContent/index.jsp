@@ -19,8 +19,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link href="css/dingcantimeinfo.css" rel="stylesheet" type="text/css">
 <link href="css/accordion.css" rel="stylesheet" type="text/css">
 <link href="css/lof-slider.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
 <script type="text/javascript" src="js/dingcanall.js"></script>
 <script type="text/javascript" src="js/lof-slider.js"></script>
 <!-- the mousewheel plugin -->

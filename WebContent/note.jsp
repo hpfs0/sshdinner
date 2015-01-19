@@ -15,7 +15,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link href="css/guestbookquery.css" rel="stylesheet" type="text/css" />
 	<link href="css/guestbookform.css" rel="stylesheet" type="text/css" />
 	<script type="text/javascript" src="js/guestbook.js"></script>
-	<script type="text/javascript" src="js/jquery-1.7.2.js"></script>
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="js/jquery.toastmessage.js"></script>
     <link href="js/resource/css/jquery.toastmessage.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="poshytip-1.2/src/tip-yellow/tip-yellow.css" type="text/css" />

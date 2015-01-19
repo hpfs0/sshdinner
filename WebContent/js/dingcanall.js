@@ -66,71 +66,6 @@ function changeCat(ty,catid,n,k){
 	
 }
 
-
-//首页的餐品展示与订购
-$(document).ready(function(){
-
-	var picw=$('#picw')[0].value;
-	var pich=$('#pich')[0].value;
-	var fittype=$('#fittype')[0].value;
-	
-	$.ajax({
-		type: "POST",
-		url:PDV_RP+"dingcan/module/DingCanAllZx.php?myrp="+PDV_RP+"&picw="+picw+"&pich="+pich+"&fittype="+fittype,
-		data: "act=dingcanall_zx",
-		success: function(msg){
-			
-			var msg_arr=msg.split("::");
-			
-			if(msg_arr[0]=="OK"){
-				$('#mm_01').html(msg_arr[1]);
-				$().setBg();
-			}else{
-				$().alertwindow(msg,"");
-			}
-					
-		}
-	});
-	
-	$.ajax({
-		type: "POST",
-		url:PDV_RP+"dingcan/module/DingCanAllGd.php?myrp="+PDV_RP+"&picw="+picw+"&pich="+pich+"&fittype="+fittype,
-		data: "act=dingcanall_gd",
-		success: function(msg){
-			
-			var msg_arr=msg.split("::");
-			
-			if(msg_arr[0]=="OK"){
-				$('#mm_02').html(msg_arr[1]);
-				$().setBg();
-			}else{
-				$().alertwindow(msg,"");
-			}
-					
-		}
-	});
-	
-	$.ajax({
-		type: "POST",
-		url:PDV_RP+"dingcan/module/DingCanAllZh.php?myrp="+PDV_RP,
-		data: "act=dingcanall_zh",
-		success: function(msg){
-			
-			var msg_arr=msg.split("::");
-			
-			if(msg_arr[0]=="OK"){
-				$('#mm_03').html(msg_arr[1]);
-				$().setBg();
-			}else{
-				$().alertwindow(msg,"");
-			}
-					
-		}
-	});
-			
-});
-
-
 //首页的餐品展示与订购--组合套餐选择改变后，其价格积分信息实时跟随变动
 function changeZhInfo(selzh){
 
@@ -265,77 +200,126 @@ function checkSelNumsAll(dg){
 	
 }
 
-
+// 解决重复加载
+var loaded = false;
 //首页的餐品展示与订购--加入购物车
 $(document).ready(function(){
-	var $clickedImg = $(".clickimg");
-	$clickedImg.unbind("click").click(function(){
-		// 获取菜品名称
-		var dinnerName = "";
-		// 获取菜品单价
-		var dinnerPrice = 0;
-		// 获取菜品ID
-		var dinnerId = "";
-		var $tag1 = $("#mm_01");
-		if($tag1.css("display") == "block" ){
-			var temp = $(this).parents("div.slider-description");
-			dinnerName = temp.find("font").text();
-			dinnerPrice = $(this).parent().prev().val();
-			dinnerId = temp.children("input:first").val();
-		}else{
-			dinnerName = $(this).parents("table:first").find("strong:first").text();
-			// 非会员
-			dinnerPrice = $(this).parents("table:first").find("span:eq(3)").text();
-			dinnerId = $(this).next().val();
+	if(!loaded){
+		loaded = true;
+		
+		if($.cookie("GOODSINFO")){
+			// 加载cookie
+			var goodsCookie = JSON.parse($.cookie("GOODSINFO"));
+			// 向餐车中加入订购的菜品
+		    var $dcinfo = $("#dcinfo");
+			if(goodsCookie){
+				for(var i=0; i< goodsCookie.GoodInfo.length; i++){
+					// 构建加入元素的html字符串
+					var appendHtml = "<tr id='"
+						+ goodsCookie.GoodInfo[i].goodId
+						+ "'><td><div style='float: left; padding-left: 20px;'>"
+						+ decodeURIComponent(goodsCookie.GoodInfo[i].goodName)
+						+ "</div></td>"
+						+ "<td><div style='float: right; padding-right: 23px;'>"
+						+ goodsCookie.GoodInfo[i].goodUnitPrice
+						+ "</div></td>"
+						+ "<td><div style='float: right; margin-right: 30px;'><input type='button' id='"
+						+ goodsCookie.GoodInfo[i].goodId
+						+ "_ADD' onclick='changeCount(this.id)' value='+' style='text-align: center; float: right; width: 14px' />"
+						+ "<input type='text' id='"
+						+ goodsCookie.GoodInfo[i].goodId
+						+ "_COUNT' style='float: right; width: 16px' value='" +
+						+ goodsCookie.GoodInfo[i].goodCnt
+						+ "' maxlength='2' /><input type='button' id='"
+						+ goodsCookie.GoodInfo[i].goodId
+						+ "_SUBTRACT' onclick='changeCount(this.id)' value='-' style='text-align: center; float: right; width: 14px' /></div></td>"
+						+ "<td><div style='float: right; padding-right: 10px;'><a id='"
+						+ goodsCookie.GoodInfo[i].goodId
+						+ "_DEL' onclick='changeCount(this.id)' style='text-decoration: none; cursor:pointer; '>×</a></div></td>";
+					$dcinfo.append(appendHtml);
+				}
+				orderWithDivMov(true);
+				setAllNumsAndPrice();
+			}
 		}
 		
-		var b = $(this).offset();
-        g = $("#pdv_3614").offset();
-        g.top += $("#pdv_3614").height() / 2;
-        var flyEffectTxt = $('<div class="flyEffect" style="z-index:99">' + dinnerName + "</div>");
-        flyEffectTxt.offset(b);
-        flyEffectTxt.appendTo("body").animate({
-            left: g.left + 20 + "px",
-            top: g.top + 20 + "px",
-            opacity: 1
-        }, function () {
-            $(this).animate({
-                opacity: 0
-            }, function () {
-                $(this).remove();
-                // 向餐车中加入订购的菜品
-                var $dcinfo = $("#dcinfo");
-				// 构建加入元素的html字符串
-				var appendHtml = "<tr id='"
-					+ dinnerId
-					+ "'><td><div style='float: left; padding-left: 20px;'>"
-					+ dinnerName
-					+ "</div></td>"
-					+ "<td><div style='float: right; padding-right: 23px;'>"
-					+ dinnerPrice
-					+ "</div></td>"
-					+ "<td><div style='float: right; margin-right: 30px;'><input type='button' id='"
-					+ dinnerId
-					+ "_ADD' onclick='changeCount(this.id)' value='+' style='text-align: center; float: right; width: 14px' />"
-					+ "<input type='text' id='"
-					+ dinnerId
-					+ "_COUNT' style='float: right; width: 16px' value='1' maxlength='2' /><input type='button' id='"
-					+ dinnerId
-					+ "_SUBTRACT' onclick='changeCount(this.id)' value='-' style='text-align: center; float: right; width: 14px' /></div></td>"
-					+ "<td><div style='float: right; padding-right: 10px;'><a id='"
-					+ dinnerId
-					+ "_DEL' onclick='changeCount(this.id)' style='text-decoration: none; cursor:pointer; '>×</a></div></td>";
-				var hasDinnerId = "#"+dinnerId;
-                if($(hasDinnerId).length == 0){
-                    $dcinfo.append(appendHtml);
-                    orderWithDivMov(true);
-                    setAllNums();
-                }else{
-                    changeCount(dinnerId+"_ADD");
-                }
-            });
-        });
-	});
+		// 结算总数监听
+		$("#dcinfo input:eq(1)").focusout(function(){
+			setAllNumsAndPrice();
+			setGoosInfoCookie();
+		});
+		
+		// 加入购物车
+		var $clickedImg = $(".clickimg");
+		$clickedImg.unbind("click").click(function(){
+			// 获取菜品名称
+			var dinnerName = "";
+			// 获取菜品单价
+			var dinnerPrice = 0;
+			// 获取菜品ID
+			var dinnerId = "";
+			var $tag1 = $("#mm_01");
+			if($tag1.css("display") == "block" ){
+				var temp = $(this).parents("div.slider-description");
+				dinnerName = temp.find("font").text();
+				dinnerPrice = $(this).parent().prev().val();
+				dinnerId = temp.children("input:first").val();
+			}else{
+				dinnerName = $(this).parents("table:first").find("strong:first").text();
+				// 非会员
+				dinnerPrice = $(this).parents("table:first").find("span:eq(3)").text();
+				dinnerId = $(this).next().val();
+			}
+			
+			var b = $(this).offset();
+	        g = $("#pdv_3614").offset();
+	        g.top += $("#pdv_3614").height() / 2;
+	        var flyEffectTxt = $('<div class="flyEffect" style="z-index:99">' + dinnerName + "</div>");
+	        flyEffectTxt.offset(b);
+	        flyEffectTxt.appendTo("body").animate({
+	            left: g.left + 20 + "px",
+	            top: g.top + 20 + "px",
+	            opacity: 1
+	        }, function () {
+	            $(this).animate({
+	                opacity: 0
+	            }, function () {
+	                $(this).remove();
+	                // 向餐车中加入订购的菜品
+	                var $dcinfo = $("#dcinfo");
+					// 构建加入元素的html字符串
+					var appendHtml = "<tr id='"
+						+ dinnerId
+						+ "'><td><div style='float: left; padding-left: 20px;'>"
+						+ dinnerName
+						+ "</div></td>"
+						+ "<td><div style='float: right; padding-right: 23px;'>"
+						+ dinnerPrice
+						+ "</div></td>"
+						+ "<td><div style='float: right; margin-right: 30px;'><input type='button' id='"
+						+ dinnerId
+						+ "_ADD' onclick='changeCount(this.id)' value='+' style='text-align: center; float: right; width: 14px' />"
+						+ "<input type='text' id='"
+						+ dinnerId
+						+ "_COUNT' style='float: right; width: 16px' value='1' maxlength='2' /><input type='button' id='"
+						+ dinnerId
+						+ "_SUBTRACT' onclick='changeCount(this.id)' value='-' style='text-align: center; float: right; width: 14px' /></div></td>"
+						+ "<td><div style='float: right; padding-right: 10px;'><a id='"
+						+ dinnerId
+						+ "_DEL' onclick='changeCount(this.id)' style='text-decoration: none; cursor:pointer; '>×</a></div></td>";
+					var hasDinnerId = "#"+dinnerId;
+	                if($(hasDinnerId).length == 0){
+	                    $dcinfo.append(appendHtml);
+	                    orderWithDivMov(true);
+	                }else{
+	                    changeCount(dinnerId+"_ADD");
+	                }
+	                setAllNumsAndPrice();
+	    			setGoosInfoCookie();
+	            });
+	        });
+		});
+	}
 });
 
 // 修复订餐导致边框不对齐
@@ -365,14 +349,40 @@ function orderWithDivMov(addFlg){
 	}
 }
 
-// 结算总数
-function setAllNums(){
-	var result = 0;
+// 设置购物车cookie
+function setGoosInfoCookie(){
+	var goodsCookie = {};
+	var goodsArray = new Array();
 	var goods = $("#dcinfo tr");
 	for(var i = 0; i < goods.length; i++){
-		result += parseInt($(goods[i]).find("input:eq(1)").val());
+		var goodId = $(goods[i]).attr("id");
+		var goodCnt = parseInt($(goods[i]).find("input:eq(1)").val());
+		var goodName = $(goods[i]).find("div:eq(0)").text();
+		var goodUnitPrice = parseInt($(goods[i]).find("div:eq(1)").text());
+		var item = {"goodId":goodId,"goodCnt":goodCnt,"goodName":encodeURIComponent(goodName),"goodUnitPrice":goodUnitPrice};
+		goodsArray.push(item);
 	}
-	$("#allnums").text(result + "");
+	goodsCookie.GoodInfo = goodsArray;
+	if(goods.length == 0){
+		$.removeCookie('GOODSINFO');
+	}else{
+		$.cookie('GOODSINFO', JSON.stringify(goodsCookie), { expires: 7 });
+	}
+}
+
+// 结算总数和金额
+function setAllNumsAndPrice(){
+	var allNums = 0;
+	var cpprice = 0;
+	var goods = $("#dcinfo tr");
+	for(var i = 0; i < goods.length; i++){
+		var goodCnt = parseInt($(goods[i]).find("input:eq(1)").val());
+		var goodUnitPrice = parseInt($(goods[i]).find("div:eq(1)").text());
+		allNums += goodCnt;
+		cpprice += goodCnt*goodUnitPrice;
+	}
+	$("#allnums").text(allNums + "");
+	$("#cpprice").text(cpprice + "");
 }
 
 // “+”和"-"和"×"功能实现
@@ -385,14 +395,16 @@ function changeCount(id){
 		if(info[1] == "ADD"){
 			if(parseInt($selectedGoodCount.val())<99){
 			    $selectedGoodCount.val((parseInt($selectedGoodCount.val()) + 1));
-			    setAllNums();
+			    setAllNumsAndPrice();
+                setGoosInfoCookie();
 			}else{
 				$selectedGoodCount.val(99);
 			}
 		}else if(info[1] == "SUBTRACT"){
 			if(parseInt($selectedGoodCount.val())>1){
 			    $selectedGoodCount.val((parseInt($selectedGoodCount.val()) - 1));
-			    setAllNums();
+			    setAllNumsAndPrice();
+                setGoosInfoCookie();
 			}else{
 				$selectedGoodCount.val(1);
 			}
@@ -400,262 +412,18 @@ function changeCount(id){
 		}else if(info[1] == "DEL"){
 			$(selectedGood).fadeOut("slow", function (){
 			    $(this).remove();
+			    setAllNumsAndPrice();
+                setGoosInfoCookie();
 			    orderWithDivMov(false);
-			    setAllNums();
 			});
 		}
 		
 	}
 }
 
-function addCart(dg){
-//	var imgid=dg.id;
-//	var imgid_arr=imgid.split("_");
-//	var goodstype=imgid_arr[0];  //当前餐品类型：diy,tc zh
-//	var gid=imgid_arr[1];  //当前餐品ID
-//	var perprice=imgid_arr[2];  //当前餐品单价
-//	var nowallnums=$("#allnums").html();  //餐车中的餐品总数量
-//	var nowcpprice=$("#cpprice").html();  //餐车中的餐品总价
-//	var div_id_strold="div_"+goodstype+"_"+gid;
-//	
-//	if(goodstype!="zh"){
-//		var snid=goodstype+"_"+gid+"_sn";
-//		var nums=$("#"+snid)[0].value;  //当前餐品所选数量
-//	}else{
-//		var nums=1;
-//		var memo=$("#zhmemo")[0].value;
-//	}
-//
-//	var cpd=$(".cpline_d").length;
-//	var cps=$(".cpline_s").length;
-//	
-//	var ifhave_cpd="";
-//	var ifhave_cps="";
-//	
-//	for(var i=0; i<cpd; i++){
-//		var div_id_stri=$(".cpline_d")[i].id;
-//		if(goodstype!="zh" && div_id_stri==div_id_strold){
-//			ifhave_cpd="yes";
-//		}
-//	}
-//	
-//	for(var k=0; k<cps; k++){
-//		var div_id_strk=$(".cpline_s")[k].id;
-//		if(goodstype!="zh" && div_id_strk==div_id_strold){
-//			ifhave_cps="yes";
-//		}
-//	}
-//
-//	if(ifhave_cpd=="yes" || ifhave_cps=="yes"){
-//	
-//		var nowcpnums=$("input#cpnums_"+goodstype+"_"+gid)[0].value;
-//		$("input#cpnums_"+goodstype+"_"+gid)[0].value=parseFloat(nowcpnums)+parseFloat(nums);
-//		$("#allnums").html(parseFloat(nowallnums)+parseFloat(nums));
-//		$("#cpprice").html(parseFloat(nowcpprice)+(parseFloat(perprice)*parseFloat(nums)));
-//		
-//		//写入cookie
-//		$.ajax({
-//			type: "POST",
-//			url:PDV_RP+"setcookie.php",
-//			data: "act=setcookie&cookietype=add&cookiename=DINGCANCART&goodstype="+goodstype+"&gid="+gid+"&nums="+nums+"&fz=",
-//			success: function(msg){
-//				if(msg=="OK"){
-//					//window.location=PDV_RP+'shop/cart.php';
-//				}else if(msg=="1000"){
-//					alert("订购数量错误");
-//				}else{
-//					alert(msg);
-//				}
-//			}
-//		});
-//		
-//	}else{
-//	
-//		$.ajax({
-//			type: "POST",
-//			url:PDV_RP+"dingcan/post.php?goodstype="+goodstype+"&gid="+gid+"&nums="+nums,
-//			data: "act=addcart",
-//			success: function(msg){
-//				
-//				eval(msg);
-//				
-//				if(M.O=="OK"){
-//					$('div#dcinfo').append(M.S);
-//					$("#allnums").html(parseFloat(nowallnums)+parseFloat(nums));
-//					$("#cpprice").html(parseFloat(nowcpprice)+(parseFloat(perprice)*parseFloat(nums)));
-//					$().setBg();
-//					$("div.cpline_d:even").addClass("cpline_s");
-//					
-//					//写入cookie
-//					var fz=$("#zhmemo")[0].value;
-//					$.ajax({
-//						type: "POST",
-//						url:PDV_RP+"setcookie.php",
-//						data: "act=setcookie&cookietype=add&cookiename=DINGCANCART&goodstype="+goodstype+"&gid="+gid+"&nums="+nums+"&fz="+fz,
-//						success: function(msg){
-//							if(msg=="OK"){
-//								//window.location=PDV_RP+'shop/cart.php';
-//							}else if(msg=="1000"){
-//								alert("订购数量错误");
-//							}else{
-//								alert(msg);
-//							}
-//						}
-//					});
-//					
-//				}else{
-//					//$().alertwindow(M.S,"");
-//					alert(M.S);
-//				}
-//						
-//			}
-//		});
-//	
-//	}
-	
-}
-
-
-//首页的餐品展示与订购--清空购物车
-function delAll(){
-	$('div.cpline_d').remove();
-	$('div.cpline_s').remove();
-	
-	$("#allnums").html("0");
-	$("#cpprice").html("0");
-	
-	$().setBg();
-	
-	//清除cookie
-	$.ajax({
-		type: "POST",
-		url:PDV_RP+"setcookie.php",
-		data: "act=setcookie&cookietype=empty&cookiename=DINGCANCART",
-		success: function(msg){
-			if(msg=="OK"){
-				//window.location=PDV_RP+'shop/cart.php';
-			}else if(msg=="1000"){
-				alert("订购数量错误");
-			}else{
-				alert(msg);
-			}
-		}
-	});
-}
-
-//首页的餐品展示与订购--删除当前的所选餐品
-function delOne(did, perprice){
-
-	var nowallnums=$("#allnums").html();  //餐车中的餐品总数量
-	var nowcpprice=$("#cpprice").html();  //餐车中的餐品总价
-	
-	var did_arr=did.split("_");
-	var goodstype=did_arr[1];
-	var gid=did_arr[2];
-	var delnumsid="cpnums_"+goodstype+"_"+did_arr[2];
-	var delnums=$("#"+delnumsid)[0].value;  //删除所选餐品后，需减去的相应份数
-	var delprice=perprice*delnums; //删除所选餐品后，需减去的相应金额
-	
-	$("#allnums").html(parseFloat(nowallnums)-parseFloat(delnums));
-	$("#cpprice").html(parseFloat(nowcpprice)-parseFloat(delprice));
-	
-	if($("#allnums").html()<="0"){$("#allnums").html("0");}
-	if($("#cpprice").html()<="0"){$("#cpprice").html("0");}
-	
-	$('div#'+did).remove();
-	$("div.cpline_s").removeClass("cpline_s");
-	$("div.cpline_d:even").addClass("cpline_s");
-	
-	$().setBg();
-	
-	//删除相应的cookie
-	$.ajax({
-		type: "POST",
-		url:PDV_RP+"setcookie.php",
-		data: "act=setcookie&cookietype=del&cookiename=DINGCANCART&goodstype="+goodstype+"&gid="+gid+"&nums="+delnums+"&fz=",
-		success: function(msg){
-			if(msg=="OK"){
-				//window.location=PDV_RP+'shop/cart.php';
-			}else if(msg=="1000"){
-				alert("订购数量错误");
-			}else{
-				alert(msg);
-			}
-		}
-	});
-	
-}
-
-
 //首页的餐品展示与订购--修改餐品份数时，先记录当前的份数
 function giveModNums(cn){
 	$("#modnums_b")[0].value=cn.value;
-}
-
-
-//首页的餐品展示与订购--修改餐品份数，并更新相应的餐品总份数和总价
-function modNums(cn, perprice){
-	
-	var nowallnums=$("#allnums").html();  //餐车中的餐品总数量
-	var nowcpprice=$("#cpprice").html();  //餐车中的餐品总价
-	
-	var modnums_b=$("#modnums_b")[0].value;  //修改前的份数
-	var modnums_a=cn.value;  //修改后的份数
-	var modprice_b=perprice*modnums_b;  //修改前，当前餐品的总价
-	var modprice_a=perprice*modnums_a;  //修改后，当前餐品的总价
-	
-	var cnid=cn.id;
-	var cnid_arr=cnid.split("_");
-	var goodstype=cnid_arr[1];
-	var gid=cnid_arr[2];
-	
-	//判断所输入的份数值是否为正整数
-	var r1= /^[0-9]*[1-9][0-9]*$/;
-	if(!r1.test(modnums_a)){
-		alert("订购数量错误");
-		cn.value=modnums_b;
-		return false;
-	}
-	
-	if(modnums_a>0){
-		//判断单个餐品的库存量
-		$.ajax({
-			type: "POST",
-			url:PDV_RP+"dingcan/post.php",
-			data: "act=checkKucunDan&goodstype="+goodstype+"&gid="+gid+"&modnums="+modnums_a,
-			success: function(msg){
-				if(msg=="OK"){
-					$("#allnums").html(parseFloat(nowallnums)-parseFloat(modnums_b)+parseFloat(modnums_a));
-					$("#cpprice").html(parseFloat(nowcpprice)-parseFloat(modprice_b)+parseFloat(modprice_a));
-					
-					//修改相应的cookie
-					$.ajax({
-						type: "POST",
-						url:PDV_RP+"setcookie.php",
-						data: "act=setcookie&cookietype=modi&cookiename=DINGCANCART&goodstype="+goodstype+"&gid="+gid+"&nums="+modnums_a+"&fz=",
-						success: function(msg){
-							if(msg=="OK"){
-								//window.location=PDV_RP+'shop/cart.php';
-							}else if(msg=="1000"){
-								alert("订购数量错误");
-							}else{
-								alert(msg);
-							}
-						}
-					});
-				}else{
-					alert(msg);
-					cn.value=modnums_b;
-					return false;
-				}
-			}
-		});
-	}else{
-		alert("对不起，所填数量必须大于0");
-		cn.value=modnums_b;
-		return false;
-	}
-	
 }
 
 
