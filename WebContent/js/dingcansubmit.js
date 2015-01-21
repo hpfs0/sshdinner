@@ -13,7 +13,7 @@ $(document).ready(function() {
 				data: "act=cartsubmit",
 				success: function(msg){
 					if(msg=="OK"){
-						window.location=PDV_RP+'dingcan/startorder.php';
+						window.location='startorder.jsp';
 					}else if(msg=="kongcart"){
 						alert("您的购物车中没有餐品");
 					}else if(msg=="wrongcart"){

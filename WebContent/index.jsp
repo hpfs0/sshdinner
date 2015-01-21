@@ -192,37 +192,7 @@ $(document).ready(function($){
 														</th>
 													</tr>
 												</thead>
-												<tbody id="dcinfo" style="margin: 0px 3px 1px 3px;">
-												    <!--  
-													<tr id="F000000002">
-														<td>
-															<div style="float: left; padding-left: 20px;">干锅牛蛙</div>
-														</td>
-														<td>
-															<div style="float: right; padding-right: 23px;">88</div>
-														</td>
-														<td>
-															<div style="float: right; margin-right: 30px;">
-																<input type="button" id="F000000002_ADD"
-																	onclick="changeCount(this.id)" value="+"
-																	style="text-align: center; float: right; width: 14px" />
-																<input type="text" id="F000000002_COUNT"
-																	style="float: right; width: 16px" value="1"
-																	maxlength="2" />
-																<input type="button"
-																	id="F000000002_SUBTRACT" onclick="changeCount(this.id)"
-																	value="-"
-																	style="text-align: center; float: right; width: 14px" />
-															</div>
-														</td>
-														<td>
-															<div style="float: right; padding-right: 10px;">
-																<a id="F000000002_DEL" onclick="changeCount(this.id)" style="text-decoration: none; cursor:pointer; ">×</a>
-															</div>
-														</td>
-													</tr>
-													-->
-												</tbody>
+												<tbody id="dcinfo" style="margin: 0px 3px 1px 3px;"></tbody>
 											</table>
 
 											<div style="height: 24px; margin: 5px 3px 1px 3px;">
@@ -239,10 +209,9 @@ $(document).ready(function($){
 											</div>
 
 											<div style="height: 26px; margin: 5px 3px 1px 3px;">
-												<div id="cartsubmit"
-													style="float: left; padding-left: 90px; cursor: pointer;">
-													<img src="images/canche_submit.gif" border="0"
-														onClick="window.location='startorder.jsp'" />
+												<div id="cartsubmit" style="float: left; margin-left: 90px; cursor: pointer;">
+													<img  src="images/canche_submit.gif" border="0"
+														/>
 												</div>
 												<div
 													style="float: left; padding-left: 10px; cursor: pointer;"
@@ -250,10 +219,7 @@ $(document).ready(function($){
 													<img src="images/quxiao2.gif" border="0" />
 												</div>
 											</div>
-
-
 										</div>
-
 									</div>
 								</div>
 
@@ -264,9 +230,7 @@ $(document).ready(function($){
 
 								<script>
                                 $("div.cpline_d:even").addClass("cpline_s");
-                            </script>
-
-
+                                </script>
 							</div>
 						</div>
 
@@ -742,11 +706,11 @@ $(document).ready(function($){
 																	</tr>
 																	<tr>
 																		<td><span>市场价格:</span></td>
-																		<td><span>测试文字</span></td>
+																		<td><span>22</span></td>
 																	</tr>
 																	<tr>
 																		<td><span>会员价格:</span></td>
-																		<td><span><strong style="color: red;">测试文字</strong></span>
+																		<td><span><strong style="color: red;">12</strong></span>
 																		</td>
 																	</tr>
 																	<tr>
@@ -778,11 +742,11 @@ $(document).ready(function($){
 																	</tr>
 																	<tr>
 																		<td><span>市场价格:</span></td>
-																		<td><span>测试文字</span></td>
+																		<td><span>33</span></td>
 																	</tr>
 																	<tr>
 																		<td><span>会员价格:</span></td>
-																		<td><span><strong style="color: red;">测试文字</strong></span>
+																		<td><span><strong style="color: red;">25</strong></span>
 																		</td>
 																	</tr>
 																	<tr>
@@ -816,11 +780,11 @@ $(document).ready(function($){
 																	</tr>
 																	<tr>
 																		<td><span>市场价格:</span></td>
-																		<td><span>测试文字</span></td>
+																		<td><span>55</span></td>
 																	</tr>
 																	<tr>
 																		<td><span>会员价格:</span></td>
-																		<td><span><strong style="color: red;">测试文字</strong></span>
+																		<td><span><strong style="color: red;">40</strong></span>
 																		</td>
 																	</tr>
 																	<tr>
@@ -852,11 +816,11 @@ $(document).ready(function($){
 																	</tr>
 																	<tr>
 																		<td><span>市场价格:</span></td>
-																		<td><span>测试文字</span></td>
+																		<td><span>36</span></td>
 																	</tr>
 																	<tr>
 																		<td><span>会员价格:</span></td>
-																		<td><span><strong style="color: red;">测试文字</strong></span>
+																		<td><span><strong style="color: red;">24</strong></span>
 																		</td>
 																	</tr>
 																	<tr>
@@ -889,8 +853,6 @@ $(document).ready(function($){
 								<input type="hidden" name="picw" id="picw" value="150" /> <input
 									type="hidden" name="pich" id="pich" value="140" /> <input
 									type="hidden" name="fittype" id="fittype" value="auto" />
-
-
 							</div>
 						</div>
 

@@ -23,6 +23,9 @@ public interface CommonSqlConst {
     /** SQL:留言ID获取 */
     public static final String COMMON_SQL_013 = "SELECT IFNULL(CONCAT('NT',LPAD((REPLACE(MAX(NOTE_ID),'NT','0') + 1),8,'0')),'NT00000001') AS ID FROM MT_NOTE";
 
+    /** SQL:公告ID获取 */
+    public static final String COMMON_SQL_019 = "SELECT IFNULL(CONCAT('N',LPAD((REPLACE(MAX(FEEDBACK_ID),'N','0') + 1),9,'0')),'N000000001') AS ID FROM TT_NOTICE";
+
     /****************************** MEMBER表 ******************************/
     /** SQL:会员信息获取 */
     public static final String COMMON_SQL_006 = "SELECT MEMBER_ID,MEMBER_LOGIN_ID,MEMBER_LOGIN_PW,MEMBER_NICK_NAME,MEMBER_MAIL,MEMBER_REGISTER_IP,MEMBER_LOGIN_MACADDRESS,MEMBER_LOGIN_COUNT,MEMBER_REAL_NAME,MEMBER_TYPE,MEMBER_QQ,MEMBER_BALANCE,MEMBER_POINTS,MEMBER_TEL,MEMBER_PHONE,MEMBER_COMPANY,REGIST_TIME,UPDATE_TIME,DELETE_FLG,LOGIN_STATUS FROM MT_MEMBER";
@@ -56,4 +59,6 @@ public interface CommonSqlConst {
 
     /****************************** 购物车表 ******************************/
     public static final String COMMON_SQL_017 = "SELECT MEMBER_ID, FOOD_ID, BUY_COUNT FROM TT_SHOP_BOX WHERE BOX_ID = ? AND MEMBER_ID = ? AND BOX_STAUTS = 1 AND TO_DAYS(NOW()) - TO_DAYS(UPDATE_TIME) <= 7 AND DELETE_FLG = ?";
+    /****************************** 公告板表 ******************************/
+    public static final String COMMON_SQL_018 = "SELECT NOTICE_ID, NOTICE_HEAD， NOTICE_CONTENT， REGIST_TIME， UPDATE_TIME FROM TT_NOTICE";
 }

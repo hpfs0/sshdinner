@@ -50,7 +50,7 @@
         </div>
 
         <!-- 二级导航菜单 -->
-        <div id='pdv_3605' class='pdv_class' style='width:898px;height:41px;top:65px;left:0px; z-index:6'>
+        <div id='pdv_3605' class='pdv_class' style='width:990px;height:41px;top:65px;left:0px; z-index:6'>
             <div id='spdv_3605' class='pdv_top' style='overflow:hidden;width:100%;height:100%'>
                 <div class="pdv_border" style="margin:0;padding:0;height:100%;border:0px  solid;background:;">
                     <div style="height:25px;margin:1px;display:none;background:;">

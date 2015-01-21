@@ -11,115 +11,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>订餐指南-网上快餐店</title>
-	<link href="css/pagetitlemenu_b2.css" rel="stylesheet" type="text/css" />
-	<link href="css/nav.css" rel="stylesheet" type="text/css" />
-	<link href="css/pagecontent.css" rel="stylesheet" type="text/css" />
+    <title>网站公告-网上快餐店</title>
+	<link href="css/ordersearchform.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="js/ordersearch.js"></script>
 </head>
 
 <body style='background:transparent'>
     <script>
-        var PDV_PAGEID = '129';
+        var PDV_PAGEID = '299';
         var PDV_RP = '../../';
-        var PDV_COLTYPE = 'page';
-        var PDV_PAGENAME = 'html';
+        var PDV_COLTYPE = 'dingcan';
+        var PDV_PAGENAME = 'query';
     </script>
 
     <div id='contain' style='width:900px;background:rgb(255,255,255);margin:0px auto;padding:0px'>
-        <div id='content' style='width:900px;height:302px;background:none transparent scroll repeat 0% 0%;margin:10px auto'>
-            <!-- 网页标题(菜单) -->
-            <div id='pdv_2639' class='pdv_class' title='栏目导航' style='width:245px;height:300px;top:0px;left:0px; z-index:2'>
-                <div id='spdv_2639' class='pdv_content' style='overflow:hidden;width:100%;height:100%'>
-                    <div class="pdv_border" style="border:0px;height:100%;padding:0;margin:0;background:url(images/left.jpg) repeat-y">
-                        <div style="height:100%;background:url(images/right.jpg) right repeat-y">
-                            <div style="height:43px;background:url(images/bg.jpg) 0px 0px no-repeat">
-                                <div style="float:left;font:bold 16px/43px 'Microsoft YaHei','SimSun',Arial,Sans-Serif;text-align:left;padding-left:50px;color:#feab43;">
-                                    栏目导航
-                                </div>
-                                <div style="float:right;width:60px;height:43px;text-align:right;background:url(images/bg.jpg) -840px 0px no-repeat">
-                                    <a href="-1" style="font:12px/43px simsun;color:#505050;margin-right:12px;display:none">更多&gt;&gt;</a>
-                                </div>
-                            </div>
-                            <div style="margin:0px 3px;padding:5px;">
-                                <div class="titlemenu_b2">
+        <div id='content' style='width:900px;height:332px;background:none transparent scroll repeat 0% 0%;margin:10px auto'>
 
-                                    <a href="onwe.jsp" target="_self" class="titlemenu_b2">关于我们</a>
-
-                                    <a href="orderhelp.jsp" target="_self" class="titlemenu_b2">订餐指南</a>
-
-                                    <a href="carryshow.jsp" target="_self" class="titlemenu_b2">配送说明</a>
-
-                                    <a href="linkman.jsp" target="_self" class="titlemenu_b2">联系方式</a>
-
-                                    <a href="admin/advise.jsp" target="_self" class="titlemenu_b2">投诉建议</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div style="margin-top:-10px;height:10px;line-height:10px;background:url(images/bg.jpg) 0px -220px no-repeat">&nbsp;</div>
-                    <div style="float:right;margin-top:-10px;width:10px;height:10px;line-height:10px;background:url(images/bg.jpg) -890px -220px no-repeat">&nbsp;</div>
-
-                </div>
-            </div>
-
-            <!-- 当前位置提示条 -->
-            <div id='pdv_3223' class='pdv_class' title='当前位置' style='width:650px;height:30px;top:0px;left:250px; z-index:8'>
-                <div id='spdv_3223' class='pdv_content' style='overflow:hidden;width:100%;height:100%'>
+            <!-- 网站公告 -->
+            <div id='pdv_3575' class='pdv_class' title='网站公告' style='width:682px;height:auto;top:12px;left:109px; z-index:8'>
+                <div id='spdv_3575' class='pdv_content' style='overflow:visible;width:100%;'>
                     <div class="pdv_border" style="margin:0;padding:0;height:100%;border:0px #dddddd solid;background:#fff;">
-                        <div style="height:25px;margin:1px;display:none;background:#cccccc;">
-                            <div style="float:left;margin-left:12px;line-height:25px;font-weight:bold;color:#fff">
-                                当前位置
-                            </div>
-                            <div style="float:right;margin-right:10px;display:none">
-                                <a href="-1" style="line-height:25px;color:#fff">更多</a>
-                            </div>
-                        </div>
-                        <div style="padding:5px">
-                            <div id="nav">
-                                您现在的位置：<a href="../../">网上快餐店</a> &gt;店铺详情
-
-                            </div>
-
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- 网页内容详情 -->
-            <div id='pdv_3806' class='pdv_class' title='' style='width:650px;height:240px;top:30px;left:250px; z-index:10'>
-                <div id='spdv_3806' class='pdv_content' style='overflow:visible;width:100%;'>
-                    <div class="pdv_border" style="margin:0;padding:0;height:100%;border:0px  solid;background:;">
-                        <div style="height:25px;margin:1px;display:none;background:;">
-                            <div style="float:left;margin-left:12px;line-height:25px;font-weight:bold;color:">
-
-                            </div>
-                            <div style="float:right;margin-right:10px;display:none">
-                                <a href="-1" style="line-height:25px;color:">更多</a>
-                            </div>
-                        </div>
-                        <div style="padding:10px">
-                            <div id='pagecontent' class='page_content'>
-                                &nbsp;&nbsp;&nbsp; 店铺详情
-                                <br />
-                                <br />
-                            </div>
-                            <script>
-                                $(document).ready(function () {
-                                    $("#pagecontent").find("img").hide();
-                                    var w = $("#pagecontent")[0].offsetWidth;
-                                    $("#pagecontent").find("img").each(function () {
-                                        $(this).show();
-                                        if (this.offsetWidth > w) {
-                                            this.style.width = w + "px";
-                                            $().setBg();
-                                        }
-                                    });
-
-                                });
-                            </script>
-
-                        </div>
+                        <div id="contentHeader" style="text-align:center"><h2>测试公告标题</h2></div>
+                        <div id="contentBody">测试网站公告内容测试网站公告内容测试网站公告内容测试网站公告内容测试网</div>
                     </div>
 
                 </div>
@@ -129,8 +42,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 
             <!-- 底部菜单（一级） -->
-            <div id='pdv_3433' class='pdv_class' style='width:900px;height:35px;top:0px;left:0px; z-index:4'>
-                <div id='spdv_3433' class='pdv_bottom' style='overflow:hidden;width:100%;height:100%'>
+
+            <div id='pdv_3454' class='pdv_class' style='width:900px;height:35px;top:0px;left:0px; z-index:2'>
+                <div id='spdv_3454' class='pdv_bottom' style='overflow:hidden;width:100%;height:100%'>
                     <div class="pdv_border" style="margin:0;padding:0;height:100%;border:0px  solid;background:;">
                         <div style="height:25px;margin:1px;display:none;background:;">
                             <div style="float:left;margin-left:12px;line-height:25px;font-weight:bold;color:">
@@ -146,7 +60,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                 <a href="orderhelp.jsp" target="_self">订餐指南</a>|
                                 <a href="carryshow.jsp" target="_self">配送说明</a>|
                                 <a href="linkman.jsp" target="_self">联系方式</a>|
-                                <a href="advise.jsp" target="_self">投诉建议</a>|
+                                <a href="advise.jsp" target="_self">投诉建议</a>
                             </div>
                         </div>
                     </div>
@@ -154,8 +68,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </div>
 
             <!-- 文字友情链接 -->
-            <div id='pdv_3430' class='pdv_class' title='' style='width:900px;height:30px;top:35px;left:0px; z-index:6'>
-                <div id='spdv_3430' class='pdv_bottom' style='overflow:hidden;width:100%;height:100%'>
+
+            <div id='pdv_3451' class='pdv_class' title='' style='width:900px;height:30px;top:35px;left:0px; z-index:5'>
+                <div id='spdv_3451' class='pdv_bottom' style='overflow:hidden;width:100%;height:100%'>
                     <div class="pdv_border" style="margin:0;padding:0;height:100%;border:0px  solid;background:;">
                         <div style="height:25px;margin:1px;display:none;background:;">
                             <div style="float:left;margin-left:12px;line-height:25px;font-weight:bold;color:">
@@ -221,9 +136,34 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 </div>
             </div>
 
+            <!-- 图片/FLASH -->
+
+            <div id='pdv_3453' class='pdv_class' title='' style='width:123px;height:40px;top:105px;left:656px; z-index:6'>
+                <div id='spdv_3453' class='pdv_bottom' style='overflow:hidden;width:100%;height:100%'>
+                    <div class="pdv_border" style="margin:0;padding:0;height:100%;border:0px  solid;background:;">
+                        <div style="height:25px;margin:1px;display:none;background:;">
+                            <div style="float:left;margin-left:12px;line-height:25px;font-weight:bold;color:">
+
+                            </div>
+                            <div style="float:right;margin-right:10px;display:none">
+                                <a href="-1" style="line-height:25px;color:">更多</a>
+                            </div>
+                        </div>
+                        <div style="padding:0px">
+
+
+                            <img src="images/1253157163.jpg" border="0" width="100%" />
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
             <!-- 底部信息编辑区 -->
-            <div id='pdv_3429' class='pdv_class' title='脚注信息' style='width:898px;height:106px;top:65px;left:0px; z-index:7'>
-                <div id='spdv_3429' class='pdv_bottom' style='overflow:hidden;width:100%;height:100%'>
+
+            <div id='pdv_3450' class='pdv_class' title='脚注信息' style='width:898px;height:106px;top:65px;left:0px; z-index:7'>
+                <div id='spdv_3450' class='pdv_bottom' style='overflow:hidden;width:100%;height:100%'>
                     <div class="pdv_border" style="margin:0;padding:0;height:100%;border:0px  solid;background:;">
                         <div style="height:25px;margin:1px;display:none;background:;">
                             <div style="float:left;margin-left:12px;line-height:25px;font-weight:bold;color:">
@@ -238,30 +178,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                 <div style="LINE-HEIGHT: 30px">电话：0573-87654321 售前QQ：241457 45761112 地址：浙江省嘉兴市建国南路1586号 邮编：314000 （商务合作）</div>
                                 <div style="LINE-HEIGHT: 30px">网上快餐店 Copyright(C)2009-2010</div>
                             </div>
-
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- 图片/FLASH -->
-
-            <div id='pdv_3432' class='pdv_class' title='' style='width:123px;height:40px;top:105px;left:656px; z-index:9'>
-                <div id='spdv_3432' class='pdv_bottom' style='overflow:hidden;width:100%;height:100%'>
-                    <div class="pdv_border" style="margin:0;padding:0;height:100%;border:0px  solid;background:;">
-                        <div style="height:25px;margin:1px;display:none;background:;">
-                            <div style="float:left;margin-left:12px;line-height:25px;font-weight:bold;color:">
-
-                            </div>
-                            <div style="float:right;margin-right:10px;display:none">
-                                <a href="-1" style="line-height:25px;color:">更多</a>
-                            </div>
-                        </div>
-                        <div style="padding:0px">
-
-
-                            <img src="images/1253157163.jpg" border="0" width="100%" />
 
                         </div>
                     </div>

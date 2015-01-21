@@ -421,6 +421,16 @@ function changeCount(id){
 	}
 }
 
+// 删除全部已选菜品
+function delAll(){
+	if($("#dcinfo").html() != ""){
+		$("#dcinfo").html("");
+		setAllNumsAndPrice();
+		orderWithDivMov();
+		setGoosInfoCookie();
+	}
+}
+
 //首页的餐品展示与订购--修改餐品份数时，先记录当前的份数
 function giveModNums(cn){
 	$("#modnums_b")[0].value=cn.value;
