@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="GBK"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="/struts-tags" prefix="s"%>
 <%@ include file='header.jsp'%>
 <%
@@ -11,7 +11,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>ÍøÉÏ¿ì²Íµê</title>
+<title>ç½‘ä¸Šå¿«é¤åº—</title>
 <link href="css/dingcanall.css" rel="stylesheet" type="text/css">
 <link href="css/dingcanweekmenu.css" rel="stylesheet" type="text/css">
 <link href="css/newslist_time2.css" rel="stylesheet" type="text/css" />
@@ -61,13 +61,11 @@ $(document).ready(function($){
 		$(this).removeClass("hover");
 	});
 	
-	
-
 });
 </script>
 </head>
 
-<body style='background: transparent' onload="changeBq('01','02','03')">
+<body style='background: transparent'>
 
 	<script>
         var PDV_PAGEID = '1';
@@ -80,8 +78,8 @@ $(document).ready(function($){
 			style='width: 900px; background: rgb(255, 255, 255); margin: 0px auto; padding: 0px'>
 			<div id='content'
 				style='width: 900px; height: 616px; background: none transparent scroll repeat 0% 0%; margin: 10px auto'>
-				<!-- ¶©²ÍÊ±¼äÐÅÏ¢ -->
-				<div id='pdv_3604' class='pdv_class' title='¶©²ÍÊ±¼ä'
+				<!-- è®¢é¤æ—¶é—´ä¿¡æ¯ -->
+				<div id='pdv_3604' class='pdv_class' title='è®¢é¤æ—¶é—´'
 					style='width: 243px; height: 195px; top: 0px; left: 655px; z-index: 1'>
 					<div id='spdv_3604' class='pdv_content'
 						style='overflow: hidden; width: 100%; height: 100%'>
@@ -91,9 +89,9 @@ $(document).ready(function($){
 								style="height: 25px; margin: 1px; display: none; background:;">
 								<div
 									style="float: left; margin-left: 12px; line-height: 25px; font-weight: bold; color:">
-									¶©²ÍÊ±¼ä</div>
+									è®¢é¤æ—¶é—´</div>
 								<div style="float: right; margin-right: 10px; display: none">
-									<a href="-1" style="line-height: 25px; color:">¸ü¶à</a>
+									<a href="-1" style="line-height: 25px; color:">æ›´å¤š</a>
 								</div>
 							</div>
 							<div style="padding: 0px;">
@@ -102,7 +100,7 @@ $(document).ready(function($){
 									<div id="dingcantime2">
 
 										<div id="dingcantime_top">
-											<div id="dingcantime_top_left">¶©²ÍÊ±¼ä</div>
+											<div id="dingcantime_top_left">è®¢é¤æ—¶é—´</div>
 											<div id="dingcantime_top_right">&nbsp;</div>
 										</div>
 
@@ -111,23 +109,23 @@ $(document).ready(function($){
 											<div class="dingcantimeinfo">
 												<div
 													style="height: 24px; font-size: 14px; font-weight: bold;">
-													<font style="color: #ef6906;">Îç²Í£º</font><font
+													<font style="color: #ef6906;">åˆé¤ï¼š</font><font
 														style="color: #404040;">9:00&nbsp;-&nbsp;13:00</font>
 												</div>
 												<div
 													style="height: 24px; font-size: 14px; font-weight: bold;">
-													<font style="color: #ef6906;">Íí²Í£º</font><font
+													<font style="color: #ef6906;">æ™šé¤ï¼š</font><font
 														style="color: #404040;">16:00&nbsp;-&nbsp;19:00</font>
 												</div>
-												<div style="height: 20px; font-size: 12px; color: #e52614;">×¢£ºÖÜÁùÈÕ»òÆäËûÊ±¼äÓÃ²Í£¬ÇëÌáÇ°À´µç</div>
+												<div style="height: 20px; font-size: 12px; color: #e52614;">æ³¨ï¼šå‘¨å…­æ—¥æˆ–å…¶ä»–æ—¶é—´ç”¨é¤ï¼Œè¯·æå‰æ¥ç”µ</div>
 												<div
-													style="height: 24px; font-size: 14px; font-weight: bold; color: #f16906;">µç»°¶©²Í£º4008008818</div>
-												<div style="text-align: center;" title='ÁªÏµÎÒ'>
-													<a title="µã»÷ÕâÀï¸øÎÒ·¢ÏûÏ¢"
+													style="height: 24px; font-size: 14px; font-weight: bold; color: #f16906;">ç”µè¯è®¢é¤ï¼š4008008818</div>
+												<div style="text-align: center;" title='è”ç³»æˆ‘'>
+													<a title="ç‚¹å‡»è¿™é‡Œç»™æˆ‘å‘æ¶ˆæ¯"
 														href="http://wpa.qq.com/msgrd?v=3&amp;uin=84312430&amp;site=qq&amp;menu=yes"
 														target="_blank"><img
 														src="http://wpa.qq.com/pa?p=1:84312430:47"></a> <a
-														title="µã»÷ÕâÀï¸øÎÒ·¢ÏûÏ¢"
+														title="ç‚¹å‡»è¿™é‡Œç»™æˆ‘å‘æ¶ˆæ¯"
 														href="http://wpa.qq.com/msgrd?v=3&amp;uin=389314570&amp;site=qq&amp;menu=yes"
 														target="_blank"><img
 														src="http://wpa.qq.com/pa?p=1:389314570:47"></a>
@@ -143,8 +141,8 @@ $(document).ready(function($){
 					</div>
 				</div>
 
-				<!-- ¶©²Í³µ -->
-				<div id='pdv_3614' class='pdv_class' title='ÎÒµÄ²Í³µ'
+				<!-- è®¢é¤è½¦ -->
+				<div id='pdv_3614' class='pdv_class' title='æˆ‘çš„é¤è½¦'
 					style='width: 243px; height: 123px; top: 180px; left: 655px; z-index: 2'>
 					<div id='spdv_3614' class='pdv_content'
 						style='overflow: visible; width: 100%;'>
@@ -154,9 +152,9 @@ $(document).ready(function($){
 								style="height: 25px; margin: 1px; display: none; background:;">
 								<div
 									style="float: left; margin-left: 12px; line-height: 25px; font-weight: bold; color:">
-									ÎÒµÄ²Í³µ</div>
+									æˆ‘çš„é¤è½¦</div>
 								<div style="float: right; margin-right: 10px; display: none">
-									<a href="-1" style="line-height: 25px; color:">¸ü¶à</a>
+									<a href="-1" style="line-height: 25px; color:">æ›´å¤š</a>
 								</div>
 							</div>
 							<div style="padding: 0px">
@@ -169,7 +167,7 @@ $(document).ready(function($){
 									<div id="dingcanche2">
 
 										<div id="dingcanche_top">
-											<div id="dingcanche_top_left">ÎÒµÄ²Í³µ</div>
+											<div id="dingcanche_top_left">æˆ‘çš„é¤è½¦</div>
 											<div id="dingcanche_top_right">&nbsp;</div>
 										</div>
 
@@ -179,16 +177,16 @@ $(document).ready(function($){
 												<thead style="height: 13px; background: #f6f6f6; margin: 0px 3px 1px 3px;">
 													<tr>
 														<th>
-															<div style="float: left; padding-left: 20px;">Ãû³Æ</div>
+															<div style="float: left; padding-left: 20px;">åç§°</div>
 														</th>
 														<th>
-															<div style="float: right; padding-right: 20px;">µ¥¼Û</div>
+															<div style="float: right; padding-right: 20px;">å•ä»·</div>
 														</th>
 														<th>
-															<div style="float: right; padding-right: 42px;">·ÝÊý</div>
+															<div style="float: right; padding-right: 42px;">ä»½æ•°</div>
 														</th>
 														<th>
-															<div style="float: right; padding-right: 3px;">È¡Ïû</div>
+															<div style="float: right; padding-right: 3px;">å–æ¶ˆ</div>
 														</th>
 													</tr>
 												</thead>
@@ -197,14 +195,14 @@ $(document).ready(function($){
 
 											<div style="height: 24px; margin: 5px 3px 1px 3px;">
 												<div
-													style="float: left; line-height: 24px; padding-left: 25px;">Ð¡&nbsp;&nbsp;¼Æ£º</div>
+													style="float: left; line-height: 24px; padding-left: 25px;">å°&nbsp;&nbsp;è®¡ï¼š</div>
 												<div
 													style="float: right; line-height: 24px; padding-right: 15px;">
-													<font id="allnums" style="color: #ff0000;">0</font>·Ý
+													<font id="allnums" style="color: #ff0000;">0</font>ä»½
 												</div>
 												<div
 													style="float: right; line-height: 24px; padding-right: 30px;">
-													<font id="cpprice" style="color: #ff0000;">0</font>Ôª
+													<font id="cpprice" style="color: #ff0000;">0</font>å…ƒ
 												</div>
 											</div>
 
@@ -237,8 +235,8 @@ $(document).ready(function($){
 					</div>
 				</div>
 
-				<!-- ÎÄÕÂÁÐ±í -->
-				<div id='pdv_3603' class='pdv_class' title='ÍøÕ¾¹«¸æ'
+				<!-- æ–‡ç« åˆ—è¡¨ -->
+				<div id='pdv_3603' class='pdv_class' title='ç½‘ç«™å…¬å‘Š'
 					style='width: 243px; height: 186px; top: 310px; left: 655px; z-index: 3'>
 					<div id='spdv_3603' class='pdv_content'
 						style='overflow: hidden; width: 100%; height: 100%'>
@@ -250,47 +248,48 @@ $(document).ready(function($){
 									style="height: 43px; background: url(images/bg.jpg) 0px 0px no-repeat">
 									<div
 										style="float: left; font: bold 16px/43px 'Microsoft YaHei', 'SimSun', Arial, Sans-Serif; text-align: left; padding-left: 50px; color: #feab43;">
-										ÍøÕ¾¹«¸æ</div>
+										ç½‘ç«™å…¬å‘Š</div>
 									<div
 										style="float: right; width: 60px; height: 43px; text-align: right; background: url(images/bg.jpg) -840px 0px no-repeat">
-										<a href="news/class/"
-											style="font: 12px/43px simsun; color: #505050; margin-right: 12px; display: inline">¸ü¶à&gt;&gt;</a>
+										<a href="notice"
+											style="font: 12px/43px simsun; color: #505050; margin-right: 12px; display: inline">æ›´å¤š&gt;&gt;</a>
 									</div>
 								</div>
 								<div style="margin: 0px 3px; padding: 10px;">
 
 
-									<ul class="newslist_time2">
+									<ul id="noticeList" class="newslist_time2">
 
-										<li class="newslist_time2">
+										<!-- <li class="newslist_time2">
 											<div class="time">09/27</div>
 											<a href="news/html/?297.jsp" target="_self"
-											class="newslist_time2">½ðÇïÀ´ÁÙ£¬²ËÆ·ÔùÆ·´óÉý¼¶</a>
+											class="newslist_time2">é‡‘ç§‹æ¥ä¸´ï¼Œèœå“èµ å“å¤§å‡çº§</a>
 										</li>
 
 										<li class="newslist_time2">
 											<div class="time">09/27</div>
 											<a href="news/html/?296.jsp" target="_self"
-											class="newslist_time2">»ý·Ö»»µçÓ°Æ±£¬½±Æ·´ó±äÑù</a>
+											class="newslist_time2">ç§¯åˆ†æ¢ç”µå½±ç¥¨ï¼Œå¥–å“å¤§å˜æ ·</a>
 										</li>
 
 										<li class="newslist_time2">
 											<div class="time">09/27</div>
 											<a href="news/html/?295.jsp" target="_self"
-											class="newslist_time2">¾«Æ·¸Ç½½·¹ÉÏÊÐà¶</a>
+											class="newslist_time2">ç²¾å“ç›–æµ‡é¥­ä¸Šå¸‚å–½</a>
 										</li>
 
 										<li class="newslist_time2">
 											<div class="time">09/27</div>
 											<a href="news/html/?294.jsp" target="_self"
-											class="newslist_time2">10ÔÂÍÅÌå¶©²ÍÓÅ»Ý»î¶¯¿ªÊ¼</a>
+											class="newslist_time2">10æœˆå›¢ä½“è®¢é¤ä¼˜æƒ æ´»åŠ¨å¼€å§‹</a>
 										</li>
 
 										<li class="newslist_time2">
 											<div class="time">09/27</div>
 											<a href="news/html/?293.jsp" target="_self"
-											class="newslist_time2">´óÅô¼ÓÈëtest</a>
+											class="newslist_time2">å¤§é¹åŠ å…¥test</a>
 										</li>
+										 -->
 
 									</ul>
 
@@ -305,8 +304,8 @@ $(document).ready(function($){
 					</div>
 				</div>
 
-				<!-- ±¾ÖÜ²Ëµ¥ -->
-				<div id='pdv_3613' class='pdv_class' title='±¾ÖÜ²Ëµ¥'
+				<!-- æœ¬å‘¨èœå• -->
+				<div id='pdv_3613' class='pdv_class' title='æœ¬å‘¨èœå•'
 					style='width: 243px; height: 100px; top: 505px; left: 655px; z-index: 5'>
 					<div id='spdv_3613' class='pdv_content'
 						style='overflow: hidden; width: 100%; height: 100%'>
@@ -316,9 +315,9 @@ $(document).ready(function($){
 								style="height: 25px; margin: 1px; display: none; background:;">
 								<div
 									style="float: left; margin-left: 12px; line-height: 25px; font-weight: bold; color:">
-									±¾ÖÜ²Ëµ¥</div>
+									æœ¬å‘¨èœå•</div>
 								<div style="float: right; margin-right: 10px; display: none">
-									<a href="-1" style="line-height: 25px; color:">¸ü¶à</a>
+									<a href="-1" style="line-height: 25px; color:">æ›´å¤š</a>
 								</div>
 							</div>
 							<div style="padding: 0px">
@@ -327,7 +326,7 @@ $(document).ready(function($){
 									<div id="dingcanweekmenu2">
 
 										<div id="dingcanweekmenu_top">
-											<div id="dingcanweekmenu_top_left">±¾ÖÜ²Ëµ¥</div>
+											<div id="dingcanweekmenu_top_left">æœ¬å‘¨èœå•</div>
 											<div id="dingcanweekmenu_top_right">&nbsp;</div>
 										</div>
 
@@ -338,13 +337,13 @@ $(document).ready(function($){
 												<table width="100%" border="0" cellspacing="0"
 													cellpadding="3" height="30" style="background: #fef0d3;">
 													<tr>
-														<td>Ò»</td>
-														<td>¶þ</td>
-														<td>Èý</td>
-														<td>ËÄ</td>
-														<td>Îå</td>
-														<td>Áù</td>
-														<td>ÈÕ</td>
+														<td>ä¸€</td>
+														<td>äºŒ</td>
+														<td>ä¸‰</td>
+														<td>å››</td>
+														<td>äº”</td>
+														<td>å…­</td>
+														<td>æ—¥</td>
 													</tr>
 
 													<tr>
@@ -390,7 +389,7 @@ $(document).ready(function($){
 					</div>
 				</div>
 
-				<!-- ²ÍÆ·Õ¹Ê¾Óë¶©¹º -->
+				<!-- é¤å“å±•ç¤ºä¸Žè®¢è´­ -->
 				<div id='pdv_3606' class='pdv_class' title=''
 					style='width: 648px; height: 1409px; top: 0px; left: 0px; z-index: 12'>
 					<div id='spdv_3606' class='pdv_content'
@@ -403,7 +402,7 @@ $(document).ready(function($){
 									style="float: left; margin-left: 12px; line-height: 25px; font-weight: bold;">
 								</div>
 							</div>
-							<div style="padding: 0px; height: 405px">
+							<div style="padding: 0px; height: 0px">
 
 								<div id="dingcanall">
 									<div id="dingcanall2">
@@ -412,15 +411,10 @@ $(document).ready(function($){
 											<div id="dingcanall_top_left"></div>
 											<div id="dingcanall_top_mid">
 												<div>
-													<div id="tt_01" class="dingcanall_menunow"
-														style="display: block;"
-														onmouseover="changeBq('01','02','03');">×ÔÑ¡¶©²Í</div>
+													<div id="tt_01" class="dingcanall_menu"
+														style="display: block;">è‡ªé€‰è®¢é¤</div>
 													<div id="tt_02" class="dingcanall_menu"
-														style="display: block;"
-														onmouseover="changeBq('02','01','03');">¹Ì¶¨Ì×²Í</div>
-													<div id="tt_03" class="dingcanall_menu"
-														style="display: block;"
-														onmouseover="changeBq('03','02','01');">×éºÏÌ×²Í</div>
+														style="display: block;" onclick="javascript:location = 'more'">æ›´ã€€å¤š</div>
 												</div>
 											</div>
 											<div id="dingcanall_top_right">&nbsp;</div>
@@ -432,78 +426,79 @@ $(document).ready(function($){
 														<div></div>
 													</div>
 													<ul class="sliders-wrap-inner">
-														<li><img src="images/food1.jpg" width="100%" height="350px"
+														<li><img src="images/food1.jpg" width="100%" height="320px"
 															alt="alt" />
 															<div class="slider-description">
 															    <input type="hidden" value="F000000001" />
-																<h2><font color="#000079">ÏãÇÛ³´À°Èâ</font></h2>
-																<!-- µ¥¼Û -->
+																<h2><font color="#000079">é¦™èŠ¹ç‚’è…Šè‚‰</font></h2>
+																<h2><font color="red">ä¼šå‘˜ä»·:Â¥38</font></h2>
+																<!-- å•ä»· -->
 																<input type="hidden" value="38" />
 																<div align="right" style="display:inline">
 																	<img class="clickimg" src="images/cart.png" />
 																</div>
 															</div></li>
-														<li><img src="images/food2.jpg" width="100%" height="350px"
+														<li><img src="images/food2.jpg" width="100%" height="320px"
 															alt="alt" />
 															<div class="slider-description">
 															    <input type="hidden" value="F000000002" />
-																<h2><font color="#000079">¸É¹øÅ£ÍÜ</font></h2>
-																<!-- µ¥¼Û -->
+																<h2><font color="#000079">å¹²é”…ç‰›è›™</font></h2>
+																<!-- å•ä»· -->
 																<input type="hidden" value="88" />
 																<div align="right" style="display:inline">
 																	<img class="clickimg" src="images/cart.png" />
 																</div>
 															</div></li>
-														<li><img src="images/food3.jpg" width="100%" height="350px"
+														<li><img src="images/food3.jpg" width="100%" height="320px"
 															alt="alt" />
 															<div class="slider-description">
 															    <input type="hidden" value="F000000003" />
-																<h2><font color="#000079">½·ÑÎ´óÏº</font></h2>
-																<!-- µ¥¼Û -->
+																<h2><font color="#000079">æ¤’ç›å¤§è™¾</font></h2>
+																<!-- å•ä»· -->
 																<input type="hidden" value="32" />
 																<div align="right" style="display:inline">
 																	<img class="clickimg" src="images/cart.png" />
 																</div>
 															</div></li>
-														<li><img src="images/food4.jpg" width="100%" height="350px"
+														<li><img src="images/food4.jpg" width="100%" height="320px"
 															alt="alt" />
 															<div class="slider-description">
 															    <input type="hidden" value="F000000004" />
-																<h2><font color="#000079">º£°öìÀµ°</font></h2>
-																<!-- µ¥¼Û -->
+																<h2><font color="#000079">æµ·èšŒç‚–è›‹</font></h2>
+																<!-- å•ä»· -->
 																<input type="hidden" value="45" />
 																<div align="right" style="display:inline">
 																	<img class="clickimg" src="images/cart.png" />
 																</div>
 															</div></li>
-														<li><img src="images/food5.jpg" width="100%" height="350px"
+														<li><img src="images/food5.jpg" width="100%" height="320px"
 															alt="alt" />
 															<div class="slider-description">
 															    <input type="hidden" value="F000000005" />
-																<h2><font color="#000079">Çà½·¶ÇÆ¬</font></h2>
-																<!-- µ¥¼Û -->
+																<h2><font color="#000079">é’æ¤’è‚šç‰‡</font></h2>
+																<!-- å•ä»· -->
 																<input type="hidden" value="20" />
 																<div align="right" style="display:inline">
 																	<img class="clickimg" src="images/cart.png" />
 																</div>
 															</div></li>
-														<li><img src="images/food6.jpg" width="100%" height="350px"
+														<li><img src="images/food6.jpg" width="100%" height="320px"
 															alt="alt" />
 															<div class="slider-description">
 															    <input type="hidden" value="F000000006" />
-																<h2><font color="#000079">ÓÍÄ¤ÅÅ¹Ç</font></h2>
-																<!-- µ¥¼Û -->
+																<h2><font color="#000079">æ²¹è†œæŽ’éª¨</font></h2>
+																<!-- å•ä»· -->
 																<input type="hidden" value="35" />
 																<div align="right" style="display:inline">
 																	<img class="clickimg" src="images/cart.png" />
 																</div>
 															</div></li>
-														<li><img src="images/food7.jpg" width="100%" height="350px"
+														<li><img src="images/food7.jpg" width="100%" height="320px"
 															alt="alt" />
 															<div class="slider-description">
 															    <input type="hidden" value="F000000007" />
-																<h2><font color="blue">Ë®ÖóÓã</font></h2>
-																<!-- µ¥¼Û -->
+																<h2><font color="blue">æ°´ç…®é±¼</font></h2>
+																<!-- å•ä»· -->
 																<input type="hidden" value="29" />
 																<div align="right" style="display:inline">
 																	<img class="clickimg" src="images/cart.png" />
@@ -530,320 +525,12 @@ $(document).ready(function($){
 																	alt="alt" /></li>
 															</ul>
 														</div>
-														<div class="button-next">ÏÂÒ»ÕÅ</div>
-														<div class="button-previous">ÉÏÒ»ÕÅ</div>
+														<div class="button-next">ä¸‹ä¸€å¼ </div>
+														<div class="button-previous">ä¸Šä¸€å¼ </div>
 													</div>
 
 												</div>
 											</div>
-
-											<div id="mm_02" class="dingcanall_con">
-												<table>
-													<tr>
-														<td>
-															<div>
-																<table>
-																	<tr>
-																		<td rowspan="5" class="bookPic"><img
-																			src="images/food30.jpg"
-																			style="border: 1px solid #300;" /></td>
-																		<td><span>²ËÃû:</span></td>
-																		<td><span><strong>²âÊÔÎÄ×Ö</strong></span></td>
-																	</tr>
-																	<tr>
-																		<td><span>ÊÐ³¡¼Û¸ñ:</span></td>
-																		<td><span>100</span></td>
-																	</tr>
-																	<tr>
-																		<td><span>»áÔ±¼Û¸ñ:</span></td>
-																		<td><span><strong style="color: red;">100</strong></span>
-																		</td>
-																	</tr>
-																	<tr>
-																		<td><span>ÖÆ×öËµÃ÷:</span></td>
-																		<td><span>²âÊÔÎÄ×Ö</span></td>
-																	</tr>
-																	<tr>
-																		<td><span>²ËÆ·ÀàÐÍ:</span></td>
-																		<td><span>²âÊÔÎÄ×Ö</span></td>
-																	</tr>
-																	<tr>
-																		<td colspan="2" style="height: 40px;">
-																			<img class="clickimg" src="images/cart.png" />
-																			<input type="hidden" value="F000000021" />
-																		</td>
-																	</tr>
-																</table>
-															</div>
-														</td>
-														<td>
-															<div>
-																<table>
-																	<tr>
-																		<td rowspan="5" class="bookPic"><img
-																			src="images/food31.jpg"
-																			style="border: 1px solid #300;" /></td>
-																		<td><span>²ËÃû:</span></td>
-																		<td><span><strong>²âÊÔÎÄ×Ö</strong></span></td>
-																	</tr>
-																	<tr>
-																		<td><span>ÊÐ³¡¼Û¸ñ:</span></td>
-																		<td><span>100</span></td>
-																	</tr>
-																	<tr>
-																		<td><span>»áÔ±¼Û¸ñ:</span></td>
-																		<td><span><strong style="color: red;">80</strong></span>
-																		</td>
-																	</tr>
-																	<tr>
-																		<td><span>ÖÆ×öËµÃ÷:</span></td>
-																		<td><span>²âÊÔÎÄ×Ö</span></td>
-																	</tr>
-																	<tr>
-																		<td><span>²ËÆ·ÀàÐÍ:</span></td>
-																		<td><span>²âÊÔÎÄ×Ö</span></td>
-																	</tr>
-																	<tr>
-																		<td colspan="2" style="height: 40px;">
-																			<img class="clickimg" src="images/cart.png" />
-																			<input type="hidden" value="F000000022" />
-																		</td>
-																	</tr>
-																</table>
-															</div>
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<div>
-																<table>
-																	<tr>
-																		<td rowspan="5" class="bookPic"><img
-																			src="images/food32.jpg"
-																			style="border: 1px solid #300;" /></td>
-																		<td><span>²ËÃû:</span></td>
-																		<td><span><strong>²âÊÔÎÄ×Ö</strong></span></td>
-																	</tr>
-																	<tr>
-																		<td><span>ÊÐ³¡¼Û¸ñ:</span></td>
-																		<td><span>100</span></td>
-																	</tr>
-																	<tr>
-																		<td><span>»áÔ±¼Û¸ñ:</span></td>
-																		<td><span><strong style="color: red;">80</strong></span>
-																		</td>
-																	</tr>
-																	<tr>
-																		<td><span>ÖÆ×öËµÃ÷:</span></td>
-																		<td><span>²âÊÔÎÄ×Ö</span></td>
-																	</tr>
-																	<tr>
-																		<td><span>²ËÆ·ÀàÐÍ:</span></td>
-																		<td><span>²âÊÔÎÄ×Ö</span></td>
-																	</tr>
-																	<tr>
-																		<td colspan="2" style="height: 40px;">
-																			<img class="clickimg" src="images/cart.png" />
-																			<input type="hidden" value="F000000023" />
-																		</td>
-																	</tr>
-																</table>
-															</div>
-														</td>
-														<td>
-															<div>
-																<table>
-																	<tr>
-																		<td rowspan="5" class="bookPic"><img
-																			src="images/food33.jpg"
-																			style="border: 1px solid #300;" /></td>
-																		<td><span>²ËÃû:</span></td>
-																		<td><span><strong>²âÊÔÎÄ×Ö</strong></span></td>
-																	</tr>
-																	<tr>
-																		<td><span>ÊÐ³¡¼Û¸ñ:</span></td>
-																		<td><span>100</span></td>
-																	</tr>
-																	<tr>
-																		<td><span>»áÔ±¼Û¸ñ:</span></td>
-																		<td><span><strong style="color: red;">80</strong></span>
-																		</td>
-																	</tr>
-																	<tr>
-																		<td><span>ÖÆ×öËµÃ÷:</span></td>
-																		<td><span>²âÊÔÎÄ×Ö</span></td>
-																	</tr>
-																	<tr>
-																		<td><span>²ËÆ·ÀàÐÍ:</span></td>
-																		<td><span>²âÊÔÎÄ×Ö</span></td>
-																	</tr>
-																	<tr>
-																		<td colspan="2" style="height: 40px;">
-																			<img class="clickimg" src="images/cart.png" />
-																			<input type="hidden" value="F000000024" />
-																		</td>
-																	</tr>
-																</table>
-															</div>
-														</td>
-													</tr>
-												</table>
-											</div>
-
-
-											<div id="mm_03" class="dingcanall_con">
-												<table>
-													<tr>
-														<td>
-															<div>
-																<table>
-																	<tr>
-																		<td rowspan="5" class="bookPic"><img
-																			src="images/food34.jpg"
-																			style="border: 1px solid #300;" /></td>
-																		<td><span>²ËÃû:</span></td>
-																		<td><span><strong>²âÊÔÎÄ×Ö</strong></span></td>
-																	</tr>
-																	<tr>
-																		<td><span>ÊÐ³¡¼Û¸ñ:</span></td>
-																		<td><span>22</span></td>
-																	</tr>
-																	<tr>
-																		<td><span>»áÔ±¼Û¸ñ:</span></td>
-																		<td><span><strong style="color: red;">12</strong></span>
-																		</td>
-																	</tr>
-																	<tr>
-																		<td><span>ÖÆ×öËµÃ÷:</span></td>
-																		<td><span>²âÊÔÎÄ×Ö</span></td>
-																	</tr>
-																	<tr>
-																		<td><span>²ËÆ·ÀàÐÍ:</span></td>
-																		<td><span>²âÊÔÎÄ×Ö</span></td>
-																	</tr>
-																	<tr>
-																		<td colspan="2" style="height: 40px;">
-																			<img class="clickimg" src="images/cart.png" />
-																			<input type="hidden" value="F000000025" />
-																		</td>
-																	</tr>
-																</table>
-															</div>
-														</td>
-														<td>
-															<div>
-																<table>
-																	<tr>
-																		<td rowspan="5" class="bookPic"><img
-																			src="images/food35.jpg"
-																			style="border: 1px solid #300;" /></td>
-																		<td><span>²ËÃû:</span></td>
-																		<td><span><strong>²âÊÔÎÄ×Ö</strong></span></td>
-																	</tr>
-																	<tr>
-																		<td><span>ÊÐ³¡¼Û¸ñ:</span></td>
-																		<td><span>33</span></td>
-																	</tr>
-																	<tr>
-																		<td><span>»áÔ±¼Û¸ñ:</span></td>
-																		<td><span><strong style="color: red;">25</strong></span>
-																		</td>
-																	</tr>
-																	<tr>
-																		<td><span>ÖÆ×öËµÃ÷:</span></td>
-																		<td><span>²âÊÔÎÄ×Ö</span></td>
-																	</tr>
-																	<tr>
-																		<td><span>²ËÆ·ÀàÐÍ:</span></td>
-																		<td><span>²âÊÔÎÄ×Ö</span></td>
-																	</tr>
-																	<tr>
-																		<td colspan="2" style="height: 40px;">
-																			<img class="clickimg" src="images/cart.png" />
-																			<input type="hidden" value="F000000026" />
-																		</td>
-																	</tr>
-																</table>
-															</div>
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<div>
-																<table>
-																	<tr>
-																		<td rowspan="5" class="bookPic"><img
-																			src="images/food38.jpg"
-																			style="border: 1px solid #300;" /></td>
-																		<td><span>²ËÃû:</span></td>
-																		<td><span><strong>²âÊÔÎÄ×Ö</strong></span></td>
-																	</tr>
-																	<tr>
-																		<td><span>ÊÐ³¡¼Û¸ñ:</span></td>
-																		<td><span>55</span></td>
-																	</tr>
-																	<tr>
-																		<td><span>»áÔ±¼Û¸ñ:</span></td>
-																		<td><span><strong style="color: red;">40</strong></span>
-																		</td>
-																	</tr>
-																	<tr>
-																		<td><span>ÖÆ×öËµÃ÷:</span></td>
-																		<td><span>²âÊÔÎÄ×Ö</span></td>
-																	</tr>
-																	<tr>
-																		<td><span>²ËÆ·ÀàÐÍ:</span></td>
-																		<td><span>²âÊÔÎÄ×Ö</span></td>
-																	</tr>
-																	<tr>
-																		<td colspan="2" style="height: 40px;">
-																			<img class="clickimg" src="images/cart.png" />
-																			<input type="hidden" value="F000000027" />
-																		</td>
-																	</tr>
-																</table>
-															</div>
-														</td>
-														<td>
-															<div>
-																<table>
-																	<tr>
-																		<td rowspan="5" class="bookPic"><img
-																			src="images/food39.jpg"
-																			style="border: 1px solid #300;" /></td>
-																		<td><span>²ËÃû:</span></td>
-																		<td><span><strong>²âÊÔÎÄ×Ö</strong></span></td>
-																	</tr>
-																	<tr>
-																		<td><span>ÊÐ³¡¼Û¸ñ:</span></td>
-																		<td><span>36</span></td>
-																	</tr>
-																	<tr>
-																		<td><span>»áÔ±¼Û¸ñ:</span></td>
-																		<td><span><strong style="color: red;">24</strong></span>
-																		</td>
-																	</tr>
-																	<tr>
-																		<td><span>ÖÆ×öËµÃ÷:</span></td>
-																		<td><span>²âÊÔÎÄ×Ö</span></td>
-																	</tr>
-																	<tr>
-																		<td><span>²ËÆ·ÀàÐÍ:</span></td>
-																		<td><span>²âÊÔÎÄ×Ö</span></td>
-																	</tr>
-																	<tr>
-																		<td colspan="2" style="height: 40px;">
-																			<img class="clickimg" src="images/cart.png" />
-																			<input type="hidden" value="F000000028" />
-																		</td>
-																	</tr>
-																</table>
-															</div>
-														</td>
-													</tr>
-												</table>
-											</div>
-
 									</div>
 								</div>
 
@@ -859,9 +546,9 @@ $(document).ready(function($){
 					</div>
 				</div>
 
-				<!-- Í¼Æ¬/FLASH -->
+				<!-- å›¾ç‰‡/FLASH -->
 				<div id='pdv_3602' class='pdv_class' title=''
-					style='width: 649px; height: 151px; top: 435px; left: 0px; z-index: 13'>
+					style='width: 649px; height: 151px; top: 375px; left: 0px; z-index: 13'>
 					<div id='spdv_3602' class='pdv_content'
 						style='overflow: hidden; width: 100%; height: 100%'>
 						<div class="pdv_border"
@@ -873,7 +560,7 @@ $(document).ready(function($){
 
 								</div>
 								<div style="float: right; margin-right: 10px; display: none">
-									<a href="-1" style="line-height: 25px; color:">¸ü¶à</a>
+									<a href="-1" style="line-height: 25px; color:">æ›´å¤š</a>
 								</div>
 							</div>
 							<div style="padding: 0px">
@@ -887,8 +574,8 @@ $(document).ready(function($){
 			<div id='bottom'
 				style='width: 900px; height: 173px; background: none transparent scroll repeat 0% 0%'>
 
-				<!-- µ×²¿ÐÅÏ¢±à¼­Çø -->
-				<div id='pdv_3610' class='pdv_class' title='½Å×¢ÐÅÏ¢'
+				<!-- åº•éƒ¨ä¿¡æ¯ç¼–è¾‘åŒº -->
+				<div id='pdv_3610' class='pdv_class' title='è„šæ³¨ä¿¡æ¯'
 					style='width: 898px; height: 106px; top: 65px; left: 0px; z-index: 7'>
 					<div id='spdv_3610' class='pdv_bottom'
 						style='overflow: hidden; width: 100%; height: 100%'>
@@ -898,17 +585,17 @@ $(document).ready(function($){
 								style="height: 25px; margin: 1px; display: none; background:;">
 								<div
 									style="float: left; margin-left: 12px; line-height: 25px; font-weight: bold; color:">
-									½Å×¢ÐÅÏ¢</div>
+									è„šæ³¨ä¿¡æ¯</div>
 								<div style="float: right; margin-right: 10px; display: none">
-									<a href="-1" style="line-height: 25px; color:">¸ü¶à</a>
+									<a href="-1" style="line-height: 25px; color:">æ›´å¤š</a>
 								</div>
 							</div>
 							<div style="padding: 0px">
 								<div
 									style="width: 100%; text-align: center; font: 12px/20px Arial, Helvetica, sans-serif">
-									<div style="LINE-HEIGHT: 30px">µç»°£º0573-87654321
-										ÊÛÇ°QQ£º241457 45761112 µØÖ·£ºÕã½­Ê¡¼ÎÐËÊÐ½¨¹úÄÏÂ·1586ºÅ ÓÊ±à£º314000 £¨ÉÌÎñºÏ×÷£©</div>
-									<div style="LINE-HEIGHT: 30px">ÍøÉÏ¿ì²Íµê
+									<div style="LINE-HEIGHT: 30px">ç”µè¯ï¼š0573-87654321
+										å”®å‰QQï¼š241457 45761112 åœ°å€ï¼šæµ™æ±Ÿçœå˜‰å…´å¸‚å»ºå›½å—è·¯1586å· é‚®ç¼–ï¼š314000 ï¼ˆå•†åŠ¡åˆä½œï¼‰</div>
+									<div style="LINE-HEIGHT: 30px">ç½‘ä¸Šå¿«é¤åº—
 										Copyright(C)2009-2010</div>
 								</div>
 
@@ -921,12 +608,12 @@ $(document).ready(function($){
 
 
 				<div id="bottommenu">
-					<a href="onwe.jsp" target="_self">¹ØÓÚÎÒÃÇ</a>| <a href="orderhelp.jsp"
-						target="_self">¶©²ÍÖ¸ÄÏ</a>| <a href="carryshow.jsp" target="_self">ÅäËÍËµÃ÷</a>|
-					<a href="linkman.jsp" target="_self">ÁªÏµ·½Ê½</a>| <a
-						href="admin/advise.jsp" target="_self">Í¶Ëß½¨Òé</a>|
+					<a href="onwe.jsp" target="_self">å…³äºŽæˆ‘ä»¬</a>| <a href="orderhelp.jsp"
+						target="_self">è®¢é¤æŒ‡å—</a>| <a href="carryshow.jsp" target="_self">é…é€è¯´æ˜Ž</a>|
+					<a href="linkman.jsp" target="_self">è”ç³»æ–¹å¼</a>| <a
+						href="admin/advise.jsp" target="_self">æŠ•è¯‰å»ºè®®</a>|
 				</div>
-				<!-- µ×²¿²Ëµ¥£¨Ò»¼¶£© -->
+				<!-- åº•éƒ¨èœå•ï¼ˆä¸€çº§ï¼‰ -->
 				<div id='pdv_3612' class='pdv_class'
 					style='width: 898px; height: 35px; top: 0px; left: 0px; z-index: 8'>
 					<div id='spdv_3612' class='pdv_bottom'
@@ -939,7 +626,7 @@ $(document).ready(function($){
 									style="float: left; margin-left: 12px; line-height: 25px; font-weight: bold; color:">
 								</div>
 								<div style="float: right; margin-right: 10px; display: none">
-									<a href="-1" style="line-height: 25px; color:">¸ü¶à</a>
+									<a href="-1" style="line-height: 25px; color:">æ›´å¤š</a>
 								</div>
 							</div>
 							<div style="padding: 0px"></div>
@@ -948,7 +635,7 @@ $(document).ready(function($){
 					</div>
 				</div>
 
-				<!-- ÎÄ×ÖÓÑÇéÁ´½Ó -->
+				<!-- æ–‡å­—å‹æƒ…é“¾æŽ¥ -->
 				<div id='pdv_3609' class='pdv_class' title=''
 					style='width: 898px; height: 30px; top: 35px; left: 0px; z-index: 10'>
 					<div id='spdv_3609' class='pdv_bottom'
@@ -962,64 +649,64 @@ $(document).ready(function($){
 
 								</div>
 								<div style="float: right; margin-right: 10px; display: inline">
-									<a href="advs/link/" style="line-height: 25px; color:">¸ü¶à</a>
+									<a href="advs/link/" style="line-height: 25px; color:">æ›´å¤š</a>
 								</div>
 							</div>
 							<div style="padding: 5px">
 								<ul style="margin: 0; padding: 0">
 									<li
 										style="list-style-type: none; float: left; margin: 0px; padding: 3px 10px 3px 10px; white-space: nowrap">
-										<a href="http://food.39.net/" target="_self">39½¡¿µÍø</a>
+										<a href="http://food.39.net/" target="_self">39å¥åº·ç½‘</a>
 									</li>
 
 									<li
 										style="list-style-type: none; float: left; margin: 0px; padding: 3px 10px 3px 10px; white-space: nowrap">
-										<a href="http://eat.51ttyy.com/" target="_self">ÌìÌìÓªÑøÍø</a>
+										<a href="http://eat.51ttyy.com/" target="_self">å¤©å¤©è¥å…»ç½‘</a>
 									</li>
 
 									<li
 										style="list-style-type: none; float: left; margin: 0px; padding: 3px 10px 3px 10px; white-space: nowrap">
-										<a href="http://www.canyin.com/" target="_self">ÖÐ¹ú²ÍÒûÍø</a>
+										<a href="http://www.canyin.com/" target="_self">ä¸­å›½é¤é¥®ç½‘</a>
 									</li>
 
 									<li
 										style="list-style-type: none; float: left; margin: 0px; padding: 3px 10px 3px 10px; white-space: nowrap">
-										<a href="http://www.canyinshijie.com/" target="_self">²ÍÒûÊÀ½çÍø</a>
+										<a href="http://www.canyinshijie.com/" target="_self">é¤é¥®ä¸–ç•Œç½‘</a>
 									</li>
 
 									<li
 										style="list-style-type: none; float: left; margin: 0px; padding: 3px 10px 3px 10px; white-space: nowrap">
-										<a href="http://www.tesecai.cn/" target="_self">ÌØÉ«²ËÍø</a>
+										<a href="http://www.tesecai.cn/" target="_self">ç‰¹è‰²èœç½‘</a>
 									</li>
 
 									<li
 										style="list-style-type: none; float: left; margin: 0px; padding: 3px 10px 3px 10px; white-space: nowrap">
-										<a href="http://www.westfood.com.cn/" target="_self">ÖÐ¹úÎ÷²ÍÍø</a>
+										<a href="http://www.westfood.com.cn/" target="_self">ä¸­å›½è¥¿é¤ç½‘</a>
 									</li>
 
 									<li
 										style="list-style-type: none; float: left; margin: 0px; padding: 3px 10px 3px 10px; white-space: nowrap">
-										<a href="http://www.chinavegan.com/" target="_self">ÖÐ»ªËØÊ³Íø</a>
+										<a href="http://www.chinavegan.com/" target="_self">ä¸­åŽç´ é£Ÿç½‘</a>
 									</li>
 
 									<li
 										style="list-style-type: none; float: left; margin: 0px; padding: 3px 10px 3px 10px; white-space: nowrap">
-										<a href="http://www.kclm.org/" target="_self">ÖÐ¹ú¿ì²ÍÁªÃËÍø</a>
+										<a href="http://www.kclm.org/" target="_self">ä¸­å›½å¿«é¤è”ç›Ÿç½‘</a>
 									</li>
 
 									<li
 										style="list-style-type: none; float: left; margin: 0px; padding: 3px 10px 3px 10px; white-space: nowrap">
-										<a href="http://www.souchu.com/" target="_self">ËÑ³øÍø</a>
+										<a href="http://www.souchu.com/" target="_self">æœåŽ¨ç½‘</a>
 									</li>
 
 									<li
 										style="list-style-type: none; float: left; margin: 0px; padding: 3px 10px 3px 10px; white-space: nowrap">
-										<a href="http://www.cantingsheji.com/" target="_self">²ÍÌüÉè¼ÆÍø</a>
+										<a href="http://www.cantingsheji.com/" target="_self">é¤åŽ…è®¾è®¡ç½‘</a>
 									</li>
 
 									<li
 										style="list-style-type: none; float: left; margin: 0px; padding: 3px 10px 3px 10px; white-space: nowrap">
-										<a href="http://www.meishichina.com/" target="_self">ÃÀÊ³ÖÐ¹ú</a>
+										<a href="http://www.meishichina.com/" target="_self">ç¾Žé£Ÿä¸­å›½</a>
 									</li>
 								</ul>
 
@@ -1029,7 +716,7 @@ $(document).ready(function($){
 					</div>
 				</div>
 
-				<!-- Í¼Æ¬/FLASH -->
+				<!-- å›¾ç‰‡/FLASH -->
 				<div id='pdv_3611' class='pdv_class' title=''
 					style='width: 121px; height: 44px; top: 94px; left: 656px; z-index: 11'>
 					<div id='spdv_3611' class='pdv_bottom'
@@ -1042,7 +729,7 @@ $(document).ready(function($){
 									style="float: left; margin-left: 12px; line-height: 25px; font-weight: bold; color:">
 								</div>
 								<div style="float: right; margin-right: 10px; display: none">
-									<a href="-1" style="line-height: 25px; color:">¸ü¶à</a>
+									<a href="-1" style="line-height: 25px; color:">æ›´å¤š</a>
 								</div>
 							</div>
 							<div style="padding: 0px">

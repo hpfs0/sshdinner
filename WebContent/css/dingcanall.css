@@ -34,7 +34,6 @@ div#dingcanall_top_right{
 	float:right;
 	width:10px;
 	height:70px;
-	background:url(../images/dingcanall.jpg) -890px 0px no-repeat;
 }
 
 div#dingcanall_bottom_left{
@@ -42,7 +41,6 @@ div#dingcanall_bottom_left{
 	margin-top:-10px;
 	height:10px;
 	line-height:10px;
-	background:url(../images/dingcanall.jpg) 0px -220px no-repeat;
 }
 
 div#dingcanall_bottom_right{
@@ -52,7 +50,6 @@ div#dingcanall_bottom_right{
 	width:10px;
 	height:10px;
 	line-height:10px;
-	background:url(../images/dingcanall.jpg) -890px -220px no-repeat;
 }
 
 

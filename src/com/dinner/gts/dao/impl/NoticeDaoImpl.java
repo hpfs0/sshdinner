@@ -29,4 +29,17 @@ public class NoticeDaoImpl implements NoticeDao {
         CommonUtil.closeSession(session);
         return list;
     }
+
+    @Override
+    public List<Notice> getTopFiveNotice() {
+        SQLQuery query = session.createSQLQuery(CommonSqlConst.COMMON_SQL_020);
+        query.addEntity(Notice.class);
+        // 设置缓存
+        query.setCacheable(true);
+        @SuppressWarnings("unchecked")
+        List<Notice> list = query.list();
+        // session关闭
+        CommonUtil.closeSession(session);
+        return list;
+    }
 }

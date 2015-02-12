@@ -13,29 +13,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>网站公告-网上快餐店</title>
 	<link href="css/ordersearchform.css" rel="stylesheet" type="text/css" />
-	<script type="text/javascript" src="js/ordersearch.js"></script>
 </head>
 
 <body style='background:transparent'>
-    <script>
-        var PDV_PAGEID = '299';
-        var PDV_RP = '../../';
-        var PDV_COLTYPE = 'dingcan';
-        var PDV_PAGENAME = 'query';
-    </script>
 
     <div id='contain' style='width:900px;background:rgb(255,255,255);margin:0px auto;padding:0px'>
-        <div id='content' style='width:900px;height:332px;background:none transparent scroll repeat 0% 0%;margin:10px auto'>
+        <div id='content' class='pdv_content' style='width:900px;background:none transparent scroll repeat 0% 0%;margin:10px 0px'>
 
             <!-- 网站公告 -->
-            <div id='pdv_3575' class='pdv_class' title='网站公告' style='width:682px;height:auto;top:12px;left:109px; z-index:8'>
-                <div id='spdv_3575' class='pdv_content' style='overflow:visible;width:100%;'>
-                    <div class="pdv_border" style="margin:0;padding:0;height:100%;border:0px #dddddd solid;background:#fff;">
-                        <div id="contentHeader" style="text-align:center"><h2>测试公告标题</h2></div>
-                        <div id="contentBody">测试网站公告内容测试网站公告内容测试网站公告内容测试网站公告内容测试网</div>
-                    </div>
-
-                </div>
+            <div title='网站公告'>
+	            <div style="margin:0;padding:0;height:100%;border:0px #dddddd solid;background:#fff;">
+	                <div id="contentHeader" style="text-align:center"><h2>测试公告标题</h2></div>
+	                <div id="contentBody">测试网站公告内容测试网站公告内容测试网站公告内容测试网站公告内容测试网</div>
+	            </div>
             </div>
         </div>
         <div id='bottom' style='width:900px;height:173px;background:none transparent scroll repeat 0% 0%'>

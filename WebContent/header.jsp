@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="GBK"%>
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -19,7 +19,7 @@
 
 <body style='background:transparent'>
     <div id='top' style='width:1000px;height:108px;background:none transparent scroll repeat 0% 0%'>
-        <!-- ¶¥²¿²Ëµ¥(Ò»¼¶) -->
+        <!-- é¡¶éƒ¨èœå•(ä¸€çº§) -->
         <div id='pdv_3607' class='pdv_class' style='height:25px;left:495px; z-index:4'>
             <div id='spdv_3607' class='pdv_top' style='overflow:hidden;width:100%;height:100%'>
                 <div class="pdv_border" style="margin:0;padding:0;height:100%;border:0px  solid;background:;">
@@ -27,29 +27,29 @@
                         <div style="float:left;margin-left:12px;line-height:25px;font-weight:bold;color:">
                         </div>
                         <div style="float:right;margin-right:10px;display:none">
-                            <a href="-1" style="line-height:25px;color:">¸ü¶à</a>
+                            <a href="-1" style="line-height:25px;color:">æ›´å¤š</a>
                         </div>
                     </div>
                     <div style="padding:0px">
                         <div id="topmenu">
        						<s:if test="#session.loginStatus!=1">
-                            	<a href="login.jsp" target="_self">»áÔ±µÇÂ¼</a>|
+                            	<a href="login.jsp" target="_self">ä¼šå‘˜ç™»å½•</a>|
                             </s:if> 
                             <s:if test="#session.loginStatus==1">
-                            	${sessionScope.memberNickName}<a href="logout.action">ÍË³ö</a>|
+                            	${sessionScope.memberNickName}<a href="logout.action">é€€å‡º</a>|
                             </s:if> 
-                            <a href="reg.jsp" target="_self">»áÔ±×¢²á</a>|
-                            <a href="linkman.jsp" target="_self">ÁªÏµ·½Ê½</a>|
-                            <a href="admin/advise.jsp" target="_self">Í¶Ëß½¨Òé</a>|
-                            <a href="carryshow.jsp" target="_self">ÅäËÍËµÃ÷</a>|
-                            <a href="onwe.jsp" target="_self">¹ØÓÚÎÒÃÇ</a>
+                            <a href="reg.jsp" target="_self">ä¼šå‘˜æ³¨å†Œ</a>|
+                            <a href="linkman.jsp" target="_self">è”ç³»æ–¹å¼</a>|
+                            <a href="admin/advise.jsp" target="_self">æŠ•è¯‰å»ºè®®</a>|
+                            <a href="carryshow.jsp" target="_self">é…é€è¯´æ˜Ž</a>|
+                            <a href="onwe.jsp" target="_self">å…³äºŽæˆ‘ä»¬</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- ¶þ¼¶µ¼º½²Ëµ¥ -->
+        <!-- äºŒçº§å¯¼èˆªèœå• -->
         <div id='pdv_3605' class='pdv_class' style='width:990px;height:41px;top:65px;left:0px; z-index:6'>
             <div id='spdv_3605' class='pdv_top' style='overflow:hidden;width:100%;height:100%'>
                 <div class="pdv_border" style="margin:0;padding:0;height:100%;border:0px  solid;background:;">
@@ -57,7 +57,7 @@
                         <div style="float:left;margin-left:12px;line-height:25px;font-weight:bold;color:">
                         </div>
                         <div style="float:right;margin-right:10px;display:none">
-                            <a href="-1" style="line-height:25px;color:">¸ü¶à</a>
+                            <a href="-1" style="line-height:25px;color:">æ›´å¤š</a>
                         </div>
                     </div>
                     <div style="padding:0px">
@@ -67,25 +67,25 @@
                             <div id="mainmenu">
                                 <ul>
 
-                                    <li><a href="index.jsp" target="_self">Ê×Ò³</a>
+                                    <li><a href="./" target="_self">é¦–é¡µ</a>
                                     </li>
 
-                                    <li><a href="search.jsp" target="_self">¶©µ¥²éÑ¯</a>
+                                    <li><a href="search.jsp" target="_self">è®¢å•æŸ¥è¯¢</a>
                                     </li>
 
-                                    <li><a href="orderhelp.jsp" target="_self">¶©²ÍÖ¸ÄÏ</a>
+                                    <li><a href="orderhelp.jsp" target="_self">è®¢é¤æŒ‡å—</a>
                                     </li>
 
-                                    <li><a href="center.jsp" target="_self">»áÔ±ÖÐÐÄ</a>
+                                    <li><a href="center.jsp" target="_self">ä¼šå‘˜ä¸­å¿ƒ</a>
                                     </li>
 
-                                    <li><a href="order.jsp" target="_self">ÎÒµÄ¶©µ¥</a>
+                                    <li><a href="order.jsp" target="_self">æˆ‘çš„è®¢å•</a>
                                     </li>
 
-                                    <li><a href="restaurant.jsp" target="_self">µêÆÌÏêÇé</a>
+                                    <li><a href="restaurant.jsp" target="_self">åº—é“ºè¯¦æƒ…</a>
                                     </li>
 
-                                    <li><a href="notelist.action" target="_self">¹Ë¿ÍÁôÑÔ</a>
+                                    <li><a href="notelist.action" target="_self">é¡¾å®¢ç•™è¨€</a>
                                     </li>
 
                                 </ul>
@@ -126,7 +126,7 @@
             </div>
         </div>
 
-        <!-- ÍøÕ¾±êÖ¾ -->
+        <!-- ç½‘ç«™æ ‡å¿— -->
         <div id='pdv_3608' class='pdv_class' title='' style='width:208px;height:101px;top:0px;left:0px; z-index:9'>
             <div id='spdv_3608' class='pdv_top' style='overflow:hidden;width:100%;height:100%'>
                 <div class="pdv_border" style="margin:0;padding:0;height:100%;border:0px  solid;background:;">
@@ -134,7 +134,7 @@
                         <div style="float:left;margin-left:12px;line-height:25px;font-weight:bold;color:">
                         </div>
                         <div style="float:right;margin-right:10px;display:none">
-                            <a href="-1" style="line-height:25px;color:">¸ü¶à</a>
+                            <a href="-1" style="line-height:25px;color:">æ›´å¤š</a>
                         </div>
                     </div>
                     <div style="padding:0px">

@@ -26,6 +26,9 @@ public interface CommonConst {
     /** 共通ID种类:留言ID */
     public static final int COMMON_ID_NOTE = 6;
 
+    /** 共通ID种类：公告ID */
+    public static final int COMMON_ID_NOTICE = 7;
+
     /** 共通消息类型:提示 */
     public static final int COMMON_MESSAGE_TYPE_0 = 0;
 

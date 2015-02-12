@@ -49,7 +49,7 @@ public class NoteDaoImpl implements NoteDao {
 
     @Override
     public List<Note> getNote() {
-        SQLQuery query = session.createSQLQuery(CommonSqlConst.COMMON_SQL_O14);
+        SQLQuery query = session.createSQLQuery(CommonSqlConst.COMMON_SQL_014);
         query.addEntity(Note.class);
         // 设置缓存
         query.setCacheable(true);

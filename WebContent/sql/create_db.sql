@@ -201,3 +201,17 @@ CREATE TABLE `tt_shop_box` (
   `DELETE_FLG` tinyint(4) DEFAULT '0' COMMENT '活动区分'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- ----------------------------
+-- Table structure for tt_notice
+-- ----------------------------
+DROP TABLE IF EXISTS `tt_notice`;
+CREATE TABLE `tt_notice` (
+  `NOTICE_ID` varchar(10) NOT NULL,
+  `NOTICE_HEAD` varchar(100) NOT NULL,
+  `NOTICE_CONTENT` varchar(1000) NOT NULL,
+  `REGIST_TIME` datetime DEFAULT NULL,
+  `UPDATE_TIME` datetime DEFAULT NULL,
+  `DELETE_FLG` tinyint(4) DEFAULT '0',
+  PRIMARY KEY (`NOTICE_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+

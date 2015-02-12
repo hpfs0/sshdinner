@@ -148,7 +148,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                                 <option value="1">已完成订单</option>
                                             </select>
                                             <input name="key" type="text" class="input" id="key" value="" size="15">
-                                            <input name="imageField" id="searchbutton" type="image" src="images/search5.gif" border="0">
+                                            <input name="imageField" id="searchbutton" type="image" src="images/search5.gif" border="0" style="position:relative;top:6px">
+
                                             <input type="hidden" id="nowshowpay" value="">
                                             <input type="hidden" id="nowshowyun" value="all">
                                             <input type="hidden" id="nowshowok" value="0">

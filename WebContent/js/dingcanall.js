@@ -1,71 +1,3 @@
-//三种订餐方式的点击切换
-function changeBq(bqnow,bq1,bq2){
-	//标签切换之标题
-	var ttnow = document.getElementById("tt_"+bqnow);
-	var tt1 = document.getElementById("tt_"+bq1);
-	var tt2 = document.getElementById("tt_"+bq2);
-
-	ttnow.className="dingcanall_menunow";
-	tt1.className="dingcanall_menu";
-	tt2.className="dingcanall_menu";
-	
-	//标签切换之内容
-	var mmnow = document.getElementById("mm_"+bqnow);
-	var mm1 = document.getElementById("mm_"+bq1);
-	var mm2 = document.getElementById("mm_"+bq2);
-	
-	mmnow.className="dingcanall_connow";
-	mm1.className="dingcanall_con";
-	mm2.className="dingcanall_con";
-	
-}
-
-
-//三种订餐方式下的一级分类切换
-function changeCat(ty,catid,n,k){
-
-	//切换样式
-	for(var i=1; i<=n; i++){
-		if(i==k){
-			$("#cat_"+ty+"_"+i)[0].className="catfontnow";
-		}else{
-			$("#cat_"+ty+"_"+i)[0].className="catfont";
-		}
-	}
-	
-	//读取数据
-	var picw=$('#picw')[0].value;
-	var pich=$('#pich')[0].value;
-	var fittype=$('#fittype')[0].value;
-	
-	if(ty=="zx"){
-		var pf="DingCanAllZx.php";
-		var mm="smm_01";
-	}else if(ty=="gd"){
-		var pf="DingCanAllGd.php";
-		var mm="smm_02";
-	}
-
-	$.ajax({
-		type: "POST",
-		url:PDV_RP+"dingcan/module/"+pf+"?myrp="+PDV_RP+"&catid="+catid+"&k="+k+"&picw="+picw+"&pich="+pich+"&fittype="+fittype,
-		data: "act=dingcanall_"+ty,
-		success: function(msg){
-				
-			var msg_arr=msg.split("::");
-				
-			if(msg_arr[0]=="OK"){
-				$('#'+mm).html(msg_arr[1]);
-				$().setBg();
-			}else{
-				$().alertwindow(msg,"");
-			}
-						
-		}
-	});
-	
-}
-
 //首页的餐品展示与订购--组合套餐选择改变后，其价格积分信息实时跟随变动
 function changeZhInfo(selzh){
 
@@ -204,16 +136,19 @@ function checkSelNumsAll(dg){
 var loaded = false;
 //首页的餐品展示与订购--加入购物车
 $(document).ready(function(){
+	$("#pdv_3603").css("top", "314px");
+	var goodCount;
 	if(!loaded){
 		loaded = true;
 		
 		if($.cookie("GOODSINFO")){
 			// 加载cookie
 			var goodsCookie = JSON.parse($.cookie("GOODSINFO"));
+			goodCount = goodsCookie.GoodInfo.length
 			// 向餐车中加入订购的菜品
 		    var $dcinfo = $("#dcinfo");
 			if(goodsCookie){
-				for(var i=0; i< goodsCookie.GoodInfo.length; i++){
+				for(var i=0; i< goodCount; i++){
 					// 构建加入元素的html字符串
 					var appendHtml = "<tr id='"
 						+ goodsCookie.GoodInfo[i].goodId
@@ -249,6 +184,13 @@ $(document).ready(function(){
 			setGoosInfoCookie();
 		});
 		
+		// 网站公告的加载
+		$("#noticeList").load("index",[],function(){
+			for(var i=0;i<goodCount;i++){
+				orderWithDivMov(true);
+			}
+		});
+		
 		// 加入购物车
 		var $clickedImg = $(".clickimg");
 		$clickedImg.unbind("click").click(function(){
@@ -259,17 +201,10 @@ $(document).ready(function(){
 			// 获取菜品ID
 			var dinnerId = "";
 			var $tag1 = $("#mm_01");
-			if($tag1.css("display") == "block" ){
-				var temp = $(this).parents("div.slider-description");
-				dinnerName = temp.find("font").text();
-				dinnerPrice = $(this).parent().prev().val();
-				dinnerId = temp.children("input:first").val();
-			}else{
-				dinnerName = $(this).parents("table:first").find("strong:first").text();
-				// 非会员
-				dinnerPrice = $(this).parents("table:first").find("span:eq(3)").text();
-				dinnerId = $(this).next().val();
-			}
+			var temp = $(this).parents("div.slider-description");
+			dinnerName = temp.find("font").text();
+			dinnerPrice = $(this).parent().prev().val();
+			dinnerId = temp.children("input:first").val();
 			
 			var b = $(this).offset();
 	        g = $("#pdv_3614").offset();
@@ -426,7 +361,9 @@ function delAll(){
 	if($("#dcinfo").html() != ""){
 		$("#dcinfo").html("");
 		setAllNumsAndPrice();
-		orderWithDivMov();
+		$("#pdv_3603").css("top", "314px");
+		$("#pdv_3613").css("top", "510px");
+		$("#bottom").css("margin-top", "0");
 		setGoosInfoCookie();
 	}
 }

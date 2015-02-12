@@ -67,7 +67,7 @@
                             <div id="mainmenu">
                                 <ul>
 
-                                    <li><a href="../index.jsp" target="_self">首页</a>
+                                    <li><a href="./" target="_self">首页</a>
                                     </li>
 
                                     <li><a href="../search.jsp" target="_self">订单查询</a>

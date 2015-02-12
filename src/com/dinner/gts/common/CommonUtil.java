@@ -1,6 +1,8 @@
 package com.dinner.gts.common;
 
 import java.security.MessageDigest;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -100,6 +102,10 @@ public class CommonUtil {
             case CommonConst.COMMON_ID_NOTE:
                 sql = CommonSqlConst.COMMON_SQL_013;
                 break;
+            // 公告ID
+            case CommonConst.COMMON_ID_NOTICE:
+                sql = CommonSqlConst.COMMON_SQL_019;
+                break;
         }
 
         query = session.createSQLQuery(sql);
@@ -155,5 +161,13 @@ public class CommonUtil {
             e.printStackTrace();
             return null;
         }
+    }
+
+    /**
+     * @return 将日期类型转换成dd/MM的格式
+     */
+    public final static String convertDateToddMM(Date date) {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM");
+        return sdf.format(date);
     }
 }

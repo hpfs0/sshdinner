@@ -4,6 +4,10 @@
     "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
 	<package name="struts2" extends="struts-default">
+	    <default-action-ref name="index"></default-action-ref>  
+            <action name="index">  
+            <result>/index.jsp</result>  
+        </action>
 		<action name ="login" class ="com.dinner.gts.action.LoginAction">
 		</action>
 		<action name = "loginStatus" class ="com.dinner.gts.action.LoginAction" method="checkLoginUserStatus">
@@ -29,8 +33,14 @@
 		<action name = "notelist" class = "com.dinner.gts.action.NoteAction" method="findNote">
 			<result name="success">/note.jsp</result>
 		</action>
-		<action name="More" class="com.dinner.gts.action.ShowMoreAction">
+		<action name="more" class="com.dinner.gts.action.ShowMoreAction">
 	        <result name="success">/showMoreFood.jsp</result>
+	    </action>
+	    <action name="notice" class="com.dinner.gts.action.NoticeAction">
+	        <result name="success">/news.jsp</result>
+	    </action>
+	    <action name="index" class="com.dinner.gts.action.IndexAction">
+	        <result name="success">/index.jsp</result>
 	    </action>
 	</package>
 </struts>

@@ -36,6 +36,9 @@ $(document).ready(function() {
 				
 				if(((broL<L && broR>L) || (broL>L && broL<R) || broL==L) && broT>T){
 				
+					if(bro == "pdv_3602"){
+						return;
+					}
 					$("#"+bro)[0].style.top= B + cha +10 +"px"; //设置可溢出层的top值
 					cha=cha+broH+10;
 				

@@ -15,4 +15,11 @@ public interface NoticeDao {
      * @return 公告板记录
      */
     public List<Notice> getAllNotice();
+
+    /**
+     * 取得公告板表中最新的5条公告
+     * 
+     * @return
+     */
+    public List<Notice> getTopFiveNotice();
 }
