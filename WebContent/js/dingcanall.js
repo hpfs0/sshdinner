@@ -137,6 +137,15 @@ var loaded = false;
 //首页的餐品展示与订购--加入购物车
 $(document).ready(function(){
 	$("#pdv_3603").css("top", "314px");
+	
+	// 网站公告的加载
+	$("#noticeList").load("index",[],function(){
+		for(var i=0;i<goodCount;i++){
+			orderWithDivMov(true);
+		}
+		$("#noticeList").css("text-align", "left");
+	});
+	
 	var goodCount;
 	if(!loaded){
 		loaded = true;
@@ -182,13 +191,6 @@ $(document).ready(function(){
 		$("#dcinfo input:eq(1)").focusout(function(){
 			setAllNumsAndPrice();
 			setGoosInfoCookie();
-		});
-		
-		// 网站公告的加载
-		$("#noticeList").load("index",[],function(){
-			for(var i=0;i<goodCount;i++){
-				orderWithDivMov(true);
-			}
 		});
 		
 		// 加入购物车

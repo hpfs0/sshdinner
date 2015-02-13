@@ -255,10 +255,12 @@ $(document).ready(function($){
 											style="font: 12px/43px simsun; color: #505050; margin-right: 12px; display: inline">更多&gt;&gt;</a>
 									</div>
 								</div>
-								<div style="margin: 0px 3px; padding: 10px;">
+								<div style="margin: 0px 3px; padding: 5px;">
 
 
-									<ul id="noticeList" class="newslist_time2">
+									<ul id="noticeList" class="newslist_time2" style="text-align:center">
+									    
+									    <img id="loading" src="images/ajax-loader.gif" style=""/>
 
 										<!-- <li class="newslist_time2">
 											<div class="time">09/27</div>

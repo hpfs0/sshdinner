@@ -21,4 +21,12 @@ public class NoticeService {
     public List<Notice> getServiceTopFiveNotice() {
         return noticeDao.getTopFiveNotice();
     }
+
+    /**
+     * @param NoticeId
+     * @return
+     */
+    public Notice getNoticeById(String noticeId) {
+        return noticeDao.getNoticeById(noticeId);
+    }
 }

@@ -1,5 +1,11 @@
 package com.dinner.gts.action;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.commons.lang.StringUtils;
+
+import com.dinner.gts.common.CommonUtil;
+import com.dinner.gts.model.Notice;
 import com.dinner.gts.service.NoticeService;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -16,7 +22,15 @@ public class NoticeAction extends ActionSupport {
     private NoticeService noticeService;
 
     public String execute() {
-        String aa = "dsdsd";
+        HttpServletRequest req = CommonUtil.getHttpServletRequest();
+        // 取得公告ID
+        String noticeId = req.getParameter("id");
+        if (StringUtils.isNotEmpty(noticeId)) {
+            noticeService = new NoticeService();
+            Notice target = noticeService.getNoticeById(noticeId);
+            req.setAttribute("notice", target);
+        }
+
         return SUCCESS;
     }
 

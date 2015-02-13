@@ -2,6 +2,7 @@ package com.dinner.gts.dao.impl;
 
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 
@@ -41,5 +42,20 @@ public class NoticeDaoImpl implements NoticeDao {
         // session关闭
         CommonUtil.closeSession(session);
         return list;
+    }
+
+    @Override
+    public Notice getNoticeById(String noticeId) {
+        Notice notice = null;
+        if (StringUtils.isNotEmpty(noticeId)) {
+            SQLQuery query = session.createSQLQuery(CommonSqlConst.COMMON_SQL_021);
+            query.addEntity(Notice.class);
+            // 设置缓存
+            query.setCacheable(true);
+            query.setString(0, noticeId);
+            notice = (Notice) query.uniqueResult();
+        }
+
+        return notice;
     }
 }
